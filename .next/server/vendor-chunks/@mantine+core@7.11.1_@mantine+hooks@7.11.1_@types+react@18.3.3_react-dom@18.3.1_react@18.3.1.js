@@ -6391,32 +6391,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs ***!
-  \*********************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Text: () => (/* binding */ e0)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
-
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs`)
-
-// Accessing the __esModule property and exporting $$typeof are required here.
-// The __esModule getter forces the proxy target to create the default export
-// and the $$typeof value is for rendering logic to determine if the module
-// is a client boundary.
-const { __esModule, $$typeof } = proxy;
-const __default__ = proxy.default;
-
-const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs#Text`);
-
-
-/***/ }),
-
 /***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/core/MantineProvider/ColorSchemeScript/ColorSchemeScript.mjs":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/core/MantineProvider/ColorSchemeScript/ColorSchemeScript.mjs ***!

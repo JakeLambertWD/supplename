@@ -19,6 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        {/* remove white border */}
+        <style>{`
+          html, body {
+            margin: 0;
+            padding: 0;
+          }
+        `}</style>
       </head>
       <body className={inter.className}>
         <MantineProvider theme={theme}>{children}</MantineProvider>
