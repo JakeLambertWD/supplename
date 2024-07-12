@@ -1,0 +1,4 @@
+.noHoverColor:hover {
+  background-color: transparent !important;
+  color: white !important;
+}

@@ -11,6 +11,16 @@ exports.id = "vendor-chunks/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+re
 exports.ids = ["vendor-chunks/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1"];
 exports.modules = {
 
+/***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/styles.css":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/styles.css ***!
+  \***************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"bc6ae6d407a5\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvLnBucG0vQG1hbnRpbmUrY29yZUA3LjExLjFfQG1hbnRpbmUraG9va3NANy4xMS4xX0B0eXBlcytyZWFjdEAxOC4zLjNfcmVhY3QtZG9tQDE4LjMuMV9yZWFjdEAxOC4zLjEvbm9kZV9tb2R1bGVzL0BtYW50aW5lL2NvcmUvc3R5bGVzLmNzcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUEsaUVBQWUsY0FBYztBQUM3QixJQUFJLEtBQVUsRUFBRSxFQUF1QiIsInNvdXJjZXMiOlsid2VicGFjazovL3N1cHBsZS1uYW0vLi9ub2RlX21vZHVsZXMvLnBucG0vQG1hbnRpbmUrY29yZUA3LjExLjFfQG1hbnRpbmUraG9va3NANy4xMS4xX0B0eXBlcytyZWFjdEAxOC4zLjNfcmVhY3QtZG9tQDE4LjMuMV9yZWFjdEAxOC4zLjEvbm9kZV9tb2R1bGVzL0BtYW50aW5lL2NvcmUvc3R5bGVzLmNzcz8zZWVhIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IFwiYmM2YWU2ZDQwN2E1XCJcbmlmIChtb2R1bGUuaG90KSB7IG1vZHVsZS5ob3QuYWNjZXB0KCkgfVxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/styles.css\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Accordion/Accordion.context.mjs":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Accordion/Accordion.context.mjs ***!
@@ -6388,6 +6398,84 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   useHovered: () => (/* binding */ useHovered)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js\");\n/* __next_internal_client_entry_do_not_use__ useHovered auto */ \nfunction useHovered() {\n    const [hovered, setHovered] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1);\n    const resetHovered = ()=>setHovered(-1);\n    return [\n        hovered,\n        {\n            setHovered,\n            resetHovered\n        }\n    ];\n}\n //# sourceMappingURL=use-hovered.mjs.map\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvLnBucG0vQG1hbnRpbmUrY29yZUA3LjExLjFfQG1hbnRpbmUraG9va3NANy4xMS4xX0B0eXBlcytyZWFjdEAxOC4zLjNfcmVhY3QtZG9tQDE4LjMuMV9yZWFjdEAxOC4zLjEvbm9kZV9tb2R1bGVzL0BtYW50aW5lL2NvcmUvZXNtL2NvcmUvdXRpbHMvdXNlLWhvdmVyZWQvdXNlLWhvdmVyZWQubWpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUVPLFNBQVNBO0lBQ2QsTUFBTSxDQUFDQyxTQUFTQyxXQUFXLEdBQUdDLCtDQUFRQSxDQUFDLENBQUM7SUFDeEMsTUFBTUMsZUFBZSxJQUFNRixXQUFXLENBQUM7SUFDdkMsT0FBTztRQUFDRDtRQUFTO1lBQUVDO1lBQVlFO1FBQWM7S0FBQztBQUNoRCIsInNvdXJjZXMiOlsid2VicGFjazovL3N1cHBsZS1uYW0vLi4vLi4vLi4vLi4vc3JjL2NvcmUvdXRpbHMvdXNlLWhvdmVyZWQvdXNlLWhvdmVyZWQudHM/MmUzNCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUhvdmVyZWQoKSB7XG4gIGNvbnN0IFtob3ZlcmVkLCBzZXRIb3ZlcmVkXSA9IHVzZVN0YXRlPG51bWJlciB8IG51bGw+KC0xKTtcbiAgY29uc3QgcmVzZXRIb3ZlcmVkID0gKCkgPT4gc2V0SG92ZXJlZCgtMSk7XG4gIHJldHVybiBbaG92ZXJlZCwgeyBzZXRIb3ZlcmVkLCByZXNldEhvdmVyZWQgfV0gYXMgY29uc3Q7XG59XG4iXSwibmFtZXMiOlsidXNlSG92ZXJlZCIsImhvdmVyZWQiLCJzZXRIb3ZlcmVkIiwidXNlU3RhdGUiLCJyZXNldEhvdmVyZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/core/utils/use-hovered/use-hovered.mjs\n");
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Flex/Flex.mjs":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Flex/Flex.mjs ***!
+  \*********************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Flex: () => (/* binding */ e0)
+/* harmony export */ });
+/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
+
+const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Flex/Flex.mjs`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule, $$typeof } = proxy;
+const __default__ = proxy.default;
+
+const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Flex/Flex.mjs#Flex`);
+
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/NavLink/NavLink.mjs":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/NavLink/NavLink.mjs ***!
+  \***************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NavLink: () => (/* binding */ e0)
+/* harmony export */ });
+/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
+
+const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/NavLink/NavLink.mjs`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule, $$typeof } = proxy;
+const __default__ = proxy.default;
+
+const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/NavLink/NavLink.mjs#NavLink`);
+
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs ***!
+  \*********************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Text: () => (/* binding */ e0)
+/* harmony export */ });
+/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/build/webpack/loaders/next-flight-loader/module-proxy */ "(rsc)/./node_modules/.pnpm/next@14.2.4_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js");
+
+const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs`)
+
+// Accessing the __esModule property and exporting $$typeof are required here.
+// The __esModule getter forces the proxy target to create the default export
+// and the $$typeof value is for rendering logic to determine if the module
+// is a client boundary.
+const { __esModule, $$typeof } = proxy;
+const __default__ = proxy.default;
+
+const e0 = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/adminuser/Desktop/supplenam/node_modules/.pnpm/@mantine+core@7.11.1_@mantine+hooks@7.11.1_@types+react@18.3.3_react-dom@18.3.1_react@18.3.1/node_modules/@mantine/core/esm/components/Text/Text.mjs#Text`);
+
 
 /***/ }),
 

@@ -13,6 +13,7 @@ function FullScreenCarousel() {
         height: "100vh", // Set height to 100vh to always take up full screen height
         objectFit: "cover", // Ensure the image covers the available space without distortion
         objectPosition: "center", // Keep the image centered
+        position: "absolute",
       }}
     />
   );
