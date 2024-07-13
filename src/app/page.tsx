@@ -3,7 +3,7 @@
 import FullScreenCarousel from "./components/FullScreenCarousel";
 import LandingSection from "./components/LandingSection";
 import NavigationBar from "./components/NavigationBar";
-import WorkSection from "./components/WorkSection";
+import ShowReel from "./components/ShowReel";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <FullScreenCarousel />
       <NavigationBar />
       <LandingSection />
-      <WorkSection />
+      <ShowReel />
     </>
   );
 }
