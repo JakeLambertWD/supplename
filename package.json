@@ -13,11 +13,17 @@
     "@mantine/core": "^7.11.1",
     "@mantine/hooks": "^7.11.1",
     "@mantine/modals": "^7.11.1",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.50.0",
     "@tabler/icons-react": "^3.8.0",
     "embla-carousel-react": "^8.1.6",
     "next": "14.2.4",
+    "next-sanity": "^9.4.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-youtube": "^10.1.0",
+    "sanity": "^3.50.0",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@types/node": "^20",

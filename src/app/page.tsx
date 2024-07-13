@@ -1,9 +1,9 @@
 "use client";
 
-import FullScreenCarousel from "./FullScreenCarousel";
-import LandingSection from "./LandingSection";
-import NavigationBar from "./NavigationBar";
-import WorkSection from "./WorkSection";
+import FullScreenCarousel from "./components/FullScreenCarousel";
+import LandingSection from "./components/LandingSection";
+import NavigationBar from "./components/NavigationBar";
+import WorkSection from "./components/WorkSection";
 
 export default function Home() {
   return (

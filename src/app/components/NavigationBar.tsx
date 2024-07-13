@@ -1,5 +1,5 @@
 import { Flex, Menu, NavLink, Text } from "@mantine/core";
-import { navigationLinks } from "./utils/constants";
+import { navigationLinks } from "../utils/constants";
 import {
   IconBrandInstagram,
   IconBrandYoutube,
@@ -22,7 +22,7 @@ function NavigationBar() {
       c="#dadada"
       justify="space-between"
       align="center"
-      px={70}
+      px={{ base: "sm", md: 70 }}
       py="xl"
       style={{ zIndex: 2 }}
     >
