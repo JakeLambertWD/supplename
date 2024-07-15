@@ -32,28 +32,28 @@ function NavigationBar() {
 
       <Flex fz="xl">
         {navigationLinks.map((link) => {
-          if (link.label === "Filmmaking") {
-            return (
-              <Menu>
-                <Menu.Target>
-                  <NavLink
-                    className={classes.noHoverColor}
-                    // href={link.href}
-                    label={link.label}
-                    rightSection={<IconChevronDown size="1rem" stroke={1.5} />}
-                    h={40}
-                    childrenOffset={28}
-                  />
-                </Menu.Target>
+          // if (link.label === "Filmmaking") {
+          //   return (
+          //     <Menu>
+          //       <Menu.Target>
+          //         <NavLink
+          //           className={classes.noHoverColor}
+          //           // href={link.href}
+          //           label={link.label}
+          //           rightSection={<IconChevronDown size="1rem" stroke={1.5} />}
+          //           h={40}
+          //           childrenOffset={28}
+          //         />
+          //       </Menu.Target>
 
-                <Menu.Dropdown>
-                  <Menu.Item>Commercial</Menu.Item>
-                  <Menu.Item>Documentary</Menu.Item>
-                  <Menu.Item>Music Video</Menu.Item>
-                </Menu.Dropdown>
-              </Menu>
-            );
-          }
+          //       <Menu.Dropdown>
+          //         <Menu.Item>Commercial</Menu.Item>
+          //         <Menu.Item>Documentary</Menu.Item>
+          //         <Menu.Item>Music Video</Menu.Item>
+          //       </Menu.Dropdown>
+          //     </Menu>
+          //   );
+          // }
           return (
             <NavLink
               className={classes.noHoverColor}
