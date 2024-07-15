@@ -1,5 +1,8 @@
+"use client";
+
 import {
   Button,
+  Center,
   Flex,
   Group,
   Overlay,
@@ -9,23 +12,28 @@ import {
   TextInput,
 } from "@mantine/core";
 import { theme } from "../utils/theme";
+import imageBg from "/public/continuation.webp";
+import Image from "next/image";
 
 function Contact() {
   return (
-    <Flex h="100vh" w="100%" direction="column" align="center" bg="#060e11">
-      <Stack w={1000} p="lg" style={{ borderRadius: "15px" }} bg="red">
-        <Stack></Stack>
-        <Text>Get in touch</Text>
+    <Center h="100vh" w="100%" bg="#060e11">
+      <Stack w={1000} h={600} p={80} style={{ borderRadius: "15px" }}>
+        {/* <Image src={imageBg} alt="picture" /> */}
+
+        <Text c="white" fz={35} fw={600}>
+          Get in touch
+        </Text>
         <Flex>
           <TextInput label="NAME" placeholder="Enter your full name" />
           <TextInput label="EMAIL" placeholder="Enter your email" />
         </Flex>
         <Textarea label="MESSAGE" placeholder="Start typing here" />
-        <Button color={theme.colors?.primary?.[0]} size="lg">
+        <Button color={theme.colors?.primary?.[1]} size="lg" w="fit-content">
           Submit
         </Button>
       </Stack>
-    </Flex>
+    </Center>
   );
 }
 

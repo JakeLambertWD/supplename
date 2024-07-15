@@ -33,7 +33,7 @@ async function LandingSection() {
           {description}
         </Text>
         <Group justify="center" mt="lg">
-          <Button color={theme.colors?.primary?.[0]} size="lg">
+          <Button color={theme.colors?.primary?.[1]} size="lg">
             Get in touch
           </Button>
           <Button variant="outline" color="white" size="lg">
