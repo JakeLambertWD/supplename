@@ -13,16 +13,17 @@ function FullScreenCarousel() {
           width: "100vw",
           height: "100vh",
           objectFit: "cover",
-          objectPosition: "center",
+          // objectPosition: "center",
           position: "absolute",
-          zIndex: 1,
+          zIndex: -1,
         }}
       />
       <Overlay
         color="#0b0f19"
         backgroundOpacity={0.7}
         pos="absolute"
-        style={{ zIndex: 1 }}
+        h={"100vh"}
+        style={{ zIndex: -1 }}
       />
     </>
   );

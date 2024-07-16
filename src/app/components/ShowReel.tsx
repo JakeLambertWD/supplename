@@ -1,4 +1,4 @@
-import { Flex, Text } from "@mantine/core";
+import { Flex, Space, Text } from "@mantine/core";
 import { IconArrowMoveDown } from "@tabler/icons-react";
 import YouTube from "react-youtube";
 import { Anton } from "next/font/google";
@@ -11,7 +11,7 @@ const anton = Anton({
 function ShowReel() {
   const opts = {
     height: "500",
-    width: "890",
+    width: "889",
     playerVars: {
       autoplay: 1,
       controls: 0, // Hide controls
@@ -23,14 +23,14 @@ function ShowReel() {
 
   return (
     <Flex
-      h="100vh"
+      h="65vh"
       w="100%"
-      direction="column"
-      align="center"
-      bg="#060e11"
+      justify="center"
+      align="flex-end"
+      // bg="#060e11"
       c="white"
     >
-      <Text
+      {/* <Text
         ta="center"
         w="100%"
         h="fit-content"
@@ -45,7 +45,8 @@ function ShowReel() {
         strokeWidth={0.4}
         size={40}
         style={{ marginBottom: 60 }}
-      />
+      /> */}
+
       <YouTube videoId="8nssMbahow0" opts={opts} />
     </Flex>
   );

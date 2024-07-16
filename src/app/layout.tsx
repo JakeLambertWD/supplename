@@ -33,9 +33,8 @@ export default function RootLayout({
       <body className={inter.className} style={{ background: "#060e11" }}>
         <MantineProvider theme={theme}>
           <NavigationBar />
-
           {children}
-          <FooterSocial />
+          {/* <FooterSocial /> */}
         </MantineProvider>
       </body>
     </html>

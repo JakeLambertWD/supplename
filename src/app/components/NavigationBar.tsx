@@ -23,10 +23,11 @@ function NavigationBar() {
       justify="space-between"
       align="center"
       px={{ base: "sm", md: 70 }}
-      py="xl"
+      py="lg"
+      bg="transparent"
       style={{ zIndex: 2 }}
     >
-      <Text className={anton.className} fz={25}>
+      <Text className={anton.className} fz={35}>
         Supple Nam
       </Text>
 
