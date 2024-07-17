@@ -8,6 +8,8 @@ import {
 } from "@tabler/icons-react";
 import classes from "./home.module.css";
 import { Anton } from "next/font/google";
+import logo from "/public/supple-logo-home.png";
+import Image from "next/image";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -27,9 +29,21 @@ function NavigationBar() {
       bg="transparent"
       style={{ zIndex: 2 }}
     >
-      <Text className={anton.className} fz={35}>
-        Supple Nam
-      </Text>
+      {/* <motion.div>
+        <Text className={anton.className} fz={35}>
+          Supple Nam
+        </Text>
+      </motion.div> */}
+
+      <Image
+        src={logo}
+        // fill={true}
+        width={200}
+        height={50}
+        quality={100}
+        // objectFit="cover"
+        alt="Norway"
+      />
 
       <Flex fz="xl">
         {navigationLinks.map((link) => {
@@ -71,11 +85,11 @@ function NavigationBar() {
         })}
       </Flex>
 
-      <Flex gap="sm">
+      {/* <Flex gap="sm">
         <IconBrandInstagram strokeWidth={0.9} color="white" />
         <IconBrandYoutube strokeWidth={0.9} />
         <IconBrandTwitter strokeWidth={0.9} />
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 }
