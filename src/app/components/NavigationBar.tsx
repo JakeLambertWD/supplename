@@ -12,6 +12,8 @@ import classes from "./home.module.css";
 import { Anton } from "next/font/google";
 import logo from "/public/supple-logo-home.png";
 import Image from "next/image";
+import { useHover } from "@mantine/hooks";
+import { theme } from "../utils/theme";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -19,6 +21,8 @@ const anton = Anton({
 });
 
 function NavigationBar() {
+  const { hovered, ref } = useHover();
+
   return (
     <Flex
       w="100vw"
@@ -88,7 +92,17 @@ function NavigationBar() {
       </Flex>
 
       <Flex gap="sm">
-        <Button variant="outline" color="white" size="md">
+        <Button
+          ref={ref}
+          variant="outline"
+          color="white"
+          size="md"
+          style={{
+            outline: `3px solid white`,
+            outlineOffset: hovered ? "2px" : "-3px",
+            transition: "outline-offset 200ms ease",
+          }}
+        >
           Let's chat
         </Button>
       </Flex>

@@ -5,11 +5,11 @@ import { latestWork } from "../utils/constants";
 function LatestWork({ active, setActive }: any) {
   return (
     <Flex
-      gap="sm"
+      gap="md"
       w="fit-content"
       pos="absolute"
-      bottom={20}
-      right={30}
+      bottom={30}
+      right={40}
       style={{ zIndex: 8 }}
     >
       {latestWork.map((item, index) => (
