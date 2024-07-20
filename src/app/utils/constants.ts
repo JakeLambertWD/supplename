@@ -21,6 +21,10 @@ export const navigationLinks = [
     href: "/contact",
     label: "Contact",
   },
+  {
+    href: "/resume",
+    label: "Resume",
+  },
 ];
 
 export const filmmakingLinks = [
