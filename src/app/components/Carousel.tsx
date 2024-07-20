@@ -5,7 +5,7 @@ import { latestWork } from "../utils/constants";
 
 function FullScreenCarousel({ active }: { active: number }) {
   const getActiveWork = latestWork.filter((work, index) => index === active)[0];
-  const image = getActiveWork.image;
+  const image = getActiveWork?.image;
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
 
@@ -37,7 +37,7 @@ function FullScreenCarousel({ active }: { active: number }) {
           transition={{ duration: 0.5, delay: 0.5 }}
           style={{ fontSize: 35, fontWeight: 600, margin: 0 }}
         >
-          {activeSlide.title}
+          {activeSlide?.title}
         </motion.p>
         <motion.p
           initial={{ x: -500, opacity: 0 }}
@@ -45,7 +45,7 @@ function FullScreenCarousel({ active }: { active: number }) {
           transition={{ duration: 0.5, delay: 1 }}
           style={{ fontSize: 25, margin: 0 }}
         >
-          {activeSlide.description}
+          {activeSlide?.description}
         </motion.p>
       </Stack>
     </Flex>
