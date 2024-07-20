@@ -3,6 +3,9 @@ import workThumb1 from "/public/video-outside.jpg";
 import workThumb2 from "/public/video-red.jpg";
 import workThumb3 from "/public/video-2.jpg";
 import workThumb4 from "/public/dancing.jpg";
+import workThumb5 from "/public/festival.jpg";
+import workThumb6 from "/public/party.jpg";
+import workThumb7 from "/public/sparklers.jpg";
 
 export const navigationLinks = [
   {
@@ -17,6 +20,33 @@ export const navigationLinks = [
   {
     href: "/contact",
     label: "Contact",
+  },
+];
+
+export const filmmakingLinks = [
+  {
+    href: "/commercials",
+    label: "Commercials",
+  },
+  {
+    href: "/music-videos",
+    label: "Music Videos",
+  },
+  {
+    href: "/event-live",
+    label: "Event Live",
+  },
+  {
+    href: "/tv",
+    label: "TV",
+  },
+  {
+    href: "/film",
+    label: "Film",
+  },
+  {
+    href: "/directing",
+    label: "Directing",
   },
 ];
 
@@ -41,9 +71,24 @@ export const latestWork = [
     description: "McNugget",
     image: workThumb3,
   },
-  {
-    title: "Guinness",
-    description: "Pour, surge & settle",
-    image: workThumb4,
-  },
+  // {
+  //   title: "Chemical Brothers",
+  //   description: "Midnight Madness",
+  //   image: workThumb4,
+  // },
+  // {
+  //   title: "Budweiser",
+  //   description: "Festival",
+  //   image: workThumb5,
+  // },
+  // {
+  //   title: "Eve Sleep",
+  //   description: "Sloth",
+  //   image: workThumb6,
+  // },
+  // {
+  //   title: "B&Q",
+  //   description: "Labelling Team",
+  //   image: workThumb7,
+  // },
 ];
