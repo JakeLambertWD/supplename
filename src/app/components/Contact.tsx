@@ -17,8 +17,6 @@ function Contact() {
   return (
     <Center h="100vh" w="100%" bg="#060e11">
       <Stack w={1000} h={600} p={80} style={{ borderRadius: "15px" }}>
-        {/* <Image src={imageBg} alt="picture" /> */}
-
         <Text c="white" fz={35} fw={600}>
           Get in touch
         </Text>
