@@ -5,61 +5,15 @@ import classes from "./page.module.css";
 import { filmmakingLinks, latestWork } from "../utils/constants";
 import { useState } from "react";
 import Image from "next/image";
+import Works from "./Works";
 
 function page() {
   const [active, setActive] = useState(0);
 
   return (
-    <Container size="xl" h="100vh">
-      <Stack align="center" justify="center" h="100vh">
-        <Flex c="white" mt="xl" mb="lg">
-          {filmmakingLinks.map((link, index) => (
-            <Text
-              key={index}
-              fz={16}
-              fw={300}
-              pb="sm"
-              w={170}
-              ta="center"
-              c={active === index ? "white" : "#5e5e5e"}
-              onClick={() => setActive(index)}
-              style={{
-                borderBottom:
-                  active === index
-                    ? "1px solid #4631bd"
-                    : "1px solid transparent",
-                cursor: "pointer",
-              }}
-            >
-              {link.label}
-            </Text>
-          ))}
-        </Flex>
-
-        <Flex w="100%" wrap="wrap" justify="center" gap={20}>
-          {latestWork.map((work, index) => (
-            <Card
-              onClick={() => setActive(index)}
-              shadow="xl"
-              radius={0}
-              w={250}
-              h={250}
-              style={{ cursor: "pointer" }}
-            >
-              <Card.Section>
-                <Image
-                  src={work.image}
-                  fill={true}
-                  quality={100}
-                  objectFit="cover"
-                  alt="Norway"
-                />
-              </Card.Section>
-            </Card>
-          ))}
-        </Flex>
-      </Stack>
-    </Container>
+    <>
+      <Works active={active} setActive={setActive} />
+    </>
   );
 }
 

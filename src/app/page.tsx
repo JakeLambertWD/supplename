@@ -4,6 +4,7 @@ import Carousel from "./components/Carousel";
 import LatestWork from "./components/LatestWork";
 import { useEffect, useState } from "react";
 import LandingSection from "./components/LandingSection";
+import Works from "./works/Works";
 
 export default function Home() {
   const [active, setActive] = useState(1);
@@ -20,8 +21,8 @@ export default function Home() {
     <>
       <Carousel active={active} />
       <LatestWork active={active} setActive={setActive} />
-
       <LandingSection />
+      <Works active={active} setActive={setActive} />
     </>
   );
 }
