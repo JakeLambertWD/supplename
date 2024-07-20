@@ -35,21 +35,7 @@ function NavigationBar() {
       bg="transparent"
       style={{ zIndex: 2 }}
     >
-      {/* <motion.div>
-        <Text className={anton.className} fz={35}>
-          Supple Nam
-        </Text>
-      </motion.div> */}
-
-      <Image
-        src={logo}
-        // fill={true}
-        width={200}
-        height={50}
-        quality={100}
-        // objectFit="cover"
-        alt="Norway"
-      />
+      <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
 
       <Flex fz="xl">
         {navigationLinks.map((link) => {
@@ -59,7 +45,6 @@ function NavigationBar() {
                 <Menu.Target>
                   <NavLink
                     className={classes.noHoverColor}
-                    // href={link.href}
                     label={link.label}
                     rightSection={<IconChevronDown size="1rem" stroke={1.5} />}
                     h={40}
@@ -93,12 +78,12 @@ function NavigationBar() {
 
       <Flex gap="sm">
         <Button
-          ref={ref}
+          ref={ref as any}
           variant="outline"
           color="white"
           size="md"
           style={{
-            outline: `3px solid white`,
+            outline: `3px solid ${theme.colors?.primary?.[1]}`,
             outlineOffset: hovered ? "2px" : "-3px",
             transition: "outline-offset 200ms ease",
           }}
