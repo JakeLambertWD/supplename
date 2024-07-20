@@ -3,13 +3,14 @@
 import Carousel from "./components/Carousel";
 import LatestWork from "./components/LatestWork";
 import { useEffect, useState } from "react";
+import LandingSection from "./components/LandingSection";
 
 export default function Home() {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActive((prevActive) => (prevActive + 1) % 5);
+      setActive((prevActive) => (prevActive + 1) % 4);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -20,7 +21,7 @@ export default function Home() {
       <Carousel active={active} />
       <LatestWork active={active} setActive={setActive} />
 
-      {/* <LandingSection /> */}
+      <LandingSection />
     </>
   );
 }

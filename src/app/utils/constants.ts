@@ -52,11 +52,6 @@ export const filmmakingLinks = [
 
 export const latestWork = [
   {
-    title: "Showreel",
-    description: "SuppleNam",
-    image: suppleNamLogo,
-  },
-  {
     title: "Lucozade Bring the Energy",
     description: "Ft. Jude Bellingham",
     image: workThumb1,
@@ -71,11 +66,11 @@ export const latestWork = [
     description: "McNugget",
     image: workThumb3,
   },
-  // {
-  //   title: "Chemical Brothers",
-  //   description: "Midnight Madness",
-  //   image: workThumb4,
-  // },
+  {
+    title: "Chemical Brothers",
+    description: "Midnight Madness",
+    image: workThumb4,
+  },
   // {
   //   title: "Budweiser",
   //   description: "Festival",

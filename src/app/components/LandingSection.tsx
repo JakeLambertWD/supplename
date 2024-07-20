@@ -8,41 +8,44 @@ const anton = Anton({
   weight: "400",
 });
 
-async function getData() {
-  const query = `*[_type == "pageInfo"]{
-   ...
- }`;
+// async function getData() {
+//   const query = `*[_type == "pageInfo"]{
+//    ...
+//  }`;
 
-  const data = client.fetch(query);
-  return data;
-}
+//   const data = await client.fetch(query);
 
-async function LandingSection() {
-  const data = await getData();
+//   return data;
+// }
 
-  // desctructure data
-  const { name, description, carouselImage } = data[0];
+// TODO: this function is suppose to have an async
+export default function LandingSection() {
+  // const data = await getData();
+  // const { name, description, carouselImage } = data[0];
 
   return (
-    <Center h="100vh" w="100%">
-      <Stack mt="xl" c="white" style={{ zIndex: 7 }}>
-        <Text className={anton.className} fz={70} ta="center" mb={250}>
-          {name}
+    <Center h="100vh" w="100%" pos="absolute" top={0}>
+      <Stack
+        c="white"
+        p={{ base: 0, xl: 50 }}
+        w={{ base: "85%" }}
+        style={{ zIndex: 7 }}
+      >
+        <Text fz={14} mb={-10}>
+          CHOREOGRAPHER - DIRECTOR - EDITOR
         </Text>
-        <Text fz="xl" ta="center" maw={680} px="md">
-          {description}
+        <Text fz={45} fw={600} w={{ base: "60%" }}>
+          Supple Nam
         </Text>
-        <Group justify="center" mt="lg">
+        <Group>
           <Button color={theme.colors?.primary?.[1]} size="lg">
-            Get in touch
+            My CV
           </Button>
           <Button variant="outline" color="white" size="lg">
-            Explore work
+            Show Reel
           </Button>
         </Group>
       </Stack>
     </Center>
   );
 }
-
-export default LandingSection;
