@@ -32,16 +32,16 @@ export default function LandingSection() {
         style={{ zIndex: 7 }}
       >
         <Text fz={14} mb={-10}>
-          CHOREOGRAPHER - DIRECTOR - EDITOR
+          CHOREOGRAPHER - DIRECTOR
         </Text>
         <Text fz={45} fw={600} w={{ base: "60%" }}>
-          Supple Nam
+          Vision in Motion
         </Text>
         <Group>
-          <Button color={theme.colors?.primary?.[1]} size="lg">
+          <Button color={theme.colors?.primary?.[1]} size="md">
             My CV
           </Button>
-          <Button variant="outline" color="white" size="lg">
+          <Button variant="outline" color="white" size="md">
             Show Reel
           </Button>
         </Group>
