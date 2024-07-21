@@ -1,7 +1,10 @@
-import { Button, Center, Group, Stack, Text } from "@mantine/core";
+import { Button, Center, Group, Modal, Stack, Text } from "@mantine/core";
 import { theme } from "../utils/theme";
 import { client } from "../lib/sanity";
 import { Anton } from "next/font/google";
+import { useDisclosure } from "@mantine/hooks";
+import classes from "../works/Project.module.css";
+import YouTube from "react-youtube";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -20,33 +23,75 @@ const anton = Anton({
 
 // TODO: this function is suppose to have an async for Sanity purposes
 export default function LandingSection() {
+  const [opened, { open, close }] = useDisclosure(false);
+
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0,
+      vq: "highres",
+    },
+  };
+
+  const onReady = (event: any) => {
+    event.target.playVideo();
+  };
+
   // const data = await getData();
   // const { name, description, carouselImage } = data[0];
 
   return (
-    <Center h="100vh" w="100%" pos="absolute" top={0}>
-      <Stack
-        c="white"
-        p={{ base: 0, xl: 50 }}
-        w={{ base: "85%" }}
-        style={{ zIndex: 7 }}
+    <>
+      <Center h="100vh" w="100%" pos="absolute" top={0}>
+        <Stack
+          c="white"
+          p={{ base: 0, xl: 50 }}
+          w={{ base: "85%" }}
+          style={{ zIndex: 7 }}
+        >
+          <Text fz={14} mb={5}>
+            CHOREOGRAPHER - DIRECTOR
+          </Text>
+          <Group>
+            {/* TODO: when user clicks button show a thumbs up emoji */}
+            <Button
+              color={theme.colors?.primary?.[1]}
+              size="md"
+              onClick={() =>
+                window.open(
+                  "https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf"
+                )
+              }
+            >
+              My CV
+            </Button>
+            <Button onClick={open} variant="outline" color="white" size="md">
+              Show Reel
+            </Button>
+          </Group>
+        </Stack>
+      </Center>
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        fullScreen
+        radius={0}
+        classNames={{
+          content: classes.content,
+          header: classes.header,
+        }}
+        transitionProps={{ transition: "fade", duration: 500 }}
       >
-        <Text fz={14} mb={5}>
-          CHOREOGRAPHER - DIRECTOR
-        </Text>
-        {/* <Text fz={45} fw={600} w={{ base: "60%" }}>
-          Lets Create
-        </Text> */}
-        <Group>
-          {/* TODO: when user clicks button show a thumbs up emoji */}
-          <Button color={theme.colors?.primary?.[1]} size="md">
-            My CV
-          </Button>
-          <Button variant="outline" color="white" size="md">
-            Show Reel
-          </Button>
-        </Group>
-      </Stack>
-    </Center>
+        <div className={classes.videoResponsive}>
+          <YouTube videoId="8nssMbahow0" opts={opts} onReady={onReady} />
+        </div>
+      </Modal>
+    </>
   );
 }
