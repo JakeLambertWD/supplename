@@ -1,34 +1,36 @@
-import { Container, Group, ActionIcon, rem, Flex, Text } from "@mantine/core";
+import {
+  Container,
+  Group,
+  ActionIcon,
+  rem,
+  Flex,
+  Text,
+  Stack,
+} from "@mantine/core";
 import {
   IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
 } from "@tabler/icons-react";
+import logo from "/public/supple-logo-home.png";
+import Image from "next/image";
+import { navigationLinks } from "../utils/constants";
 
 export function FooterSocial() {
   return (
-    <Flex w="100vw" p="md" align="center" justify="center" bg="#060e11">
+    <Stack w="100vw" pb={100} gap={40} align="center" bg="#060e11">
+      <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
+
+      <Group gap={50}>
+        {navigationLinks.map((link) => (
+          <Text c="white" tt="uppercase" fz={12}>
+            {link.label}
+          </Text>
+        ))}
+      </Group>
       <Text c="white" fz="sm" mr="xl">
-        © 2024 By Supple Nam. Proudly created by Mantine UI
+        © 2024 By Supple Nam. All rights reserved.
       </Text>
-      <ActionIcon size="lg" color="gray" variant="subtle">
-        <IconBrandTwitter
-          style={{ width: rem(18), height: rem(18) }}
-          stroke={1.5}
-        />
-      </ActionIcon>
-      <ActionIcon size="lg" color="gray" variant="subtle">
-        <IconBrandYoutube
-          style={{ width: rem(18), height: rem(18) }}
-          stroke={1.5}
-        />
-      </ActionIcon>
-      <ActionIcon size="lg" color="gray" variant="subtle">
-        <IconBrandInstagram
-          style={{ width: rem(18), height: rem(18) }}
-          stroke={1.5}
-        />
-      </ActionIcon>
-    </Flex>
+    </Stack>
   );
 }
