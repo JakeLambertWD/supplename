@@ -46,6 +46,7 @@ function Contact() {
                 label: classes.label,
                 wrapper: classes.wrapper,
               }}
+              className={classes.contactFormField}
             />
 
             <TextInput
@@ -67,9 +68,9 @@ function Contact() {
             placeholder="Hi there.."
             variant="unstyled"
             classNames={{
-              root: classes.root,
               input: classes.input,
               label: classes.label,
+              root: classes.root,
             }}
           />
           <Button

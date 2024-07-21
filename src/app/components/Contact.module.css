@@ -21,3 +21,7 @@
 .root {
   border-bottom: 2px solid #242424;
 }
+
+.contactFormField:active {
+  background-color: red;
+}
