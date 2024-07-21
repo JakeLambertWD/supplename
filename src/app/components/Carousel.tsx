@@ -1,14 +1,13 @@
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Flex, Overlay, Stack, Text } from "@mantine/core";
 import { latestWork } from "../utils/constants";
 import { useRef } from "react";
 
 function FullScreenCarousel({ active }: { active: number }) {
+  const ref = useRef(null);
   const getActiveWork = latestWork.filter((work, index) => index === active)[0];
   const image = getActiveWork?.image;
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
