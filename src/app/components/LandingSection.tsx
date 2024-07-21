@@ -31,12 +31,12 @@ export default function LandingSection() {
         w={{ base: "85%" }}
         style={{ zIndex: 7 }}
       >
-        <Text fz={14} mb={-10}>
+        <Text fz={14} mb={5}>
           CHOREOGRAPHER - DIRECTOR
         </Text>
-        <Text fz={45} fw={600} w={{ base: "60%" }}>
-          Vision in Motion
-        </Text>
+        {/* <Text fz={45} fw={600} w={{ base: "60%" }}>
+          Lets Create
+        </Text> */}
         <Group>
           {/* TODO: when user clicks button show a thumbs up emoji */}
           <Button color={theme.colors?.primary?.[1]} size="md">

@@ -41,12 +41,12 @@ function Contact() {
               label="NAME"
               placeholder="Enter your name"
               variant="unstyled"
+              className={classes.contactFormField}
               classNames={{
                 input: classes.input,
                 label: classes.label,
                 wrapper: classes.wrapper,
               }}
-              className={classes.contactFormField}
             />
 
             <TextInput

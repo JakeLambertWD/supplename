@@ -1,11 +1,8 @@
 .input {
   color: white;
-}
-
-.wrapper {
-  /* border-bottom: 1px solid #c4cee8 !important; */
+  border-radius: 0%;
+  height: 60px;
   border-bottom: 2px solid #242424;
-  padding-bottom: 15px;
 }
 
 .input::placeholder {
@@ -13,15 +10,14 @@
   font-size: 16px;
 }
 
+.input:focus {
+  border-bottom: 2px solid#c4cee8;
+}
+
 .label {
   font-size: 12px;
-  margin-bottom: 8px;
 }
 
 .root {
   border-bottom: 2px solid #242424;
-}
-
-.contactFormField:active {
-  background-color: red;
 }
