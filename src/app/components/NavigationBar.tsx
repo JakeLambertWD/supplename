@@ -14,6 +14,7 @@ import logo from "/public/supple-logo-home.png";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
+import { useRouter } from "next/navigation";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -21,7 +22,10 @@ const anton = Anton({
 });
 
 function NavigationBar() {
+  const router = useRouter();
   const { hovered, ref } = useHover();
+
+  const navigateToPage = (href: string) => router.push(href);
 
   return (
     <Flex
@@ -35,7 +39,15 @@ function NavigationBar() {
       bg="transparent"
       style={{ zIndex: 2 }}
     >
-      <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
+      <Image
+        onClick={() => navigateToPage("/")}
+        src={logo}
+        width={200}
+        height={50}
+        quality={100}
+        alt="Norway"
+        style={{ cursor: "pointer" }}
+      />
 
       <Flex fz="xl">
         {navigationLinks.map((link) => {
@@ -76,6 +88,7 @@ function NavigationBar() {
       <Flex gap="sm">
         <Button
           ref={ref as any}
+          onClick={() => navigateToPage("/contact")}
           variant="outline"
           color="white"
           size="md"
