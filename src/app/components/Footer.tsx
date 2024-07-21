@@ -22,8 +22,8 @@ export function FooterSocial() {
       <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
 
       <Group gap={50}>
-        {navigationLinks.map((link) => (
-          <Text c="white" tt="uppercase" fz={12}>
+        {navigationLinks.map((link, index) => (
+          <Text key={index} c="white" tt="uppercase" fz={12}>
             {link.label}
           </Text>
         ))}
