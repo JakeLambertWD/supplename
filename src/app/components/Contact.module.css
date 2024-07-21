@@ -1,0 +1,23 @@
+.input {
+  color: white;
+}
+
+.wrapper {
+  /* border-bottom: 1px solid #c4cee8 !important; */
+  border-bottom: 2px solid #242424;
+  padding-bottom: 15px;
+}
+
+.input::placeholder {
+  color: #5e5e5e;
+  font-size: 16px;
+}
+
+.label {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.root {
+  border-bottom: 2px solid #242424;
+}

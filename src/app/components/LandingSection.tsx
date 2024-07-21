@@ -18,7 +18,7 @@ const anton = Anton({
 //   return data;
 // }
 
-// TODO: this function is suppose to have an async
+// TODO: this function is suppose to have an async for Sanity purposes
 export default function LandingSection() {
   // const data = await getData();
   // const { name, description, carouselImage } = data[0];
@@ -38,6 +38,7 @@ export default function LandingSection() {
           Vision in Motion
         </Text>
         <Group>
+          {/* TODO: when user clicks button show a thumbs up emoji */}
           <Button color={theme.colors?.primary?.[1]} size="md">
             My CV
           </Button>
