@@ -18,12 +18,8 @@ export const navigationLinks = [
     label: "About",
   },
   {
-    href: "/contact",
-    label: "Contact",
-  },
-  {
-    href: "/resume",
-    label: "Resume",
+    href: "/awards",
+    label: "Awards",
   },
 ];
 
