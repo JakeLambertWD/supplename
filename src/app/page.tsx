@@ -21,6 +21,7 @@ export default function Home() {
   return (
     <>
       <Carousel active={active} />
+
       <LatestWork active={active} setActive={setActive} />
       <LandingSection />
       <Contact />

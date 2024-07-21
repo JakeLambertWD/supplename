@@ -1,5 +1,7 @@
 import { Card, Container, Flex, Stack, Tabs, Text } from "@mantine/core";
 import { filmmakingLinks, latestWork } from "../utils/constants";
+import { motion } from "framer-motion";
+
 import Image from "next/image";
 
 function Works({ active, setActive }: any) {
@@ -34,20 +36,29 @@ function Works({ active, setActive }: any) {
           {latestWork.map((work, index) => (
             <Card
               shadow="xl"
+              p={0}
               radius={0}
-              w={350}
-              h={250}
+              w={300}
+              h={300}
               style={{ cursor: "pointer" }}
             >
-              <Card.Section>
-                <Image
-                  src={work.image}
-                  fill={true}
-                  quality={100}
-                  objectFit="cover"
-                  alt="Norway"
-                />
-              </Card.Section>
+              {/* <motion.div whileHover={{ scale: 1.2 }}> */}
+              <motion.img
+                whileHover={{ scale: 1.5 }}
+                transition={{ duration: 5 }}
+                src={work.image.src}
+                alt="Norway"
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                  // inset: "0px",
+                }}
+                // fill={true}
+                // quality={100}
+                // objectFit="cover"
+              />
+              {/* </motion.div> */}
             </Card>
           ))}
         </Flex>
