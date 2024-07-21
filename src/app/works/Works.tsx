@@ -1,8 +1,8 @@
-import { Card, Container, Flex, Stack, Tabs, Text } from "@mantine/core";
+import { Card, Container, Flex, Overlay, Stack, Text } from "@mantine/core";
 import { filmmakingLinks, latestWork } from "../utils/constants";
 import { motion } from "framer-motion";
-
-import Image from "next/image";
+import { useHover } from "@mantine/hooks";
+import Project from "./Project";
 
 function Works({ active, setActive }: any) {
   return (
@@ -34,32 +34,7 @@ function Works({ active, setActive }: any) {
 
         <Flex w="100%" wrap="wrap" justify="center" gap={20}>
           {latestWork.map((work, index) => (
-            <Card
-              shadow="xl"
-              p={0}
-              radius={0}
-              w={300}
-              h={300}
-              style={{ cursor: "pointer" }}
-            >
-              {/* <motion.div whileHover={{ scale: 1.2 }}> */}
-              <motion.img
-                whileHover={{ scale: 1.5 }}
-                transition={{ duration: 5 }}
-                src={work.image.src}
-                alt="Norway"
-                style={{
-                  objectFit: "cover",
-                  width: "100%",
-                  height: "100%",
-                  // inset: "0px",
-                }}
-                // fill={true}
-                // quality={100}
-                // objectFit="cover"
-              />
-              {/* </motion.div> */}
-            </Card>
+            <Project key={index} work={work} />
           ))}
         </Flex>
       </Stack>
