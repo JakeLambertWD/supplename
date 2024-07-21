@@ -1,8 +1,8 @@
 import { Stack } from "@mantine/core";
 import {
-  IconBrandDiscordFilled,
-  IconBrandTiktokFilled,
+  IconBrandFacebookFilled,
   IconBrandTwitterFilled,
+  IconBrandVimeo,
   IconBrandYoutubeFilled,
 } from "@tabler/icons-react";
 
@@ -15,12 +15,39 @@ function SocialIcons() {
       p="md"
       right={40}
       bottom="60%"
-      style={{ zIndex: 1000 }}
+      style={{ zIndex: 5 }}
     >
-      <IconBrandTwitterFilled color="white" strokeWidth={1} size={22} />
-      <IconBrandDiscordFilled color="white" strokeWidth={1} size={22} />
-      <IconBrandYoutubeFilled color="white" strokeWidth={1} size={22} />
-      <IconBrandTiktokFilled color="white" strokeWidth={1} size={22} />
+      <IconBrandTwitterFilled
+        color="white"
+        strokeWidth={1}
+        size={22}
+        onClick={() => window.open("https://twitter.com/supplenam")}
+        style={{ cursor: "alias" }}
+      />
+      <IconBrandFacebookFilled
+        color="white"
+        strokeWidth={1}
+        size={22}
+        onClick={() =>
+          window.open("https://www.facebook.com/supple.nam.choreographer")
+        }
+        style={{ cursor: "alias" }}
+      />
+      <IconBrandYoutubeFilled
+        color="white"
+        strokeWidth={1}
+        size={22}
+        onClick={() => window.open("https://www.youtube.com/@supplenam1464")}
+        style={{ cursor: "alias" }}
+      />
+      <IconBrandVimeo
+        color="white"
+        strokeWidth={1}
+        size={22}
+        fill="white"
+        onClick={() => window.open("https://vimeo.com/search?q=supple%20nam")}
+        style={{ cursor: "alias" }}
+      />
     </Stack>
   );
 }
