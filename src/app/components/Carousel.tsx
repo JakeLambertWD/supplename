@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Flex, Overlay, Stack, Text } from "@mantine/core";
+import { Flex, Group, Overlay, Stack, Text } from "@mantine/core";
 import { latestWork } from "../utils/constants";
 import { useRef } from "react";
+import logoImage from "/public/mcds.png";
 
 function FullScreenCarousel({ active }: { active: number }) {
   const ref = useRef(null);
@@ -37,14 +38,18 @@ function FullScreenCarousel({ active }: { active: number }) {
         style={{ zIndex: 0 }}
       />
       <Stack c="white" gap={0} mb={70} ml={70}>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          style={{ fontSize: 35, fontWeight: 600, margin: 0 }}
-        >
-          {activeSlide?.title}
-        </motion.p>
+        <Group>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            style={{ fontSize: 35, fontWeight: 600, margin: 0 }}
+          >
+            {activeSlide?.title}
+          </motion.p>
+          <motion.img src={logoImage.src} height={40} width={40} alt="logo" />
+        </Group>
+
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
