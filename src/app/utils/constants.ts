@@ -9,8 +9,8 @@ import workThumb7 from "/public/sparklers.jpg";
 
 export const navigationLinks = [
   {
-    href: "filmmaking",
-    label: "Filmmaking",
+    href: "/works",
+    label: "Works",
     dropdown: true,
   },
   {
