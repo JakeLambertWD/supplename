@@ -18,7 +18,18 @@ import { navigationLinks } from "../utils/constants";
 
 export function FooterSocial() {
   return (
-    <Stack w="100vw" pb={100} gap={40} align="center" bg="#060e11">
+    <Group
+      w="100vw"
+      align="center"
+      pb={100}
+      gap={40}
+      justify="center"
+      bg="#060e11"
+    >
+      <Text c="white" fz="sm" mr="xl">
+        © 2024 By Supple Nam. All rights reserved.
+      </Text>
+
       <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
 
       <Group gap={50}>
@@ -28,9 +39,6 @@ export function FooterSocial() {
           </Text>
         ))}
       </Group>
-      <Text c="white" fz="sm" mr="xl">
-        © 2024 By Supple Nam. All rights reserved.
-      </Text>
-    </Stack>
+    </Group>
   );
 }
