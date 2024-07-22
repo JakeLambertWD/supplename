@@ -1,7 +1,21 @@
-import { Card, Flex, Modal } from "@mantine/core";
+import {
+  Badge,
+  Card,
+  Divider,
+  Flex,
+  Group,
+  Modal,
+  ScrollArea,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { useDisclosure, useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import classes from "../components/css/Project.module.css";
+import Image from "next/image";
+import bgImage from "/public/sparklers.jpg";
+import { IconPlayerPlayFilled } from "@tabler/icons-react";
+import { theme } from "../utils/theme";
 
 function Project({ work }: any) {
   const { hovered, ref } = useHover();
@@ -45,8 +59,15 @@ function Project({ work }: any) {
               textAlign: "center",
             }}
           >
-            <p style={{ fontSize: "18px" }}>{work.title}</p>
+            <p style={{ fontSize: "16px" }}>{work.title}</p>
           </motion.div>
+        )}
+
+        {hovered && (
+          <IconPlayerPlayFilled
+            color="white"
+            style={{ position: "absolute", bottom: 20, right: 20 }}
+          />
         )}
       </Card>
 
@@ -55,13 +76,124 @@ function Project({ work }: any) {
         onClose={close}
         fullScreen
         radius={0}
+        p={0}
         classNames={{
           content: classes.content,
           header: classes.header,
+          body: classes.body,
         }}
         transitionProps={{ transition: "fade", duration: 500 }}
       >
-        <Flex>TEST</Flex>
+        <div style={{ height: "92vh" }}>
+          <Flex h="65%" py={0} px={100} c="white">
+            <Flex w="70%" mr="xl" pos="relative">
+              <Image
+                src={bgImage}
+                style={{ height: "auto", width: "100%" }}
+                alt="test"
+              />
+
+              <Text fz="xl" pos="absolute" top={20} left={20}>
+                Mars Delight Kung Fu
+              </Text>
+
+              <Group fz="xs" pos="absolute" bottom={20} right={20}>
+                <Badge
+                  color={theme?.colors?.primary?.[1]}
+                  tt="capitalize"
+                  size="md"
+                >
+                  Contemporary
+                </Badge>
+                <Badge color={theme?.colors?.primary?.[1]} tt="capitalize">
+                  Movement Direction
+                </Badge>
+              </Group>
+            </Flex>
+
+            <Stack w="30%">
+              <Divider size="sm" mb="md" color={theme?.colors?.primary?.[1]} />
+
+              <Group gap={10}>
+                <Group>
+                  <Text fz="11px" fw={600}>
+                    <span style={{ opacity: 0.5, fontStyle: "italic" }}>
+                      Choreographer:
+                    </span>{" "}
+                    Supple Nam
+                  </Text>
+                </Group>
+                <Group>
+                  <Text fz="11px" fw={600}>
+                    <span style={{ opacity: 0.5, fontStyle: "italic" }}>
+                      Director:
+                    </span>{" "}
+                    Erik Nilsson & Tomas Skoging
+                  </Text>
+                </Group>
+                <Group>
+                  <Text fz="11px" fw={600}>
+                    <span style={{ opacity: 0.5, fontStyle: "italic" }}>
+                      Client:
+                    </span>{" "}
+                    Mars UK
+                  </Text>
+                </Group>
+              </Group>
+
+              <ScrollArea
+                classNames={classes}
+                h="100%"
+                offsetScrollbars
+                scrollbarSize={1}
+                scrollHideDelay={0}
+                fz="sm"
+                mt="sm"
+              >
+                When Supple Nam was cast as Bruce Lee for the Mars Delight “Kung
+                Fu” advert, little did Production Company ‘Outsider’ know of
+                Supple Nam’s choreography bio. The production had not yet
+                allocated a choreographer or fight co-ordinator for the shoot.
+                Producer Anna Hashmi and directors Erik Nilsson & Tomas Skoging
+                turned to Supple to save the commercial. Taking the role of both
+                main actor and choreographer, Supple also took on the challenge
+                of learning to make a poodle out of a balloon to make the shot
+                easier to edit and look authentic. Using his martial arts and
+                stage fighting background, Supple rehearsed the cast and himself
+                off set the day before the shoot, to present the choreography on
+                the day of shoot.
+              </ScrollArea>
+            </Stack>
+          </Flex>
+
+          <Group h="35%" pt={45} wrap="nowrap" style={{ overflowX: "auto" }}>
+            <Image
+              src={bgImage}
+              style={{ height: "auto", width: "22%" }}
+              alt="test"
+            />
+            <Image
+              src={bgImage}
+              style={{ height: "auto", width: "22%" }}
+              alt="test"
+            />
+            <Image
+              src={bgImage}
+              style={{ height: "auto", width: "22%" }}
+              alt="test"
+            />
+            <Image
+              src={bgImage}
+              style={{ height: "auto", width: "22%" }}
+              alt="test"
+            />
+            <Image
+              src={bgImage}
+              style={{ height: "auto", width: "22%" }}
+              alt="test"
+            />
+          </Group>
+        </div>
       </Modal>
     </>
   );

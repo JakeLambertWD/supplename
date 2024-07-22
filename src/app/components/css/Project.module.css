@@ -5,6 +5,9 @@
 .content {
   background: #060e11;
 }
+.body {
+  padding: 0;
+}
 
 .videoResponsive {
   position: relative;
@@ -20,4 +23,10 @@
   left: 0;
   width: 100%;
   height: 85%;
+}
+
+.scrollbar {
+  &[data-orientation="vertical"] .thumb {
+    background-color: white;
+  }
 }
