@@ -3,7 +3,7 @@ import { theme } from "../utils/theme";
 import { client } from "../lib/sanity";
 import { Anton } from "next/font/google";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "../works/Project.module.css";
+import classes from "../components/css/Project.module.css";
 import YouTube from "react-youtube";
 
 const anton = Anton({

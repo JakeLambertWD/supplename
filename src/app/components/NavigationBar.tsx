@@ -1,14 +1,7 @@
 "use client";
 
-import { Button, Flex, Menu, NavLink, Text } from "@mantine/core";
+import { Button, Flex, NavLink } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
-import {
-  IconBrandInstagram,
-  IconBrandYoutube,
-  IconBrandTwitter,
-  IconChevronDown,
-} from "@tabler/icons-react";
-import classes from "./home.module.css";
 import { Anton } from "next/font/google";
 import logo from "/public/supple-logo-home.png";
 import Image from "next/image";
@@ -74,7 +67,6 @@ function NavigationBar() {
           // }
           return (
             <NavLink
-              className={classes.noHoverColor}
               key={link.href}
               href={link.href}
               label={link.label}

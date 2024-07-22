@@ -4,7 +4,6 @@ import Carousel from "./components/Carousel";
 import LatestWork from "./components/LatestWork";
 import { useEffect, useState } from "react";
 import LandingSection from "./components/LandingSection";
-import Works from "./works/Works";
 import Contact from "./components/Contact";
 import SocialIcons from "./components/SocialIcons";
 

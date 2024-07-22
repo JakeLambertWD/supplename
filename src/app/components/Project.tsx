@@ -1,7 +1,7 @@
 import { Card, Flex, Modal } from "@mantine/core";
 import { useDisclosure, useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import classes from "./Project.module.css";
+import classes from "../components/css/Project.module.css";
 
 function Project({ work }: any) {
   const { hovered, ref } = useHover();

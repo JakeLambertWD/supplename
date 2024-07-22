@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { theme } from "../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
-import classes from "./Contact.module.css";
+import classes from "../components/css/Contact.module.css";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.

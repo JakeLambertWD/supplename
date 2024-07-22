@@ -1,7 +1,5 @@
-import { Card, Container, Flex, Overlay, Stack, Text } from "@mantine/core";
+import { Container, Flex, Stack, Text } from "@mantine/core";
 import { filmmakingLinks, latestWork } from "../utils/constants";
-import { motion } from "framer-motion";
-import { useHover } from "@mantine/hooks";
 import Project from "./Project";
 
 function Works({ active, setActive }: any) {
