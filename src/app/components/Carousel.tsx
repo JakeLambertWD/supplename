@@ -3,6 +3,7 @@ import { Flex, Group, Overlay, Stack, Text } from "@mantine/core";
 import { latestWork } from "../utils/constants";
 import { useRef } from "react";
 import logoImage from "/public/mcds.png";
+import LatestWork from "./LatestWork";
 
 function FullScreenCarousel({ active }: { active: number }) {
   const ref = useRef(null);
@@ -17,7 +18,7 @@ function FullScreenCarousel({ active }: { active: number }) {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <Flex h="100vh" align="flex-end" ref={ref}>
+    <Flex ref={ref} h="100vh" align="flex-end">
       <motion.img
         src={image.src}
         alt="Picture of the author"
@@ -37,6 +38,7 @@ function FullScreenCarousel({ active }: { active: number }) {
         h={"100vh"}
         style={{ zIndex: 0 }}
       />
+
       <Stack c="white" gap={0} mb={70} ml={70}>
         <Group>
           <motion.p

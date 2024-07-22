@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { theme } from "./utils/theme";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import NavigationBar from "./components/NavigationBar";
 import { FooterSocial } from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,11 +32,7 @@ export default function RootLayout({
         `}</style>
       </head>
       <body className={inter.className} style={{ background: "#060e11" }}>
-        <MantineProvider theme={theme}>
-          <NavigationBar />
-          {children}
-          <FooterSocial />
-        </MantineProvider>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
   );

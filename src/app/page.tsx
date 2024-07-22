@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import LandingSection from "./components/LandingSection";
 import Contact from "./components/Contact";
 import SocialIcons from "./components/SocialIcons";
+import NavigationBar from "./components/NavigationBar";
+import { FooterSocial } from "./components/Footer";
 
 export default function Home() {
   const [active, setActive] = useState(1);
@@ -20,12 +22,13 @@ export default function Home() {
 
   return (
     <>
+      <NavigationBar />
       <Carousel active={active} />
-
       <LatestWork active={active} setActive={setActive} />
       <LandingSection />
       <Contact />
       <SocialIcons />
+      <FooterSocial />
     </>
   );
 }
