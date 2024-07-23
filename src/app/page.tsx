@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <NavigationBar logo={pageInfo.imageURL} />
+      <NavigationBar />
       <Carousel />
       <LandingSection jobTitle={pageInfo.jobTitle} />
       <Contact />

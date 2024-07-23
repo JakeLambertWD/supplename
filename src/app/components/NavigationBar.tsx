@@ -6,8 +6,9 @@ import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
 import { useRouter } from "next/navigation";
+import navLogo from "/public/supple-logo-home.png";
 
-function NavigationBar({ logo }: { logo: string }) {
+function NavigationBar() {
   const router = useRouter();
   const { hovered, ref } = useHover();
 
@@ -27,7 +28,7 @@ function NavigationBar({ logo }: { logo: string }) {
     >
       <Image
         onClick={() => navigateToPage("/")}
-        src={logo}
+        src={navLogo}
         width={200}
         height={50}
         quality={100}
