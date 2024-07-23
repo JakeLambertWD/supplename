@@ -45,7 +45,13 @@ function FullScreenCarousel({ active }: { active: number }) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            style={{ fontSize: 35, fontWeight: 600, margin: 0 }}
+            style={{
+              fontSize: 35,
+              fontWeight: 600,
+              margin: 0,
+              color: "white",
+              zIndex: 20,
+            }}
           >
             {activeSlide?.title}
           </motion.p>
@@ -56,7 +62,7 @@ function FullScreenCarousel({ active }: { active: number }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          style={{ fontSize: 25, margin: 0 }}
+          style={{ fontSize: 25, margin: 0, color: "white", zIndex: 20 }}
         >
           {activeSlide?.description}
         </motion.p>
