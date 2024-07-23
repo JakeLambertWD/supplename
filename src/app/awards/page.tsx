@@ -8,14 +8,22 @@ function page() {
   return (
     <Stack h="100vh" gap={0}>
       <NavigationBar />
-      <Space h={55} />
+      <Space h={90} />
 
       <Flex>
-        <Image
-          src={bgImage}
-          style={{ height: "auto", width: "50%" }}
-          alt="test"
-        />
+        <Flex pos="relative" align="center" justify="center" w="50%">
+          <Image
+            src={bgImage}
+            style={{
+              height: "auto",
+              width: "100%",
+            }}
+            alt="test"
+          />
+          <Text c="white" fz="lg" fw={700} pos="absolute">
+            2023 VIDDY AWARDS
+          </Text>
+        </Flex>
 
         <Flex p={120} h="100%" w="50%" c="white">
           <Stack w="100%" align="flex-end" ta="right">
@@ -54,11 +62,20 @@ function page() {
             </Button>
           </Stack>
         </Flex>
-        <Image
-          src={bgImage}
-          style={{ height: "auto", width: "50%" }}
-          alt="test"
-        />
+
+        <Flex pos="relative" align="center" justify="center" w="50%">
+          <Image
+            src={bgImage}
+            style={{
+              height: "auto",
+              width: "100%",
+            }}
+            alt="test"
+          />
+          <Text c="white" fz="lg" fw={700} pos="absolute">
+            2023 VIDDY AWARDS
+          </Text>
+        </Flex>
       </Flex>
     </Stack>
   );
