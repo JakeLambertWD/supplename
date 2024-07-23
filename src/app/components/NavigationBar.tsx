@@ -2,8 +2,6 @@
 
 import { Button, Flex, NavLink } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
-import { Anton } from "next/font/google";
-// import logo from "/public/supple-logo-home.png";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
@@ -39,27 +37,6 @@ function NavigationBar({ logo }: { logo: string }) {
 
       <Flex fz="xl">
         {navigationLinks.map((link) => {
-          // if (link.label === "Filmmaking") {
-          //   return (
-          //     <Menu>
-          //       <Menu.Target>
-          //         <NavLink
-          //           className={classes.noHoverColor}
-          //           label={link.label}
-          //           rightSection={<IconChevronDown size="1rem" stroke={1.5} />}
-          //           h={40}
-          //           childrenOffset={28}
-          //         />
-          //       </Menu.Target>
-
-          //       <Menu.Dropdown>
-          //         <Menu.Item>Commercial</Menu.Item>
-          //         <Menu.Item>Documentary</Menu.Item>
-          //         <Menu.Item>Music Video</Menu.Item>
-          //       </Menu.Dropdown>
-          //     </Menu>
-          //   );
-          // }
           return (
             <NavLink
               key={link.href}
