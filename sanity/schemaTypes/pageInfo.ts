@@ -6,18 +6,13 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "name",
-      title: "Name",
+      name: "jobTitle",
+      title: "Job Title",
       type: "string",
     }),
     defineField({
-      name: "description",
-      title: "Description",
-      type: "text",
-    }),
-    defineField({
-      name: "carouselImage",
-      title: "CarouselImage",
+      name: "logo",
+      title: "Logo",
       type: "image",
       options: {
         hotspot: true,

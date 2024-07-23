@@ -8,6 +8,8 @@ export const client = createClient({
 });
 
 export async function getPageInfo() {
-  const pageInfo = await client.fetch('*[_type == "pageInfo"]');
+  const pageInfo = await client.fetch(
+    '*[_type == "pageInfo"]{ jobTitle, "imageURL": logo.asset->url }'
+  );
   return pageInfo;
 }

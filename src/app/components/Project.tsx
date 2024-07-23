@@ -93,7 +93,7 @@ function Project({ work }: any) {
               style={{
                 borderLeft: "2px solid black",
                 borderColor: theme?.colors?.primary?.[1],
-                paddingLeft: 30,
+                // paddingLeft: 30,
               }}
             >
               <Image

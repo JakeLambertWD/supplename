@@ -3,18 +3,13 @@
 import { Button, Flex, NavLink } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
 import { Anton } from "next/font/google";
-import logo from "/public/supple-logo-home.png";
+// import logo from "/public/supple-logo-home.png";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
 import { useRouter } from "next/navigation";
 
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-function NavigationBar() {
+function NavigationBar({ logo }: { logo: string }) {
   const router = useRouter();
   const { hovered, ref } = useHover();
 

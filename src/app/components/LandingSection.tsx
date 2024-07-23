@@ -1,28 +1,11 @@
+import { useEffect, useState } from "react";
 import { Button, Center, Group, Modal, Stack, Text } from "@mantine/core";
 import { theme } from "../utils/theme";
-import { client } from "../lib/sanity";
-import { Anton } from "next/font/google";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import YouTube from "react-youtube";
 
-const anton = Anton({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-// async function getData() {
-//   const query = `*[_type == "pageInfo"]{
-//    ...
-//  }`;
-
-//   const data = await client.fetch(query);
-
-//   return data;
-// }
-
-// TODO: this function is suppose to have an async for Sanity purposes
-export default function LandingSection() {
+export default function LandingSection({ jobTitle }: { jobTitle: string }) {
   const [opened, { open, close }] = useDisclosure(false);
 
   const opts = {
@@ -42,9 +25,6 @@ export default function LandingSection() {
     event.target.playVideo();
   };
 
-  // const data = await getData();
-  // const { name, description, carouselImage } = data[0];
-
   return (
     <>
       <Center h="100vh" w="100%" pos="absolute" top={0}>
@@ -55,7 +35,7 @@ export default function LandingSection() {
           style={{ zIndex: 7 }}
         >
           <Text fz={14} mb={5}>
-            CHOREOGRAPHER - DIRECTOR
+            {jobTitle}
           </Text>
           <Group>
             {/* TODO: when user clicks button show a thumbs up emoji */}

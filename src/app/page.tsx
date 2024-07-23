@@ -8,11 +8,20 @@ import Contact from "./components/Contact";
 import SocialIcons from "./components/SocialIcons";
 import NavigationBar from "./components/NavigationBar";
 import { FooterSocial } from "./components/Footer";
+import { getPageInfo } from "./lib/sanity";
 
 export default function Home() {
   const [active, setActive] = useState(1);
+  const [pageInfo, setPageInfo] = useState<any>({});
 
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await getPageInfo();
+      setPageInfo(data[0]);
+    };
+    fetchData();
+
+    // TODO: move this to a custom hook so this page doesn't need to be 'use client' anymore
     const interval = setInterval(() => {
       setActive((prevActive) => (prevActive + 1) % 4);
     }, 5000);
@@ -22,10 +31,10 @@ export default function Home() {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar logo={pageInfo.imageURL} />
       <Carousel active={active} />
       <LatestWork active={active} setActive={setActive} />
-      <LandingSection />
+      <LandingSection jobTitle={pageInfo.jobTitle} />
       <Contact />
       <SocialIcons />
       <FooterSocial />
