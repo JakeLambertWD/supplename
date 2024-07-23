@@ -23,7 +23,7 @@ function NavigationBar({ logo }: { logo: string }) {
       px={{ base: "sm", md: 50 }}
       py="lg"
       bg="transparent"
-      style={{ zIndex: 2 }}
+      style={{ zIndex: 5 }}
     >
       <Image
         onClick={() => navigateToPage("/")}

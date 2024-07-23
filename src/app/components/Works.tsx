@@ -4,7 +4,7 @@ import Project from "./Project";
 
 function Works({ active, setActive }: any) {
   return (
-    <Container size="xl" h="100vh">
+    <Container size="xl" h="100vh" style={{ zIndex: 4 }}>
       <Stack align="center" justify="center" h="100vh">
         <Flex c="white" mt="xl" mb="lg">
           {filmmakingLinks.map((link, index) => (
