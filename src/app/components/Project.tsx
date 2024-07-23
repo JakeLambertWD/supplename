@@ -86,14 +86,23 @@ function Project({ work }: any) {
       >
         <div style={{ height: "92vh" }}>
           <Flex h="65%" py={0} px={100} c="white">
-            <Flex w="70%" mr="xl" pos="relative">
+            <Flex
+              w="70%"
+              mr="xl"
+              pos="relative"
+              style={{
+                borderLeft: "2px solid black",
+                borderColor: theme?.colors?.primary?.[1],
+                paddingLeft: 30,
+              }}
+            >
               <Image
                 src={bgImage}
                 style={{ height: "auto", width: "100%" }}
                 alt="test"
               />
 
-              <Text fz="xl" pos="absolute" top={20} left={20}>
+              <Text fz="xl" pos="absolute" top={20} left={50}>
                 Mars Delight Kung Fu
               </Text>
 
@@ -166,7 +175,18 @@ function Project({ work }: any) {
             </Stack>
           </Flex>
 
-          <Group h="35%" pt={45} wrap="nowrap" style={{ overflowX: "auto" }}>
+          <Group
+            h="35%"
+            pt={45}
+            wrap="nowrap"
+            style={{
+              overflowX: "auto",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              WebkitOverflowScrolling: "touch",
+              "&::-webkit-scrollbar": { display: "none" },
+            }}
+          >
             <Image
               src={bgImage}
               style={{ height: "auto", width: "22%" }}
