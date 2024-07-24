@@ -1,44 +1,67 @@
+import { Container, Group, Text, Stack, Divider, Flex } from "@mantine/core";
 import {
-  Container,
-  Group,
-  ActionIcon,
-  rem,
-  Flex,
-  Text,
-  Stack,
-} from "@mantine/core";
-import {
+  IconBrandFacebook,
   IconBrandTwitter,
+  IconBrandVimeo,
   IconBrandYoutube,
-  IconBrandInstagram,
 } from "@tabler/icons-react";
-import logo from "/public/supple-logo-home.png";
-import Image from "next/image";
-import { navigationLinks } from "../utils/constants";
+import { theme } from "../utils/theme";
 
 export function FooterSocial() {
   return (
-    <Group
-      w="100vw"
-      align="center"
-      pb={100}
-      gap={40}
-      justify="center"
-      bg="#060e11"
-    >
-      <Text c="white" fz="sm" mr="xl">
-        © 2024 By Supple Nam. All rights reserved.
-      </Text>
-
-      <Image src={logo} width={200} height={50} quality={100} alt="Norway" />
-
-      <Group gap={50}>
-        {navigationLinks.map((link, index) => (
-          <Text key={index} c="white" tt="uppercase" fz={12}>
-            {link.label}
-          </Text>
-        ))}
+    <Container pb={50} c="white" mt={150}>
+      <Group justify="center" gap={120}>
+        <Text fz={14} fw={400} mr="xl" c={theme?.colors?.primary?.[1]}>
+          EST. 2004
+        </Text>
+        <Stack align="center" justify="center" gap={3}>
+          <Text fz={12}>© 2024 | Supple Nam</Text>
+          <Text fz={12}>Powered By Mantine UI</Text>
+          <Divider
+            size="sm"
+            w={70}
+            my={3}
+            color={theme?.colors?.primary?.[1]}
+          />
+          <Text fz={12}>supple@supplenam.com</Text>
+        </Stack>
+        <Group>
+          <IconBrandTwitter
+            color="white"
+            strokeWidth={1}
+            size={22}
+            onClick={() => window.open("https://twitter.com/supplenam")}
+            style={{ cursor: "alias" }}
+          />
+          <IconBrandFacebook
+            color="white"
+            strokeWidth={1}
+            size={22}
+            onClick={() =>
+              window.open("https://www.facebook.com/supple.nam.choreographer")
+            }
+            style={{ cursor: "alias" }}
+          />
+          <IconBrandYoutube
+            color="white"
+            strokeWidth={1}
+            size={22}
+            onClick={() =>
+              window.open("https://www.youtube.com/@supplenam1464")
+            }
+            style={{ cursor: "alias" }}
+          />
+          <IconBrandVimeo
+            color="white"
+            strokeWidth={1}
+            size={22}
+            onClick={() =>
+              window.open("https://vimeo.com/search?q=supple%20nam")
+            }
+            style={{ cursor: "alias" }}
+          />
+        </Group>
       </Group>
-    </Group>
+    </Container>
   );
 }

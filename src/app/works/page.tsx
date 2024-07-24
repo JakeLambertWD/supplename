@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Works from "../components/Works";
 import NavigationBar from "../components/NavigationBar";
+import { FooterSocial } from "../components/Footer";
 
 function page() {
   const [active, setActive] = useState(0);
@@ -11,6 +12,7 @@ function page() {
     <>
       <NavigationBar />
       <Works active={active} setActive={setActive} />
+      <FooterSocial />
     </>
   );
 }
