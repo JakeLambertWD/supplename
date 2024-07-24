@@ -13,8 +13,8 @@ export const navigationLinks = [
     dropdown: true,
   },
   {
-    href: "/about",
-    label: "About",
+    href: "/bio",
+    label: "Bio",
   },
   {
     href: "/awards",
