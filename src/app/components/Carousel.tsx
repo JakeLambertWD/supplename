@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Flex, Group, Overlay, Stack, Text } from "@mantine/core";
 import { latestWork } from "../utils/constants";
 import { useEffect, useRef, useState } from "react";
-import logoImage from "/public/mcds.png";
+import logoImage from "/public/nhs.svg";
 import LatestWork from "./LatestWork";
 
 function FullScreenCarousel() {
@@ -53,6 +53,9 @@ function FullScreenCarousel() {
         />
 
         <Stack c="white" gap={0} mb={70} ml={70}>
+          {/* https://www.svgrepo.com/ */}
+          <motion.img src={logoImage.src} height={40} width={40} alt="logo" />
+
           <Group>
             <motion.p
               initial={{ opacity: 0 }}
@@ -68,7 +71,6 @@ function FullScreenCarousel() {
             >
               {activeSlide?.title}
             </motion.p>
-            <motion.img src={logoImage.src} height={40} width={40} alt="logo" />
           </Group>
 
           <motion.p
