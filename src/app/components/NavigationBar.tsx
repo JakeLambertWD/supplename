@@ -7,6 +7,7 @@ import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
 import { useRouter } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
+import classes from "./css/NavigationBar.module.css";
 
 function NavigationBar() {
   const router = useRouter();
@@ -36,7 +37,7 @@ function NavigationBar() {
         style={{ cursor: "pointer" }}
       />
 
-      <Flex fz="xl">
+      <Flex fz="xl" gap="lg">
         {navigationLinks.map((link) => {
           return (
             <NavLink
@@ -44,7 +45,11 @@ function NavigationBar() {
               href={link.href}
               label={link.label}
               h={40}
+              pb={35}
+              fz="50px"
               childrenOffset={28}
+              className={classes.noHoverColor}
+              classNames={{ label: classes.label }}
             />
           );
         })}

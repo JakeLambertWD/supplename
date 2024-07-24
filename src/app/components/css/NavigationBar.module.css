@@ -1,0 +1,12 @@
+.noHoverColor {
+  border-bottom: 2px solid transparent !important;
+}
+
+.noHoverColor:hover {
+  background-color: transparent !important;
+  border-bottom: 2px solid #c41e3a !important;
+}
+
+.label {
+  font-size: large;
+}
