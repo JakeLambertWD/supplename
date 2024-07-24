@@ -2,12 +2,12 @@
 
 import "@mantine/core/styles.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { theme } from "./utils/theme";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import { FooterSocial } from "./components/Footer";
+import { Orbitron, Michroma } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const orbitron = Orbitron({ subsets: ["latin"] });
+const michroma = Michroma({ weight: "400", subsets: ["latin"] });
 
 const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +31,7 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body className={inter.className} style={{ background: "#060e11" }}>
+      <body className={orbitron.className} style={{ background: "#060e11" }}>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
