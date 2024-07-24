@@ -9,6 +9,14 @@
   padding: 0;
 }
 
+.close {
+  color: white;
+}
+
+.close:hover {
+  background-color: transparent;
+}
+
 .videoResponsive {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
