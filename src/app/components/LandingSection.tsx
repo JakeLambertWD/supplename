@@ -7,6 +7,7 @@ import YouTube from "react-youtube";
 
 export default function LandingSection({ jobTitle }: { jobTitle: string }) {
   const [opened, { open, close }] = useDisclosure(false);
+  const [buttonContent, setButtonContent] = useState("My CV");
 
   const opts = {
     height: "390",
@@ -42,13 +43,15 @@ export default function LandingSection({ jobTitle }: { jobTitle: string }) {
             <Button
               color={theme.colors?.primary?.[1]}
               size="md"
-              onClick={() =>
+              w={120}
+              onClick={() => {
                 window.open(
                   "https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf"
-                )
-              }
+                );
+                setButtonContent("👍");
+              }}
             >
-              My CV
+              {buttonContent}
             </Button>
             <Button onClick={open} variant="outline" color="white" size="md">
               Show Reel
@@ -65,6 +68,7 @@ export default function LandingSection({ jobTitle }: { jobTitle: string }) {
         classNames={{
           content: classes.content,
           header: classes.header,
+          close: classes.close,
         }}
         transitionProps={{ transition: "fade", duration: 500 }}
       >
