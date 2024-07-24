@@ -9,7 +9,7 @@ import LatestWork from "./LatestWork";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +54,13 @@ function FullScreenCarousel() {
 
         <Stack c="white" gap={0} mb={70} ml={70}>
           {/* https://www.svgrepo.com/ */}
-          <motion.img src={logoImage.src} height={40} width={40} alt="logo" />
+          <motion.img
+            src={logoImage.src}
+            height={40}
+            width={40}
+            alt="logo"
+            style={{ zIndex: 20 }}
+          />
 
           <Group>
             <motion.p

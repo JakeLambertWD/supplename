@@ -3,7 +3,7 @@ import { createTheme } from "@mantine/core";
 export const theme = createTheme({
   white: "#fff8ff",
   black: "#212121",
-  primaryColor: "primary",
+  primaryColor: "red",
 
   colors: {
     primary: [

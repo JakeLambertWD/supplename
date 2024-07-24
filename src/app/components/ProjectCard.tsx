@@ -57,7 +57,7 @@ const ProjectCard = ({
             )}
           </Card.Section>
         </Card>
-        {active === index && <Divider mt="xs" bg="white" h={1} w={50} />}
+        {active === index && <Divider mt="xs" color={"white"} h={1} w={50} />}
       </Stack>
     </motion.div>
   );

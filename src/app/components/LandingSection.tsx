@@ -28,7 +28,7 @@ export default function LandingSection({ jobTitle }: { jobTitle: string }) {
 
   return (
     <>
-      <Center h="100vh" w="100%" pos="absolute" top={0}>
+      <Center h="100vh" w="100%" pos="absolute" top={0} style={{ zIndex: 3 }}>
         <Stack
           c="white"
           p={{ base: 0, xl: 50 }}
