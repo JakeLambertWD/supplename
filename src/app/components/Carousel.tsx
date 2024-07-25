@@ -7,6 +7,8 @@ import logoImage from "/public/nhs.svg";
 import LatestWork from "./LatestWork";
 import { getLatestWork } from "../lib/sanity";
 import { WorkProps } from "../utils/typings";
+import YouTube from "react-youtube";
+import classes from "./css/Project.module.css";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
@@ -38,10 +40,27 @@ function FullScreenCarousel() {
   });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  const opts = {
+    height: "100vh",
+    width: "100ve",
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0,
+      vq: "highres",
+    },
+  };
+
+  const onReady = (event: any) => {
+    event.target.playVideo();
+  };
+
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        <motion.img
+        {/* <motion.img
           src={bgImage}
           alt="Picture of the author"
           style={{
@@ -52,7 +71,19 @@ function FullScreenCarousel() {
             zIndex: -1,
             y: backgroundY,
           }}
-        />
+        /> */}
+        {activeSlide && (
+          <YouTube
+            className={classes.fullscreenVideo}
+            videoId={activeSlide.youtubeID}
+            opts={opts}
+            onReady={onReady}
+            style={{
+              y: backgroundY,
+            }}
+          />
+        )}
+
         <Overlay
           color="#0b0f19"
           backgroundOpacity={0.6}
