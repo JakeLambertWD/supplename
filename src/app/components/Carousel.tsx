@@ -60,7 +60,7 @@ function FullScreenCarousel() {
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        {/* <motion.img
+        <motion.img
           src={bgImage}
           alt="Picture of the author"
           style={{
@@ -71,18 +71,16 @@ function FullScreenCarousel() {
             zIndex: -1,
             y: backgroundY,
           }}
+        />
+        {/* <YouTube
+          className={classes.fullscreenVideo}
+          videoId={activeSlide?.youtubeID}
+          opts={opts}
+          onReady={onReady}
+          style={{
+            y: backgroundY,
+          }}
         /> */}
-        {activeSlide && (
-          <YouTube
-            className={classes.fullscreenVideo}
-            videoId={activeSlide.youtubeID}
-            opts={opts}
-            onReady={onReady}
-            style={{
-              y: backgroundY,
-            }}
-          />
-        )}
 
         <Overlay
           color="#0b0f19"
