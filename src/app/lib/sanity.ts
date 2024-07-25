@@ -13,3 +13,10 @@ export async function getPageInfo() {
   );
   return pageInfo;
 }
+
+export async function getLatestWork() {
+  const latestWork = await client.fetch(
+    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url }'
+  );
+  return latestWork;
+}
