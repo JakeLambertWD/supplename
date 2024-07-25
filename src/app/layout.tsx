@@ -4,10 +4,9 @@ import "@mantine/core/styles.css";
 import type { Metadata } from "next";
 import { theme } from "./utils/theme";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import { Orbitron, Michroma } from "next/font/google";
+import { Electrolize } from "next/font/google";
 
-const orbitron = Orbitron({ subsets: ["latin"] });
-const michroma = Michroma({ weight: "400", subsets: ["latin"] });
+const electrolize = Electrolize({ weight: "400", subsets: ["latin"] });
 
 const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +30,7 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body className={orbitron.className} style={{ background: "#060e11" }}>
+      <body className={electrolize.className} style={{ background: "#060e11" }}>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
