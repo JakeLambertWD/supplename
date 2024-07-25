@@ -5,14 +5,15 @@ import { navigationLinks } from "../utils/constants";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 
 function NavigationBar() {
   const router = useRouter();
-  const { hovered, ref } = useHover();
+  const pathname = usePathname();
 
+  const { hovered, ref } = useHover();
   const navigateToPage = (href: string) => router.push(href);
 
   return (
@@ -37,8 +38,10 @@ function NavigationBar() {
         style={{ cursor: "pointer" }}
       />
 
-      <Flex fz="xl" gap="lg">
+      <Flex fz="xl" gap="lg" mr="70px">
         {navigationLinks.map((link) => {
+          const isActive = pathname === link.href;
+
           return (
             <NavLink
               key={link.href}
@@ -50,6 +53,11 @@ function NavigationBar() {
               childrenOffset={28}
               className={classes.noHoverColor}
               classNames={{ label: classes.label }}
+              style={{
+                borderBottom: isActive
+                  ? "2px solid #c41e3a !important"
+                  : "none",
+              }}
             />
           );
         })}
