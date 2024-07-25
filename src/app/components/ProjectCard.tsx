@@ -5,7 +5,6 @@ import { useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
 
 type IProjectCardProps = {
-  title: string;
   image: any;
   index: number;
   active: number;
@@ -13,7 +12,6 @@ type IProjectCardProps = {
 };
 
 const ProjectCard = ({
-  title,
   image,
   index,
   active,

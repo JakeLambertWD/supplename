@@ -1,27 +1,36 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Flex, Group, Overlay, Stack, Text } from "@mantine/core";
-import { latestWork } from "../utils/constants";
+import { Flex, Group, Overlay, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import logoImage from "/public/nhs.svg";
 import LatestWork from "./LatestWork";
+import { getLatestWork } from "../lib/sanity";
+import { WorkProps } from "../utils/typings";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
   const [active, setActive] = useState(0);
+  const [latestWork, setLatestWork] = useState<WorkProps[]>([]);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const latestWork = await getLatestWork();
+      setLatestWork(latestWork);
+    };
+    fetchData();
+
     const interval = setInterval(() => {
+      // TODO: make slide count dynamic
       setActive((prevActive) => (prevActive + 1) % 4);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const getActiveWork = latestWork.filter((work, index) => index === active)[0];
-  const image = getActiveWork?.image;
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
+  const logo = activeSlide?.logo;
+  const bgImage = activeSlide?.tileImage;
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,7 +42,7 @@ function FullScreenCarousel() {
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
         <motion.img
-          src={image.src}
+          src={bgImage}
           alt="Picture of the author"
           style={{
             width: "100vw",
@@ -55,9 +64,9 @@ function FullScreenCarousel() {
         <Stack c="white" gap={0} mb={70} ml={70}>
           {/* https://www.svgrepo.com/ */}
           <motion.img
-            src={logoImage.src}
-            height={40}
-            width={40}
+            src={logo}
+            height={50}
+            width={50}
             alt="logo"
             style={{ zIndex: 20 }}
           />
@@ -75,7 +84,7 @@ function FullScreenCarousel() {
                 zIndex: 20,
               }}
             >
-              {activeSlide?.title}
+              {activeSlide?.client}
             </motion.p>
           </Group>
 
@@ -85,11 +94,15 @@ function FullScreenCarousel() {
             transition={{ duration: 0.5, delay: 1 }}
             style={{ fontSize: 25, margin: 0, color: "white", zIndex: 20 }}
           >
-            {activeSlide?.description}
+            {activeSlide?.title}
           </motion.p>
         </Stack>
       </Flex>
-      <LatestWork active={active} setActive={setActive} />
+      <LatestWork
+        active={active}
+        setActive={setActive}
+        latestWork={latestWork}
+      />
     </>
   );
 }

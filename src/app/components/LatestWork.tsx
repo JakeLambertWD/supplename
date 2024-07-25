@@ -1,8 +1,14 @@
 import { Flex } from "@mantine/core";
 import ProjectCard from "./ProjectCard";
-import { latestWork } from "../utils/constants";
+import { WorkProps } from "../utils/typings";
 
-function LatestWork({ active, setActive }: any) {
+interface LatestWorkProps {
+  active: number;
+  setActive: (value: number) => void;
+  latestWork: WorkProps[];
+}
+
+function LatestWork({ active, setActive, latestWork }: LatestWorkProps) {
   return (
     <Flex
       gap="md"
@@ -12,16 +18,17 @@ function LatestWork({ active, setActive }: any) {
       right={40}
       style={{ zIndex: 8 }}
     >
-      {latestWork.map((item, index) => (
-        <ProjectCard
-          key={index}
-          index={index}
-          active={active}
-          setActive={setActive}
-          image={item.image}
-          title={item.title}
-        />
-      ))}
+      {latestWork.map((work, index) => {
+        return (
+          <ProjectCard
+            key={index}
+            index={index}
+            active={active}
+            setActive={setActive}
+            image={work.tileImage}
+          />
+        );
+      })}
     </Flex>
   );
 }
