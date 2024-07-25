@@ -11,8 +11,11 @@ function page() {
   return (
     <>
       <NavigationBar />
-      <Space h={90} />
+      <Space h={100} />
 
+      <Text fz={50} c="white" ta="center" mb={50}>
+        Awards
+      </Text>
       <Stack gap={0}>
         <Flex>
           <Flex pos="relative" align="center" justify="center" w="50%">
