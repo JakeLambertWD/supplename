@@ -28,13 +28,5 @@ export default defineType({
         hotspot: true,
       },
     }),
-    defineField({
-      name: "logo",
-      title: "Logo",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-    }),
   ],
 });

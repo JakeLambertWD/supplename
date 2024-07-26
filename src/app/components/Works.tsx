@@ -1,14 +1,40 @@
-import { Container, Flex, Stack, Text } from "@mantine/core";
-import { filmmakingLinks, latestWork } from "../utils/constants";
-import Project from "./Project";
+"use client";
 
-function Works({ active, setActive }: any) {
+import { Container, Flex, SimpleGrid, Stack, Text } from "@mantine/core";
+import { latestWork } from "../utils/constants";
+import Project from "./Project";
+import { useEffect, useState } from "react";
+import { getGenres, getWorks } from "../lib/sanity";
+import { GenreProps, WorksProps } from "../utils/typings";
+
+function Works() {
+  const [active, setActive] = useState(0);
+  const [genres, setGenres] = useState<GenreProps[]>([]);
+  const [works, setWorks] = useState<WorksProps[]>([]);
+
+  const activeGenre = genres[active];
+
+  const worksByGenre = works.filter(
+    (work) => work.projectGenre.name === activeGenre.name
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const genreData = await getGenres();
+      setGenres(genreData);
+
+      const workData = await getWorks();
+      setWorks(workData);
+    };
+    fetchData();
+  }, []);
+
   return (
-    <Container size="xl" h="100vh" style={{ zIndex: 4 }}>
+    <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
         <Text fz={50}>Works</Text>
         <Flex mt="xl" mb="lg">
-          {filmmakingLinks.map((link, index) => (
+          {genres.map((link: any, index: any) => (
             <Text
               key={index}
               fz={16}
@@ -26,16 +52,22 @@ function Works({ active, setActive }: any) {
                 cursor: "pointer",
               }}
             >
-              {link.label}
+              {link.name}
             </Text>
           ))}
         </Flex>
 
-        <Flex w="100%" wrap="wrap" justify="center" gap={20}>
-          {latestWork.map((work, index) => (
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3, xl: 4 }}>
+          {worksByGenre.map((work, index) => (
             <Project key={index} work={work} />
           ))}
-        </Flex>
+        </SimpleGrid>
+
+        {/* <Flex w="100%" wrap="wrap" justify="center" gap={20}>
+          {worksByGenre.map((work, index) => (
+            <Project key={index} work={work} />
+          ))}
+        </Flex> */}
       </Stack>
     </Container>
   );

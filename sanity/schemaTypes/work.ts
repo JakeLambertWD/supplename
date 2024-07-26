@@ -11,8 +11,8 @@ export default defineType({
       type: "string",
     }),
     defineField({
-      name: "title",
-      title: "Title",
+      name: "description",
+      title: "Description",
       type: "string",
     }),
     defineField({
@@ -29,10 +29,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: "technologies",
-      title: "Technologies",
-      type: "array",
-      of: [{ type: "reference", to: { type: "genre" } }],
+      name: "projectGenre",
+      title: "Project Genre",
+      type: "reference",
+      to: { type: "genre" },
     }),
   ],
 });

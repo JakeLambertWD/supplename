@@ -31,7 +31,6 @@ function FullScreenCarousel() {
   }, []);
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const logo = activeSlide?.logo;
   const bgImage = activeSlide?.tileImage;
 
   const { scrollYProgress } = useScroll({

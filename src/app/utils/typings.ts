@@ -5,3 +5,15 @@ export interface WorkProps {
   logo: string;
   tileImage: string;
 }
+
+export interface GenreProps {
+  name: string;
+}
+
+export interface WorksProps {
+  client: string;
+  title: string;
+  youtubeID: string;
+  tileImage: string;
+  projectGenre: GenreProps;
+}

@@ -20,3 +20,15 @@ export async function getLatestWork() {
   );
   return latestWork;
 }
+
+export async function getGenres() {
+  const genres = await client.fetch('*[_type == "genre"]{ name }');
+  return genres;
+}
+
+export async function getWorks() {
+  const works = await client.fetch(
+    '*[_type == "work"] { client, title, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }'
+  );
+  return works;
+}

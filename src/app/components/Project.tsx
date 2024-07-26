@@ -16,6 +16,7 @@ import Image from "next/image";
 import bgImage from "/public/sparklers.jpg";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
 import { theme } from "../utils/theme";
+import { WorksProps } from "../utils/typings";
 
 function Project({ work }: any) {
   const { hovered, ref } = useHover();
@@ -37,7 +38,7 @@ function Project({ work }: any) {
         <motion.img
           whileHover={{ scale: 1.5 }}
           transition={{ duration: 5 }}
-          src={work.image.src}
+          src={work.tileImage}
           alt="Norway"
           style={{
             objectFit: "cover",
@@ -59,7 +60,7 @@ function Project({ work }: any) {
               textAlign: "center",
             }}
           >
-            <p style={{ fontSize: "16px" }}>{work.title}</p>
+            <p style={{ fontSize: "16px" }}>{work.client}</p>
           </motion.div>
         )}
 
