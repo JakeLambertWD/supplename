@@ -92,19 +92,12 @@ function FullScreenCarousel() {
 
         <Stack c="white" gap={0} mb={70} ml={70}>
           {/* https://www.svgrepo.com/ */}
-          <motion.img
-            src={logo}
-            height={50}
-            width={50}
-            alt="logo"
-            style={{ zIndex: 20 }}
-          />
 
           <Group>
             <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 1 }}
               style={{
                 fontSize: 35,
                 fontWeight: 600,
@@ -118,9 +111,9 @@ function FullScreenCarousel() {
           </Group>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 2 }}
             style={{ fontSize: 25, margin: 0, color: "white", zIndex: 20 }}
           >
             {activeSlide?.title}
