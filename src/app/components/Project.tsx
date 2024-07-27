@@ -16,7 +16,6 @@ import Image from "next/image";
 import bgImage from "/public/sparklers.jpg";
 import { IconPlayerPlayFilled } from "@tabler/icons-react";
 import { theme } from "../utils/theme";
-import { WorksProps } from "../utils/typings";
 
 function Project({ work }: any) {
   const { hovered, ref } = useHover();
@@ -26,7 +25,10 @@ function Project({ work }: any) {
     <>
       <Card
         ref={ref}
-        onClick={open}
+        onClick={() => {
+          window.scrollTo({ top: 190, behavior: "smooth" });
+          open();
+        }}
         shadow="xl"
         p={0}
         radius={0}
@@ -75,13 +77,19 @@ function Project({ work }: any) {
       <Modal
         opened={opened}
         onClose={close}
-        fullScreen
+        size="100vw"
         radius={0}
         p={0}
+        overlayProps={{
+          backgroundOpacity: 0,
+          blur: 0,
+        }}
         classNames={{
           content: classes.content,
           header: classes.header,
           body: classes.body,
+          inner: classes.inner,
+          close: classes.close,
         }}
         transitionProps={{ transition: "fade", duration: 500 }}
       >

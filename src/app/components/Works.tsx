@@ -62,12 +62,6 @@ function Works() {
             <Project key={index} work={work} />
           ))}
         </SimpleGrid>
-
-        {/* <Flex w="100%" wrap="wrap" justify="center" gap={20}>
-          {worksByGenre.map((work, index) => (
-            <Project key={index} work={work} />
-          ))}
-        </Flex> */}
       </Stack>
     </Container>
   );

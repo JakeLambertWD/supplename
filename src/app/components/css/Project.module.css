@@ -1,5 +1,5 @@
 .header {
-  background: #060e11;
+  background: transparent;
 }
 
 .content {
@@ -9,7 +9,11 @@
   padding: 0;
 }
 
-.close {
+.inner {
+  padding: 75px 0px;
+}
+
+.close svg {
   color: white;
 }
 
