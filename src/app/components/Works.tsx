@@ -1,6 +1,6 @@
 "use client";
 
-import { Container, Flex, SimpleGrid, Stack, Text } from "@mantine/core";
+import { Container, Flex, SimpleGrid, Space, Stack, Text } from "@mantine/core";
 import { latestWork } from "../utils/constants";
 import Project from "./Project";
 import { useEffect, useState } from "react";
@@ -62,6 +62,7 @@ function Works() {
             <Project key={index} work={work} />
           ))}
         </SimpleGrid>
+        <Space h={100} />
       </Stack>
     </Container>
   );

@@ -28,7 +28,7 @@ export async function getGenres() {
 
 export async function getWorks() {
   const works = await client.fetch(
-    '*[_type == "work"] { client, title, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }'
+    '*[_type == "work"] { client, description, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }'
   );
   return works;
 }
