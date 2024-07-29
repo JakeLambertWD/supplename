@@ -19,11 +19,19 @@ function Modal({
   close,
   client,
   description,
+  team,
+  movementGenres,
+  overview,
+  workImages,
 }: {
   opened: boolean;
   close: () => void;
   client: string;
   description: string;
+  team: { role: string; name: string }[];
+  movementGenres: string[];
+  overview: string;
+  workImages: { asset: { url: string }; alt: string }[];
 }) {
   return (
     <MantineModal
@@ -68,55 +76,45 @@ function Modal({
               style={{ height: "auto", width: "100%" }}
               alt="test"
             />
-
             <Text fz="xl" pos="absolute" top={20} left={50}>
               {description}
             </Text>
-
-            <Group fz="xs" pos="absolute" bottom={20} right={20}>
-              <Badge
-                color={theme?.colors?.primary?.[1]}
-                tt="capitalize"
-                size="md"
-              >
-                Contemporary
-              </Badge>
-              <Badge color={theme?.colors?.primary?.[1]} tt="capitalize">
-                Movement Direction
-              </Badge>
-            </Group>
+            {movementGenres && (
+              <Group fz="xs" pos="absolute" bottom={20} right={20}>
+                {movementGenres.map((genre: any, index) => {
+                  return (
+                    <Badge
+                      key={index}
+                      color={theme?.colors?.primary?.[1]}
+                      tt="capitalize"
+                      size="md"
+                    >
+                      {genre.name}
+                    </Badge>
+                  );
+                })}
+              </Group>
+            )}
           </Flex>
 
           <Stack w="30%">
             <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
             <Text fz="xl">{client}</Text>
 
-            <Group gap={10}>
-              <Group>
-                <Text fz="11px" fw={600}>
-                  <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                    Choreographer:
-                  </span>{" "}
-                  Supple Nam
-                </Text>
+            {team && (
+              <Group gap={10}>
+                {team.map((member, index) => (
+                  <Group key={index}>
+                    <Text fz="11px" fw={600}>
+                      <span style={{ opacity: 0.5, fontStyle: "italic" }}>
+                        {member.role}:
+                      </span>{" "}
+                      {member.name}
+                    </Text>
+                  </Group>
+                ))}
               </Group>
-              <Group>
-                <Text fz="11px" fw={600}>
-                  <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                    Director:
-                  </span>{" "}
-                  Erik Nilsson & Tomas Skoging
-                </Text>
-              </Group>
-              <Group>
-                <Text fz="11px" fw={600}>
-                  <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                    Client:
-                  </span>{" "}
-                  Mars UK
-                </Text>
-              </Group>
-            </Group>
+            )}
 
             <ScrollArea
               classNames={classes}
@@ -127,18 +125,7 @@ function Modal({
               fz="sm"
               mt="sm"
             >
-              When Supple Nam was cast as Bruce Lee for the Mars Delight “Kung
-              Fu” advert, little did Production Company ‘Outsider’ know of
-              Supple Nam’s choreography bio. The production had not yet
-              allocated a choreographer or fight co-ordinator for the shoot.
-              Producer Anna Hashmi and directors Erik Nilsson & Tomas Skoging
-              turned to Supple to save the commercial. Taking the role of both
-              main actor and choreographer, Supple also took on the challenge of
-              learning to make a poodle out of a balloon to make the shot easier
-              to edit and look authentic. Using his martial arts and stage
-              fighting background, Supple rehearsed the cast and himself off set
-              the day before the shoot, to present the choreography on the day
-              of shoot.
+              {overview}
             </ScrollArea>
           </Stack>
         </Flex>
@@ -152,9 +139,19 @@ function Modal({
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             WebkitOverflowScrolling: "touch",
-            "&::-webkit-scrollbar": { display: "none" },
+            // "&::-webkit-scrollbar": { display: "none" },
           }}
         >
+          {workImages?.map((image, index) => (
+            <Image
+              key={index}
+              src={image.asset.url}
+              width={200}
+              height={100}
+              // style={{ height: "auto", width: "22%" }}
+              alt={image.alt}
+            />
+          ))}
           <Image
             src={bgImage}
             style={{ height: "auto", width: "22%" }}

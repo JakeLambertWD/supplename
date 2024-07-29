@@ -66,6 +66,10 @@ function Project({ work }: any) {
         close={close}
         client={work.client}
         description={work.description}
+        team={work.team}
+        movementGenres={work.movementGenres}
+        overview={work.overview}
+        workImages={work.workImages}
       />
     </>
   );
