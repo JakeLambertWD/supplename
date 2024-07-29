@@ -9,13 +9,22 @@ import { getLatestWork } from "../lib/sanity";
 import { WorkProps } from "../utils/typings";
 import YouTube from "react-youtube";
 import classes from "./css/Project.module.css";
+import { useHover } from "@mantine/hooks";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
   const [active, setActive] = useState(0);
   const [latestWork, setLatestWork] = useState<WorkProps[]>([]);
+  const { hovered, ref: hoverRef } = useHover();
+  const latestWorkCount = latestWork.length;
+
+  const activeSlide = latestWork.filter((work, index) => index === active)[0];
+  const bgImage = activeSlide?.tileImage;
+  console.log(hovered);
 
   useEffect(() => {
+    if (hovered) return;
+
     const fetchData = async () => {
       const latestWork = await getLatestWork();
       setLatestWork(latestWork);
@@ -23,15 +32,11 @@ function FullScreenCarousel() {
     fetchData();
 
     const interval = setInterval(() => {
-      // TODO: make slide count dynamic
-      setActive((prevActive) => (prevActive + 1) % 4);
+      setActive((prevActive) => (prevActive + 1) % latestWorkCount);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const bgImage = activeSlide?.tileImage;
+  }, [latestWorkCount, hovered]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -120,6 +125,7 @@ function FullScreenCarousel() {
         </Stack>
       </Flex>
       <LatestWork
+        hoverRef={hoverRef}
         active={active}
         setActive={setActive}
         latestWork={latestWork}

@@ -6,11 +6,18 @@ interface LatestWorkProps {
   active: number;
   setActive: (value: number) => void;
   latestWork: WorkProps[];
+  hoverRef: any;
 }
 
-function LatestWork({ active, setActive, latestWork }: LatestWorkProps) {
+function LatestWork({
+  active,
+  setActive,
+  latestWork,
+  hoverRef,
+}: LatestWorkProps) {
   return (
     <Flex
+      ref={hoverRef}
       gap="md"
       w="fit-content"
       pos="absolute"
