@@ -1,7 +1,6 @@
 "use client";
 
 import { Container, Flex, SimpleGrid, Space, Stack, Text } from "@mantine/core";
-import { latestWork } from "../utils/constants";
 import Project from "./Project";
 import { useEffect, useState } from "react";
 import { getGenres, getWorks } from "../lib/sanity";
