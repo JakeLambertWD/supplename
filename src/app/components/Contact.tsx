@@ -17,7 +17,7 @@ function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
 
   return (
-    <Flex justify="center" w="100%" h="100vh" bg="#060e11">
+    <Flex justify="center" w="100%" h="100vh" mb={-150} bg="#060e11">
       <Flex w={1150} h={600} c="white">
         <Stack w="50%" justify="center">
           <Text fz={45} fw={600}>
