@@ -16,6 +16,12 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "overview",
+      title: "Overview",
+      type: "text",
+      rows: 10,
+    }),
+    defineField({
       name: "youtubeID",
       title: "YouTube ID",
       type: "string",
@@ -33,6 +39,29 @@ export default defineType({
       title: "Project Genre",
       type: "reference",
       to: { type: "genre" },
+    }),
+    defineField({
+      name: "movementGenres",
+      title: "Movement Genres",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: { type: "movementGenre" },
+        },
+      ],
+    }),
+    defineField({
+      name: "team",
+      title: "Team",
+      type: "array",
+      of: [{ type: "teamMember" }],
+    }),
+    defineField({
+      name: "workImages",
+      type: "array",
+      title: "Images",
+      of: [{ type: "workImage" }],
     }),
   ],
 });
