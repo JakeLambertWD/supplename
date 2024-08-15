@@ -88,7 +88,7 @@ function FullScreenCarousel() {
 
         <Overlay
           color="#0b0f19"
-          backgroundOpacity={0.6}
+          backgroundOpacity={0.1}
           pos="absolute"
           h={"100vh"}
           style={{ zIndex: 0 }}
