@@ -49,7 +49,9 @@ function NavigationBar() {
               label={link.label}
               h={40}
               pb={35}
-              fz="50px"
+              c="white"
+              fz="60px"
+              fw={600}
               childrenOffset={28}
               className={classes.noHoverColor}
               classNames={{ label: classes.label }}
