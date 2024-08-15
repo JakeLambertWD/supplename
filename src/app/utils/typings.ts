@@ -4,6 +4,7 @@ export interface WorkProps {
   youtubeID: string;
   logo: string;
   tileImage: string;
+  videoURL: string;
 }
 
 export interface GenreProps {

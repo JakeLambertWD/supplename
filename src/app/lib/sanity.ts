@@ -16,7 +16,7 @@ export async function getPageInfo() {
 
 export async function getLatestWork() {
   const latestWork = await client.fetch(
-    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url }'
+    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url, "videoURL": video.asset->url }'
   );
   return latestWork;
 }

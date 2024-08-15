@@ -1,14 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Flex, Group, Overlay, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import logoImage from "/public/nhs.svg";
 import LatestWork from "./LatestWork";
 import { getLatestWork } from "../lib/sanity";
 import { WorkProps } from "../utils/typings";
-import YouTube from "react-youtube";
-import classes from "./css/Project.module.css";
 import { useHover } from "@mantine/hooks";
 
 function FullScreenCarousel() {
@@ -19,8 +16,7 @@ function FullScreenCarousel() {
   const latestWorkCount = latestWork.length;
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const bgImage = activeSlide?.tileImage;
-  console.log(hovered);
+  const bgVideo = activeSlide?.videoURL;
 
   useEffect(() => {
     if (hovered) return;
@@ -38,33 +34,27 @@ function FullScreenCarousel() {
     return () => clearInterval(interval);
   }, [latestWorkCount, hovered]);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-  const opts = {
-    height: "100vh",
-    width: "100ve",
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      modestbranding: 1,
-      rel: 0,
-      showinfo: 0,
-      vq: "highres",
-    },
-  };
-
-  const onReady = (event: any) => {
-    event.target.playVideo();
-  };
-
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        <motion.img
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: -1,
+          }}
+        >
+          <source src={bgVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* <motion.img
           src={bgImage}
           alt="Picture of the author"
           style={{
@@ -75,7 +65,8 @@ function FullScreenCarousel() {
             zIndex: -1,
             y: backgroundY,
           }}
-        />
+        /> */}
+
         {/* <YouTube
           className={classes.fullscreenVideo}
           videoId={activeSlide?.youtubeID}
@@ -88,15 +79,13 @@ function FullScreenCarousel() {
 
         <Overlay
           color="#0b0f19"
-          backgroundOpacity={0.1}
+          backgroundOpacity={0.2}
           pos="absolute"
           h={"100vh"}
           style={{ zIndex: 0 }}
         />
 
         <Stack c="white" gap={0} mb={70} ml={70}>
-          {/* https://www.svgrepo.com/ */}
-
           <Group>
             <motion.p
               initial={{ opacity: 0, x: -100 }}
