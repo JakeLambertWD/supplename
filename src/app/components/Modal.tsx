@@ -33,6 +33,10 @@ function Modal({
   overview: string;
   workImages: { asset: { url: string }; alt: string }[];
 }) {
+  const paragraphs = overview
+    .split("\n")
+    .filter((paragraph) => paragraph.trim() !== "");
+
   return (
     <MantineModal
       opened={opened}
@@ -123,9 +127,13 @@ function Modal({
               scrollbarSize={1}
               scrollHideDelay={0}
               fz="sm"
-              mt="sm"
+              pr="sm"
             >
-              {overview}
+              {paragraphs.map((paragraph, index) => (
+                <p key={index} style={{ marginBottom: "1em" }}>
+                  {paragraph}
+                </p>
+              ))}
             </ScrollArea>
           </Stack>
         </Flex>
