@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Flex, Group, Overlay, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import LatestWork from "./LatestWork";
@@ -16,7 +16,9 @@ function FullScreenCarousel() {
   const latestWorkCount = latestWork.length;
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
+  const bgImage = activeSlide?.tileImage;
   const bgVideo = activeSlide?.videoURL;
+  console.log(bgVideo);
 
   useEffect(() => {
     if (hovered) return;
@@ -34,6 +36,12 @@ function FullScreenCarousel() {
     return () => clearInterval(interval);
   }, [latestWorkCount, hovered]);
 
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
@@ -50,7 +58,12 @@ function FullScreenCarousel() {
             zIndex: -1,
           }}
         >
-          <source src={bgVideo} type="video/mp4" />
+          <source
+            src={
+              "https://cdn.sanity.io/files/0s60p7qc/suppledb/eba2e8bdfa25fb02f1ba822852f0eca0e65fb6dd.mp4"
+            }
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
 
