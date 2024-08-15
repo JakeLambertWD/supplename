@@ -51,6 +51,7 @@ function Modal({
     <MantineModal
       opened={modalOpened}
       onClose={close}
+      fullScreen
       size="100vw"
       radius={0}
       p={0}
