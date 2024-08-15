@@ -114,7 +114,7 @@ function Modal({
           </Menu.Dropdown>
         </Menu>
 
-        <Flex h="65%" py={0} px={100} c="white">
+        <Flex h="60%" py={0} px={100} c="white">
           <Flex
             w="70%"
             mr="xl"
@@ -124,11 +124,26 @@ function Modal({
               borderColor: theme?.colors?.primary?.[1],
             }}
           >
-            <Image
-              src={bgImage}
-              style={{ height: "auto", width: "100%" }}
-              alt="test"
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            >
+              <source
+                src={
+                  "https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4"
+                }
+                type="video/mp4"
+              />
+            </video>
+
             <Text fz="xl" pos="absolute" top={20} left={50}>
               {description}
             </Text>
@@ -187,8 +202,8 @@ function Modal({
           </Stack>
         </Flex>
         <Group
-          h="35%"
-          pt={45}
+          h="30%"
+          pt={0}
           wrap="nowrap"
           style={{
             overflowX: "auto",
@@ -202,8 +217,8 @@ function Modal({
             <Image
               key={index}
               src={image.asset.url}
-              width={300}
-              height={160}
+              width={330}
+              height={170}
               alt={image.alt}
             />
           ))}
