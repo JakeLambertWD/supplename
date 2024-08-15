@@ -45,7 +45,7 @@ function FullScreenCarousel() {
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        <video
+        <motion.video
           autoPlay
           loop
           muted
@@ -56,6 +56,7 @@ function FullScreenCarousel() {
             height: "100%",
             objectFit: "cover",
             zIndex: -1,
+            y: backgroundY,
           }}
         >
           <source
@@ -65,7 +66,7 @@ function FullScreenCarousel() {
             type="video/mp4"
           />
           Your browser does not support the video tag.
-        </video>
+        </motion.video>
 
         {/* <motion.img
           src={bgImage}
@@ -92,7 +93,7 @@ function FullScreenCarousel() {
 
         <Overlay
           color="#0b0f19"
-          backgroundOpacity={0.2}
+          backgroundOpacity={0.1}
           pos="absolute"
           h={"100vh"}
           style={{ zIndex: 0 }}

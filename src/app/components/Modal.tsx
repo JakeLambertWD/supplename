@@ -146,37 +146,11 @@ function Modal({
             <Image
               key={index}
               src={image.asset.url}
-              width={200}
-              height={100}
-              // style={{ height: "auto", width: "22%" }}
+              width={300}
+              height={160}
               alt={image.alt}
             />
           ))}
-          <Image
-            src={bgImage}
-            style={{ height: "auto", width: "22%" }}
-            alt="test"
-          />
-          <Image
-            src={bgImage}
-            style={{ height: "auto", width: "22%" }}
-            alt="test"
-          />
-          <Image
-            src={bgImage}
-            style={{ height: "auto", width: "22%" }}
-            alt="test"
-          />
-          <Image
-            src={bgImage}
-            style={{ height: "auto", width: "22%" }}
-            alt="test"
-          />
-          <Image
-            src={bgImage}
-            style={{ height: "auto", width: "22%" }}
-            alt="test"
-          />
         </Group>
       </div>
     </MantineModal>
