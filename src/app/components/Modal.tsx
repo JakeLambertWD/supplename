@@ -1,9 +1,12 @@
 import {
   Badge,
+  Burger,
   Divider,
   Flex,
   Group,
   Modal as MantineModal,
+  Menu,
+  NavLink,
   ScrollArea,
   Stack,
   Text,
@@ -13,9 +16,12 @@ import classes from "../components/css/Project.module.css";
 import Image from "next/image";
 import bgImage from "/public/sparklers.jpg";
 import { IconX } from "@tabler/icons-react";
+import { useDisclosure } from "@mantine/hooks";
+import { navigationLinks } from "../utils/constants";
+import { usePathname } from "next/navigation";
 
 function Modal({
-  opened,
+  modalOpened,
   close,
   client,
   description,
@@ -24,7 +30,7 @@ function Modal({
   overview,
   workImages,
 }: {
-  opened: boolean;
+  modalOpened: boolean;
   close: () => void;
   client: string;
   description: string;
@@ -33,13 +39,17 @@ function Modal({
   overview: string;
   workImages: { asset: { url: string }; alt: string }[];
 }) {
+  // Split the overview into paragraphs
   const paragraphs = overview
     .split("\n")
     .filter((paragraph) => paragraph.trim() !== "");
 
+  const [opened, { toggle }] = useDisclosure();
+  const pathname = usePathname();
+
   return (
     <MantineModal
-      opened={opened}
+      opened={modalOpened}
       onClose={close}
       size="100vw"
       radius={0}
@@ -65,6 +75,45 @@ function Modal({
       }}
     >
       <div style={{ height: "92vh" }}>
+        <Menu shadow="xl" width={120}>
+          <Menu.Target>
+            <Burger
+              mr={10}
+              opened={opened}
+              onClick={toggle}
+              aria-label="Toggle navigation"
+              color="white"
+              size="sm"
+              style={{ position: "absolute", top: 35, right: 40 }}
+            />
+          </Menu.Target>
+
+          <Menu.Dropdown>
+            <Flex fz="xl" gap={5} direction="column" pt={0} pb={20}>
+              {navigationLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <NavLink
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                    h={30}
+                    // pb={30}
+                    c={isActive ? "#c41e3a" : "black"}
+                    fz="60px"
+                    fw={600}
+                    ta="center"
+                    childrenOffset={28}
+                    className={classes.noHoverColor}
+                    classNames={{ label: classes.label }}
+                  />
+                );
+              })}
+            </Flex>
+          </Menu.Dropdown>
+        </Menu>
+
         <Flex h="65%" py={0} px={100} c="white">
           <Flex
             w="70%"
@@ -137,7 +186,6 @@ function Modal({
             </ScrollArea>
           </Stack>
         </Flex>
-
         <Group
           h="35%"
           pt={45}

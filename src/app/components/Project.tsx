@@ -62,7 +62,7 @@ function Project({ work }: any) {
       </Card>
 
       <Modal
-        opened={opened}
+        modalOpened={opened}
         close={close}
         client={work.client}
         description={work.description}

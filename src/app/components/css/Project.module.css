@@ -1,5 +1,6 @@
 .header {
   background: transparent;
+  /* float: left; */
 }
 
 .content {
@@ -11,6 +12,10 @@
 
 .inner {
   padding: 75px 0px;
+}
+
+.close {
+  margin-inline-start: inherit;
 }
 
 .close svg {
@@ -49,4 +54,17 @@
   left: 0;
   width: 100%;
   height: 85%;
+}
+
+.noHoverColor {
+  border-bottom: 2px solid transparent !important;
+}
+
+.noHoverColor:hover {
+  background-color: transparent !important;
+  /* color: #c41e3a !important; */
+}
+
+.label {
+  font-size: medium;
 }
