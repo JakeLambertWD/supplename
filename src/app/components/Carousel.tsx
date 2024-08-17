@@ -18,7 +18,6 @@ function FullScreenCarousel() {
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
   const bgImage = activeSlide?.tileImage;
   const bgVideo = activeSlide?.videoURL;
-  console.log(bgVideo);
 
   useEffect(() => {
     if (hovered) return;

@@ -1,17 +1,20 @@
 import {
+  ActionIcon,
   Button,
-  Center,
+  CopyButton,
   Flex,
   Group,
-  Overlay,
+  rem,
   Stack,
   Text,
   Textarea,
   TextInput,
+  Tooltip,
 } from "@mantine/core";
 import { theme } from "../utils/theme";
-import { IconMail, IconPhone } from "@tabler/icons-react";
+import { IconCheck, IconCopy, IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
+import Copy from "./Copy";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
@@ -27,10 +30,12 @@ function Contact() {
           <Group mt={50} mb={10}>
             <IconMail size={25} strokeWidth={1.1} />
             <Text>supple@supplenam.com</Text>
+            <Copy value="supple@supplenam.com" />
           </Group>
           <Group>
             <IconPhone size={25} strokeWidth={1.1} />
-            <Text>+44 (0)7752 68 77 30</Text>
+            <Text>+447752687730</Text>
+            <Copy value="+447752687730" />
           </Group>
         </Stack>
 
