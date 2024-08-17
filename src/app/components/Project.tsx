@@ -1,65 +1,142 @@
-import { Card, Space } from "@mantine/core";
+import {
+  Card,
+  Flex,
+  Group,
+  HoverCard,
+  Popover,
+  ScrollArea,
+  Space,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { useDisclosure, useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import { IconPlayerPlayFilled } from "@tabler/icons-react";
+import {
+  IconBadge4k,
+  IconPlayerPlayFilled,
+  IconTrophy,
+  IconTrophyFilled,
+} from "@tabler/icons-react";
 import Modal from "./Modal";
+import movementGenre from "../../../sanity/schemaTypes/movementGenre";
 
 function Project({ work }: any) {
-  const { hovered, ref } = useHover();
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
-      <Card
-        ref={ref}
-        onClick={() => {
-          window.scrollTo({ top: 190, behavior: "smooth" });
-          open();
-        }}
+      <HoverCard
+        width={280}
         shadow="xl"
-        p={0}
-        radius={0}
-        w={300}
-        h={300}
-        pos="relative"
-        style={{ cursor: "pointer" }}
+        openDelay={300}
+        offset={-320}
+        position="bottom"
+        radius={4}
       >
-        <motion.img
-          whileHover={{ scale: 1.5 }}
-          transition={{ duration: 5 }}
-          src={work.tileImage}
-          alt="Norway"
-          style={{
-            objectFit: "cover",
-            width: "100%",
-            height: "100%",
+        <HoverCard.Target>
+          <Card
+            shadow="xl"
+            p={0}
+            radius={0}
+            w={300}
+            h={300}
+            pos="relative"
+            style={{ cursor: "pointer" }}
+          >
+            <motion.img
+              src={work.tileImage}
+              alt="Norway"
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </Card>
+        </HoverCard.Target>
+        <HoverCard.Dropdown
+          bg="#181818"
+          w={350}
+          h={350}
+          p={0}
+          onClick={() => {
+            window.scrollTo({ top: 190, behavior: "smooth" });
+            open();
           }}
-        />
-        {hovered && (
-          <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          style={{ border: "none", zIndex: 10, cursor: "pointer" }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             style={{
               width: "100%",
-              position: "absolute",
-              color: "white",
-              top: 0,
-              background: "rgba(0, 0, 0, 0.7)",
-              textAlign: "center",
             }}
           >
-            <p style={{ fontSize: "16px" }}>{work.client}</p>
-          </motion.div>
-        )}
+            <source
+              src={
+                "https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4"
+              }
+              type="video/mp4"
+            />
+          </video>
 
-        {hovered && (
-          <IconPlayerPlayFilled
-            color="white"
-            style={{ position: "absolute", bottom: 20, right: 20 }}
-          />
-        )}
-      </Card>
+          <Stack gap={0} px="lg">
+            <Group justify="space-between">
+              <Text c="#bcbcbc">{work.client}</Text>
+              <IconPlayerPlayFilled
+                size={25}
+                color="#bcbcbc"
+                style={{ marginTop: 10 }}
+              />
+            </Group>
+            <Group
+              wrap="nowrap"
+              style={{ overflowX: "auto", scrollbarWidth: "none" }}
+            >
+              <Text
+                fz="xl"
+                c="#bcbcbc"
+                mb="xs"
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {work.description}
+              </Text>
+              <IconBadge4k
+                size={25}
+                color="white"
+                strokeWidth={0.6}
+                style={{ marginBottom: 8 }}
+              />
+            </Group>
+
+            <IconTrophy size={19} strokeWidth={0.8} color="orange" />
+
+            <Flex
+              gap={10}
+              mt="xs"
+              wrap="nowrap"
+              w={310}
+              style={{ overflowX: "auto", scrollbarWidth: "none" }}
+            >
+              {work.movementGenres.map((genre: any, index: number) => {
+                return (
+                  <Group key={index} gap={10} wrap="nowrap">
+                    <Text fz="md" c="white" style={{ whiteSpace: "nowrap" }}>
+                      {genre.name}
+                    </Text>
+
+                    {index !== work.movementGenres.length - 1 && (
+                      <Text c="#bcbcbc">-</Text>
+                    )}
+                  </Group>
+                );
+              })}
+            </Flex>
+          </Stack>
+        </HoverCard.Dropdown>
+      </HoverCard>
 
       <Modal
         modalOpened={opened}

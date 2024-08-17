@@ -30,7 +30,7 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body className={electrolize.className} style={{ background: "#060e11" }}>
+      <body className={electrolize.className} style={{ background: "#141414" }}>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
