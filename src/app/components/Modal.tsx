@@ -1,23 +1,19 @@
 import {
   Badge,
-  Burger,
   Divider,
   Flex,
   Group,
   Modal as MantineModal,
-  Menu,
-  NavLink,
   ScrollArea,
   Stack,
   Text,
 } from "@mantine/core";
 import { theme } from "../utils/theme";
 import classes from "../components/css/Project.module.css";
-import Image from "next/image";
 import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
-import { useDisclosure } from "@mantine/hooks";
-import { navigationLinks } from "../utils/constants";
-import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import Dropdown from "./Dropdown";
+import VideoPlayer from "./VideoPlayer";
 
 function Modal({
   modalOpened,
@@ -32,9 +28,6 @@ function Modal({
   activeWork: number;
   setActiveWork: (index: number) => void;
 }) {
-  const [opened, { toggle }] = useDisclosure();
-  const pathname = usePathname();
-
   const work = worksByGenre[activeWork];
 
   // split the overview into paragraphs
@@ -87,45 +80,7 @@ function Modal({
       }}
     >
       <div style={{ height: "92vh" }}>
-        <Menu shadow="xl" width={120}>
-          <Menu.Target>
-            <Burger
-              mr={10}
-              opened={opened}
-              onClick={toggle}
-              aria-label="Toggle navigation"
-              color="white"
-              size="sm"
-              style={{ position: "absolute", top: 35, right: 40 }}
-            />
-          </Menu.Target>
-
-          <Menu.Dropdown>
-            <Flex fz="xl" gap={5} direction="column" pt={0} pb={20}>
-              {navigationLinks.map((link) => {
-                const isActive = pathname === link.href;
-
-                return (
-                  <NavLink
-                    key={link.href}
-                    href={link.href}
-                    label={link.label}
-                    h={30}
-                    // pb={30}
-                    c={isActive ? "#c41e3a" : "black"}
-                    fz="60px"
-                    fw={600}
-                    ta="center"
-                    childrenOffset={28}
-                    className={classes.noHoverColor}
-                    classNames={{ label: classes.label }}
-                  />
-                );
-              })}
-            </Flex>
-          </Menu.Dropdown>
-        </Menu>
-
+        <Dropdown />
         <Flex h="60%" py={0} px={100} c="white">
           <IconChevronLeft
             size={40}
@@ -144,29 +99,12 @@ function Modal({
               borderColor: theme?.colors?.primary?.[1],
             }}
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            >
-              <source
-                src={
-                  "https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4"
-                }
-                type="video/mp4"
-              />
-            </video>
+            <VideoPlayer source="https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4" />
 
             <Text fz="xl" pos="absolute" top={20} left={50}>
               {work.description}
             </Text>
+
             {work.movementGenres && (
               <Group fz="xs" pos="absolute" bottom={20} right={20}>
                 {work.movementGenres.map((genre: any, index: number) => {
@@ -196,7 +134,7 @@ function Modal({
                     <Text fz="11px" fw={600}>
                       <span style={{ opacity: 0.5, fontStyle: "italic" }}>
                         {member.role}:
-                      </span>{" "}
+                      </span>
                       {member.name}
                     </Text>
                   </Group>
@@ -228,6 +166,7 @@ function Modal({
             style={{ cursor: "pointer", marginLeft: 20 }}
           />
         </Flex>
+
         <Group
           h="30%"
           pt={0}
@@ -237,16 +176,17 @@ function Modal({
             scrollbarWidth: "none",
             msOverflowStyle: "none",
             WebkitOverflowScrolling: "touch",
-            // "&::-webkit-scrollbar": { display: "none" },
           }}
         >
           {work.workImages?.map((image: any, index: number) => (
-            <Image
+            <motion.img
               key={index}
               src={image.asset.url}
               width={330}
               height={170}
               alt={image.alt}
+              whileHover={{ scale: 1.5 }}
+              style={{ transition: "transform 0.3s ease" }}
             />
           ))}
         </Group>
