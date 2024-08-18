@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+.customModal {
+  background: #141414 !important;
+}
+
 .inner {
   padding: 75px 0px;
 }

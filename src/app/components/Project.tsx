@@ -140,7 +140,7 @@ function Project({
 
       <Modal
         modalOpened={opened}
-        close={close}
+        modalClose={close}
         activeWork={activeWork}
         setActiveWork={setActiveWork}
         worksByGenre={worksByGenre}

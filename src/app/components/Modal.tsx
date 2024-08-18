@@ -12,24 +12,27 @@ import {
 import { theme } from "../utils/theme";
 import classes from "../components/css/Project.module.css";
 import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
-import { motion } from "framer-motion";
 import Dropdown from "./Dropdown";
 import VideoPlayer from "./VideoPlayer";
 import { FooterSocial } from "./Footer";
+import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
 
 function Modal({
   modalOpened,
-  close,
+  modalClose,
   worksByGenre,
   activeWork,
   setActiveWork,
 }: {
   modalOpened: boolean;
-  close: () => void;
+  modalClose: () => void;
   worksByGenre: any;
   activeWork: number;
   setActiveWork: (index: number) => void;
 }) {
+  const [activeWorkImage, setActiveWorkImage] = useState(0);
+  const [opened, { open, close }] = useDisclosure(false);
   const work = worksByGenre[activeWork];
 
   // split the overview into paragraphs
@@ -56,7 +59,7 @@ function Modal({
   return (
     <MantineModal
       opened={modalOpened}
-      onClose={close}
+      onClose={modalClose}
       fullScreen
       size="100vw"
       radius={0}
@@ -185,13 +188,50 @@ function Modal({
           }
         >
           {work.workImages?.map((image: any, index: number) => (
-            <img
-              key={index}
-              src={image.asset.url}
-              width={330}
-              height={170}
-              alt={image.alt}
-            />
+            <>
+              <img
+                key={index}
+                onClick={() => {
+                  open();
+                  setActiveWorkImage(index);
+                }}
+                src={image.asset.url}
+                width={330}
+                height={170}
+                alt={image.alt}
+              />
+
+              <MantineModal
+                opened={opened}
+                onClose={close}
+                fullScreen
+                classNames={{
+                  content: classes.customModal,
+                  header: classes.customModal,
+                }}
+              >
+                <Group w="100%" h="100%" align="center" justify="center">
+                  <IconChevronLeft
+                    size={40}
+                    color="white"
+                    onClick={close}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <img
+                    key={index}
+                    src={work.workImages[activeWorkImage].asset.url}
+                    width={"90%"}
+                    alt={image.alt}
+                  />
+                  <IconChevronRight
+                    size={40}
+                    color="white"
+                    onClick={close}
+                    style={{ cursor: "pointer" }}
+                  />
+                </Group>
+              </MantineModal>
+            </>
           ))}
         </Group>
         <FooterSocial />
