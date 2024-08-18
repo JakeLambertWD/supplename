@@ -14,8 +14,7 @@ import {
 import { theme } from "../utils/theme";
 import classes from "../components/css/Project.module.css";
 import Image from "next/image";
-import bgImage from "/public/sparklers.jpg";
-import { IconX } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 import { navigationLinks } from "../utils/constants";
 import { usePathname } from "next/navigation";
@@ -23,29 +22,41 @@ import { usePathname } from "next/navigation";
 function Modal({
   modalOpened,
   close,
-  client,
-  description,
-  team,
-  movementGenres,
-  overview,
-  workImages,
+  worksByGenre,
+  activeWork,
+  setActiveWork,
 }: {
   modalOpened: boolean;
   close: () => void;
-  client: string;
-  description: string;
-  team: { role: string; name: string }[];
-  movementGenres: string[];
-  overview: string;
-  workImages: { asset: { url: string }; alt: string }[];
+  worksByGenre: any;
+  activeWork: number;
+  setActiveWork: (index: number) => void;
 }) {
-  // Split the overview into paragraphs
-  const paragraphs = overview
-    .split("\n")
-    .filter((paragraph) => paragraph.trim() !== "");
-
   const [opened, { toggle }] = useDisclosure();
   const pathname = usePathname();
+
+  const work = worksByGenre[activeWork];
+
+  // split the overview into paragraphs
+  const paragraphs = work.overview
+    .split("\n")
+    .filter((paragraph: string) => paragraph.trim() !== "");
+
+  const nextWork = () => {
+    if (activeWork < worksByGenre.length - 1) {
+      setActiveWork(activeWork + 1);
+    } else {
+      setActiveWork(0);
+    }
+  };
+
+  const prevWork = () => {
+    if (activeWork > 0) {
+      setActiveWork(activeWork - 1);
+    } else {
+      setActiveWork(worksByGenre.length - 1);
+    }
+  };
 
   return (
     <MantineModal
@@ -116,6 +127,14 @@ function Modal({
         </Menu>
 
         <Flex h="60%" py={0} px={100} c="white">
+          <IconChevronLeft
+            size={40}
+            color={"white"}
+            onClick={() => prevWork()}
+            strokeWidth={1.5}
+            style={{ cursor: "pointer", marginRight: 20 }}
+          />
+
           <Flex
             w="70%"
             mr="xl"
@@ -146,11 +165,11 @@ function Modal({
             </video>
 
             <Text fz="xl" pos="absolute" top={20} left={50}>
-              {description}
+              {work.description}
             </Text>
-            {movementGenres && (
+            {work.movementGenres && (
               <Group fz="xs" pos="absolute" bottom={20} right={20}>
-                {movementGenres.map((genre: any, index) => {
+                {work.movementGenres.map((genre: any, index: number) => {
                   return (
                     <Badge
                       key={index}
@@ -168,11 +187,11 @@ function Modal({
 
           <Stack w="30%">
             <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
-            <Text fz="xl">{client}</Text>
+            <Text fz="xl">{work.client}</Text>
 
-            {team && (
+            {work.team && (
               <Group gap={10}>
-                {team.map((member, index) => (
+                {work.team.map((member: any, index: number) => (
                   <Group key={index}>
                     <Text fz="11px" fw={600}>
                       <span style={{ opacity: 0.5, fontStyle: "italic" }}>
@@ -194,13 +213,20 @@ function Modal({
               fz="sm"
               pr="sm"
             >
-              {paragraphs.map((paragraph, index) => (
+              {paragraphs.map((paragraph: string, index: number) => (
                 <p key={index} style={{ marginBottom: "1em" }}>
                   {paragraph}
                 </p>
               ))}
             </ScrollArea>
           </Stack>
+          <IconChevronRight
+            size={40}
+            color={"white"}
+            onClick={() => nextWork()}
+            strokeWidth={1.5}
+            style={{ cursor: "pointer", marginLeft: 20 }}
+          />
         </Flex>
         <Group
           h="30%"
@@ -214,7 +240,7 @@ function Modal({
             // "&::-webkit-scrollbar": { display: "none" },
           }}
         >
-          {workImages?.map((image, index) => (
+          {work.workImages?.map((image: any, index: number) => (
             <Image
               key={index}
               src={image.asset.url}

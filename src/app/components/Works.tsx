@@ -10,6 +10,7 @@ function Works() {
   const [active, setActive] = useState(0);
   const [genres, setGenres] = useState<GenreProps[]>([]);
   const [works, setWorks] = useState<WorksProps[]>([]);
+  const [activeWork, setActiveWork] = useState(0);
 
   const activeGenre = genres[active];
 
@@ -26,7 +27,7 @@ function Works() {
       setWorks(workData);
     };
     fetchData();
-  }, []);
+  }, [activeWork]);
 
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
@@ -58,7 +59,14 @@ function Works() {
 
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3, xl: 4 }}>
           {worksByGenre.map((work, index) => (
-            <Project key={index} work={work} />
+            <Project
+              key={index}
+              work={work}
+              workIndex={index}
+              activeWork={activeWork}
+              setActiveWork={setActiveWork}
+              worksByGenre={worksByGenre}
+            />
           ))}
         </SimpleGrid>
         <Space h={100} />

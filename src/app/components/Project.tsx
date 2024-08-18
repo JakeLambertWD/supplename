@@ -1,26 +1,20 @@
-import {
-  Card,
-  Flex,
-  Group,
-  HoverCard,
-  Popover,
-  ScrollArea,
-  Space,
-  Stack,
-  Text,
-} from "@mantine/core";
-import { useDisclosure, useHover } from "@mantine/hooks";
+import { Card, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import {
   IconBadge4k,
   IconPlayerPlayFilled,
   IconTrophy,
-  IconTrophyFilled,
 } from "@tabler/icons-react";
 import Modal from "./Modal";
-import movementGenre from "../../../sanity/schemaTypes/movementGenre";
 
-function Project({ work }: any) {
+function Project({
+  work,
+  workIndex,
+  activeWork,
+  setActiveWork,
+  worksByGenre,
+}: any) {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
@@ -28,7 +22,7 @@ function Project({ work }: any) {
       <HoverCard
         width={280}
         shadow="xl"
-        openDelay={300}
+        openDelay={400}
         offset={-320}
         position="bottom"
         radius={4}
@@ -41,6 +35,11 @@ function Project({ work }: any) {
             w={300}
             h={300}
             pos="relative"
+            onClick={() => {
+              setActiveWork(workIndex);
+              window.scrollTo({ top: 190, behavior: "smooth" });
+              open();
+            }}
             style={{ cursor: "pointer" }}
           >
             <motion.img
@@ -60,6 +59,7 @@ function Project({ work }: any) {
           h={350}
           p={0}
           onClick={() => {
+            setActiveWork(workIndex);
             window.scrollTo({ top: 190, behavior: "smooth" });
             open();
           }}
@@ -141,12 +141,9 @@ function Project({ work }: any) {
       <Modal
         modalOpened={opened}
         close={close}
-        client={work.client}
-        description={work.description}
-        team={work.team}
-        movementGenres={work.movementGenres}
-        overview={work.overview}
-        workImages={work.workImages}
+        activeWork={activeWork}
+        setActiveWork={setActiveWork}
+        worksByGenre={worksByGenre}
       />
     </>
   );
