@@ -5,6 +5,7 @@ import {
   Group,
   Modal as MantineModal,
   ScrollArea,
+  Space,
   Stack,
   Text,
 } from "@mantine/core";
@@ -14,6 +15,7 @@ import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Dropdown from "./Dropdown";
 import VideoPlayer from "./VideoPlayer";
+import { FooterSocial } from "./Footer";
 
 function Modal({
   modalOpened,
@@ -133,7 +135,7 @@ function Modal({
                   <Group key={index}>
                     <Text fz="11px" fw={600}>
                       <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                        {member.role}:
+                        {member.role}: &nbsp;
                       </span>
                       {member.name}
                     </Text>
@@ -168,28 +170,32 @@ function Modal({
         </Flex>
 
         <Group
-          h="30%"
+          mt={30}
+          justify="center"
+          // h="30%"
           pt={0}
-          wrap="nowrap"
-          style={{
-            overflowX: "auto",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            WebkitOverflowScrolling: "touch",
-          }}
+          // wrap="nowrap"
+          style={
+            {
+              // overflowX: "auto",
+              // scrollbarWidth: "none",
+              // msOverflowStyle: "none",
+              // WebkitOverflowScrolling: "touch",
+            }
+          }
         >
           {work.workImages?.map((image: any, index: number) => (
-            <motion.img
+            <img
               key={index}
               src={image.asset.url}
               width={330}
               height={170}
               alt={image.alt}
-              whileHover={{ scale: 1.5 }}
-              style={{ transition: "transform 0.3s ease" }}
             />
           ))}
         </Group>
+        <FooterSocial />
+        <Space h={50} />
       </div>
     </MantineModal>
   );

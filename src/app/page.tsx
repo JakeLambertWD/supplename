@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import SocialIcons from "./components/SocialIcons";
 import NavigationBar from "./components/NavigationBar";
 import { FooterSocial } from "./components/Footer";
-import { getLatestWork, getPageInfo } from "./lib/sanity";
+import { getPageInfo } from "./lib/sanity";
 
 export default function Home() {
   const [pageInfo, setPageInfo] = useState<any>({});
