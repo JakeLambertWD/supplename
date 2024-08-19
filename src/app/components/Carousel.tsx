@@ -18,6 +18,7 @@ function FullScreenCarousel() {
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
   const bgImage = activeSlide?.tileImage;
   const bgVideo = activeSlide?.videoURL;
+  console.log(bgVideo);
 
   useEffect(() => {
     if (hovered) return;
@@ -60,35 +61,12 @@ function FullScreenCarousel() {
         >
           <source
             src={
-              "https://cdn.sanity.io/files/0s60p7qc/suppledb/eba2e8bdfa25fb02f1ba822852f0eca0e65fb6dd.mp4"
+              "https://cdn.sanity.io/files/0s60p7qc/suppledb/118d51671b5c7b0f4a11e6397cac43058f292ffa.mp4"
             }
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </motion.video>
-
-        {/* <motion.img
-          src={bgImage}
-          alt="Picture of the author"
-          style={{
-            width: "100vw",
-            height: "100vh",
-            objectFit: "cover",
-            position: "absolute",
-            zIndex: -1,
-            y: backgroundY,
-          }}
-        /> */}
-
-        {/* <YouTube
-          className={classes.fullscreenVideo}
-          videoId={activeSlide?.youtubeID}
-          opts={opts}
-          onReady={onReady}
-          style={{
-            y: backgroundY,
-          }}
-        /> */}
 
         <Overlay
           color="#0b0f19"

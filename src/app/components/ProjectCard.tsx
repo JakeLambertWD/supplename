@@ -47,7 +47,7 @@ const ProjectCard = ({
             {active !== index && !hovered && (
               <Overlay
                 color="#0b0f19"
-                backgroundOpacity={0.6}
+                backgroundOpacity={0.2}
                 pos="absolute"
                 h={"100%"}
                 style={{ zIndex: 0 }}
