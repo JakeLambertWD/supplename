@@ -5,17 +5,19 @@ import latestWork from "./schemaTypes/latestWork";
 import work from "./schemaTypes/work";
 import genre from "./schemaTypes/genre";
 import movementGenre from "./schemaTypes/movementGenre";
-import teamMember from "./schemaTypes/teamMember";
 import workImage from "./schemaTypes/workImage";
+import award from "./schemaTypes/award";
+import teamMember from "./schemaTypes/teamMember";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    pageInfo,
     latestWork,
+    pageInfo,
     work,
     genre,
     movementGenre,
-    teamMember,
     workImage,
+    teamMember,
+    award,
   ],
 };

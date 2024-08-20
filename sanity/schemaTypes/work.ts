@@ -63,5 +63,11 @@ export default defineType({
       title: "Images",
       of: [{ type: "workImage" }],
     }),
+    defineField({
+      name: "award",
+      title: "Award",
+      type: "array",
+      of: [{ type: "awards" }],
+    }),
   ],
 });
