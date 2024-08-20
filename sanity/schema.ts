@@ -8,6 +8,7 @@ import movementGenre from "./schemaTypes/movementGenre";
 import workImage from "./schemaTypes/workImage";
 import award from "./schemaTypes/award";
 import teamMember from "./schemaTypes/teamMember";
+import awardsPage from "./schemaTypes/awardsPage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -19,5 +20,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     workImage,
     teamMember,
     award,
+    awardsPage,
   ],
 };

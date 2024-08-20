@@ -18,3 +18,9 @@ export interface WorksProps {
   tileImage: string;
   projectGenre: GenreProps;
 }
+
+export interface AwardProps {
+  name: string;
+  order: string;
+  work: WorksProps;
+}

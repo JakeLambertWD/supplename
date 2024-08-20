@@ -32,3 +32,10 @@ export async function getWorks() {
   );
   return works;
 }
+
+export async function getAwards() {
+  const awards = await client.fetch(
+    '*[_type == "awardsPage"] { name, order, work->{ client, description, overview, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
+  );
+  return awards;
+}
