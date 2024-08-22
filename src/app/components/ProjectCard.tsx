@@ -44,18 +44,27 @@ const ProjectCard = ({
               alt="Norway"
             />
 
-            {active !== index && !hovered && (
+            {/* This is the overlay that appears when the card is not active */}
+            {/* {active !== index && !hovered && (
               <Overlay
                 color="#0b0f19"
-                backgroundOpacity={0.2}
+                backgroundOpacity={0}
                 pos="absolute"
                 h={"100%"}
                 style={{ zIndex: 0 }}
               />
-            )}
+            )} */}
           </Card.Section>
         </Card>
-        {active === index && <Divider mt="xs" color={"white"} h={1} w={50} />}
+        {active === index && (
+          <Divider
+            mt="xs"
+            color={"white"}
+            h={1}
+            w={50}
+            style={{ border: "2px white solid", borderRadius: "10%" }}
+          />
+        )}
       </Stack>
     </motion.div>
   );
