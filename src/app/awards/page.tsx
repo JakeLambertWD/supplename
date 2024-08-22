@@ -8,10 +8,10 @@ import { theme } from "../utils/theme";
 import { FooterSocial } from "../components/Footer";
 import { useEffect, useState } from "react";
 import { getAwards } from "../lib/sanity";
-import { AwardProps } from "../utils/typings";
+import { AwardPageProps } from "../utils/typings";
 
 function page() {
-  const [awards, setAwards] = useState<AwardProps[]>([]);
+  const [awards, setAwards] = useState<AwardPageProps[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

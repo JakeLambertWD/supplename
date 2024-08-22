@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 
 function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
   const { scrollYProgress } = useScroll({

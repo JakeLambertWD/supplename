@@ -1,6 +1,6 @@
 export interface HomePageWorkProps {
   name: string;
-  order: string;
+  order: number;
   featuredWork: WorkProps;
 }
 
@@ -21,4 +21,10 @@ export interface GenreProps {
 export interface AwardProps {
   title: string;
   year: string;
+}
+
+export interface AwardPageProps {
+  name: string;
+  order: number;
+  work: WorkProps;
 }
