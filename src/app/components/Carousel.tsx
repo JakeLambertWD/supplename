@@ -20,14 +20,17 @@ function FullScreenCarousel() {
   const bgVideo = activeSlide?.videoURL;
 
   useEffect(() => {
+    // If the user is hovering over the carousel, don't autoplay the videos
     if (hovered) return;
 
+    // Fetch the latest work from Sanity
     const fetchData = async () => {
       const latestWork = await getLatestWork();
       setLatestWork(latestWork);
     };
     fetchData();
 
+    // Set an interval to autoplay the videos
     const interval = setInterval(() => {
       setNextVideo(
         latestWork[(active + 1) % latestWorkCount]?.videoURL || null
