@@ -1,32 +1,24 @@
-export interface WorkProps {
-  title: string;
-  client: string;
-  youtubeID: string;
-  logo: string;
-  tileImage: string;
-  videoURL: string;
+export interface HomePageWorkProps {
+  name: string;
+  order: string;
+  featuredWork: WorkProps;
 }
 
+export interface WorkProps {
+  client: string;
+  description: string;
+  overview: string;
+  projectGenre: GenreProps;
+  tileImage: string;
+  videoURL: string;
+  youtubeID: string;
+  award: AwardProps[];
+}
 export interface GenreProps {
   name: string;
 }
 
-export interface WorksProps {
-  client: string;
-  title: string;
-  youtubeID: string;
-  tileImage: string;
-  projectGenre: GenreProps;
-  award: [
-    {
-      year: string;
-      title: string;
-    },
-  ];
-}
-
 export interface AwardProps {
-  name: string;
-  order: string;
-  work: WorksProps;
+  title: string;
+  year: string;
 }
