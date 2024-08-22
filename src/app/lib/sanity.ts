@@ -35,7 +35,14 @@ export async function getWorks() {
 
 export async function getAwards() {
   const awards = await client.fetch(
-    '*[_type == "awardsPage"] { name, order, work->{ client, description, overview, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
+    '*[_type == "awardsPage"] { name, order, work->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
   );
   return awards;
+}
+
+export async function getHomePage() {
+  const homePage = await client.fetch(
+    '*[_type == "homePage"] { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
+  );
+  return homePage;
 }
