@@ -14,11 +14,10 @@ function FullScreenCarousel() {
   const [latestWork, setLatestWork] = useState<WorkProps[]>([]);
   const { hovered, ref: hoverRef } = useHover();
   const latestWorkCount = latestWork.length;
+  const [nextVideo, setNextVideo] = useState<string | null>(null);
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const bgImage = activeSlide?.tileImage;
   const bgVideo = activeSlide?.videoURL;
-  console.log(bgVideo);
 
   useEffect(() => {
     if (hovered) return;
@@ -30,7 +29,13 @@ function FullScreenCarousel() {
     fetchData();
 
     const interval = setInterval(() => {
-      setActive((prevActive) => (prevActive + 1) % latestWorkCount);
+      setNextVideo(
+        latestWork[(active + 1) % latestWorkCount]?.videoURL || null
+      );
+      setTimeout(() => {
+        setActive((prevActive) => (prevActive + 1) % latestWorkCount);
+        setNextVideo(null);
+      }, 500);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -45,32 +50,32 @@ function FullScreenCarousel() {
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        <motion.video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: -1,
-            y: backgroundY,
-          }}
-        >
-          <source
-            src={
-              "https://cdn.sanity.io/files/0s60p7qc/suppledb/118d51671b5c7b0f4a11e6397cac43058f292ffa.mp4"
-            }
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </motion.video>
+        {bgVideo && (
+          <motion.video
+            key={bgVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              zIndex: -1,
+              y: backgroundY,
+              opacity: nextVideo ? 0 : 1,
+              transition: "opacity 0.1s ease-in-out",
+            }}
+          >
+            <source src={bgVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </motion.video>
+        )}
 
         <Overlay
           color="#0b0f19"
-          backgroundOpacity={0.1}
+          backgroundOpacity={0.3}
           pos="absolute"
           h={"100vh"}
           style={{ zIndex: 0 }}
