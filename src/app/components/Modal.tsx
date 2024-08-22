@@ -104,7 +104,7 @@ function Modal({
               borderColor: theme?.colors?.primary?.[1],
             }}
           >
-            <VideoPlayer source="https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4" />
+            <VideoPlayer source={work.videoURL} />
 
             <Text fz="xl" pos="absolute" top={20} left={50}>
               {work.description}

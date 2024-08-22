@@ -74,12 +74,7 @@ function Project({
               width: "100%",
             }}
           >
-            <source
-              src={
-                "https://cdn.sanity.io/files/0s60p7qc/suppledb/a2dc5a480192216464712651ccdedc7ed50e7585.mp4"
-              }
-              type="video/mp4"
-            />
+            <source src={work.videoURL} type="video/mp4" />
           </video>
 
           <Stack gap={0} px="lg">

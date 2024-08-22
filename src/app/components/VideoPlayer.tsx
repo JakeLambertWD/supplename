@@ -1,6 +1,7 @@
 function VideoPlayer({ source }: { source: string }) {
   return (
     <video
+      key={source}
       autoPlay
       loop
       muted
