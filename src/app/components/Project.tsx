@@ -106,7 +106,12 @@ function Project({
               />
             </Group>
 
-            <IconTrophy size={19} strokeWidth={0.8} color="orange" />
+            {
+              // @ts-ignore
+              work.award && (
+                <IconTrophy size={19} strokeWidth={0.8} color="orange" />
+              )
+            }
 
             <Flex
               gap={10}
