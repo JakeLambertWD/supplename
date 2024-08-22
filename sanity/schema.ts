@@ -12,14 +12,14 @@ import homePage from "./schemaTypes/homePage";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    pageInfo,
-    work,
-    genre,
-    movementGenre,
-    workImage,
-    teamMember,
-    award,
     homePage,
     awardsPage,
+    work,
+    genre,
+    award,
+    movementGenre,
+    teamMember,
+    pageInfo,
+    workImage,
   ],
 };
