@@ -1,23 +1,26 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Flex, Group, Overlay, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import LatestWork from "./LatestWork";
-import { getLatestWork } from "../lib/sanity";
-import { WorkProps } from "../utils/typings";
+import { getHomePage } from "../lib/sanity";
+import { HomePageWorkProps } from "../utils/typings";
 import { useHover } from "@mantine/hooks";
+import CarouselVideoPlayer from "./CarouselVideoPlayer";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
-  const [active, setActive] = useState(0);
-  const [latestWork, setLatestWork] = useState<WorkProps[]>([]);
   const { hovered, ref: hoverRef } = useHover();
-  const latestWorkCount = latestWork.length;
+
+  const [active, setActive] = useState(0);
+  const [latestWork, setLatestWork] = useState<HomePageWorkProps[]>([]);
   const [nextVideo, setNextVideo] = useState<string | null>(null);
 
   const activeSlide = latestWork.filter((work, index) => index === active)[0];
-  const bgVideo = activeSlide?.videoURL;
+  const featuredWork = activeSlide?.featuredWork;
+
+  const latestWorkCount = latestWork.length;
 
   useEffect(() => {
     // If the user is hovering over the carousel, don't autoplay the videos
@@ -25,16 +28,23 @@ function FullScreenCarousel() {
 
     // Fetch the latest work from Sanity
     const fetchData = async () => {
-      const latestWork = await getLatestWork();
-      setLatestWork(latestWork);
+      // const latestWork = await getLatestWork();
+      const latestWork = await getHomePage();
+      // latestWork has a property of order, which is a number that we can use to sort the projects
+      const sortLatestWorkByOrder = latestWork.sort(
+        (a: any, b: any) => a.order - b.order
+      );
+      setLatestWork(sortLatestWorkByOrder);
     };
     fetchData();
 
     // Set an interval to autoplay the videos
     const interval = setInterval(() => {
       setNextVideo(
-        latestWork[(active + 1) % latestWorkCount]?.videoURL || null
+        latestWork[(active + 1) % latestWorkCount]?.featuredWork?.videoURL ||
+          null
       );
+
       setTimeout(() => {
         setActive((prevActive) => (prevActive + 1) % latestWorkCount);
         setNextVideo(null);
@@ -44,37 +54,14 @@ function FullScreenCarousel() {
     return () => clearInterval(interval);
   }, [latestWorkCount, hovered]);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
   return (
     <>
       <Flex ref={ref} h="100vh" align="flex-end">
-        {bgVideo && (
-          <motion.video
-            key={bgVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              zIndex: -1,
-              y: backgroundY,
-              opacity: nextVideo ? 0 : 1,
-              transition: "opacity 0.5s ease-in-out",
-            }}
-          >
-            <source src={bgVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </motion.video>
-        )}
+        <CarouselVideoPlayer
+          nextVideo={nextVideo}
+          featuredWork={featuredWork}
+          ref={ref}
+        />
 
         <Overlay
           color="#0b0f19"
@@ -98,7 +85,7 @@ function FullScreenCarousel() {
                 zIndex: 20,
               }}
             >
-              {activeSlide?.client}
+              {featuredWork?.client}
             </motion.p>
           </Group>
 
@@ -108,10 +95,11 @@ function FullScreenCarousel() {
             transition={{ duration: 1, delay: 2 }}
             style={{ fontSize: 25, margin: 0, color: "white", zIndex: 20 }}
           >
-            {activeSlide?.title}
+            {featuredWork?.description}
           </motion.p>
         </Stack>
       </Flex>
+
       <LatestWork
         hoverRef={hoverRef}
         active={active}
