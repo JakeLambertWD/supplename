@@ -22,6 +22,14 @@ export default defineType({
       rows: 10,
     }),
     defineField({
+      name: "video",
+      title: "Video",
+      type: "file",
+      options: {
+        accept: "video/*",
+      },
+    }),
+    defineField({
       name: "youtubeID",
       title: "YouTube ID",
       type: "string",
