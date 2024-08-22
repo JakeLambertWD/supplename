@@ -34,7 +34,7 @@ function NavigationBar() {
         width={200}
         height={50}
         quality={100}
-        alt="Norway"
+        alt="image"
         style={{ cursor: "pointer" }}
       />
 

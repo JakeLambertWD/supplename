@@ -4,12 +4,12 @@ import { Container, Flex, SimpleGrid, Space, Stack, Text } from "@mantine/core";
 import Project from "./Project";
 import { useEffect, useState } from "react";
 import { getGenres, getWorks } from "../lib/sanity";
-import { GenreProps, WorksProps } from "../utils/typings";
+import { GenreProps, WorkProps } from "../utils/typings";
 
 function Works() {
   const [active, setActive] = useState(0);
   const [genres, setGenres] = useState<GenreProps[]>([]);
-  const [works, setWorks] = useState<WorksProps[]>([]);
+  const [works, setWorks] = useState<WorkProps[]>([]);
   const [activeWork, setActiveWork] = useState(0);
 
   const activeGenre = genres[active];

@@ -44,7 +44,7 @@ function Project({
           >
             <motion.img
               src={work.tileImage}
-              alt="Norway"
+              alt="Image"
               style={{
                 objectFit: "cover",
                 width: "100%",

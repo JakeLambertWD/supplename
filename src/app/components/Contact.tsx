@@ -1,18 +1,14 @@
 import {
-  ActionIcon,
   Button,
-  CopyButton,
   Flex,
   Group,
-  rem,
   Stack,
   Text,
   Textarea,
   TextInput,
-  Tooltip,
 } from "@mantine/core";
 import { theme } from "../utils/theme";
-import { IconCheck, IconCopy, IconMail, IconPhone } from "@tabler/icons-react";
+import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
 

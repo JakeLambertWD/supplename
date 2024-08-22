@@ -1,11 +1,11 @@
 import { Flex } from "@mantine/core";
 import ProjectCard from "./ProjectCard";
-import { WorkProps } from "../utils/typings";
+import { HomePageWorkProps } from "../utils/typings";
 
 interface LatestWorkProps {
   active: number;
   setActive: (value: number) => void;
-  latestWork: WorkProps[];
+  latestWork: HomePageWorkProps[];
   hoverRef: any;
 }
 
@@ -33,7 +33,7 @@ function LatestWork({
             index={index}
             active={active}
             setActive={setActive}
-            image={work.tileImage}
+            image={work.featuredWork.tileImage}
           />
         );
       })}

@@ -31,6 +31,8 @@ function Dropdown() {
             return (
               <NavLink
                 key={link.href}
+                classNames={{ label: classes.label }}
+                className={classes.noHoverColor}
                 href={link.href}
                 label={link.label}
                 h={30}
@@ -40,8 +42,6 @@ function Dropdown() {
                 fw={600}
                 ta="center"
                 childrenOffset={28}
-                className={classes.noHoverColor}
-                classNames={{ label: classes.label }}
               />
             );
           })}

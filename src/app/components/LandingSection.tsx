@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Center, Group, Modal, Stack, Text } from "@mantine/core";
 import { theme } from "../utils/theme";
 import { useDisclosure } from "@mantine/hooks";

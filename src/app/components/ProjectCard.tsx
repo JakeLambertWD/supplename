@@ -41,7 +41,7 @@ const ProjectCard = ({
               fill={true}
               quality={100}
               objectFit="cover"
-              alt="Norway"
+              alt="Image"
             />
 
             {/* This is the overlay that appears when the card is not active */}

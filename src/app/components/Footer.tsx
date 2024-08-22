@@ -1,4 +1,4 @@
-import { Container, Group, Text, Stack, Divider, Flex } from "@mantine/core";
+import { Container, Group, Text, Stack, Divider } from "@mantine/core";
 import {
   IconBrandFacebook,
   IconBrandTwitter,
