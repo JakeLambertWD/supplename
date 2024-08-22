@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Center, Flex, Space, Stack, Text } from "@mantine/core";
+import { Button, Flex, Grid, Space, Stack, Text } from "@mantine/core";
 import NavigationBar from "../components/NavigationBar";
 import Image from "next/image";
 import bgImage from "/public/sparklers.jpg";
@@ -20,7 +20,6 @@ function page() {
     };
     fetchData();
   }, []);
-
   console.log(awards);
 
   return (
@@ -32,79 +31,53 @@ function page() {
         Awards
       </Text>
       <Stack gap={0}>
-        {awards?.map((award) => {
+        {awards?.map((award, index) => {
+          const isOdd = index % 2 === 0;
+          const awardYear = award.work.award[0].year;
+
           return (
             <>
-              <Flex>
-                <Flex pos="relative" align="center" justify="center" w="50%">
-                  <Image
-                    src={bgImage}
-                    style={{
-                      height: "auto",
-                      width: "100%",
-                    }}
-                    alt="test"
-                  />
-                  <Text c="white" fz="lg" fw={700} pos="absolute">
-                    2023 VIDDY AWARDS
-                  </Text>
-                </Flex>
-
-                <Flex p={120} h="100%" w="50%" c="white">
-                  <Stack w="100%" align="flex-end" ta="right">
-                    <Text>{award.name}</Text>
-                    <Text>PLATINUM WINNER</Text>
-                    <Text>
-                      Category: Commercials | Broadcast / Non-Broadcast / Web
-                      Commercials | Food & Beverage
+              <Grid gutter={0}>
+                <Grid.Col span={6} order={isOdd ? 1 : 2}>
+                  <Flex pos="relative" align="center" justify="center">
+                    <Image
+                      src={bgImage}
+                      style={{
+                        height: "auto",
+                        width: "100%",
+                      }}
+                      alt="test"
+                    />
+                    <Text c="white" fz="lg" fw={700} pos="absolute">
+                      {award.name}
                     </Text>
-                    <Button
-                      color={theme.colors?.primary?.[1]}
-                      size="md"
-                      w="fit-content"
+                  </Flex>
+                </Grid.Col>
+
+                <Grid.Col span={6} order={isOdd ? 2 : 1}>
+                  <Flex p={120} h="100%" c="white">
+                    <Stack
+                      w="100%"
+                      align={isOdd ? "flex-end" : "flex-start"}
+                      ta={"right"}
                     >
-                      Watch
-                    </Button>
-                  </Stack>
-                </Flex>
-              </Flex>
+                      <Text>{award.name}</Text>
+                      <Text>PLATINUM WINNER</Text>
+                      <Text>{awardYear}</Text>
+                      <Button
+                        color={theme.colors?.primary?.[1]}
+                        size="md"
+                        w="fit-content"
+                      >
+                        Watch
+                      </Button>
+                    </Stack>
+                  </Flex>
+                </Grid.Col>
+              </Grid>
             </>
           );
         })}
-
-        <Flex>
-          <Flex p={120} h="100%" w="50%" c="white">
-            <Stack w="100%" align="flex-start">
-              <Text>2023 VIDDY AWARDS</Text>
-              <Text>PLATINUM WINNER</Text>
-              <Text>
-                Category: Commercials | Broadcast / Non-Broadcast / Web
-                Commercials | Food & Beverage
-              </Text>
-              <Button
-                color={theme.colors?.primary?.[1]}
-                size="md"
-                w="fit-content"
-              >
-                Watch
-              </Button>
-            </Stack>
-          </Flex>
-
-          <Flex pos="relative" align="center" justify="center" w="50%">
-            <Image
-              src={bgImage}
-              style={{
-                height: "auto",
-                width: "100%",
-              }}
-              alt="test"
-            />
-            <Text c="white" fz="lg" fw={700} pos="absolute">
-              2023 VIDDY AWARDS
-            </Text>
-          </Flex>
-        </Flex>
       </Stack>
 
       <FooterSocial />

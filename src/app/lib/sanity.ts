@@ -35,7 +35,7 @@ export async function getWorks() {
 
 export async function getAwards() {
   const awards = await client.fetch(
-    '*[_type == "awardsPage"] { name, order, work->{ client, description, overview, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
+    '*[_type == "awardsPage"] { name, order, work->{ client, description, overview, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
   );
   return awards;
 }

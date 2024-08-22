@@ -17,6 +17,12 @@ export interface WorksProps {
   youtubeID: string;
   tileImage: string;
   projectGenre: GenreProps;
+  award: [
+    {
+      year: string;
+      title: string;
+    },
+  ];
 }
 
 export interface AwardProps {
