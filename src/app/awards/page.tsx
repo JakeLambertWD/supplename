@@ -2,8 +2,7 @@
 
 import { Button, Flex, Grid, Space, Stack, Text } from "@mantine/core";
 import NavigationBar from "../components/NavigationBar";
-import Image from "next/image";
-import bgImage from "/public/sparklers.jpg";
+import { motion } from "framer-motion";
 import { theme } from "../utils/theme";
 import { FooterSocial } from "../components/Footer";
 import { useEffect, useState } from "react";
@@ -20,7 +19,6 @@ function page() {
     };
     fetchData();
   }, []);
-  console.log(awards);
 
   return (
     <>
@@ -40,22 +38,31 @@ function page() {
               <Grid gutter={0}>
                 <Grid.Col span={6} order={isOdd ? 1 : 2}>
                   <Flex pos="relative" align="center" justify="center">
-                    <Image
-                      src={bgImage}
+                    <motion.video
+                      key={award?.work?.videoURL}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                       style={{
-                        height: "auto",
                         width: "100%",
+                        height: "500px",
+                        objectFit: "cover",
+                        zIndex: -1,
                       }}
-                      alt="test"
-                    />
-                    <Text c="white" fz="lg" fw={700} pos="absolute">
+                    >
+                      <source src={award?.work?.videoURL} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </motion.video>
+
+                    <Text c="white" fz="xl" fw={800} pos="absolute">
                       {award.name}
                     </Text>
                   </Flex>
                 </Grid.Col>
 
                 <Grid.Col span={6} order={isOdd ? 2 : 1}>
-                  <Flex p={120} h="100%" c="white">
+                  <Flex p={150} h="100%" c="white">
                     <Stack
                       w="100%"
                       align={isOdd ? "flex-end" : "flex-start"}
