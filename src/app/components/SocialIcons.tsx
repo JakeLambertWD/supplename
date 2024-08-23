@@ -16,6 +16,7 @@ function SocialIcons() {
       right={40}
       bottom="60%"
       style={{ zIndex: 5 }}
+      display={{ base: "none", sm: "flex" }}
     >
       <IconBrandTwitterFilled
         color="white"

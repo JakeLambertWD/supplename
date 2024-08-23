@@ -39,7 +39,14 @@ function NavigationBar() {
         style={{ cursor: "pointer" }}
       />
 
-      <Burger opened={opened} onClick={toggle} color="white" mr="xl" />
+      <Burger
+        opened={opened}
+        onClick={toggle}
+        color="white"
+        mr={38}
+        mt="md"
+        display={{ base: "flex", sm: "none" }}
+      />
 
       <Flex fz="xl" gap="lg" mr="70px" display={{ base: "none", sm: "flex" }}>
         {navigationLinks.map((link) => {
