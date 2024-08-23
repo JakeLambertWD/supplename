@@ -39,7 +39,6 @@ export default function LandingSection({ jobTitle }: { jobTitle: string }) {
             {jobTitle}
           </Text>
           <Group>
-            {/* TODO: when user clicks button show a thumbs up emoji */}
             <Button
               color={theme.colors?.primary?.[1]}
               size="md"

@@ -1,9 +1,9 @@
 "use client";
 
-import { Button, Flex, NavLink } from "@mantine/core";
+import { Burger, Button, Flex, NavLink } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
 import Image from "next/image";
-import { useHover } from "@mantine/hooks";
+import { useDisclosure, useHover } from "@mantine/hooks";
 import { theme } from "../utils/theme";
 import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
@@ -13,6 +13,7 @@ function NavigationBar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const [opened, { toggle }] = useDisclosure();
   const { hovered, ref } = useHover();
   const navigateToPage = (href: string) => router.push(href);
 
@@ -38,7 +39,9 @@ function NavigationBar() {
         style={{ cursor: "pointer" }}
       />
 
-      <Flex fz="xl" gap="lg" mr="70px">
+      <Burger opened={opened} onClick={toggle} color="white" mr="xl" />
+
+      <Flex fz="xl" gap="lg" mr="70px" display={{ base: "none", sm: "flex" }}>
         {navigationLinks.map((link) => {
           const isActive = pathname === link.href;
 
@@ -65,7 +68,7 @@ function NavigationBar() {
         })}
       </Flex>
 
-      <Flex gap="sm">
+      <Flex gap="sm" display={{ base: "none", sm: "flex" }}>
         <Button
           ref={ref as any}
           onClick={() => navigateToPage("/contact")}
