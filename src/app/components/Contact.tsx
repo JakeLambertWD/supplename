@@ -11,31 +11,44 @@ import { theme } from "../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
+import { useMediaQuery } from "@mantine/hooks";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
+  const isSM = useMediaQuery(`(max-width: 768px)`);
 
   return (
-    <Flex justify="center" w="100%" h="100vh" mb={-150} bg="#141414">
-      <Flex w={1150} h={600} c="white">
-        <Stack w="50%" justify="center">
+    <Flex justify="center" w="100%" h="100vh" mb={-150} bg="#141414" p={50}>
+      <Flex
+        w={1150}
+        h={600}
+        c="white"
+        direction={isSM ? "column" : "row"}
+        gap={{ base: 50, sm: 0 }}
+      >
+        <Stack
+          justify="center"
+          w={{ sm: "50%" }}
+          ta={{ base: "center", sm: "left" }}
+        >
           <Text fz={45} fw={600}>
             Let's talk!
           </Text>
           <Text>Ask me anything or just say Hi 👋</Text>
-          <Group mt={50} mb={10}>
+
+          <Group mt={50} mb={10} justify={isSM ? "center" : "left"}>
             <IconMail size={25} strokeWidth={1.1} />
             <Text>supple@supplenam.com</Text>
             <Copy value="supple@supplenam.com" />
           </Group>
-          <Group>
+          <Group justify={isSM ? "center" : "left"}>
             <IconPhone size={25} strokeWidth={1.1} />
             <Text>+447752687730</Text>
             <Copy value="+447752687730" />
           </Group>
         </Stack>
 
-        <Stack w="50%" justify="center">
+        <Stack justify="center" w={{ sm: "50%" }}>
           <Group mb={10}>
             <TextInput
               w="45%"

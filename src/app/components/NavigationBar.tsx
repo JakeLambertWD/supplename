@@ -48,7 +48,7 @@ function NavigationBar() {
         display={{ base: "flex", sm: "none" }}
       />
 
-      <Flex fz="xl" gap="lg" mr="70px" display={{ base: "none", sm: "flex" }}>
+      <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
         {navigationLinks.map((link) => {
           const isActive = pathname === link.href;
 
