@@ -1,12 +1,12 @@
-import { Burger, Flex, Menu, NavLink } from "@mantine/core";
-import React from "react";
+import { Burger, Flex, Menu, Text } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
-import { usePathname } from "next/navigation";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
+import { useRouter, usePathname } from "next/navigation";
 
-function Dropdown() {
+function Dropdown({ responsive }: { responsive?: boolean }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -19,30 +19,31 @@ function Dropdown() {
           aria-label="Toggle navigation"
           color="white"
           size="sm"
+          display={{ base: "flex", sm: responsive ? "none" : "flex" }}
           style={{ position: "absolute", top: 35, right: 40 }}
         />
       </Menu.Target>
 
-      <Menu.Dropdown>
-        <Flex fz="xl" gap={5} direction="column" pt={0} pb={20}>
-          {navigationLinks.map((link) => {
+      <Menu.Dropdown
+        py={20}
+        px={10}
+        display={{ base: "flex", sm: responsive ? "none" : "flex" }}
+      >
+        <Flex fz="xl" gap={20} direction="column" w="100%">
+          {navigationLinks.map((link, index) => {
             const isActive = pathname === link.href;
 
             return (
-              <NavLink
-                key={link.href}
-                classNames={{ label: classes.label }}
-                className={classes.noHoverColor}
-                href={link.href}
-                label={link.label}
-                h={30}
-                // pb={30}
-                c={isActive ? "#c41e3a" : "black"}
-                fz="60px"
+              <Text
+                key={index}
+                fz="md"
                 fw={600}
                 ta="center"
-                childrenOffset={28}
-              />
+                onClick={() => router.push(link.href)}
+                c={isActive ? "#c41e3a" : "black"}
+              >
+                {link.label}
+              </Text>
             );
           })}
         </Flex>
