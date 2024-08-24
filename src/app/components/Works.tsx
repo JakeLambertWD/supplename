@@ -37,10 +37,11 @@ function Works() {
           {genres.map((link: any, index: any) => (
             <Text
               key={index}
-              fz={16}
+              fz={{ base: "sm", sm: "md", md: "lg" }}
               fw={300}
               pb="sm"
-              w={170}
+              px={{ base: 8, sm: 0 }}
+              w={{ base: "fit-conent", sm: 140, md: 170 }}
               ta="center"
               c={active === index ? "white" : "#5e5e5e"}
               onClick={() => setActive(index)}
@@ -57,7 +58,7 @@ function Works() {
           ))}
         </Flex>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 3, xl: 4 }}>
+        <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
           {worksByGenre.map((work, index) => (
             <Project
               key={index}

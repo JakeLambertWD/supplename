@@ -32,8 +32,8 @@ function Project({
             shadow="xl"
             p={0}
             radius={0}
-            w={300}
-            h={300}
+            w={{ base: "100%", sm: 300 }}
+            h={{ base: "auto", sm: 300 }}
             pos="relative"
             onClick={() => {
               setActiveWork(workIndex);
