@@ -11,7 +11,7 @@ export function FooterSocial() {
   return (
     <Container pb={50} c="white" mt={150}>
       <Group justify="center" gap={120}>
-        <Text fz={14} fw={400} c={theme?.colors?.primary?.[1]}>
+        <Text fz={14} fw={400} c={theme?.colors?.primary?.[1]} visibleFrom="sm">
           EST. 2004
         </Text>
         <Stack align="center" justify="center" gap={3}>
@@ -25,7 +25,7 @@ export function FooterSocial() {
           />
           <Text fz={12}>supple@supplenam.com</Text>
         </Stack>
-        <Group>
+        <Group visibleFrom="sm">
           <IconBrandTwitter
             color="white"
             strokeWidth={1}
