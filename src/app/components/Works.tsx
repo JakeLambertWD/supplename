@@ -33,15 +33,22 @@ function Works() {
     <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
         <Text fz={50}>Works</Text>
-        <Flex mt="xl" mb="lg">
+        <Flex
+          mt="xl"
+          mb="lg"
+          w={{ base: "100%", xs: "fit-content" }}
+          wrap="nowrap"
+          gap={{ base: 10, sm: 20 }}
+          style={{ overflowX: "auto", scrollbarWidth: "none" }}
+        >
           {genres.map((link: any, index: any) => (
             <Text
               key={index}
-              fz={{ base: "sm", sm: "md", md: "lg" }}
+              fz={{ base: "md", md: "lg" }}
               fw={300}
               pb="sm"
               px={{ base: 8, sm: 0 }}
-              w={{ base: "fit-conent", sm: 140, md: 170 }}
+              w={{ base: 110, sm: 140, md: 170 }}
               ta="center"
               c={active === index ? "white" : "#5e5e5e"}
               onClick={() => setActive(index)}
@@ -51,6 +58,7 @@ function Works() {
                     ? "1px solid #4631bd"
                     : "1px solid transparent",
                 cursor: "pointer",
+                textWrap: "nowrap",
               }}
             >
               {link.name}
