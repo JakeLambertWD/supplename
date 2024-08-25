@@ -4,7 +4,13 @@ import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import { useRouter, usePathname } from "next/navigation";
 
-function Dropdown({ responsive }: { responsive?: boolean }) {
+function Dropdown({
+  hiddenFromSm,
+  visibleFromSm,
+}: {
+  hiddenFromSm?: boolean;
+  visibleFromSm?: boolean;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [opened, { toggle }] = useDisclosure();
@@ -13,21 +19,23 @@ function Dropdown({ responsive }: { responsive?: boolean }) {
     <Menu shadow="xl" width={120}>
       <Menu.Target>
         <Burger
-          mr={10}
+          mr={-2}
           opened={opened}
           onClick={toggle}
           aria-label="Toggle navigation"
           color="white"
           size="sm"
-          display={{ base: "flex", sm: responsive ? "none" : "flex" }}
-          style={{ position: "absolute", top: 35, right: 40 }}
+          hiddenFrom={hiddenFromSm ? "sm" : "none"}
+          visibleFrom={visibleFromSm ? "sm" : "none"}
+          style={{ position: "absolute", top: 29, right: 40 }}
         />
       </Menu.Target>
 
       <Menu.Dropdown
         py={20}
         px={10}
-        display={{ base: "flex", sm: responsive ? "none" : "flex" }}
+        hiddenFrom={hiddenFromSm ? "sm" : "none"}
+        visibleFrom={visibleFromSm ? "sm" : "none"}
       >
         <Flex fz="xl" gap={20} direction="column" w="100%">
           {navigationLinks.map((link, index) => {
