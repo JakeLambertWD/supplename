@@ -1,5 +1,5 @@
 import { Card, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import {
   IconBadge4k,
@@ -7,6 +7,7 @@ import {
   IconTrophy,
 } from "@tabler/icons-react";
 import Modal from "./Modal";
+import { useEffect, useState } from "react";
 
 function Project({
   work,
@@ -16,6 +17,9 @@ function Project({
   worksByGenre,
 }: any) {
   const [opened, { open, close }] = useDisclosure(false);
+  const isSM = useMediaQuery(`(max-width: 768px)`);
+
+  const [isMobile, setIsMobile] = useState(isSM);
 
   return (
     <>
@@ -37,7 +41,13 @@ function Project({
             pos="relative"
             onClick={() => {
               setActiveWork(workIndex);
-              window.scrollTo({ top: 190, behavior: "smooth" });
+
+              // this creates space top of Modal to show second nav bar
+              if (isMobile) {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                window.scrollTo({ top: 195, behavior: "smooth" });
+              }
               open();
             }}
             style={{ cursor: "pointer" }}
@@ -116,8 +126,8 @@ function Project({
             <Flex
               gap={10}
               mt="xs"
-              wrap="nowrap"
               w={310}
+              wrap="nowrap"
               style={{ overflowX: "auto", scrollbarWidth: "none" }}
             >
               {work.movementGenres.map((genre: any, index: number) => {
