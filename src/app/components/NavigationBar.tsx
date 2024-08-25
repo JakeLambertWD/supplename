@@ -39,7 +39,7 @@ function NavigationBar() {
         style={{ cursor: "pointer" }}
       />
 
-      <Dropdown responsive />
+      <Dropdown hiddenFromSm />
 
       <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
         {navigationLinks.map((link) => {
