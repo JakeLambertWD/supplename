@@ -46,3 +46,18 @@ export async function getHomePage() {
   );
   return homePage;
 }
+
+export async function getWorkByDescription(description: string) {
+  // convert the description to match the format in the database
+  const convertDescription = description
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  const work = await client.fetch(
+    `*[_type == "work" && description == $convertDescription] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    { convertDescription }
+  );
+  return work;
+}
