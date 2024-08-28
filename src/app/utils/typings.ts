@@ -13,6 +13,9 @@ export interface WorkProps {
   videoURL: string;
   youtubeID: string;
   award: AwardProps[];
+  team: TeamProps[];
+  movementGenres: MovementGenreProps[];
+  workImages: WorkImageProps[];
 }
 export interface GenreProps {
   name: string;
@@ -27,4 +30,20 @@ export interface AwardPageProps {
   name: string;
   order: number;
   work: WorkProps;
+}
+
+interface TeamProps {
+  name: string;
+  role: string;
+}
+
+interface MovementGenreProps {
+  name: string;
+}
+
+interface WorkImageProps {
+  asset: {
+    url: string;
+  };
+  alt: string;
 }
