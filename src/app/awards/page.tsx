@@ -8,9 +8,17 @@ import { FooterSocial } from "../components/Footer";
 import { useEffect, useState } from "react";
 import { getAwards } from "../lib/sanity";
 import { AwardPageProps } from "../utils/typings";
+import { useRouter } from "next/navigation";
 
 function page() {
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
+  const router = useRouter();
+
+  // replace spaces with a dash for awards.work.description
+  // to be used in the url
+  const replaceSpaces = (str: string) => {
+    return str.replace(/\s/g, "-");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,15 +77,21 @@ function page() {
                       ta={"right"}
                     >
                       <Text>{award.name}</Text>
-                      <Text>PLATINUM WINNER</Text>
                       <Text>{awardYear}</Text>
                       <Button
                         color={theme.colors?.primary?.[1]}
                         size="md"
                         w="fit-content"
+                        onClick={() =>
+                          router.push(
+                            `/works/${replaceSpaces(award.work.description)}`
+                          )
+                        }
                       >
-                        Watch
+                        Go To Work
                       </Button>
+                      <Text>{award.work.client}</Text>
+                      <Text>{award.work.description}</Text>
                     </Stack>
                   </Flex>
                 </Grid.Col>
