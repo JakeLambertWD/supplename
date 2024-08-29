@@ -1,13 +1,12 @@
 import { Card, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import {
   IconBadge4k,
   IconPlayerPlayFilled,
   IconTrophy,
 } from "@tabler/icons-react";
-import Modal from "./Modal";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 function Project({
   work,
@@ -16,10 +15,10 @@ function Project({
   setActiveWork,
   worksByGenre,
 }: any) {
-  const [opened, { open, close }] = useDisclosure(false);
-  const isSM = useMediaQuery(`(max-width: 768px)`);
+  const router = useRouter();
 
-  const [isMobile, setIsMobile] = useState(isSM);
+  // convert work.description to replace spaces with a dash
+  const workDescription = work.description.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <>
@@ -40,15 +39,7 @@ function Project({
             h={{ base: "auto", sm: 300 }}
             pos="relative"
             onClick={() => {
-              setActiveWork(workIndex);
-
-              // this creates space top of Modal to show second nav bar
-              if (isMobile) {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              } else {
-                window.scrollTo({ top: 195, behavior: "smooth" });
-              }
-              open();
+              router.push(`/works/${workDescription}`);
             }}
             style={{ cursor: "pointer" }}
           >
@@ -69,9 +60,7 @@ function Project({
           h={350}
           p={0}
           onClick={() => {
-            setActiveWork(workIndex);
-            window.scrollTo({ top: 190, behavior: "smooth" });
-            open();
+            router.push(`/works/${workDescription}`);
           }}
           style={{ border: "none", zIndex: 10, cursor: "pointer" }}
         >
