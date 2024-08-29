@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Flex, Grid, Space, Stack, Text } from "@mantine/core";
+import { Button, Center, Flex, Grid, Space, Stack, Text } from "@mantine/core";
 import NavigationBar from "../components/NavigationBar";
 import { motion } from "framer-motion";
 import { theme } from "../utils/theme";
@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { getAwards } from "../lib/sanity";
 import { AwardPageProps } from "../utils/typings";
 import { useRouter } from "next/navigation";
+import { useMediaQuery } from "@mantine/hooks";
 
 function page() {
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
@@ -19,6 +20,7 @@ function page() {
   const replaceSpaces = (str: string) => {
     return str.replace(/\s/g, "-");
   };
+  const isSM = useMediaQuery(`(max-width: 768px)`);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +46,7 @@ function page() {
           return (
             <>
               <Grid gutter={0}>
-                <Grid.Col span={6} order={isOdd ? 1 : 2}>
+                <Grid.Col span={{ sm: 6 }} order={{ sm: isOdd ? 1 : 2 }}>
                   <Flex pos="relative" align="center" justify="center">
                     <motion.video
                       key={award?.work?.videoURL}
@@ -63,20 +65,35 @@ function page() {
                       Your browser does not support the video tag.
                     </motion.video>
 
-                    <Text c="white" fz="xl" fw={800} pos="absolute">
+                    <Text
+                      c="white"
+                      fz="xl"
+                      fw={800}
+                      ta="center"
+                      px="lg"
+                      pos="absolute"
+                    >
                       {award.name}
                     </Text>
                   </Flex>
                 </Grid.Col>
 
-                <Grid.Col span={6} order={isOdd ? 2 : 1}>
-                  <Flex p={150} h="100%" c="white">
+                <Grid.Col span={{ sm: 6 }} order={{ sm: isOdd ? 2 : 1 }}>
+                  <Center
+                    p={{ base: 30, xs: 40, sm: 80, md: 90, lg: 110, xl: 130 }}
+                    h="100%"
+                    c="white"
+                  >
                     <Stack
                       w="100%"
-                      align={isOdd ? "flex-end" : "flex-start"}
-                      ta={"right"}
+                      align={
+                        !isSM ? (isOdd ? "flex-end" : "flex-start") : "center"
+                      }
+                      ta={{ sm: "right" }}
                     >
-                      <Text>{award.name}</Text>
+                      <Text ta={isSM ? "center" : "match-parent"}>
+                        {award.name}
+                      </Text>
                       <Text>{awardYear}</Text>
                       <Button
                         color={theme.colors?.primary?.[1]}
@@ -93,7 +110,7 @@ function page() {
                       <Text>{award.work.client}</Text>
                       <Text>{award.work.description}</Text>
                     </Stack>
-                  </Flex>
+                  </Center>
                 </Grid.Col>
               </Grid>
             </>
