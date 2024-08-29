@@ -11,6 +11,7 @@ import {
   Stack,
   Text,
   Modal as MantineModal,
+  Center,
 } from "@mantine/core";
 import NavigationBar from "../../components/NavigationBar";
 import { FooterSocial } from "../../components/Footer";
@@ -18,8 +19,8 @@ import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { theme } from "../../utils/theme";
 import VideoPlayer from "../../components/VideoPlayer";
-import { WorkProps } from "../../utils/typings";
-import { getWorkByDescription, getWorks } from "../../lib/sanity";
+import { GenreProps, WorkProps } from "../../utils/typings";
+import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
 import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
 
@@ -29,6 +30,10 @@ function Work({ params }: { params: { id: string } }) {
   const router = useRouter();
   const isSM = useMediaQuery(`(max-width: 768px)`);
   const [opened, { open, close }] = useDisclosure(false);
+
+  // genres nav bar
+  const [active, setActive] = useState(0);
+  const [genres, setGenres] = useState<GenreProps[]>([]);
 
   // for image modal
   const [activeWorkImage, setActiveWorkImage] = useState(0);
@@ -53,6 +58,10 @@ function Work({ params }: { params: { id: string } }) {
       // fetch work by description
       const workByDescriptionData = await getWorkByDescription(id);
       setWork(workByDescriptionData[0]);
+
+      // fetch genres
+      const genreData = await getGenres();
+      setGenres(genreData);
     };
     fetchData();
   }, [id]);
@@ -86,6 +95,41 @@ function Work({ params }: { params: { id: string } }) {
     <>
       <NavigationBar />
       <Space h={100} />
+
+      <Flex
+        mt="xl"
+        mb="lg"
+        w={{ base: "100%", xs: "fit-content" }}
+        wrap="nowrap"
+        gap={{ base: 10, sm: 20 }}
+        style={{ overflowX: "auto", scrollbarWidth: "none" }}
+      >
+        <Center w="100vw">
+          {genres.map((link: any, index: any) => (
+            <Text
+              key={index}
+              fz={{ base: "md", md: "lg" }}
+              fw={300}
+              pb="sm"
+              px={{ base: 8, sm: 0 }}
+              w={{ base: 110, sm: 140, md: 170 }}
+              ta="center"
+              c={active === index ? "white" : "#5e5e5e"}
+              onClick={() => setActive(index)}
+              style={{
+                borderBottom:
+                  active === index
+                    ? "1px solid #4631bd"
+                    : "1px solid transparent",
+                cursor: "pointer",
+                textWrap: "nowrap",
+              }}
+            >
+              {link.name}
+            </Text>
+          ))}
+        </Center>
+      </Flex>
 
       <Flex
         pos="relative"
