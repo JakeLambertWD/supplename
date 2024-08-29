@@ -9,6 +9,7 @@ import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
+import { useState } from "react";
 
 function NavigationBar() {
   const router = useRouter();
@@ -43,7 +44,8 @@ function NavigationBar() {
 
       <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
         {navigationLinks.map((link) => {
-          const isActive = pathname === link.href;
+          // TODO: trigger a re-render when the pathname changes
+          const isActive = pathname.includes(link.href);
 
           return (
             <NavLink
