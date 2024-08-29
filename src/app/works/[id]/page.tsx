@@ -102,6 +102,7 @@ function Work({ params }: { params: { id: string } }) {
         w={{ base: "100%", xs: "fit-content" }}
         wrap="nowrap"
         gap={{ base: 10, sm: 20 }}
+        visibleFrom="sm"
         style={{ overflowX: "auto", scrollbarWidth: "none" }}
       >
         <Center w="100vw">
