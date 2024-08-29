@@ -97,8 +97,8 @@ function Work({ params }: { params: { id: string } }) {
       <Space h={100} />
 
       <Flex
-        mt="xl"
-        mb="lg"
+        mt={0}
+        mb={30}
         w={{ base: "100%", xs: "fit-content" }}
         wrap="nowrap"
         gap={{ base: 10, sm: 20 }}
@@ -146,6 +146,7 @@ function Work({ params }: { params: { id: string } }) {
           right={45}
           top={-40}
           gap={0}
+          visibleFrom="md"
           style={{ zIndex: 4000 }}
         >
           <IconChevronLeft
