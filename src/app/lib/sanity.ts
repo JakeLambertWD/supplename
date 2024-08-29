@@ -56,7 +56,7 @@ export async function getWorkByDescription(description: string) {
     .join(" ");
 
   const work = await client.fetch(
-    `*[_type == "work" && description == $convertDescription] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    `*[_type == "work" && lower(description) == lower($convertDescription)] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
     { convertDescription }
   );
   return work;
