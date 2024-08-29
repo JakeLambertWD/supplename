@@ -1,0 +1,267 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import {
+  Badge,
+  Divider,
+  Flex,
+  Group,
+  ScrollArea,
+  Space,
+  Stack,
+  Text,
+  Modal as MantineModal,
+} from "@mantine/core";
+import NavigationBar from "../../components/NavigationBar";
+import { FooterSocial } from "../../components/Footer";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { theme } from "../../utils/theme";
+import VideoPlayer from "../../components/VideoPlayer";
+import { WorkProps } from "../../utils/typings";
+import { getWorkByDescription, getWorks } from "../../lib/sanity";
+import classes from "../../components/css/Project.module.css";
+import { useRouter } from "next/navigation";
+
+function Work({ params }: { params: { id: string } }) {
+  const id = params.id;
+
+  const router = useRouter();
+  const isSM = useMediaQuery(`(max-width: 768px)`);
+  const [opened, { open, close }] = useDisclosure(false);
+
+  // for image modal
+  const [activeWorkImage, setActiveWorkImage] = useState(0);
+
+  const [work, setWork] = useState<WorkProps>();
+  const [works, setWorks] = useState<WorkProps[]>([]);
+
+  const currentGenre = work?.projectGenre?.name;
+  const worksByGenre = works.filter(
+    (item) => item.projectGenre?.name === currentGenre
+  );
+  const currentWorkIndex = worksByGenre.findIndex(
+    (item) => item.description === work?.description
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // fetch all works
+      const works = await getWorks();
+      setWorks(works);
+
+      // fetch work by description
+      const workByDescriptionData = await getWorkByDescription(id);
+      setWork(workByDescriptionData[0]);
+    };
+    fetchData();
+  }, [id]);
+
+  // next
+  const nextWork = () => {
+    if (worksByGenre.length > 0) {
+      const nextIndex = (currentWorkIndex + 1) % worksByGenre.length;
+      const nextWork = worksByGenre[nextIndex];
+      router.push(`/works/${nextWork.description.replace(/\s+/g, "-")}`);
+    } else {
+    }
+  };
+
+  // previous
+  const prevWork = () => {
+    if (worksByGenre.length > 0) {
+      const prevIndex =
+        (currentWorkIndex - 1 + worksByGenre.length) % worksByGenre.length;
+      const prevWork = worksByGenre[prevIndex];
+      router.push(`/works/${prevWork.description.replace(/\s+/g, "-")}`);
+    }
+  };
+
+  // split the overview into paragraphs
+  const paragraphs = work?.overview
+    .split("\n")
+    .filter((paragraph: string) => paragraph.trim() !== "");
+
+  return (
+    <>
+      <NavigationBar />
+      <Space h={100} />
+
+      <Flex
+        pos="relative"
+        c="white"
+        h={{ md: "60vh" }}
+        mt="md"
+        py={0}
+        px={{ base: 1, md: 50 }}
+        direction={{ base: "column", md: "row" }}
+      >
+        {/* navigation buttons */}
+        <Group
+          pos="absolute"
+          right={45}
+          top={-40}
+          gap={0}
+          style={{ zIndex: 4000 }}
+        >
+          <IconChevronLeft
+            size={30}
+            color={"white"}
+            onClick={() => prevWork()}
+            strokeWidth={1.5}
+            style={{
+              cursor: "pointer",
+            }}
+          />
+          <IconChevronRight
+            size={30}
+            color={"white"}
+            onClick={() => nextWork()}
+            strokeWidth={1.5}
+            style={{
+              cursor: "pointer",
+            }}
+          />
+        </Group>
+
+        {/* Video Player */}
+        <Flex
+          w={{ base: "100%", md: "70%" }}
+          mr="xl"
+          pos="relative"
+          style={{
+            borderLeft: "2px solid black",
+            borderColor: theme?.colors?.primary?.[1],
+          }}
+        >
+          {work?.videoURL && <VideoPlayer source={work?.videoURL} />}
+
+          <Text fz="xl" pos="absolute" top={20} left={50}>
+            {work?.description}
+          </Text>
+
+          {work?.movementGenres && (
+            <Group
+              fz="xs"
+              pos="absolute"
+              bottom={20}
+              right={20}
+              visibleFrom="sm"
+            >
+              {work?.movementGenres.map((genre: any, index: number) => {
+                return (
+                  <Badge
+                    key={index}
+                    color={theme?.colors?.primary?.[1]}
+                    tt="capitalize"
+                    size={isSM ? "sm" : "md"}
+                  >
+                    {genre.name}
+                  </Badge>
+                );
+              })}
+            </Group>
+          )}
+        </Flex>
+
+        {/* text content */}
+        <Stack w={{ base: "100%", md: "30%" }}>
+          <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
+
+          <Text fz="xl" ml="lg">
+            {work?.client}
+          </Text>
+
+          {work?.team && (
+            <Group gap={10} ml="lg">
+              {work.team.map((member: any, index: number) => (
+                <Group key={index}>
+                  <Text fz="11px" fw={600}>
+                    <span style={{ opacity: 0.5, fontStyle: "italic" }}>
+                      {member.role}: &nbsp;
+                    </span>
+                    {member.name}
+                  </Text>
+                </Group>
+              ))}
+            </Group>
+          )}
+
+          <ScrollArea
+            classNames={classes}
+            h={{ base: "50%", sm: "100%" }}
+            ml="lg"
+            offsetScrollbars
+            scrollbarSize={1}
+            scrollHideDelay={0}
+            fz="sm"
+            pr="sm"
+          >
+            {paragraphs?.map((paragraph: string, index: number) => (
+              <p
+                key={index}
+                style={{ marginBottom: "1em", textAlign: "justify" }}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </ScrollArea>
+        </Stack>
+      </Flex>
+
+      {/* Work images */}
+      <Group mt={30} justify="center" pt={0}>
+        {work?.workImages?.map((image: any, index: number) => (
+          <>
+            <img
+              key={index}
+              src={image.asset.url}
+              onClick={() => {
+                open();
+                setActiveWorkImage(index);
+              }}
+              width={330}
+              height={170}
+              alt={image.alt}
+            />
+
+            <MantineModal
+              opened={opened}
+              onClose={close}
+              fullScreen
+              classNames={{
+                content: classes.customModal,
+                header: classes.customModal,
+              }}
+            >
+              <Group w="100%" h="100%" align="center" justify="center">
+                <IconChevronLeft
+                  size={40}
+                  color="white"
+                  onClick={close}
+                  style={{ cursor: "pointer" }}
+                />
+                <img
+                  key={index}
+                  src={work.workImages[activeWorkImage].asset.url}
+                  width={"90%"}
+                  alt={image.alt}
+                />
+                <IconChevronRight
+                  size={40}
+                  color="white"
+                  onClick={close}
+                  style={{ cursor: "pointer" }}
+                />
+              </Group>
+            </MantineModal>
+          </>
+        ))}
+      </Group>
+
+      <FooterSocial />
+    </>
+  );
+}
+
+export default Work;
