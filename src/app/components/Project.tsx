@@ -147,14 +147,6 @@ function Project({
           </Stack>
         </HoverCard.Dropdown>
       </HoverCard>
-
-      <Modal
-        modalOpened={opened}
-        modalClose={close}
-        activeWork={activeWork}
-        setActiveWork={setActiveWork}
-        worksByGenre={worksByGenre}
-      />
     </>
   );
 }
