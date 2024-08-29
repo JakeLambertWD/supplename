@@ -1,8 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Container, Flex, SimpleGrid, Space, Stack, Text } from "@mantine/core";
 import Project from "./Project";
-import { useEffect, useState } from "react";
 import { getGenres, getWorks } from "../lib/sanity";
 import { GenreProps, WorkProps } from "../utils/typings";
 
@@ -10,7 +10,6 @@ function Works() {
   const [active, setActive] = useState(0);
   const [genres, setGenres] = useState<GenreProps[]>([]);
   const [works, setWorks] = useState<WorkProps[]>([]);
-  const [activeWork, setActiveWork] = useState(0);
 
   const activeGenre = genres[active];
 
@@ -27,7 +26,7 @@ function Works() {
       setWorks(workData);
     };
     fetchData();
-  }, [activeWork]);
+  }, []);
 
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
@@ -68,14 +67,7 @@ function Works() {
 
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
           {worksByGenre.map((work, index) => (
-            <Project
-              key={index}
-              work={work}
-              workIndex={index}
-              activeWork={activeWork}
-              setActiveWork={setActiveWork}
-              worksByGenre={worksByGenre}
-            />
+            <Project key={index} work={work} />
           ))}
         </SimpleGrid>
         <Space h={100} />
