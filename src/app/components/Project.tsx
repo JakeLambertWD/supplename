@@ -16,7 +16,7 @@ function Project({ work }: any) {
 
   return (
     <>
-      {isSM ? (
+      {!isSM ? (
         <HoverCard
           width={280}
           shadow="xl"
