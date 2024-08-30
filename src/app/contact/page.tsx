@@ -4,6 +4,7 @@ import { Space, Text } from "@mantine/core";
 import Contact from "../components/Contact";
 import { FooterSocial } from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
+import SocialIcons from "../components/SocialIcons";
 
 function page() {
   return (
@@ -15,6 +16,8 @@ function page() {
         Contact
       </Text>
       <Contact />
+      <SocialIcons />
+
       <FooterSocial />
     </>
   );
