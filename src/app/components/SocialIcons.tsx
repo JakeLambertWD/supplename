@@ -1,6 +1,7 @@
 import { Stack } from "@mantine/core";
 import {
   IconBrandFacebookFilled,
+  IconBrandLinkedin,
   IconBrandTwitterFilled,
   IconBrandVimeo,
   IconBrandYoutubeFilled,
@@ -11,6 +12,7 @@ function SocialIcons() {
     <Stack
       w="fit-content"
       pos="fixed"
+      align="center"
       gap={25}
       p="md"
       right={40}
@@ -41,12 +43,14 @@ function SocialIcons() {
         onClick={() => window.open("https://www.youtube.com/@supplenam1464")}
         style={{ cursor: "alias" }}
       />
-      <IconBrandVimeo
+      <IconBrandLinkedin
         color="white"
-        strokeWidth={1}
-        size={22}
-        fill="white"
-        onClick={() => window.open("https://vimeo.com/search?q=supple%20nam")}
+        strokeWidth={1.5}
+        size={26}
+        // fill="white"
+        onClick={() =>
+          window.open("https://www.linkedin.com/in/supple-nam-b89b4114/")
+        }
         style={{ cursor: "alias" }}
       />
     </Stack>
