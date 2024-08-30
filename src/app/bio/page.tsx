@@ -4,7 +4,6 @@ import NavigationBar from "../components/NavigationBar";
 import {
   Button,
   Container,
-  Flex,
   Grid,
   Group,
   Space,
@@ -37,7 +36,7 @@ function page() {
   return (
     <>
       <NavigationBar />
-      <Space h={130} />
+      <Space h={{ base: 100, sm: 130 }} />
 
       <Container size="xl" style={{ zIndex: 4 }}>
         <Grid gutter={0}>
@@ -159,7 +158,7 @@ function page() {
         </Grid>
       </Container>
 
-      <Space h={200} />
+      <Space h={{ base: 30, sm: 200 }} />
 
       <FooterSocial />
     </>
