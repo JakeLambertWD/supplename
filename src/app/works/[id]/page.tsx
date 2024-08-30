@@ -152,7 +152,7 @@ function Work({ params }: { params: { id: string } }) {
         h={{ md: "60vh" }}
         mt="md"
         py={0}
-        px={{ base: 3, md: 50 }}
+        px={{ base: 6, md: 50 }}
         direction={{ base: "column", md: "row" }}
       >
         {/* navigation buttons */}
