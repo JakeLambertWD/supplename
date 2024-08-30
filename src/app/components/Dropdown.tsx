@@ -47,8 +47,9 @@ function Dropdown({
                 fz="md"
                 fw={600}
                 ta="center"
-                onClick={() => router.push(link.href)}
                 c={isActive ? "#c41e3a" : "black"}
+                onClick={() => router.push(link.href)}
+                style={{ cursor: "pointer" }}
               >
                 {link.label}
               </Text>
