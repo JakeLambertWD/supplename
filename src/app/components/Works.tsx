@@ -5,6 +5,7 @@ import { Container, Flex, SimpleGrid, Space, Stack, Text } from "@mantine/core";
 import Project from "./Project";
 import { getGenres, getWorks } from "../lib/sanity";
 import { GenreProps, WorkProps } from "../utils/typings";
+import classes from "./css/Works.module.css";
 
 function Works() {
   const [active, setActive] = useState(0);
@@ -38,6 +39,7 @@ function Works() {
           w={{ base: "100%", xs: "fit-content" }}
           wrap="nowrap"
           gap={{ base: 10, sm: 20 }}
+          className={`${classes.hideScrollbar}}`}
           style={{ overflowX: "auto", scrollbarWidth: "none" }}
         >
           {genres.map((link: any, index: any) => (
