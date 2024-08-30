@@ -34,12 +34,12 @@ function Works() {
       <Stack c="white" align="center">
         <Text fz={50}>Works</Text>
         <Flex
+          className={classes.hideScrollbar}
           mt="xl"
           mb="lg"
           w={{ base: "100%", xs: "fit-content" }}
           wrap="nowrap"
           gap={{ base: 10, sm: 20 }}
-          className={`${classes.hideScrollbar}}`}
           style={{ overflowX: "auto", scrollbarWidth: "none" }}
         >
           {genres.map((link: any, index: any) => (
