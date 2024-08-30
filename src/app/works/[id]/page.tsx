@@ -91,6 +91,20 @@ function Work({ params }: { params: { id: string } }) {
     .split("\n")
     .filter((paragraph: string) => paragraph.trim() !== "");
 
+  // next image
+  const nextImage = () => {
+    if (activeWorkImage < (work?.workImages.length ?? 0) - 1) {
+      setActiveWorkImage(activeWorkImage + 1);
+    }
+  };
+
+  // previous image
+  const previousImage = () => {
+    if (activeWorkImage > 0) {
+      setActiveWorkImage(activeWorkImage - 1);
+    }
+  };
+
   return (
     <>
       <NavigationBar />
@@ -266,6 +280,7 @@ function Work({ params }: { params: { id: string } }) {
                 open();
                 setActiveWorkImage(index);
               }}
+              style={{ cursor: "pointer" }}
               width={330}
               height={170}
               alt={image.alt}
@@ -284,7 +299,7 @@ function Work({ params }: { params: { id: string } }) {
                 <IconChevronLeft
                   size={40}
                   color="white"
-                  onClick={close}
+                  onClick={previousImage}
                   style={{ cursor: "pointer" }}
                 />
                 <img
@@ -296,7 +311,7 @@ function Work({ params }: { params: { id: string } }) {
                 <IconChevronRight
                   size={40}
                   color="white"
-                  onClick={close}
+                  onClick={nextImage}
                   style={{ cursor: "pointer" }}
                 />
               </Group>
