@@ -4,6 +4,7 @@ import { theme } from "../utils/theme";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import YouTube from "react-youtube";
+import { TextEffect } from "./animations/TextEffect";
 
 export default function LandingSection({ jobTitle }: { jobTitle: string }) {
   const [opened, { open, close }] = useDisclosure(false);
@@ -35,9 +36,9 @@ export default function LandingSection({ jobTitle }: { jobTitle: string }) {
           w={{ base: "85%" }}
           style={{ zIndex: 7 }}
         >
-          <Text fz={14} mb={5}>
-            {jobTitle}
-          </Text>
+          <TextEffect per="word" preset="blur" className={classes.jobTitle}>
+            CHOREOGRAPHER - DIRECTOR
+          </TextEffect>
           <Group>
             <Button
               color={theme.colors?.primary?.[1]}

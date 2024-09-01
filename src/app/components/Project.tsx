@@ -24,6 +24,7 @@ function Project({ work }: any) {
           offset={-320}
           position="bottom"
           radius={4}
+          transitionProps={{ duration: 500, transition: "pop" }}
         >
           <HoverCard.Target>
             <Card
