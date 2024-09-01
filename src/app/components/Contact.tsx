@@ -12,6 +12,7 @@ import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
 import { useMediaQuery } from "@mantine/hooks";
+import { InView } from "./animations/InView";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
@@ -31,70 +32,86 @@ function Contact() {
           w={{ sm: "50%" }}
           ta={{ base: "center", sm: "left" }}
         >
-          <Text fz={45} fw={600}>
-            Let's talk!
-          </Text>
-          <Text>Ask me anything or just say Hi 👋</Text>
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
+              visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <Text fz={45} fw={600}>
+              Let's talk!
+            </Text>
+            <Text>Ask me anything or just say Hi 👋</Text>
 
-          <Group mt={50} mb={10} justify={isSM ? "center" : "left"}>
-            <IconMail size={25} strokeWidth={1.1} />
-            <Text>supple@supplenam.com</Text>
-            <Copy value="supple@supplenam.com" />
-          </Group>
-          <Group justify={isSM ? "center" : "left"}>
-            <IconPhone size={25} strokeWidth={1.1} />
-            <Text>+447752687730</Text>
-            <Copy value="+447752687730" />
-          </Group>
+            <Group mt={50} mb={10} justify={isSM ? "center" : "left"}>
+              <IconMail size={25} strokeWidth={1.1} />
+              <Text>supple@supplenam.com</Text>
+              <Copy value="supple@supplenam.com" />
+            </Group>
+            <Group justify={isSM ? "center" : "left"}>
+              <IconPhone size={25} strokeWidth={1.1} />
+              <Text>+447752687730</Text>
+              <Copy value="+447752687730" />
+            </Group>
+          </InView>
         </Stack>
 
         <Stack justify="center" w={{ sm: "50%" }}>
-          <Group mb={10}>
-            <TextInput
-              w="45%"
-              label="NAME"
-              placeholder="Enter your name"
-              variant="unstyled"
-              className={classes.contactFormField}
-              classNames={{
-                input: classes.input,
-                label: classes.label,
-                wrapper: classes.wrapper,
-              }}
-            />
-
-            <TextInput
-              w="45%"
-              label="EMAIL"
-              placeholder="Enter your email"
-              variant="unstyled"
-              classNames={{
-                input: classes.input,
-                label: classes.label,
-                wrapper: classes.wrapper,
-              }}
-            />
-          </Group>
-          <Textarea
-            w="93%"
-            c="white"
-            label="MESSAGE"
-            placeholder="Hi there.."
-            variant="unstyled"
-            classNames={{
-              input: classes.input,
-              label: classes.label,
-              root: classes.root,
+          <InView
+            variants={{
+              hidden: { opacity: 0, y: 100, filter: "blur(4px)" },
+              visible: { opacity: 1, y: 0, filter: "blur(0px)" },
             }}
-          />
-          <Button
-            color={theme.colors?.primary?.[1]}
-            size="md"
-            w="fit-content"
-            mt="xl"
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            Say hello!
-          </Button>
+            <Group mb={10}>
+              <TextInput
+                w="45%"
+                label="NAME"
+                placeholder="Enter your name"
+                variant="unstyled"
+                className={classes.contactFormField}
+                classNames={{
+                  input: classes.input,
+                  label: classes.label,
+                  wrapper: classes.wrapper,
+                }}
+              />
+
+              <TextInput
+                w="45%"
+                label="EMAIL"
+                placeholder="Enter your email"
+                variant="unstyled"
+                classNames={{
+                  input: classes.input,
+                  label: classes.label,
+                  wrapper: classes.wrapper,
+                }}
+              />
+            </Group>
+            <Textarea
+              w="93%"
+              c="white"
+              label="MESSAGE"
+              placeholder="Hi there.."
+              variant="unstyled"
+              classNames={{
+                input: classes.input,
+                label: classes.label,
+                root: classes.root,
+              }}
+            />
+            <Button
+              color={theme.colors?.primary?.[1]}
+              size="md"
+              w="fit-content"
+              mt="xl"
+            >
+              Say hello!
+            </Button>
+          </InView>
         </Stack>
       </Flex>
     </Flex>
