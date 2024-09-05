@@ -59,18 +59,31 @@ function Project({ work }: any) {
             }}
             style={{ border: "none", zIndex: 10, cursor: "pointer" }}
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              style={{
-                width: "100%",
-              }}
-            >
-              <source src={work.videoURL} type="video/mp4" />
-            </video>
+            {work.videoURL ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                style={{
+                  width: "100%",
+                }}
+              >
+                <source src={work.videoURL} type="video/mp4" />
+              </video>
+            ) : (
+              <motion.img
+                src={work.tileImage}
+                alt="Image"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                  width: 350,
+                  height: 200,
+                }}
+              />
+            )}
 
             <Stack gap={0} px="lg">
               <Group justify="space-between">
