@@ -65,6 +65,7 @@ function Project({ work }: any) {
               loop
               muted
               playsInline
+              preload="auto"
               style={{
                 width: "100%",
               }}

@@ -6,33 +6,36 @@ import Project from "./Project";
 import { getGenres, getWorks } from "../lib/sanity";
 import { GenreProps, WorkProps } from "../utils/typings";
 import classes from "./css/Works.module.css";
+import { useRecoilState } from "recoil";
+import { activeGenreTabState } from "../../../atoms/atoms";
 
 function Works() {
-  const [active, setActive] = useState(0);
   const [genres, setGenres] = useState<GenreProps[]>([]);
   const [works, setWorks] = useState<WorkProps[]>([]);
-
-  const activeGenre = genres[active];
-
-  const worksByGenre = works.filter(
-    (work) => work.projectGenre.name === activeGenre.name
-  );
+  const [activeGenreTab, setActiveGenreTab] =
+    useRecoilState(activeGenreTabState);
 
   useEffect(() => {
     const fetchData = async () => {
       const genreData = await getGenres();
       setGenres(genreData);
-
       const workData = await getWorks();
       setWorks(workData);
     };
     fetchData();
   }, []);
 
+  const activeGenre = genres[activeGenreTab];
+
+  const worksByGenre = works.filter(
+    (work) => work.projectGenre.name === activeGenre.name
+  );
+
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
         <Text fz={50}>Works</Text>
+        {/* navbar */}
         <Flex
           className={classes.hideScrollbar}
           mt="xl"
@@ -42,7 +45,7 @@ function Works() {
           gap={{ base: 10, sm: 20 }}
           style={{ overflowX: "auto", scrollbarWidth: "none" }}
         >
-          {genres.map((link: any, index: any) => (
+          {genres.map((link: any, index: number) => (
             <Text
               key={index}
               fz={{ base: "md", md: "lg" }}
@@ -51,11 +54,13 @@ function Works() {
               px={{ base: 8, sm: 0 }}
               w={{ base: 110, sm: 140, md: 170 }}
               ta="center"
-              c={active === index ? "white" : "#5e5e5e"}
-              onClick={() => setActive(index)}
+              c={activeGenreTab === index ? "white" : "#5e5e5e"}
+              onClick={() => {
+                setActiveGenreTab(index);
+              }}
               style={{
                 borderBottom:
-                  active === index
+                  activeGenreTab === index
                     ? "1px solid #4631bd"
                     : "1px solid transparent",
                 cursor: "pointer",

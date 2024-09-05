@@ -23,6 +23,8 @@ import { GenreProps, WorkProps } from "../../utils/typings";
 import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
 import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
+import { activeGenreTabState } from "../../../../atoms/atoms";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -32,7 +34,8 @@ function Work({ params }: { params: { id: string } }) {
   const [opened, { open, close }] = useDisclosure(false);
 
   // genres nav bar
-  const [active, setActive] = useState(0);
+  const [activeGenreTab, setActiveGenreTab] =
+    useRecoilState(activeGenreTabState);
   const [genres, setGenres] = useState<GenreProps[]>([]);
 
   // for image modal
@@ -129,11 +132,11 @@ function Work({ params }: { params: { id: string } }) {
               px={{ base: 8, sm: 0 }}
               w={{ base: 110, sm: 140, md: 170 }}
               ta="center"
-              c={active === index ? "white" : "#5e5e5e"}
-              onClick={() => setActive(index)}
+              c={activeGenreTab === index ? "white" : "#5e5e5e"}
+              onClick={() => setActiveGenreTab(index)}
               style={{
                 borderBottom:
-                  active === index
+                  activeGenreTab === index
                     ? "1px solid #4631bd"
                     : "1px solid transparent",
                 cursor: "pointer",
@@ -146,6 +149,7 @@ function Work({ params }: { params: { id: string } }) {
         </Center>
       </Flex>
 
+      {/* navigation buttons */}
       <Flex
         pos="relative"
         c="white"
@@ -155,7 +159,6 @@ function Work({ params }: { params: { id: string } }) {
         px={{ base: 6, md: 50 }}
         direction={{ base: "column", md: "row" }}
       >
-        {/* navigation buttons */}
         <Group
           pos="absolute"
           right={45}
