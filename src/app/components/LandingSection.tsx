@@ -4,27 +4,13 @@ import { theme } from "../utils/theme";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import YouTube from "react-youtube";
+import { opts } from "../utils/constants";
+import { useVideoReady } from "../../../hooks/hooks";
 
 export default function LandingSection({ jobTitle }: { jobTitle: string }) {
   const [opened, { open, close }] = useDisclosure(false);
   const [buttonContent, setButtonContent] = useState("My CV");
-
-  const opts = {
-    height: "390",
-    width: "640",
-    playerVars: {
-      autoplay: 1,
-      controls: 0,
-      modestbranding: 1,
-      rel: 0,
-      showinfo: 0,
-      vq: "highres",
-    },
-  };
-
-  const onReady = (event: any) => {
-    event.target.playVideo();
-  };
+  const { onReady } = useVideoReady();
 
   return (
     <>
