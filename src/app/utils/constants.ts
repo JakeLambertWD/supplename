@@ -20,8 +20,8 @@ export const navigationLinks = [
 ];
 
 export const opts = {
-  height: "180",
-  width: "350",
+  height: "480",
+  width: "940",
   playerVars: {
     autoplay: 1,
     controls: 0,

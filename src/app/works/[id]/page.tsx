@@ -16,7 +16,7 @@ import {
 import NavigationBar from "../../components/NavigationBar";
 import { FooterSocial } from "../../components/Footer";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";
 import { theme } from "../../utils/theme";
 import VideoPlayer from "../../components/VideoPlayer";
 import { GenreProps, WorkProps } from "../../utils/typings";
@@ -25,12 +25,15 @@ import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
-import { useIsSM } from "../../../../hooks/hooks";
+import { useIsSM, useVideoReady } from "../../../../hooks/hooks";
+import YouTube from "react-youtube";
+import { opts } from "@/app/utils/constants";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
 
   const isSM = useIsSM();
+  const { onReady } = useVideoReady();
   const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -198,33 +201,60 @@ function Work({ params }: { params: { id: string } }) {
             borderColor: theme?.colors?.primary?.[1],
           }}
         >
-          {work?.videoURL && <VideoPlayer source={work?.videoURL} />}
+          {work?.videoURL ? (
+            <>
+              <VideoPlayer source={work?.videoURL} />
 
-          <Text fz="xl" pos="absolute" top={20} left={50}>
-            {work?.description}
-          </Text>
+              <Text fz="xl" pos="absolute" top={20} left={50}>
+                {work?.description}
+              </Text>
 
-          {work?.movementGenres && (
-            <Group
-              fz="xs"
-              pos="absolute"
-              bottom={20}
-              right={20}
-              visibleFrom="sm"
+              {work?.movementGenres && (
+                <Group
+                  fz="xs"
+                  pos="absolute"
+                  bottom={20}
+                  right={20}
+                  visibleFrom="sm"
+                >
+                  {work?.movementGenres.map((genre: any, index: number) => {
+                    return (
+                      <Badge
+                        key={index}
+                        color={theme?.colors?.primary?.[1]}
+                        tt="capitalize"
+                        size={isSM ? "sm" : "md"}
+                      >
+                        {genre.name}
+                      </Badge>
+                    );
+                  })}
+                </Group>
+              )}
+            </>
+          ) : (
+            <div
+              style={{
+                position: "relative",
+                paddingBottom: "56.25%", // 16:9 aspect ratio
+                height: "100%",
+                overflow: "hidden",
+                width: "100%",
+              }}
             >
-              {work?.movementGenres.map((genre: any, index: number) => {
-                return (
-                  <Badge
-                    key={index}
-                    color={theme?.colors?.primary?.[1]}
-                    tt="capitalize"
-                    size={isSM ? "sm" : "md"}
-                  >
-                    {genre.name}
-                  </Badge>
-                );
-              })}
-            </Group>
+              <YouTube
+                videoId="8nssMbahow0"
+                opts={opts}
+                onReady={onReady}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "auto",
+                  height: "inherit",
+                }}
+              />
+            </div>
           )}
         </Flex>
 
