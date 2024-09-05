@@ -18,9 +18,10 @@ import { theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 import { AwardPageProps } from "../utils/typings";
 import { getAwards } from "../lib/sanity";
-import { useMediaQuery } from "@mantine/hooks";
+import { useIsSM } from "../../../hooks/hooks";
 
 function page() {
+  const isSM = useIsSM();
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
 
   useEffect(() => {
@@ -30,8 +31,6 @@ function page() {
     };
     fetchData();
   }, []);
-
-  const isSM = useMediaQuery(`(max-width: 768px)`);
 
   return (
     <>

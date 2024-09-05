@@ -9,9 +9,10 @@ import { useEffect, useState } from "react";
 import { getAwards } from "../lib/sanity";
 import { AwardPageProps } from "../utils/typings";
 import { useRouter } from "next/navigation";
-import { useMediaQuery } from "@mantine/hooks";
+import { useIsSM } from "../../../hooks/hooks";
 
 function page() {
+  const isSM = useIsSM();
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const router = useRouter();
 
@@ -20,7 +21,6 @@ function page() {
   const replaceSpaces = (str: string) => {
     return str.replace(/\s/g, "-");
   };
-  const isSM = useMediaQuery(`(max-width: 768px)`);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -6,13 +6,12 @@ import {
   IconTrophy,
 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
-import { useMediaQuery } from "@mantine/hooks";
+import { useFormattedDescription, useIsSM } from "../../../hooks/hooks";
 
 function Project({ work }: any) {
   const router = useRouter();
-
-  const workDescription = work.description.replace(/\s+/g, "-").toLowerCase();
-  const isSM = useMediaQuery(`(max-width: 768px)`);
+  const workDescription = useFormattedDescription(work);
+  const isSM = useIsSM();
 
   return (
     <>

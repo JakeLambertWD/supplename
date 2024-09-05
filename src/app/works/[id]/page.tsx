@@ -25,12 +25,13 @@ import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
+import { useIsSM } from "../../../../hooks/hooks";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
 
+  const isSM = useIsSM();
   const router = useRouter();
-  const isSM = useMediaQuery(`(max-width: 768px)`);
   const [opened, { open, close }] = useDisclosure(false);
 
   // genres nav bar
