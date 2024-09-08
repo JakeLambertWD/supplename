@@ -9,7 +9,7 @@ export const client = createClient({
 
 export async function getPageInfo() {
   const pageInfo = await client.fetch(
-    '*[_type == "pageInfo"]{ jobTitle, "imageURL": logo.asset->url }'
+    '*[_type == "pageInfo"]{ jobTitle, "imageURL": logo.asset->url, "bioImage": image.asset->url }'
   );
   return pageInfo;
 }
@@ -27,7 +27,7 @@ export async function getGenres() {
 }
 
 export async function getBio() {
-  const bio = await client.fetch('*[_type == "bio"]{ description }');
+  const bio = await client.fetch('*[_type == "bio"]{ description, }');
   return bio;
 }
 

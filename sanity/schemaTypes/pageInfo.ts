@@ -18,5 +18,13 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
 });

@@ -4,6 +4,7 @@ import NavigationBar from "../components/NavigationBar";
 import {
   Button,
   Container,
+  Flex,
   Grid,
   Group,
   Space,
@@ -17,7 +18,7 @@ import { IconTrophy } from "@tabler/icons-react";
 import { theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 import { AwardPageProps } from "../utils/typings";
-import { getAwards, getBio } from "../lib/sanity";
+import { getAwards, getBio, getPageInfo } from "../lib/sanity";
 import { useIsSM } from "../../../hooks/hooks";
 import { PortableText } from "next-sanity";
 
@@ -25,6 +26,7 @@ function page() {
   const isSM = useIsSM();
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const [bio, setBio] = useState("");
+  const [pageInfo, setPageInfo] = useState<any>({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +35,9 @@ function page() {
 
       const bio = await getBio();
       setBio(bio[0].description);
+
+      const pageInfo = await getPageInfo();
+      setPageInfo(pageInfo[0]);
     };
 
     fetchData();
@@ -66,16 +71,14 @@ function page() {
           <Grid.Col span={{ base: 12, sm: 3 }} order={{ base: 1, sm: 2 }}>
             <Stack align={"center"}>
               <Image
-                src={bgImage}
-                style={{
-                  height: "auto",
-                  width: isSM ? "50%" : "100%",
-                  marginBottom: "30px",
-                }}
-                alt="test"
+                src={pageInfo.bioImage}
+                width={isSM ? 160 : 220}
+                height={isSM ? 190 : 280}
+                quality={100}
+                alt="Image"
               />
 
-              <Stack w={isSM ? "40%" : "100%"}>
+              <Stack w={isSM ? "40%" : "100%"} mt="xl">
                 {awards.map((award, index) => {
                   return (
                     <Group wrap="nowrap" gap={4}>
