@@ -3,6 +3,7 @@ import { Card, Divider, Overlay, Stack } from "@mantine/core";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
+import { useIsMD, useIsSM } from "../../../hooks/hooks";
 
 type IProjectCardProps = {
   image: any;
@@ -19,6 +20,9 @@ const ProjectCard = ({
 }: IProjectCardProps) => {
   const { hovered, ref } = useHover();
 
+  const isMd = useIsMD();
+  const isSM = useIsSM();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 120 }}
@@ -30,9 +34,10 @@ const ProjectCard = ({
         <Card
           onClick={() => setActive(index)}
           shadow="xl"
-          radius={0}
-          w={120}
-          h={120}
+          radius={isMd ? 100 : 0}
+          withBorder
+          w={{ base: 60, md: 90, lg: 120 }}
+          h={{ base: 60, md: 90, lg: 120 }}
           style={{ cursor: "pointer" }}
         >
           <Card.Section>
@@ -43,26 +48,18 @@ const ProjectCard = ({
               objectFit="cover"
               alt="Image"
             />
-
-            {/* This is the overlay that appears when the card is not active */}
-            {/* {active !== index && !hovered && (
-              <Overlay
-                color="#0b0f19"
-                backgroundOpacity={0}
-                pos="absolute"
-                h={"100%"}
-                style={{ zIndex: 0 }}
-              />
-            )} */}
           </Card.Section>
         </Card>
         {active === index && (
           <Divider
-            mt="xs"
+            mt={{ base: 5, sm: "xs" }}
             color={"white"}
             h={1}
-            w={50}
-            style={{ border: "2px white solid", borderRadius: "10%" }}
+            w={{ base: 25, sm: 50 }}
+            style={{
+              border: isSM ? "1px white solid" : "2px white solid",
+              borderRadius: "10%",
+            }}
           />
         )}
       </Stack>

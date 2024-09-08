@@ -21,7 +21,6 @@ function LatestWork({
       gap="md"
       w="fit-content"
       pos="absolute"
-      visibleFrom="lg"
       bottom={30}
       right={40}
       style={{ zIndex: 8 }}

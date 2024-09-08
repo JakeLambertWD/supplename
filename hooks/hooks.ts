@@ -22,3 +22,7 @@ export const useFormattedDescription = (work: WorkProps) => {
 export const useIsSM = () => {
   return useMediaQuery(`(max-width: 768px)`);
 };
+
+export const useIsMD = () => {
+  return useMediaQuery(`(max-width: 992px)`);
+};
