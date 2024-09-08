@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { theme } from "../utils/theme";
 
 function WorksGenreNavigation({ genres }: { genres: any }) {
   const router = useRouter();
@@ -62,7 +63,7 @@ function WorksGenreNavigation({ genres }: { genres: any }) {
               style={{
                 borderBottom:
                   activeGenreTab === index
-                    ? "1px solid #4631bd"
+                    ? `2px solid ${theme.colors?.primary?.[1]}`
                     : "1px solid transparent",
                 cursor: "pointer",
                 textWrap: "nowrap",
