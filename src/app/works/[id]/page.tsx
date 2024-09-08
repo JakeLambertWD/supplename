@@ -11,7 +11,6 @@ import {
   Stack,
   Text,
   Modal as MantineModal,
-  Center,
 } from "@mantine/core";
 import NavigationBar from "../../components/NavigationBar";
 import { FooterSocial } from "../../components/Footer";
@@ -23,35 +22,46 @@ import { GenreProps, WorkProps } from "../../utils/typings";
 import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
 import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
-import { activeGenreTabState } from "../../../../atoms/atoms";
 import { useIsSM, useVideoReady } from "../../../../hooks/hooks";
 import YouTube from "react-youtube";
 import { opts } from "@/app/utils/constants";
+import WorksGenreNavigation from "@/app/components/worksGenreNavigation";
+import { useRecoilState } from "recoil";
+import { activeGenreTabState } from "../../../../atoms/atoms";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
 
-  const isSM = useIsSM();
-  const { onReady } = useVideoReady();
   const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
 
-  // genres nav bar
-  const [activeGenreTab, setActiveGenreTab] =
-    useRecoilState(activeGenreTabState);
+  // hooks
+  const isSM = useIsSM();
+  const { onReady } = useVideoReady();
+
+  // states
+  const [work, setWork] = useState<WorkProps>();
+  const [works, setWorks] = useState<WorkProps[]>([]);
   const [genres, setGenres] = useState<GenreProps[]>([]);
+
+  // get active genre tab
+  const [activeGenreTab] = useRecoilState(activeGenreTabState);
 
   // for image modal
   const [activeWorkImage, setActiveWorkImage] = useState(0);
 
-  const [work, setWork] = useState<WorkProps>();
-  const [works, setWorks] = useState<WorkProps[]>([]);
-
   const currentGenre = work?.projectGenre?.name;
-  const worksByGenre = works.filter(
+
+  let worksByGenre = works.filter(
     (item) => item.projectGenre?.name === currentGenre
   );
+
+  // if the genre is awards, filter by award
+  if (activeGenreTab === 5) {
+    worksByGenre = works.filter((item) => item.award);
+  }
+
+  // find the index of the current work within the worksByGenre array
   const currentWorkIndex = worksByGenre.findIndex(
     (item) => item.description === work?.description
   );
@@ -68,6 +78,7 @@ function Work({ params }: { params: { id: string } }) {
 
       // fetch genres
       const genreData = await getGenres();
+      genreData.push({ name: "Awards" });
       setGenres(genreData);
     };
     fetchData();
@@ -117,41 +128,7 @@ function Work({ params }: { params: { id: string } }) {
       <NavigationBar />
       <Space h={100} />
 
-      <Flex
-        mt={0}
-        mb={30}
-        w={{ base: "100%", xs: "fit-content" }}
-        wrap="nowrap"
-        gap={{ base: 10, sm: 20 }}
-        visibleFrom="sm"
-        style={{ overflowX: "auto", scrollbarWidth: "none" }}
-      >
-        <Center w="100vw">
-          {genres.map((link: any, index: any) => (
-            <Text
-              key={index}
-              fz={{ base: "md", md: "lg" }}
-              fw={300}
-              pb="sm"
-              px={{ base: 8, sm: 0 }}
-              w={{ base: 110, sm: 140, md: 170 }}
-              ta="center"
-              c={activeGenreTab === index ? "white" : "#5e5e5e"}
-              onClick={() => setActiveGenreTab(index)}
-              style={{
-                borderBottom:
-                  activeGenreTab === index
-                    ? "1px solid #4631bd"
-                    : "1px solid transparent",
-                cursor: "pointer",
-                textWrap: "nowrap",
-              }}
-            >
-              {link.name}
-            </Text>
-          ))}
-        </Center>
-      </Flex>
+      <WorksGenreNavigation genres={genres} />
 
       {/* navigation buttons */}
       <Flex

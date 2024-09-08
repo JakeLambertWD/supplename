@@ -35,7 +35,6 @@ const ProjectCard = ({
           onClick={() => setActive(index)}
           shadow="xl"
           radius={isMd ? 100 : 0}
-          withBorder
           w={{ base: 60, md: 90, lg: 120 }}
           h={{ base: 60, md: 90, lg: 120 }}
           style={{ cursor: "pointer" }}

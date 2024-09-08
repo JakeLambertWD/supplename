@@ -10,11 +10,16 @@ import { getAwards } from "../lib/sanity";
 import { AwardPageProps } from "../utils/typings";
 import { useRouter } from "next/navigation";
 import { useIsSM } from "../../../hooks/hooks";
+import { activeGenreTabState } from "../../../atoms/atoms";
+import { useRecoilState } from "recoil";
 
 function page() {
   const isSM = useIsSM();
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const router = useRouter();
+
+  const [activeGenreTab, setActiveGenreTab] =
+    useRecoilState(activeGenreTabState);
 
   // replace spaces with a dash for awards.work.description
   // to be used in the url
@@ -99,11 +104,12 @@ function page() {
                         color={theme.colors?.primary?.[1]}
                         size="md"
                         w="fit-content"
-                        onClick={() =>
+                        onClick={() => {
                           router.push(
                             `/works/${replaceSpaces(award.work.description)}`
-                          )
-                        }
+                          );
+                          setActiveGenreTab(5);
+                        }}
                       >
                         Go To Work
                       </Button>
