@@ -1,13 +1,16 @@
 import { Flex, Select, Text } from "@mantine/core";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
-function WorksGenreNavigationBar({ genres }: { genres: any }) {
+function WorksGenreNavigation({ genres }: { genres: any }) {
   const router = useRouter();
 
-  const genresArray = genres.map((genre: any) => genre.name);
+  const genresArray = useMemo(
+    () => genres.map((genre: any) => genre.name),
+    [genres]
+  );
 
   // get the active genre tab from recoil
   const [activeGenreTab, setActiveGenreTab] =
@@ -52,7 +55,10 @@ function WorksGenreNavigationBar({ genres }: { genres: any }) {
               pb="sm"
               ta="center"
               c={activeGenreTab === index ? "white" : "#5e5e5e"}
-              onClick={() => setActiveGenreTab(index)}
+              onClick={() => {
+                setActiveGenreTab(index);
+                router.push(`/works`);
+              }}
               style={{
                 borderBottom:
                   activeGenreTab === index
@@ -97,4 +103,4 @@ function WorksGenreNavigationBar({ genres }: { genres: any }) {
   );
 }
 
-export default WorksGenreNavigationBar;
+export default WorksGenreNavigation;
