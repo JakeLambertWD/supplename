@@ -140,11 +140,11 @@ function Work({ params }: { params: { id: string } }) {
         px={{ base: 6, md: 50 }}
         direction={{ base: "column", md: "row" }}
       >
-        <Group
+        <Flex
           pos="absolute"
           right={{ base: 15, sm: 45 }}
           top={-40}
-          gap={0}
+          gap={isSM ? 5 : 0}
           style={{ zIndex: 4000 }}
         >
           <IconChevronLeft
@@ -165,7 +165,7 @@ function Work({ params }: { params: { id: string } }) {
               cursor: "pointer",
             }}
           />
-        </Group>
+        </Flex>
 
         {/* Video Player */}
         <Flex
@@ -181,12 +181,7 @@ function Work({ params }: { params: { id: string } }) {
             <>
               <VideoPlayer source={work?.videoURL} />
 
-              <Text
-                fz="xl"
-                pos="absolute"
-                top={{ base: 15, sm: 20 }}
-                left={{ base: 20, sm: 50 }}
-              >
+              <Text fz="xl" pos="absolute" top={20} left={{ base: 20, sm: 50 }}>
                 {work?.description}
               </Text>
 
