@@ -9,11 +9,13 @@ import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
-import { useState } from "react";
+import { useIsSM } from "../../../hooks/hooks";
 
 function NavigationBar() {
   const router = useRouter();
   const pathname = usePathname();
+
+  const isSM = useIsSM();
 
   const { hovered, ref } = useHover();
   const navigateToPage = (href: string) => router.push(href);
@@ -33,8 +35,8 @@ function NavigationBar() {
       <Image
         onClick={() => navigateToPage("/")}
         src={navLogo}
-        width={200}
-        height={50}
+        width={isSM ? 150 : 200}
+        height={isSM ? 37 : 50}
         quality={100}
         alt="image"
         style={{ cursor: "pointer" }}
