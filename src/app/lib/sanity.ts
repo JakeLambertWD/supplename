@@ -26,6 +26,11 @@ export async function getGenres() {
   return genres;
 }
 
+export async function getBio() {
+  const bio = await client.fetch('*[_type == "bio"]{ description }');
+  return bio;
+}
+
 export async function getWorks() {
   const works = await client.fetch(
     '*[_type == "work"] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }'

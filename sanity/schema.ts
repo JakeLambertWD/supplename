@@ -9,6 +9,8 @@ import award from "./schemaTypes/award";
 import teamMember from "./schemaTypes/teamMember";
 import awardsPage from "./schemaTypes/awardsPage";
 import homePage from "./schemaTypes/homePage";
+import bio from "./schemaTypes/bio";
+import blockContent from "./schemaTypes/blockContent";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -21,5 +23,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     teamMember,
     pageInfo,
     workImage,
+    bio,
+    blockContent,
   ],
 };
