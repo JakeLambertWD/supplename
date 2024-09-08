@@ -213,7 +213,7 @@ function Work({ params }: { params: { id: string } }) {
                 <Group
                   fz="xs"
                   pos="absolute"
-                  bottom={20}
+                  top={20}
                   right={20}
                   visibleFrom="sm"
                 >
