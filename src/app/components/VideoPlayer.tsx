@@ -6,6 +6,7 @@ function VideoPlayer({ source }: { source: string }) {
       loop
       muted
       playsInline
+      controls
       style={{
         width: "100%",
         height: "100%",
