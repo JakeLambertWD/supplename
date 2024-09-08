@@ -117,7 +117,21 @@ function Project({ work }: any) {
               {
                 // @ts-ignore
                 work.award && (
-                  <IconTrophy size={19} strokeWidth={0.8} color="orange" />
+                  <Group>
+                    <Text
+                      c="orange"
+                      fz="xs"
+                      style={{ whiteSpace: "nowrap", fontStyle: "italic" }}
+                    >
+                      {work.award[0].title}
+                    </Text>
+                    <IconTrophy
+                      size={23}
+                      strokeWidth={0.8}
+                      color="orange"
+                      style={{ marginTop: -5 }}
+                    />
+                  </Group>
                 )
               }
 

@@ -46,7 +46,6 @@ function NavigationBar() {
         {navigationLinks.map((link) => {
           if (link.label === "Contact") return null;
 
-          // TODO: trigger a re-render when the pathname changes
           const isActive = pathname.includes(link.href);
 
           return (
