@@ -142,10 +142,10 @@ function Work({ params }: { params: { id: string } }) {
       >
         <Group
           pos="absolute"
-          right={45}
+          right={{ base: 15, sm: 45 }}
           top={-40}
           gap={0}
-          visibleFrom="md"
+          // visibleFrom="md"
           style={{ zIndex: 4000 }}
         >
           <IconChevronLeft
