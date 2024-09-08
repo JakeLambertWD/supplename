@@ -44,6 +44,8 @@ function NavigationBar() {
 
       <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
         {navigationLinks.map((link) => {
+          if (link.label === "Contact") return null;
+
           // TODO: trigger a re-render when the pathname changes
           const isActive = pathname.includes(link.href);
 
