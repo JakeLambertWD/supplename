@@ -21,10 +21,10 @@ function Contact() {
     <Flex
       justify="center"
       w="100%"
-      h="100vh"
+      h="90vh"
       mb={-150}
       bg={theme?.colors?.primary?.[9]}
-      p={50}
+      px={50}
     >
       <Flex
         w={1150}
