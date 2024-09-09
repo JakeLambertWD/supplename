@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Divider, Overlay, Stack } from "@mantine/core";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
@@ -26,11 +26,19 @@ const ProjectCard = ({
   description,
 }: IProjectCardProps) => {
   const { hovered, ref } = useHover();
+  const router = useRouter();
 
   const isMd = useIsMD();
   const isSM = useIsSM();
 
   const formattedDescription = useFormattedDescription(description);
+
+  useEffect(() => {
+    if (hovered) {
+      setActive(index);
+    }
+  }, [hovered]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 120 }}
@@ -40,7 +48,7 @@ const ProjectCard = ({
     >
       <Stack align="center" gap="xs" ref={ref}>
         <Card
-          onClick={() => setActive(index)}
+          onClick={() => router.push(`/works/${formattedDescription}`)}
           shadow="xl"
           radius={isMd ? 100 : 0}
           w={{ base: 60, md: 90, lg: 120 }}
