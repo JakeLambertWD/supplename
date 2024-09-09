@@ -51,7 +51,7 @@ function Project({ work }: any) {
             </Card>
           </HoverCard.Target>
           <HoverCard.Dropdown
-            bg={theme?.colors?.primary?.[9]}
+            bg={theme?.colors?.primary?.[8]}
             w={350}
             h={350}
             p={0}

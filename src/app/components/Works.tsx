@@ -38,7 +38,9 @@ function Works() {
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
-        <Text fz={50}>Works</Text>
+        <Text fz={50} mb="lg">
+          Works
+        </Text>
 
         {/* navbar */}
         <WorksGenreNavigation genres={genres} />
