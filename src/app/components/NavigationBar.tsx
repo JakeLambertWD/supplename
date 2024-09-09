@@ -11,7 +11,6 @@ import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
 import { useIsSM } from "../../../hooks/hooks";
 import { useEffect, useState } from "react";
-import path from "path";
 
 function NavigationBar() {
   const router = useRouter();
