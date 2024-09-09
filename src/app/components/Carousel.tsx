@@ -72,7 +72,7 @@ function FullScreenCarousel() {
           style={{ zIndex: 0 }}
         />
 
-        <Stack c="white" gap={0} mb={{ base: 190, xs: 70 }} ml={70}>
+        <Stack c="white" gap={0} mb={{ base: 190, sm: 70 }} ml={70}>
           <Group>
             <motion.p
               initial={{ opacity: 0, y: 50 }}
