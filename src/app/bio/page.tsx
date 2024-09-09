@@ -78,7 +78,7 @@ function page() {
                 alt="Image"
               />
 
-              <Stack w={isSM ? "40%" : "100%"} mt="xl">
+              <Stack w={isSM ? "40%" : "70%"} mt="xl">
                 {awards.map((award, index) => {
                   return (
                     <Group wrap="nowrap" gap={4}>
