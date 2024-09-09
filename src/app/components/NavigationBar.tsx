@@ -10,27 +10,45 @@ import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
 import { useIsSM } from "../../../hooks/hooks";
+import { useEffect, useState } from "react";
+import path from "path";
 
 function NavigationBar() {
   const router = useRouter();
   const pathname = usePathname();
-
   const isSM = useIsSM();
+  const [scrolled, setScrolled] = useState(false);
 
   const { hovered, ref } = useHover();
   const navigateToPage = (href: string) => router.push(href);
 
+  // change navbar color on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > (pathname === "/" ? 200 : 0)) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Flex
       w="100vw"
-      pos="absolute"
+      pos="fixed"
       c={theme?.colors?.primary?.[4]}
       justify="space-between"
       align="center"
       px={{ base: "sm", md: 50 }}
       py="lg"
-      bg="transparent"
-      style={{ zIndex: 5 }}
+      bg={scrolled ? theme?.colors?.primary?.[9] : "transparent"}
+      style={{ zIndex: 25 }}
     >
       <Image
         onClick={() => navigateToPage("/")}
