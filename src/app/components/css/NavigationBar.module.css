@@ -2,9 +2,11 @@
   border-bottom: 2px solid transparent !important;
 }
 
-.noHoverColor:hover {
-  background-color: transparent !important;
-  /* color: #c41e3a !important; */
+.noHoverColor {
+  &:hover {
+    background-color: transparent !important;
+    color: #c41e3a !important;
+  }
 }
 
 .label {
