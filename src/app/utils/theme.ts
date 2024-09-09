@@ -5,18 +5,19 @@ export const theme = createTheme({
   black: "#212121",
   primaryColor: "red",
 
+  // theme?.colors?.primary?.[9]
   colors: {
     primary: [
       "#ea6e43",
       "#C41E3A",
       "#CE93D8",
       "#BA68C8",
-      "#AB47BC",
-      "#9C27B0",
-      "#8E24AA",
-      "#7B1FA2",
-      "#6A1B9A",
-      "#26365A",
+      "#dadada",
+      "#bcbcbc",
+      "#5e5e5e",
+      "#0b0f19",
+      "#181818",
+      "#141414",
     ],
   },
 

@@ -55,7 +55,9 @@ function WorksGenreNavigation({ genres }: { genres: any }) {
               fw={300}
               pb="sm"
               ta="center"
-              c={activeGenreTab === index ? "white" : "#5e5e5e"}
+              c={
+                activeGenreTab === index ? "white" : theme?.colors?.primary?.[6]
+              }
               onClick={() => {
                 setActiveGenreTab(index);
                 router.push(`/works`);
@@ -89,12 +91,12 @@ function WorksGenreNavigation({ genres }: { genres: any }) {
         }}
         styles={{
           dropdown: {
-            background: "#181818",
+            background: theme?.colors?.primary?.[8],
             color: "white",
             border: "1px darkgray solid",
           },
           input: {
-            backgroundColor: "#181818",
+            backgroundColor: theme?.colors?.primary?.[8],
             border: "1px darkgray solid",
             color: "white",
           },

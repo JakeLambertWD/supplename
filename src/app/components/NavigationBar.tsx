@@ -24,7 +24,7 @@ function NavigationBar() {
     <Flex
       w="100vw"
       pos="absolute"
-      c="#dadada"
+      c={theme?.colors?.primary?.[4]}
       justify="space-between"
       align="center"
       px={{ base: "sm", md: 50 }}
@@ -65,7 +65,7 @@ function NavigationBar() {
               classNames={{ label: classes.label }}
               style={{
                 borderBottom: isActive
-                  ? "2px solid #c41e3a !important"
+                  ? `2px solid ${theme?.colors?.primary?.[1]} !important`
                   : "none",
               }}
             />

@@ -25,7 +25,10 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body className={electrolize.className} style={{ background: "#141414" }}>
+      <body
+        className={electrolize.className}
+        style={{ background: theme?.colors?.primary?.[9] }}
+      >
         <MantineProvider theme={theme}>
           <RecoilRoot>{children}</RecoilRoot>
         </MantineProvider>

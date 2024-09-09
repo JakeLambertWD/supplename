@@ -3,6 +3,7 @@ import { navigationLinks } from "../utils/constants";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import { useRouter, usePathname } from "next/navigation";
+import { theme } from "../utils/theme";
 
 function Dropdown({
   hiddenFromSm,
@@ -47,7 +48,7 @@ function Dropdown({
                 fz="md"
                 fw={600}
                 ta="center"
-                c={isActive ? "#c41e3a" : "black"}
+                c={isActive ? theme?.colors?.primary?.[1] : "black"}
                 onClick={() => router.push(link.href)}
                 style={{ cursor: "pointer" }}
               >

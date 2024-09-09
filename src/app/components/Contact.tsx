@@ -18,7 +18,14 @@ function Contact() {
   const isSM = useIsSM();
 
   return (
-    <Flex justify="center" w="100%" h="100vh" mb={-150} bg="#141414" p={50}>
+    <Flex
+      justify="center"
+      w="100%"
+      h="100vh"
+      mb={-150}
+      bg={theme?.colors?.primary?.[9]}
+      p={50}
+    >
       <Flex
         w={1150}
         h={600}

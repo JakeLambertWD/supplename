@@ -7,6 +7,7 @@ import {
 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
 import { useFormattedDescription, useIsSM } from "../../../hooks/hooks";
+import { theme } from "../utils/theme";
 
 function Project({ work }: any) {
   const router = useRouter();
@@ -50,7 +51,7 @@ function Project({ work }: any) {
             </Card>
           </HoverCard.Target>
           <HoverCard.Dropdown
-            bg="#181818"
+            bg={theme?.colors?.primary?.[9]}
             w={350}
             h={350}
             p={0}
@@ -87,10 +88,10 @@ function Project({ work }: any) {
 
             <Stack gap={0} px="lg">
               <Group justify="space-between">
-                <Text c="#bcbcbc">{work.client}</Text>
+                <Text c={theme?.colors?.primary?.[5]}>{work.client}</Text>
                 <IconPlayerPlayFilled
                   size={25}
-                  color="#bcbcbc"
+                  color={theme?.colors?.primary?.[5]}
                   style={{ marginTop: 10 }}
                 />
               </Group>
@@ -100,7 +101,7 @@ function Project({ work }: any) {
               >
                 <Text
                   fz="xl"
-                  c="#bcbcbc"
+                  c={theme?.colors?.primary?.[5]}
                   mb="xs"
                   style={{ whiteSpace: "nowrap" }}
                 >
@@ -150,7 +151,7 @@ function Project({ work }: any) {
                       </Text>
 
                       {index !== work.movementGenres.length - 1 && (
-                        <Text c="#bcbcbc">-</Text>
+                        <Text c={theme?.colors?.primary?.[5]}>-</Text>
                       )}
                     </Group>
                   );

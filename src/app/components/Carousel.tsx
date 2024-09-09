@@ -8,6 +8,7 @@ import { getHomePage } from "../lib/sanity";
 import { HomePageWorkProps } from "../utils/typings";
 import { useHover } from "@mantine/hooks";
 import CarouselVideoPlayer from "./CarouselVideoPlayer";
+import { theme } from "../utils/theme";
 
 function FullScreenCarousel() {
   const ref = useRef(null);
@@ -64,7 +65,7 @@ function FullScreenCarousel() {
         />
 
         <Overlay
-          color="#0b0f19"
+          color={theme?.colors?.primary?.[7]}
           backgroundOpacity={0.2}
           pos="absolute"
           h={"100vh"}
