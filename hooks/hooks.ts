@@ -1,4 +1,3 @@
-import { WorkProps } from "@/app/utils/typings";
 import { useMediaQuery } from "@mantine/hooks";
 import { useCallback, useMemo } from "react";
 
@@ -11,10 +10,8 @@ export const useVideoReady = () => {
   return { onReady };
 };
 
-export const useFormattedDescription = (work: WorkProps) => {
-  const workDescription = useMemo(() => {
-    return work.description.replace(/\s+/g, "-").toLowerCase();
-  }, [work.description]);
+export const useFormattedDescription = (description: string) => {
+  const workDescription = description.replace(/\s+/g, "-").toLowerCase();
 
   return workDescription;
 };

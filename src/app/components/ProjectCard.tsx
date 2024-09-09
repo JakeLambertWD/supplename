@@ -3,13 +3,19 @@ import { Card, Divider, Overlay, Stack } from "@mantine/core";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import { useIsMD, useIsSM } from "../../../hooks/hooks";
+import {
+  useFormattedDescription,
+  useIsMD,
+  useIsSM,
+} from "../../../hooks/hooks";
+import { useRouter } from "next/navigation";
 
 type IProjectCardProps = {
   image: any;
   index: number;
   active: number;
   setActive: (active: number) => void;
+  description: string;
 };
 
 const ProjectCard = ({
@@ -17,12 +23,14 @@ const ProjectCard = ({
   index,
   active,
   setActive,
+  description,
 }: IProjectCardProps) => {
   const { hovered, ref } = useHover();
 
   const isMd = useIsMD();
   const isSM = useIsSM();
 
+  const formattedDescription = useFormattedDescription(description);
   return (
     <motion.div
       initial={{ opacity: 0, y: 120 }}

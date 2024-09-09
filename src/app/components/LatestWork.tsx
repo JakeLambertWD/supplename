@@ -33,6 +33,7 @@ function LatestWork({
             active={active}
             setActive={setActive}
             image={work.featuredWork.tileImage}
+            description={work.featuredWork.description}
           />
         );
       })}

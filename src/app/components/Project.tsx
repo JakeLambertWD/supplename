@@ -11,7 +11,7 @@ import { theme } from "../utils/theme";
 
 function Project({ work }: any) {
   const router = useRouter();
-  const workDescription = useFormattedDescription(work);
+  const workDescription = useFormattedDescription(work.description);
   const isSM = useIsSM();
 
   return (
