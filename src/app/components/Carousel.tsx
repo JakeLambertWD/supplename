@@ -57,7 +57,7 @@ function FullScreenCarousel() {
 
   return (
     <>
-      <Flex ref={ref} h="100vh" align="flex-end">
+      <Flex ref={ref} h="100vh" align="flex-end" pos="relative">
         <CarouselVideoPlayer
           nextVideo={nextVideo}
           featuredWork={featuredWork}
