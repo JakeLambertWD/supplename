@@ -1,30 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Container, SimpleGrid, Space, Stack, Text } from "@mantine/core";
 import Project from "./Project";
-import { getGenres, getWorks } from "../lib/sanity";
-import { GenreProps, WorkProps } from "../utils/typings";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
 import WorksGenreNavigation from "./worksGenreNavigation";
+import { useFetchData } from "../../../hooks/useFetchData";
 
 function Works() {
-  const [genres, setGenres] = useState<GenreProps[]>([]);
-  const [works, setWorks] = useState<WorkProps[]>([]);
+  const { genres, works } = useFetchData();
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const genreData = await getGenres();
-      // add awards to genres array
-      genreData.push({ name: "Awards" });
-      setGenres(genreData);
-      const workData = await getWorks();
-      setWorks(workData);
-    };
-    fetchData();
-  }, []);
 
   const activeGenre = genres[activeGenreTab];
 
@@ -41,10 +26,7 @@ function Works() {
         <Text fz={50} mb="lg">
           Works
         </Text>
-
-        {/* navbar */}
         <WorksGenreNavigation genres={genres} />
-
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }}>
           {worksByGenre.map((work, index) => (
             <Project key={index} work={work} />
