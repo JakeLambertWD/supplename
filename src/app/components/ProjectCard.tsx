@@ -3,12 +3,10 @@ import { Card, Divider, Overlay, Stack } from "@mantine/core";
 import Image from "next/image";
 import { useHover } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import {
-  useFormattedDescription,
-  useIsMD,
-  useIsSM,
-} from "../../../hooks/hooks";
+import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { useRouter } from "next/navigation";
+import { useIsSM } from "../../../hooks/useIsSM";
+import { useIsMD } from "../../../hooks/useIsMD";
 
 type IProjectCardProps = {
   image: any;

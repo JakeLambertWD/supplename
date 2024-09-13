@@ -19,7 +19,7 @@ import { theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 import { AwardPageProps } from "../utils/typings";
 import { getAwards, getBio, getPageInfo } from "../lib/sanity";
-import { useIsSM } from "../../../hooks/hooks";
+import { useIsSM } from "../../../hooks/useIsSM";
 import { PortableText } from "next-sanity";
 
 function page() {

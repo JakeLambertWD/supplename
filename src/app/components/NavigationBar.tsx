@@ -9,7 +9,7 @@ import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
-import { useIsSM } from "../../../hooks/hooks";
+import { useIsSM } from "../../../hooks/useIsSM";
 import { useEffect, useState } from "react";
 
 function NavigationBar() {

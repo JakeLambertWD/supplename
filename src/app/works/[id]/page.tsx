@@ -22,12 +22,13 @@ import { GenreProps, WorkProps } from "../../utils/typings";
 import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
 import classes from "../../components/css/Project.module.css";
 import { useRouter } from "next/navigation";
-import { useIsSM, useVideoReady } from "../../../../hooks/hooks";
+import { useVideoReady } from "../../../../hooks/useVideoReady";
 import YouTube from "react-youtube";
 import { opts } from "@/app/utils/constants";
 import WorksGenreNavigation from "@/app/components/worksGenreNavigation";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
+import { useIsSM } from "../../../../hooks/useIsSM";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;

@@ -5,7 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import classes from "../components/css/Project.module.css";
 import YouTube from "react-youtube";
 import { opts } from "../utils/constants";
-import { useVideoReady } from "../../../hooks/hooks";
+import { useVideoReady } from "../../../hooks/useVideoReady";
 
 export default function LandingSection({ jobTitle }: { jobTitle: string }) {
   const [opened, { open, close }] = useDisclosure(false);

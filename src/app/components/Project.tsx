@@ -6,8 +6,9 @@ import {
   IconTrophy,
 } from "@tabler/icons-react";
 import { useRouter } from "next/navigation";
-import { useFormattedDescription, useIsSM } from "../../../hooks/hooks";
+import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { theme } from "../utils/theme";
+import { useIsSM } from "../../../hooks/useIsSM";
 
 function Project({ work }: any) {
   const router = useRouter();

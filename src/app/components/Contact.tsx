@@ -11,7 +11,7 @@ import { theme } from "../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
-import { useIsSM } from "../../../hooks/hooks";
+import { useIsSM } from "../../../hooks/useIsSM";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
