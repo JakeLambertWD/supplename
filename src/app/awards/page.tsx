@@ -9,9 +9,9 @@ import { useEffect, useState } from "react";
 import { getAwards } from "../lib/sanity";
 import { AwardPageProps } from "../utils/typings";
 import { useRouter } from "next/navigation";
-import { useIsSM } from "../../../hooks/useIsSM";
 import { activeGenreTabState } from "../../../atoms/atoms";
 import { useRecoilState } from "recoil";
+import { useIsSM } from "../../../hooks/useIsSM";
 
 function page() {
   const isSM = useIsSM();
