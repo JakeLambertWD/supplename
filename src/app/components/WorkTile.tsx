@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { Card, Divider, Overlay, Stack } from "@mantine/core";
 import Image from "next/image";
-import { useHover } from "@mantine/hooks";
+import { useHover, useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { useRouter } from "next/navigation";
 import { useIsSM } from "../../../hooks/useIsSM";
-import { useIsMD } from "../../../hooks/useIsMDS";
 
 type ProjectCardProps = {
   image: any;
@@ -26,7 +25,7 @@ const WorkTile = ({
   const { hovered, ref } = useHover();
   const router = useRouter();
 
-  const isMd = useIsMD();
+  const isMd = useMediaQuery(`(max-width: 992px)`);
   const isSM = useIsSM();
 
   const formattedDescription = useFormattedDescription(description);
