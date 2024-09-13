@@ -1,7 +1,7 @@
 "use client";
 
 import { Container, SimpleGrid, Stack, Text } from "@mantine/core";
-import Project from "./Project";
+import Work from "./Work";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
 import WorksGenreNavigation from "./worksGenreNavigation";
@@ -22,7 +22,7 @@ function Works() {
         <WorksGenreNavigation genres={genres} />
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
           {worksByGenre.map((work, index) => (
-            <Project key={index} work={work} />
+            <Work key={index} work={work} />
           ))}
         </SimpleGrid>
       </Stack>

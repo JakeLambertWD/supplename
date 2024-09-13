@@ -1,5 +1,5 @@
 import { Flex } from "@mantine/core";
-import ProjectCard from "./ProjectCard";
+import WorkTile from "./WorkTile";
 import { HomePageWorkProps } from "../utils/typings";
 
 interface LatestWorkProps {
@@ -27,7 +27,7 @@ function LatestWork({
     >
       {latestWork.map((work, index) => {
         return (
-          <ProjectCard
+          <WorkTile
             key={index}
             index={index}
             active={active}

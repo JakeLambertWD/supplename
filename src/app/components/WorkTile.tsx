@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useIsSM } from "../../../hooks/useIsSM";
 import { useIsMD } from "../../../hooks/useIsMD";
 
-type IProjectCardProps = {
+type ProjectCardProps = {
   image: any;
   index: number;
   active: number;
@@ -16,13 +16,13 @@ type IProjectCardProps = {
   description: string;
 };
 
-const ProjectCard = ({
+const WorkTile = ({
   image,
   index,
   active,
   setActive,
   description,
-}: IProjectCardProps) => {
+}: ProjectCardProps) => {
   const { hovered, ref } = useHover();
   const router = useRouter();
 
@@ -80,4 +80,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard;
+export default WorkTile;

@@ -9,15 +9,43 @@ import { useRouter } from "next/navigation";
 import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { theme } from "../utils/theme";
 import { useIsSM } from "../../../hooks/useIsSM";
+import { WorkProps } from "../utils/typings";
 
-function Project({ work }: any) {
+interface ProjectProps {
+  work: WorkProps;
+}
+
+function Work({ work }: ProjectProps) {
   const router = useRouter();
-  const workDescription = useFormattedDescription(work.description);
   const isSM = useIsSM();
+  const workDescription = useFormattedDescription(work.description);
 
   return (
     <>
-      {!isSM ? (
+      {isSM ? (
+        <Card
+          shadow="xl"
+          p={0}
+          radius={0}
+          w={{ base: "100%", sm: 300 }}
+          h={{ base: "auto", sm: 300 }}
+          pos="relative"
+          onClick={() => {
+            router.push(`/works/${workDescription}`);
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          <motion.img
+            src={work.tileImage}
+            alt="Image"
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Card>
+      ) : (
         <HoverCard
           width={280}
           shadow="xl"
@@ -161,32 +189,9 @@ function Project({ work }: any) {
             </Stack>
           </HoverCard.Dropdown>
         </HoverCard>
-      ) : (
-        <Card
-          shadow="xl"
-          p={0}
-          radius={0}
-          w={{ base: "100%", sm: 300 }}
-          h={{ base: "auto", sm: 300 }}
-          pos="relative"
-          onClick={() => {
-            router.push(`/works/${workDescription}`);
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          <motion.img
-            src={work.tileImage}
-            alt="Image"
-            style={{
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </Card>
       )}
     </>
   );
 }
 
-export default Project;
+export default Work;
