@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { useRouter } from "next/navigation";
 import { useIsSM } from "../../../hooks/useIsSM";
-import { useIsMD } from "../../../hooks/useIsMD";
+import { useIsMD } from "../../../hooks/useIsMDS";
 
 type ProjectCardProps = {
   image: any;
