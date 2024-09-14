@@ -4,9 +4,9 @@ import { Container, SimpleGrid, Stack, Text } from "@mantine/core";
 import Work from "./Work";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
-import WorksGenreNavigation from "../components/WorksGenreNavigation";
 import { useFetchData } from "../../../hooks/useFetchData";
 import { useFilterWorksByGenre } from "../../../hooks/useFilterWorksByGenre";
+import WorksGenreNavigation from "./worksGenreNavigation";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);

@@ -12,23 +12,23 @@ import {
   Text,
   Modal as MantineModal,
 } from "@mantine/core";
-import NavigationBar from "../../components/NavigationBar";
-import { FooterSocial } from "../../components/Footer";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { useDisclosure } from "@mantine/hooks";
-import { theme } from "../../utils/theme";
-import VideoPlayer from "../../components/VideoPlayer";
-import { GenreProps, WorkProps } from "../../utils/typings";
-import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
-import classes from "../../components/css/Project.module.css";
-import { useRouter } from "next/navigation";
-import { useVideoReady } from "../../../../hooks/useVideoReady";
 import YouTube from "react-youtube";
-import { opts } from "@/app/utils/constants";
+import { useRouter } from "next/navigation";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useRecoilState } from "recoil";
+import { useDisclosure } from "@mantine/hooks";
 import { activeGenreTabState } from "../../../../atoms/atoms";
+import { theme } from "../../utils/theme";
+import classes from "../../components/css/Project.module.css";
+import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
+import { GenreProps, WorkProps } from "../../utils/typings";
+import { useVideoReady } from "../../../../hooks/useVideoReady";
 import { useIsSM } from "../../../../hooks/useIsSM";
-import WorksGenreNavigation from "@/app/components/WorksGenreNavigation";
+import { opts } from "@/app/utils/constants";
+import NavigationBar from "../../components/NavigationBar";
+import VideoPlayer from "../../components/VideoPlayer";
+import { FooterSocial } from "../../components/Footer";
+import WorksGenreNavigation from "../../components/worksGenreNavigation";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
