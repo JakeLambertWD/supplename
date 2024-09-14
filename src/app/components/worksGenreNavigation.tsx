@@ -37,12 +37,12 @@ function WorksGenreNavigation({ genres }: { genres: any }) {
 
   return (
     <>
-      {/* navbar */}
       <Flex
         mx="md"
         mt={0}
         mb={30}
         w="100vw"
+        h={42}
         wrap="nowrap"
         visibleFrom="sm"
         style={{ overflowX: "auto", scrollbarWidth: "none" }}

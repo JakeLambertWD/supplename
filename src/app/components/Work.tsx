@@ -123,6 +123,7 @@ function Work({ work }: ProjectProps) {
               />
             )}
 
+            {/* By preloading the video and ensuring it is ready to play before displaying it, you can prevent the black flash that occurs when the user hovers over the card.  */}
             <video
               style={{ display: "none" }}
               onCanPlayThrough={handleCanPlayThrough}
