@@ -4,13 +4,15 @@ import { Container, SimpleGrid, Stack, Text } from "@mantine/core";
 import Work from "./Work";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
-import { useFetchData } from "../../../hooks/useFetchData";
 import { useFilterWorksByGenre } from "../../../hooks/useFilterWorksByGenre";
 import WorksGenreNavigation from "./worksGenreNavigation";
+import { useGetGenres } from "../../../hooks/useGetGenres";
+import { useGetWorks } from "../../../hooks/useGetWorks";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
-  const { genres, works } = useFetchData();
+  const { genres } = useGetGenres();
+  const { works } = useGetWorks();
   const worksByGenre = useFilterWorksByGenre(genres, works, activeGenreTab);
 
   return (

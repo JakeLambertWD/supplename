@@ -28,6 +28,9 @@ import VideoPlayer from "../../components/VideoPlayer";
 import { FooterSocial } from "../../components/Footer";
 import WorksGenreNavigation from "../../components/worksGenreNavigation";
 import WorkImages from "@/app/components/WorkImages";
+import { useGetGenres } from "../../../../hooks/useGetGenres";
+import { useGetWorks } from "../../../../hooks/useGetWorks";
+import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -39,9 +42,9 @@ function Work({ params }: { params: { id: string } }) {
   const { onReady } = useVideoReady();
 
   // states
-  const [work, setWork] = useState<WorkProps>();
-  const [works, setWorks] = useState<WorkProps[]>([]);
-  const [genres, setGenres] = useState<GenreProps[]>([]);
+  const { genres } = useGetGenres();
+  const { works } = useGetWorks();
+  const { work, isLoading } = useGetWorkByTitle(id);
 
   // get active genre tab
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
@@ -61,24 +64,6 @@ function Work({ params }: { params: { id: string } }) {
   const currentWorkIndex = worksByGenre.findIndex(
     (item) => item.description === work?.description
   );
-
-  useEffect(() => {
-    const fetchData = async () => {
-      // fetch all works
-      const works = await getWorks();
-      setWorks(works);
-
-      // fetch work by description
-      const workByDescriptionData = await getWorkByDescription(id);
-      setWork(workByDescriptionData[0]);
-
-      // fetch genres
-      const genreData = await getGenres();
-      genreData.push({ name: "Awards" });
-      setGenres(genreData);
-    };
-    fetchData();
-  }, [id]);
 
   // next
   const nextWork = () => {
@@ -261,7 +246,6 @@ function Work({ params }: { params: { id: string } }) {
         </Stack>
       </Flex>
 
-      {/* Work images */}
       <WorkImages work={work} />
 
       <FooterSocial />
