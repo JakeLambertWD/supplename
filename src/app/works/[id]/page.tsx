@@ -95,7 +95,7 @@ function Work({ params }: { params: { id: string } }) {
       <NavigationBar />
       <Space h={100} />
 
-      <WorksGenreNavigation genres={genres} />
+      <WorksGenreNavigation />
 
       {/* navigation buttons */}
       <Flex

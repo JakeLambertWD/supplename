@@ -1,5 +1,3 @@
-import { useMediaQuery } from "@mantine/hooks";
-
 export const navigationLinks = [
   {
     href: "/works",
@@ -17,6 +15,15 @@ export const navigationLinks = [
     href: "/contact",
     label: "Contact",
   },
+];
+
+export const genresNavLinks = [
+  { name: "Music Videos" },
+  { name: "Commercials" },
+  { name: "Event Live" },
+  { name: "Directing" },
+  { name: "TV" },
+  { name: "Awards" },
 ];
 
 export const opts = {

@@ -4,14 +4,12 @@ import { activeGenreTabState } from "../../../atoms/atoms";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { theme } from "../utils/theme";
+import { genresNavLinks } from "../utils/constants";
 
-function WorksGenreNavigation({ genres }: { genres: any }) {
+function WorksGenreNavigation() {
   const router = useRouter();
 
-  const genresArray = useMemo(
-    () => genres.map((genre: any) => genre.name),
-    [genres]
-  );
+  const genresArray = genresNavLinks.map((genre: any) => genre.name);
 
   // get the active genre tab from recoil
   const [activeGenreTab, setActiveGenreTab] =
@@ -48,7 +46,7 @@ function WorksGenreNavigation({ genres }: { genres: any }) {
         style={{ overflowX: "auto", scrollbarWidth: "none" }}
       >
         <Flex justify="center" gap={{ base: "xl", md: 80 }} w="100%">
-          {genres.map((link: any, index: any) => (
+          {genresNavLinks.map((link: any, index: any) => (
             <Text
               key={index}
               fz={{ base: "md", md: "lg" }}
