@@ -25,10 +25,10 @@ import { useRouter } from "next/navigation";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
 import YouTube from "react-youtube";
 import { opts } from "@/app/utils/constants";
-import WorksGenreNavigation from "@/app/components/worksGenreNavigation";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { useIsSM } from "../../../../hooks/useIsSM";
+import WorksGenreNavigation from "@/app/components/WorksGenreNavigation";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
