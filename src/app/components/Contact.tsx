@@ -11,11 +11,12 @@ import { theme } from "../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
-import { useIsSM } from "../../../hooks/useIsSM";
+import { useMediaQuery } from "@mantine/hooks";
+import { SM } from "../utils/constants";
 
 function Contact() {
   // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
-  const isSM = useIsSM();
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   return (
     <Flex

@@ -8,7 +8,6 @@ import {
 import { useRouter } from "next/navigation";
 import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { theme } from "../utils/theme";
-import { useIsSM } from "../../../hooks/useIsSM";
 import { WorkProps } from "../utils/typings";
 
 interface ProjectProps {
@@ -17,7 +16,6 @@ interface ProjectProps {
 
 function Work({ work }: ProjectProps) {
   const router = useRouter();
-  const isSM = useIsSM();
   const workDescription = useFormattedDescription(work.description);
 
   return (

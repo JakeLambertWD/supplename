@@ -16,15 +16,14 @@ import YouTube from "react-youtube";
 import { useRouter } from "next/navigation";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useRecoilState } from "recoil";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
 import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
 import { GenreProps, WorkProps } from "../../utils/typings";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
-import { useIsSM } from "../../../../hooks/useIsSM";
-import { opts } from "@/app/utils/constants";
+import { opts, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/NavigationBar";
 import VideoPlayer from "../../components/VideoPlayer";
 import { FooterSocial } from "../../components/Footer";
@@ -35,9 +34,9 @@ function Work({ params }: { params: { id: string } }) {
 
   const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   // hooks
-  const isSM = useIsSM();
   const { onReady } = useVideoReady();
 
   // states

@@ -11,10 +11,11 @@ import { AwardPageProps } from "../utils/typings";
 import { useRouter } from "next/navigation";
 import { activeGenreTabState } from "../../../atoms/atoms";
 import { useRecoilState } from "recoil";
-import { useIsSM } from "../../../hooks/useIsSM";
+import { useMediaQuery } from "@mantine/hooks";
+import { SM } from "../utils/constants";
 
 function page() {
-  const isSM = useIsSM();
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const router = useRouter();
 

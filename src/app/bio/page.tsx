@@ -12,18 +12,18 @@ import {
   Text,
 } from "@mantine/core";
 import Image from "next/image";
-import bgImage from "/public/bio.jpg";
 import { FooterSocial } from "../components/Footer";
 import { IconTrophy } from "@tabler/icons-react";
 import { theme } from "../utils/theme";
 import { useEffect, useState } from "react";
 import { AwardPageProps } from "../utils/typings";
 import { getAwards, getBio, getPageInfo } from "../lib/sanity";
-import { useIsSM } from "../../../hooks/useIsSM";
 import { PortableText } from "next-sanity";
+import { useMediaQuery } from "@mantine/hooks";
+import { SM } from "../utils/constants";
 
 function page() {
-  const isSM = useIsSM();
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const [bio, setBio] = useState("");
   const [pageInfo, setPageInfo] = useState<any>({});

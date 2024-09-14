@@ -31,3 +31,6 @@ export const opts = {
     vq: "highres",
   },
 };
+
+export const SM = "768px";
+export const MD = "992px";

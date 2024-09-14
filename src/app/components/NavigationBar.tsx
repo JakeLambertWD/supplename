@@ -1,21 +1,20 @@
 "use client";
 
 import { Button, Flex, NavLink } from "@mantine/core";
-import { navigationLinks } from "../utils/constants";
+import { navigationLinks, SM } from "../utils/constants";
 import Image from "next/image";
-import { useHover } from "@mantine/hooks";
+import { useHover, useMediaQuery } from "@mantine/hooks";
 import { theme } from "../utils/theme";
 import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
-import { useIsSM } from "../../../hooks/useIsSM";
 import { useEffect, useState } from "react";
 
 function NavigationBar() {
   const router = useRouter();
   const pathname = usePathname();
-  const isSM = useIsSM();
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
   const [scrolled, setScrolled] = useState(false);
 
   const { hovered, ref } = useHover();
