@@ -80,7 +80,7 @@ function FullScreenCarousel() {
         <Stack
           c="white"
           gap={0}
-          mb={{ base: 190, xs: 70 }}
+          mb={{ base: 160, xs: 70 }}
           ml={{ base: 30, xs: 70 }}
         >
           <Group>
