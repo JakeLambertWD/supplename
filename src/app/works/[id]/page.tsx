@@ -10,13 +10,12 @@ import {
   Space,
   Stack,
   Text,
-  Modal as MantineModal,
 } from "@mantine/core";
 import YouTube from "react-youtube";
 import { useRouter } from "next/navigation";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useRecoilState } from "recoil";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
@@ -28,12 +27,12 @@ import NavigationBar from "../../components/NavigationBar";
 import VideoPlayer from "../../components/VideoPlayer";
 import { FooterSocial } from "../../components/Footer";
 import WorksGenreNavigation from "../../components/worksGenreNavigation";
+import WorkImages from "@/app/components/WorkImages";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
 
   const router = useRouter();
-  const [opened, { open, close }] = useDisclosure(false);
   const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   // hooks
@@ -46,9 +45,6 @@ function Work({ params }: { params: { id: string } }) {
 
   // get active genre tab
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
-
-  // for image modal
-  const [activeWorkImage, setActiveWorkImage] = useState(0);
 
   const currentGenre = work?.projectGenre?.name;
 
@@ -108,20 +104,6 @@ function Work({ params }: { params: { id: string } }) {
   const paragraphs = work?.overview
     .split("\n")
     .filter((paragraph: string) => paragraph.trim() !== "");
-
-  // next image
-  const nextImage = () => {
-    if (activeWorkImage < (work?.workImages.length ?? 0) - 1) {
-      setActiveWorkImage(activeWorkImage + 1);
-    }
-  };
-
-  // previous image
-  const previousImage = () => {
-    if (activeWorkImage > 0) {
-      setActiveWorkImage(activeWorkImage - 1);
-    }
-  };
 
   return (
     <>
@@ -280,55 +262,7 @@ function Work({ params }: { params: { id: string } }) {
       </Flex>
 
       {/* Work images */}
-      <Group mt={30} justify="center" pt={0}>
-        {work?.workImages?.map((image: any, index: number) => (
-          <>
-            <img
-              key={index}
-              src={image.asset.url}
-              onClick={() => {
-                open();
-                setActiveWorkImage(index);
-              }}
-              style={{ cursor: "pointer" }}
-              width={330}
-              height={170}
-              alt={image.alt}
-            />
-
-            <MantineModal
-              opened={opened}
-              onClose={close}
-              fullScreen
-              classNames={{
-                content: classes.customModal,
-                header: classes.customModal,
-              }}
-            >
-              <Group w="100%" h="100%" align="center" justify="center">
-                <IconChevronLeft
-                  size={40}
-                  color="white"
-                  onClick={previousImage}
-                  style={{ cursor: "pointer" }}
-                />
-                <img
-                  key={index}
-                  src={work.workImages[activeWorkImage].asset.url}
-                  width={"90%"}
-                  alt={image.alt}
-                />
-                <IconChevronRight
-                  size={40}
-                  color="white"
-                  onClick={nextImage}
-                  style={{ cursor: "pointer" }}
-                />
-              </Group>
-            </MantineModal>
-          </>
-        ))}
-      </Group>
+      <WorkImages work={work} />
 
       <FooterSocial />
     </>
