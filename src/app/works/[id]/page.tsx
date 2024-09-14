@@ -112,7 +112,7 @@ function Work({ params }: { params: { id: string } }) {
           right={{ base: 15, sm: 45 }}
           top={-40}
           gap={isSM ? 5 : 0}
-          style={{ zIndex: 4000 }}
+          style={{ zIndex: 10 }}
         >
           <IconChevronLeft
             size={30}
