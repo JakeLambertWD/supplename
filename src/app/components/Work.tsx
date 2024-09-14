@@ -11,6 +11,7 @@ import { theme } from "../utils/theme";
 import { WorkProps } from "../utils/typings";
 import { SM } from "../utils/constants";
 import { useMediaQuery } from "@mantine/hooks";
+import { useState } from "react";
 
 interface ProjectProps {
   work: WorkProps;
@@ -20,6 +21,12 @@ function Work({ work }: ProjectProps) {
   const router = useRouter();
   const workDescription = useFormattedDescription(work.description);
   const isSM = useMediaQuery(`(max-width: ${SM})`);
+
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  const handleCanPlayThrough = () => {
+    setIsVideoReady(true);
+  };
 
   return (
     <>
@@ -90,7 +97,7 @@ function Work({ work }: ProjectProps) {
             }}
             style={{ border: "none", zIndex: 10, cursor: "pointer" }}
           >
-            {work.videoURL ? (
+            {isVideoReady ? (
               <video
                 autoPlay
                 loop
@@ -115,6 +122,13 @@ function Work({ work }: ProjectProps) {
                 }}
               />
             )}
+
+            <video
+              style={{ display: "none" }}
+              onCanPlayThrough={handleCanPlayThrough}
+            >
+              <source src={work.videoURL} type="video/mp4" />
+            </video>
 
             <Stack gap={0} px="lg">
               <Group justify="space-between">
