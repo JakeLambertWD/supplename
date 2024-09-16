@@ -25,7 +25,6 @@ function Contact() {
       mb={-150}
       bg={theme?.colors?.primary?.[9]}
       p={50}
-      pt={30}
     >
       <Flex
         w={1150}
