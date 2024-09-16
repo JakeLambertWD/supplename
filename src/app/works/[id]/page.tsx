@@ -90,6 +90,13 @@ function Work({ params }: { params: { id: string } }) {
     .split("\n")
     .filter((paragraph: string) => paragraph.trim() !== "");
 
+  // this ensure the YouTube video player is responsive
+  const responsiveOpts = {
+    ...opts,
+    width: "100%",
+    height: "100%",
+  };
+
   return (
     <>
       <NavigationBar />
@@ -109,8 +116,8 @@ function Work({ params }: { params: { id: string } }) {
       >
         <Flex
           pos="absolute"
-          right={{ base: 15, sm: 45 }}
-          top={-40}
+          right={{ base: 19, sm: 45 }}
+          top={isSM ? -52 : -40}
           gap={isSM ? 5 : 0}
           style={{ zIndex: 10 }}
         >
@@ -180,21 +187,21 @@ function Work({ params }: { params: { id: string } }) {
               style={{
                 position: "relative",
                 paddingBottom: "56.25%", // 16:9 aspect ratio
-                height: "100%",
+                height: 0,
                 overflow: "hidden",
                 width: "100%",
               }}
             >
               <YouTube
                 videoId="8nssMbahow0"
-                opts={opts}
+                opts={responsiveOpts}
                 onReady={onReady}
                 style={{
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  width: "auto",
-                  height: "inherit",
+                  width: "100%",
+                  height: "100%",
                 }}
               />
             </div>

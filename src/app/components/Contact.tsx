@@ -15,7 +15,6 @@ import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../utils/constants";
 
 function Contact() {
-  // ! Error: Hydration failed because the initial UI does not match what was rendered on the server.
   const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   return (
