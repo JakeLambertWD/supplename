@@ -51,7 +51,7 @@ function WorkImages({ work }: WorkImagesProps) {
               header: classes.customModal,
             }}
           >
-            <Group w="100%" h="100%" align="center" justify="center">
+            <Group w="100%" h="100%" align="center" justify="center" gap={0}>
               <IconChevronLeft
                 size={40}
                 color="white"
@@ -61,7 +61,7 @@ function WorkImages({ work }: WorkImagesProps) {
               <img
                 key={index}
                 src={work.workImages[activeWorkImage].asset.url}
-                width={"90%"}
+                width={"80%"}
                 alt={image.alt}
               />
               <IconChevronRight
