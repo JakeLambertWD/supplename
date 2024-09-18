@@ -13,9 +13,36 @@ import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
 import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../utils/constants";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const isSM = useMediaQuery(`(max-width: ${SM})`);
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_elmydx7",
+          "template_1duzkpz", // Replace with your EmailJS template ID
+          form.current,
+          "9zQCwzKelfuK0I-28" // Replace with your EmailJS user ID
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            alert("Message sent successfully!");
+          },
+          (error) => {
+            console.log(error.text);
+            alert("Failed to send the message, please try again.");
+          }
+        );
+    }
+  };
 
   return (
     <Flex
@@ -56,52 +83,55 @@ function Contact() {
         </Stack>
 
         <Stack justify="center" w={{ sm: "50%" }}>
-          <Group mb={10}>
-            <TextInput
-              w="45%"
-              label="NAME"
-              placeholder="Enter your name"
-              variant="unstyled"
-              className={classes.contactFormField}
-              classNames={{
-                input: classes.input,
-                label: classes.label,
-                wrapper: classes.wrapper,
-              }}
-            />
+          <form ref={form} onSubmit={sendEmail}>
+            <Group mb={10}>
+              <TextInput
+                w="45%"
+                label="NAME"
+                placeholder="Enter your name"
+                variant="unstyled"
+                className={classes.contactFormField}
+                classNames={{
+                  input: classes.input,
+                  label: classes.label,
+                  wrapper: classes.wrapper,
+                }}
+              />
 
-            <TextInput
-              w="45%"
-              label="EMAIL"
-              placeholder="Enter your email"
+              <TextInput
+                w="45%"
+                label="EMAIL"
+                placeholder="Enter your email"
+                variant="unstyled"
+                classNames={{
+                  input: classes.input,
+                  label: classes.label,
+                  wrapper: classes.wrapper,
+                }}
+              />
+            </Group>
+            <Textarea
+              w="93%"
+              c="white"
+              label="MESSAGE"
+              placeholder="Hi there.."
               variant="unstyled"
               classNames={{
                 input: classes.input,
                 label: classes.label,
-                wrapper: classes.wrapper,
+                root: classes.root,
               }}
             />
-          </Group>
-          <Textarea
-            w="93%"
-            c="white"
-            label="MESSAGE"
-            placeholder="Hi there.."
-            variant="unstyled"
-            classNames={{
-              input: classes.input,
-              label: classes.label,
-              root: classes.root,
-            }}
-          />
-          <Button
-            color={theme.colors?.primary?.[1]}
-            size="md"
-            w="fit-content"
-            mt="xl"
-          >
-            Say hello!
-          </Button>
+            <Button
+              color={theme.colors?.primary?.[1]}
+              size="md"
+              w="fit-content"
+              mt="xl"
+              type="submit"
+            >
+              Say hello!
+            </Button>
+          </form>
         </Stack>
       </Flex>
     </Flex>
