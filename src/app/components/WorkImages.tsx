@@ -16,15 +16,15 @@ function WorkImages({ work }: WorkImagesProps) {
   const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   const nextImage = () => {
-    if (activeWorkImage < (work?.workImages.length ?? 0) - 1) {
-      setActiveWorkImage(activeWorkImage + 1);
-    }
+    setActiveWorkImage(
+      (prevIndex) => (prevIndex + 1) % (work?.workImages?.length || 1)
+    );
   };
 
   const previousImage = () => {
-    if (activeWorkImage > 0) {
-      setActiveWorkImage(activeWorkImage - 1);
-    }
+    setActiveWorkImage((prevIndex) =>
+      prevIndex === 0 ? (work?.workImages?.length || 1) - 1 : prevIndex - 1
+    );
   };
 
   return (
