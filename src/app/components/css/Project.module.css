@@ -13,6 +13,10 @@
   background: #141414 !important;
 }
 
+.noHover:hover {
+  background-color: transparent;
+}
+
 .inner {
   padding: 75px 0px;
 }

@@ -1,9 +1,10 @@
 import { Group, Modal } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useState } from "react";
+import { SM } from "../utils/constants";
 
 type WorkImagesProps = {
   work?: WorkProps;
@@ -12,6 +13,7 @@ type WorkImagesProps = {
 function WorkImages({ work }: WorkImagesProps) {
   const [opened, { open, close }] = useDisclosure(false);
   const [activeWorkImage, setActiveWorkImage] = useState(0);
+  const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   const nextImage = () => {
     if (activeWorkImage < (work?.workImages.length ?? 0) - 1) {
@@ -48,8 +50,18 @@ function WorkImages({ work }: WorkImagesProps) {
               content: classes.customModal,
               header: classes.customModal,
             }}
+            closeButtonProps={{
+              className: classes.noHover,
+              icon: <IconX size={30} stroke={1.5} color="white" />,
+            }}
           >
-            <Group w="100%" h="100%" align="center" justify="center" gap={0}>
+            <Group
+              w="100%"
+              h={isSM ? "auto" : "90vh"}
+              align="center"
+              justify="space-between"
+              gap={0}
+            >
               <IconChevronLeft
                 size={40}
                 color="white"
@@ -59,7 +71,7 @@ function WorkImages({ work }: WorkImagesProps) {
               <img
                 key={index}
                 src={work.workImages[activeWorkImage].asset.url}
-                width={"80%"}
+                height={"90%"}
                 alt={image.alt}
               />
               <IconChevronRight
