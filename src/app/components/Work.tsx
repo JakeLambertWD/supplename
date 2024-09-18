@@ -167,7 +167,13 @@ function Work({ work }: ProjectProps) {
                     <Text
                       c="orange"
                       fz="xs"
-                      style={{ whiteSpace: "nowrap", fontStyle: "italic" }}
+                      w={"auto"}
+                      style={{
+                        whiteSpace: "nowrap",
+                        fontStyle: "italic",
+                        overflowX: "scroll",
+                        scrollbarWidth: "none",
+                      }}
                     >
                       {work.award[0].title}
                     </Text>
