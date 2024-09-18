@@ -1,4 +1,4 @@
-import { Group, Modal } from "@mantine/core";
+import { Center, Flex, Group, Modal } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
@@ -55,32 +55,37 @@ function WorkImages({ work }: WorkImagesProps) {
               icon: <IconX size={30} stroke={1.5} color="white" />,
             }}
           >
-            <Group
-              w="100%"
-              h={isSM ? "auto" : "90vh"}
-              align="center"
-              justify="space-between"
-              gap={0}
-            >
-              <IconChevronLeft
-                size={40}
-                color="white"
-                onClick={previousImage}
-                style={{ cursor: "pointer" }}
-              />
+            <Center w="100%" h={isSM ? "auto" : "90vh"} pos="relative">
+              <Group
+                pos="absolute"
+                gap={10}
+                right={35}
+                top={-45}
+                style={{ zIndex: 500000 }}
+              >
+                <IconChevronLeft
+                  size={32}
+                  color="white"
+                  onClick={previousImage}
+                  style={{ cursor: "pointer" }}
+                />
+                <IconChevronRight
+                  size={32}
+                  color="white"
+                  onClick={nextImage}
+                  style={{ cursor: "pointer" }}
+                />
+              </Group>
               <img
                 key={index}
                 src={work.workImages[activeWorkImage].asset.url}
-                height={"90%"}
+                style={{
+                  width: isSM ? "-webkit-fill-available" : "",
+                  userSelect: "none",
+                }}
                 alt={image.alt}
               />
-              <IconChevronRight
-                size={40}
-                color="white"
-                onClick={nextImage}
-                style={{ cursor: "pointer" }}
-              />
-            </Group>
+            </Center>
           </Modal>
         </>
       ))}
