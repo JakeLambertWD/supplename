@@ -36,9 +36,7 @@ function WorkImages({ work }: WorkImagesProps) {
               open();
               setActiveWorkImage(index);
             }}
-            style={{ cursor: "pointer" }}
-            width={330}
-            height={170}
+            style={{ cursor: "pointer", height: 170, width: "auto" }}
             alt={image.alt}
           />
 
