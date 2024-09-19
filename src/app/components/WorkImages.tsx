@@ -1,10 +1,11 @@
-import { Center, Flex, Group, Modal } from "@mantine/core";
+import { Center, Group, Modal } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
 import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import { SM } from "../utils/constants";
+import { motion } from "framer-motion";
 
 type WorkImagesProps = {
   work?: WorkProps;
@@ -27,16 +28,24 @@ function WorkImages({ work }: WorkImagesProps) {
     );
   };
 
+  // initial={{ opacity: 0, y: 60 }}
+  // whileInView={{ opacity: 1, y: 0 }}
+  // transition={{ duration: 0.5, delay: index * 0.6 }}
+  // style={{ scale: hovered ? 1.1 : 1 }}
+
   return (
     <Group mt={30} justify="center" pt={0}>
       {work?.workImages?.map((image: any, index: number) => (
         <>
-          <img
+          <motion.img
             key={index}
             src={image.asset.url}
             onClick={() => {
               open();
               setActiveWorkImage(index);
+            }}
+            whileHover={{
+              scale: 1.08,
             }}
             style={{ cursor: "pointer", height: 170, width: "auto" }}
             alt={image.alt}
