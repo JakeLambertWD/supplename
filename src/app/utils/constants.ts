@@ -18,8 +18,8 @@ export const navigationLinks = [
 ];
 
 export const genresNavLinks = [
-  { name: "Music Videos" },
   { name: "Commercials" },
+  { name: "Music Videos" },
   { name: "Event Live" },
   { name: "Directing" },
   { name: "TV" },

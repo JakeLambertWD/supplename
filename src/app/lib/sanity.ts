@@ -1,4 +1,5 @@
 import { createClient } from "@sanity/client";
+import { GenreProps } from "../utils/typings";
 
 export const client = createClient({
   projectId: "0s60p7qc",
@@ -21,8 +22,18 @@ export async function getLatestWork() {
   return latestWork;
 }
 
-export async function getGenres() {
-  const genres = await client.fetch('*[_type == "genre"]{ name }');
+export async function getGenres(): Promise<GenreProps[]> {
+  const genres = await client.fetch<GenreProps[]>(
+    '*[_type == "genre"]{ name }'
+  );
+
+  // ensure that the genre "Commercials" always appears at the start of the array
+  genres.sort((a, b) => {
+    if (a.name === "Commercials") return -1;
+    if (b.name === "Commercials") return 1;
+    return 0;
+  });
+
   return genres;
 }
 
