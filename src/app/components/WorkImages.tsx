@@ -28,11 +28,6 @@ function WorkImages({ work }: WorkImagesProps) {
     );
   };
 
-  // initial={{ opacity: 0, y: 60 }}
-  // whileInView={{ opacity: 1, y: 0 }}
-  // transition={{ duration: 0.5, delay: index * 0.6 }}
-  // style={{ scale: hovered ? 1.1 : 1 }}
-
   return (
     <Group mt={30} justify="center" pt={0}>
       {work?.workImages?.map((image: any, index: number) => (
