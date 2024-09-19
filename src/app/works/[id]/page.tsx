@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import {
   Badge,
   Divider,
@@ -19,8 +18,6 @@ import { useMediaQuery } from "@mantine/hooks";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
-import { getGenres, getWorkByDescription, getWorks } from "../../lib/sanity";
-import { GenreProps, WorkProps } from "../../utils/typings";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
 import { opts, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/NavigationBar";
@@ -28,7 +25,6 @@ import VideoPlayer from "../../components/VideoPlayer";
 import { FooterSocial } from "../../components/Footer";
 import WorksGenreNavigation from "../../components/worksGenreNavigation";
 import WorkImages from "@/app/components/WorkImages";
-import { useGetGenres } from "../../../../hooks/useGetGenres";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
 
@@ -42,7 +38,6 @@ function Work({ params }: { params: { id: string } }) {
   const { onReady } = useVideoReady();
 
   // states
-  const { genres } = useGetGenres();
   const { works } = useGetWorks();
   const { work, isLoading } = useGetWorkByTitle(id);
 
@@ -193,7 +188,7 @@ function Work({ params }: { params: { id: string } }) {
               }}
             >
               <YouTube
-                videoId="8nssMbahow0"
+                videoId={work?.youtubeID}
                 opts={responsiveOpts}
                 onReady={onReady}
                 style={{
