@@ -77,5 +77,11 @@ export default defineType({
       type: "array",
       of: [{ type: "awards" }],
     }),
+    defineField({
+      name: "startTime",
+      title: "Start Time",
+      type: "number",
+      description: "Start time of the video in seconds",
+    }),
   ],
 });

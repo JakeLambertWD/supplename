@@ -64,9 +64,9 @@ function FullScreenCarousel() {
         pos="relative"
       >
         <CarouselVideoPlayer
+          ref={ref}
           nextVideo={nextVideo}
           featuredWork={featuredWork}
-          ref={ref}
         />
 
         <Overlay

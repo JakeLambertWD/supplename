@@ -44,7 +44,7 @@ export async function getBio() {
 
 export async function getWorks() {
   const works = await client.fetch(
-    '*[_type == "work"] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }'
+    '*[_type == "work"] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
   );
   return works;
 }
@@ -58,7 +58,7 @@ export async function getAwards() {
 
 export async function getHomePage() {
   const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
+    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award, startTime } }'
   );
   return homePage;
 }

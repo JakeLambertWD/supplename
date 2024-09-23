@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
   const { scrollYProgress } = useScroll({
@@ -7,10 +8,19 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
   });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && featuredWork?.videoURL) {
+      videoRef.current.currentTime = featuredWork.startTime; // Set the start time in seconds
+    }
+  }, [featuredWork]);
+
   return (
     featuredWork?.videoURL && (
       <motion.video
         key={featuredWork?.videoURL}
+        ref={videoRef}
         autoPlay
         loop
         muted
