@@ -23,7 +23,9 @@ function Works() {
         <Text fz={50} mb="lg">
           Works
         </Text>
+
         <WorksGenreNavigation />
+
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
           {worksByGenre.map((work, index) => (
             <Work key={index} work={work} />

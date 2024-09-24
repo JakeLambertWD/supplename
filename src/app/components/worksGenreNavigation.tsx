@@ -30,6 +30,9 @@ function WorksGenreNavigation() {
       setValue(value);
       setActiveGenreTab(genresArray.indexOf(value));
       router.push(`/works`);
+    } else {
+      // if user clicks the active genre then redirect to works page
+      router.push(`/works`);
     }
   };
 
