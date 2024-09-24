@@ -44,21 +44,21 @@ export async function getBio() {
 
 export async function getWorks() {
   const works = await client.fetch(
-    '*[_type == "work"] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
+    '*[_type == "work"] { client, team, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
   );
   return works;
 }
 
 export async function getAwards() {
   const awards = await client.fetch(
-    '*[_type == "awardsPage"] | order(order asc) { name, order, work->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award } }'
+    '*[_type == "awardsPage"] | order(order asc) { name, year, order, work->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
   );
   return awards;
 }
 
 export async function getHomePage() {
   const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, award, startTime } }'
+    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime } }'
   );
   return homePage;
 }
@@ -72,7 +72,7 @@ export async function getWorkByDescription(description: string) {
     .join(" ");
 
   const work = await client.fetch(
-    `*[_type == "work" && lower(description) == lower($convertDescription)] { client, team, description, overview, "videoURL": video.asset->url, award, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    `*[_type == "work" && lower(description) == lower($convertDescription)] { client, team, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
     { convertDescription }
   );
   return work;
