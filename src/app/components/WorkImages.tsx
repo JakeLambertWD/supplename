@@ -4,7 +4,7 @@ import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
 import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useState } from "react";
-import { SM } from "../utils/constants";
+import { MD } from "../utils/constants";
 import { motion } from "framer-motion";
 
 type WorkImagesProps = {
@@ -14,7 +14,7 @@ type WorkImagesProps = {
 function WorkImages({ work }: WorkImagesProps) {
   const [opened, { open, close }] = useDisclosure(false);
   const [activeWorkImage, setActiveWorkImage] = useState(0);
-  const isSM = useMediaQuery(`(max-width: ${SM})`);
+  const isMD = useMediaQuery(`(max-width: ${MD})`);
 
   const nextImage = () => {
     setActiveWorkImage(
@@ -59,7 +59,7 @@ function WorkImages({ work }: WorkImagesProps) {
               icon: <IconX size={30} stroke={1.5} color="white" />,
             }}
           >
-            <Center w="100%" h={isSM ? "auto" : "90vh"} pos="relative">
+            <Center w="100%" h={isMD ? "auto" : "90vh"} pos="relative">
               <Group
                 pos="absolute"
                 gap={10}
@@ -84,7 +84,7 @@ function WorkImages({ work }: WorkImagesProps) {
                 key={index}
                 src={work.workImages[activeWorkImage].asset.url}
                 style={{
-                  width: isSM ? "-webkit-fill-available" : "",
+                  width: isMD ? "-webkit-fill-available" : "",
                   userSelect: "none",
                 }}
                 alt={image.alt}
