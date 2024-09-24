@@ -4,7 +4,6 @@ function VideoPlayer({ source }: { source: string }) {
       key={source}
       autoPlay
       loop
-      muted
       playsInline
       controls
       style={{
