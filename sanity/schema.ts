@@ -5,7 +5,6 @@ import work from "./schemaTypes/work";
 import genre from "./schemaTypes/genre";
 import movementGenre from "./schemaTypes/movementGenre";
 import workImage from "./schemaTypes/workImage";
-import award from "./schemaTypes/award";
 import teamMember from "./schemaTypes/teamMember";
 import awardsPage from "./schemaTypes/awardsPage";
 import homePage from "./schemaTypes/homePage";
@@ -18,7 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     awardsPage,
     work,
     genre,
-    award,
     movementGenre,
     teamMember,
     pageInfo,
