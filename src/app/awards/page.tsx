@@ -47,7 +47,7 @@ function page() {
       <Stack gap={0}>
         {awards?.map((award, index) => {
           const isOdd = index % 2 === 0;
-          const awardYear = award.work.award[0].year;
+          const awardYear = award.year;
 
           return (
             <>

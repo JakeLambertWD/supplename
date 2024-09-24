@@ -11,8 +11,10 @@ import { useGetWorks } from "../../../hooks/useGetWorks";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
+
   const { genres } = useGetGenres();
   const { works } = useGetWorks();
+
   const worksByGenre = useFilterWorksByGenre(genres, works, activeGenreTab);
 
   return (

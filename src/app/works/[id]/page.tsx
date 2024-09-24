@@ -27,6 +27,7 @@ import WorksGenreNavigation from "../../components/worksGenreNavigation";
 import WorkImages from "@/app/components/WorkImages";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
+import { useGetAwards } from "../../../../hooks/getAwards";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -34,10 +35,8 @@ function Work({ params }: { params: { id: string } }) {
   const router = useRouter();
   const isSM = useMediaQuery(`(max-width: ${SM})`);
 
-  // hooks
   const { onReady } = useVideoReady();
-
-  // states
+  const { awards } = useGetAwards();
   const { works } = useGetWorks();
   const { work, isLoading } = useGetWorkByTitle(id);
 
@@ -52,7 +51,11 @@ function Work({ params }: { params: { id: string } }) {
 
   // if the genre is awards, filter by award
   if (activeGenreTab === 5) {
-    worksByGenre = works.filter((item) => item.award);
+    worksByGenre = awards
+      .map((award) =>
+        works.find((work) => work.description === award.work.description)
+      )
+      .filter((work) => work !== undefined);
   }
 
   // find the index of the current work within the worksByGenre array

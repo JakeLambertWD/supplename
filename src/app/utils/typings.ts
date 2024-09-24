@@ -29,6 +29,7 @@ export interface AwardProps {
 
 export interface AwardPageProps {
   name: string;
+  year: string;
   order: number;
   work: WorkProps;
 }

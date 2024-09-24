@@ -12,6 +12,7 @@ import { WorkProps } from "../utils/typings";
 import { SM } from "../utils/constants";
 import { useMediaQuery } from "@mantine/hooks";
 import { useState } from "react";
+import { useGetAwards } from "../../../hooks/getAwards";
 
 interface ProjectProps {
   work: WorkProps;
@@ -24,9 +25,16 @@ function Work({ work }: ProjectProps) {
 
   const [isVideoReady, setIsVideoReady] = useState(false);
 
+  const { awards } = useGetAwards();
+
   const handleCanPlayThrough = () => {
     setIsVideoReady(true);
   };
+
+  // Find a matching award based on work description
+  const matchingAward = awards.find(
+    (award) => award.work.description === work.description
+  );
 
   return (
     <>
@@ -162,8 +170,8 @@ function Work({ work }: ProjectProps) {
 
               {
                 // @ts-ignore
-                work.award && (
-                  <Group>
+                matchingAward && (
+                  <Group wrap="nowrap">
                     <Text
                       c="orange"
                       fz="xs"
@@ -175,7 +183,7 @@ function Work({ work }: ProjectProps) {
                         scrollbarWidth: "none",
                       }}
                     >
-                      {work.award[0].title}
+                      {matchingAward.name}
                     </Text>
                     <IconTrophy
                       size={23}
