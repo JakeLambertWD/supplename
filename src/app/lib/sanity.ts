@@ -8,18 +8,41 @@ export const client = createClient({
   useCdn: false,
 });
 
-export async function getPageInfo() {
-  const pageInfo = await client.fetch(
-    '*[_type == "pageInfo"]{ jobTitle, "imageURL": logo.asset->url, "bioImage": image.asset->url }'
+export async function getHomePage() {
+  const homePage = await client.fetch(
+    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime } }'
   );
-  return pageInfo;
+  return homePage;
 }
 
-export async function getLatestWork() {
-  const latestWork = await client.fetch(
-    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url, "videoURL": video.asset->url }'
+export async function getAwards() {
+  const awards = await client.fetch(
+    '*[_type == "awardsPage"] | order(order asc) { name, year, order, work->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
   );
-  return latestWork;
+  return awards;
+}
+
+export async function getWorks() {
+  const works = await client.fetch(
+    '*[_type == "work" && hide != true] { client, hide, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
+  );
+  return works;
+}
+
+export async function getWorkByDescription(description: string) {
+  // convert the description to match the format in the database
+  const convertDescription = description
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  const work = await client.fetch(
+    `*[_type == "work" && lower(description) == lower($convertDescription)] { client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt },
+     team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    { convertDescription }
+  );
+  return work;
 }
 
 export async function getGenres(): Promise<GenreProps[]> {
@@ -37,44 +60,21 @@ export async function getGenres(): Promise<GenreProps[]> {
   return genres;
 }
 
+export async function getLatestWork() {
+  const latestWork = await client.fetch(
+    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url, "videoURL": video.asset->url }'
+  );
+  return latestWork;
+}
+
+export async function getPageInfo() {
+  const pageInfo = await client.fetch(
+    '*[_type == "pageInfo"]{ jobTitle, "imageURL": logo.asset->url, "bioImage": image.asset->url }'
+  );
+  return pageInfo;
+}
+
 export async function getBio() {
   const bio = await client.fetch('*[_type == "bio"]{ description, }');
   return bio;
-}
-
-export async function getWorks() {
-  const works = await client.fetch(
-    '*[_type == "work" && hide != true] { client, hide, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
-  );
-  return works;
-}
-
-export async function getAwards() {
-  const awards = await client.fetch(
-    '*[_type == "awardsPage"] | order(order asc) { name, year, order, work->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
-  );
-  return awards;
-}
-
-export async function getHomePage() {
-  const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime } }'
-  );
-  return homePage;
-}
-
-export async function getWorkByDescription(description: string) {
-  // convert the description to match the format in the database
-  const convertDescription = description
-    .replace(/-/g, " ")
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-
-  const work = await client.fetch(
-    `*[_type == "work" && lower(description) == lower($convertDescription)] { client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt },
-     team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
-    { convertDescription }
-  );
-  return work;
 }
