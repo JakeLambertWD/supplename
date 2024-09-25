@@ -85,8 +85,10 @@ function Work({ params }: { params: { id: string } }) {
 
   // split the overview into paragraphs
   const paragraphs = work?.overview
-    .split("\n")
-    .filter((paragraph: string) => paragraph.trim() !== "");
+    ? work?.overview
+        .split("\n")
+        .filter((paragraph: string) => paragraph.trim() !== "")
+    : [];
 
   // this ensure the YouTube video player is responsive
   const responsiveOpts = {
