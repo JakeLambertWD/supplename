@@ -222,9 +222,9 @@ function Work({ params }: { params: { id: string } }) {
                 <Group key={index}>
                   <Text fz="11px" fw={600}>
                     <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                      {member.role}: &nbsp;
+                      {member?.role}: &nbsp;
                     </span>
-                    {member.name}
+                    {member?.name}
                   </Text>
                 </Group>
               ))}

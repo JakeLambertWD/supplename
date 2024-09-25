@@ -63,7 +63,12 @@ export default defineType({
       name: "team",
       title: "Team",
       type: "array",
-      of: [{ type: "teamMember" }],
+      of: [
+        {
+          type: "reference",
+          to: { type: "teamMember" },
+        },
+      ],
     }),
     defineField({
       name: "workImages",
