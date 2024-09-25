@@ -46,7 +46,7 @@ function NavigationBar() {
       px={{ base: "sm", md: 50 }}
       py="lg"
       bg={scrolled ? theme?.colors?.primary?.[9] : "transparent"}
-      style={{ zIndex: 25 }}
+      style={{ zIndex: 45 }}
     >
       <Image
         onClick={() => navigateToPage("/")}

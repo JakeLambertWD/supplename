@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { theme } from "../utils/theme";
 import { genresNavLinks } from "../utils/constants";
 
-function WorksGenreNavigation({ isFixed }: { isFixed: boolean }) {
+function WorksGenreNavigation({ isFixed }: { isFixed?: boolean }) {
   const router = useRouter();
 
   const genresArray = genresNavLinks.map((genre: any) => genre.name);
