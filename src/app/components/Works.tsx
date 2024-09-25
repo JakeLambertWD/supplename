@@ -8,6 +8,8 @@ import { useFilterWorksByGenre } from "../../../hooks/useFilterWorksByGenre";
 import WorksGenreNavigation from "./worksGenreNavigation";
 import { useGetGenres } from "../../../hooks/useGetGenres";
 import { useGetWorks } from "../../../hooks/useGetWorks";
+import { useEffect, useState } from "react";
+import { theme } from "../utils/theme";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
@@ -17,6 +19,23 @@ function Works() {
 
   const worksByGenre = useFilterWorksByGenre(genres, works, activeGenreTab);
 
+  // give navbar a fixed position on scroll
+  const [isFixed, setIsFixed] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
@@ -24,7 +43,7 @@ function Works() {
           Works
         </Text>
 
-        <WorksGenreNavigation />
+        <WorksGenreNavigation isFixed={isFixed} />
 
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
           {worksByGenre.map((work, index) => (

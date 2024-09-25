@@ -24,10 +24,8 @@ const WorkTile = ({
 }: ProjectCardProps) => {
   const { hovered, ref } = useHover();
   const router = useRouter();
-
   const isMd = useMediaQuery(`(max-width: ${MD})`);
   const isSM = useMediaQuery(`(max-width: ${SM})`);
-
   const formattedDescription = useFormattedDescription(description);
 
   useEffect(() => {
