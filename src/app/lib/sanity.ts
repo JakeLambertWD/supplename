@@ -44,7 +44,7 @@ export async function getBio() {
 
 export async function getWorks() {
   const works = await client.fetch(
-    '*[_type == "work"] { client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
+    '*[_type == "work" && hide != true] { client, hide, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt }, team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime }'
   );
   return works;
 }

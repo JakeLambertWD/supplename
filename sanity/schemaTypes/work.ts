@@ -82,5 +82,11 @@ export default defineType({
       type: "number",
       description: "Start time of the video in seconds",
     }),
+    defineField({
+      name: "hide",
+      title: "Hide",
+      type: "boolean",
+      description: "Hide this work",
+    }),
   ],
 });
