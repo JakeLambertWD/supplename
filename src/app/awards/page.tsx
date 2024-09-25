@@ -100,7 +100,7 @@ function page() {
                       <Text ta={isSM ? "center" : "match-parent"}>
                         {award.name}
                       </Text>
-                      <Text>{awardYear}</Text>
+
                       <Button
                         color={theme.colors?.primary?.[1]}
                         size="md"
