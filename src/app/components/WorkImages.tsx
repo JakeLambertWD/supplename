@@ -52,8 +52,8 @@ function WorkImages({ work }: WorkImagesProps) {
             onClose={close}
             fullScreen
             classNames={{
+              header: classes.headerModal,
               content: classes.customModal,
-              header: classes.customModal,
             }}
             closeButtonProps={{
               className: classes.noHover,
@@ -67,7 +67,7 @@ function WorkImages({ work }: WorkImagesProps) {
                     <img
                       key={index}
                       src={image.asset.url}
-                      width="100%"
+                      width="73%"
                       alt={image.alt}
                     />
                   </Carousel.Slide>
