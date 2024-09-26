@@ -99,7 +99,7 @@ function Work({ work }: ProjectProps) {
           <HoverCard.Dropdown
             bg={theme?.colors?.primary?.[8]}
             w={350}
-            h={350}
+            h={"auto"}
             p={0}
             onClick={() => {
               router.push(`/works/${workDescription}`);
@@ -115,6 +115,8 @@ function Work({ work }: ProjectProps) {
                 preload="auto"
                 style={{
                   width: "100%",
+                  height: "200px",
+                  objectFit: "cover",
                 }}
               >
                 <source src={work.videoURL} type="video/mp4" />
@@ -199,6 +201,7 @@ function Work({ work }: ProjectProps) {
               <Flex
                 gap={10}
                 mt="xs"
+                mb="lg"
                 w={310}
                 wrap="nowrap"
                 style={{ overflowX: "auto", scrollbarWidth: "none" }}
