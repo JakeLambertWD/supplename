@@ -20,7 +20,8 @@ interface ProjectProps {
 
 function Work({ work }: ProjectProps) {
   const router = useRouter();
-  const workDescription = useFormattedDescription(work.description);
+  const workDescription =
+    work.description && useFormattedDescription(work.description);
   const isSM = useMediaQuery(`(max-width: ${SM})`);
 
   const [isVideoReady, setIsVideoReady] = useState(false);
