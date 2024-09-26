@@ -1,4 +1,4 @@
-import { Center, Group, Modal } from "@mantine/core";
+import { Center, Group, Modal, Text } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
@@ -6,6 +6,7 @@ import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useState } from "react";
 import { MD } from "../utils/constants";
 import { motion } from "framer-motion";
+import { Carousel } from "@mantine/carousel";
 
 type WorkImagesProps = {
   work?: WorkProps;
@@ -59,37 +60,20 @@ function WorkImages({ work }: WorkImagesProps) {
               icon: <IconX size={30} stroke={1.5} color="white" />,
             }}
           >
-            <Center w="100%" h={isMD ? "auto" : "90vh"} pos="relative">
-              <Group
-                pos="absolute"
-                gap={10}
-                right={35}
-                top={-45}
-                style={{ zIndex: 500000 }}
-              >
-                <IconChevronLeft
-                  size={32}
-                  color="white"
-                  onClick={previousImage}
-                  style={{ cursor: "pointer" }}
-                />
-                <IconChevronRight
-                  size={32}
-                  color="white"
-                  onClick={nextImage}
-                  style={{ cursor: "pointer" }}
-                />
-              </Group>
-              <img
-                key={index}
-                src={work.workImages[activeWorkImage].asset.url}
-                style={{
-                  width: isMD ? "-webkit-fill-available" : "",
-                  userSelect: "none",
-                }}
-                alt={image.alt}
-              />
-            </Center>
+            <Carousel ta="center" loop>
+              {work.workImages.map((image: any, index: number) => {
+                return (
+                  <Carousel.Slide>
+                    <img
+                      key={index}
+                      src={image.asset.url}
+                      width="100%"
+                      alt={image.alt}
+                    />
+                  </Carousel.Slide>
+                );
+              })}
+            </Carousel>
           </Modal>
         </>
       ))}

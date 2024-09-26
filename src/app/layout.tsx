@@ -1,6 +1,7 @@
 "use client";
 
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import { theme } from "./utils/theme";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { Electrolize } from "next/font/google";
