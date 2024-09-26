@@ -13,6 +13,7 @@ import { activeGenreTabState } from "../../../atoms/atoms";
 import { useRecoilState } from "recoil";
 import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../utils/constants";
+import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 
 function page() {
   const isSM = useMediaQuery(`(max-width: ${SM})`);
@@ -21,12 +22,6 @@ function page() {
 
   const [activeGenreTab, setActiveGenreTab] =
     useRecoilState(activeGenreTabState);
-
-  // replace spaces with a dash for awards.work.description
-  // to be used in the url
-  const replaceSpaces = (str: string) => {
-    return str.replace(/\s/g, "-");
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,11 +42,20 @@ function page() {
       <Stack gap={0}>
         {awards?.map((award, index) => {
           const isOdd = index % 2 === 0;
-          const awardYear = award.year;
+          const formattedDescription = useFormattedDescription(
+            award.work.description
+          );
 
           return (
             <>
-              <Grid gutter={0}>
+              <Grid
+                gutter={0}
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  router.push(`/works/${formattedDescription}`);
+                  setActiveGenreTab(5);
+                }}
+              >
                 <Grid.Col span={{ sm: 6 }} order={{ sm: isOdd ? 1 : 2 }}>
                   <Flex pos="relative" align="center" justify="center">
                     <motion.video
@@ -106,9 +110,7 @@ function page() {
                         size="md"
                         w="fit-content"
                         onClick={() => {
-                          router.push(
-                            `/works/${replaceSpaces(award.work.description)}`
-                          );
+                          router.push(`/works/${formattedDescription}`);
                           setActiveGenreTab(5);
                         }}
                       >

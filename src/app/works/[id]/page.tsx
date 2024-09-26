@@ -109,7 +109,7 @@ function Work({ params }: { params: { id: string } }) {
         pos="relative"
         c="white"
         h={{ md: "60vh" }}
-        mt="md"
+        mt={45}
         py={0}
         px={{ base: 6, md: 50 }}
         direction={{ base: "column", md: "row" }}
