@@ -206,7 +206,7 @@ function Work({ work }: ProjectProps) {
                 wrap="nowrap"
                 style={{ overflowX: "auto", scrollbarWidth: "none" }}
               >
-                {work.movementGenres.map((genre: any, index: number) => {
+                {work?.movementGenres?.map((genre: any, index: number) => {
                   return (
                     <Group key={index} gap={10} wrap="nowrap">
                       <Text fz="md" c="white" style={{ whiteSpace: "nowrap" }}>
