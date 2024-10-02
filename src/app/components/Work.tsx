@@ -11,7 +11,7 @@ import { theme } from "../utils/theme";
 import { WorkProps } from "../utils/typings";
 import { SM } from "../utils/constants";
 import { useMediaQuery } from "@mantine/hooks";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGetAwards } from "../../../hooks/getAwards";
 
 interface ProjectProps {
@@ -32,10 +32,18 @@ function Work({ work }: ProjectProps) {
     setIsVideoReady(true);
   };
 
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = work?.startTime; // Set the start time in seconds
+    }
+  };
+
   // Find a matching award based on work description
   const matchingAward = awards.find(
     (award) => award.work.description === work.description
   );
+
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <>
@@ -108,11 +116,13 @@ function Work({ work }: ProjectProps) {
           >
             {isVideoReady ? (
               <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
+                onLoadedMetadata={handleLoadedMetadata}
                 style={{
                   width: "100%",
                   height: "200px",
