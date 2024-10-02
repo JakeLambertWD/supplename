@@ -7,6 +7,7 @@ import { theme } from "../utils/theme";
 import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
+import { useEffect, useRef } from "react";
 
 function Award({ award, isOdd }: any) {
   const router = useRouter();
@@ -16,12 +17,13 @@ function Award({ award, isOdd }: any) {
   const [activeGenreTab, setActiveGenreTab] =
     useRecoilState(activeGenreTabState);
 
-  // const videoRef = useRef<HTMLVideoElement>(null);
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     videoRef.current.currentTime = featuredWork.startTime; // Set the start time in seconds
-  //   }
-  // }, []);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current && award?.work?.videoURL) {
+      videoRef.current.currentTime = award.work.startTime; // Set the start time in seconds
+    }
+  }, [award]);
 
   return (
     <Grid
@@ -36,6 +38,7 @@ function Award({ award, isOdd }: any) {
         <Flex pos="relative" align="center" justify="center">
           <motion.video
             key={award?.work?.videoURL}
+            ref={videoRef}
             autoPlay
             loop
             muted
