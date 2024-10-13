@@ -2,11 +2,11 @@ import { Button, Center, Flex, Grid, Stack, Text } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "@mantine/hooks";
-import { SM } from "../utils/constants";
-import { theme } from "../utils/theme";
-import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
+import { SM } from "../../utils/constants";
+import { theme } from "../../utils/theme";
+import { useFormattedDescription } from "../../../../hooks/useFormattedDescription";
 import { useRecoilState } from "recoil";
-import { activeGenreTabState } from "../../../atoms/atoms";
+import { activeGenreTabState } from "../../../../atoms/atoms";
 import { useEffect, useRef } from "react";
 
 function Award({ award, isOdd }: any) {

@@ -4,7 +4,7 @@ import { Space, Stack, Text } from "@mantine/core";
 import NavigationBar from "../components/NavigationBar";
 import { FooterSocial } from "../components/Footer";
 import { useGetAwards } from "../../../hooks/getAwards";
-import Award from "../components/Award";
+import Award from "../components/AwardsPage/Award";
 
 function page() {
   const { awards } = useGetAwards();
