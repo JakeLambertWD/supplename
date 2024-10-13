@@ -15,15 +15,27 @@ export function FooterSocial() {
           EST. 2004
         </Text>
         <Stack align="center" justify="center" gap={3}>
-          <Text fz={12}>© 2024 | Supple Nam</Text>
-          <Text fz={12}>Powered By Mantine UI</Text>
+          <Text
+            fz={12}
+            style={{ cursor: "pointer" }}
+            onClick={() => window.open("https://jakelambert.me")}
+          >
+            Made by Jake Lambert
+          </Text>
+          <Text fz={12}>© 2024</Text>
           <Divider
             size="sm"
             w={70}
             my={3}
             color={theme?.colors?.primary?.[1]}
           />
-          <Text fz={12}>supple@supplenam.com</Text>
+          <Text
+            fz={12}
+            style={{ cursor: "pointer" }}
+            onClick={() => window.open("https://jakelambert.me")}
+          >
+            jakelambert.me
+          </Text>
         </Stack>
         <Group visibleFrom="sm">
           <IconBrandTwitter
