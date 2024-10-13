@@ -7,7 +7,7 @@ import { theme } from "../../utils/theme";
 import { useFormattedDescription } from "../../../../hooks/useFormattedDescription";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Award({ award, isOdd }: any) {
   const router = useRouter();
@@ -24,6 +24,43 @@ function Award({ award, isOdd }: any) {
       videoRef.current.currentTime = award.work.startTime; // Set the start time in seconds
     }
   }, [award]);
+
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+          } else {
+            setIsInView(false);
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust the threshold as needed
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isInView) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [isInView]);
 
   return (
     <Grid
