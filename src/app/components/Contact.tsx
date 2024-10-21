@@ -13,35 +13,46 @@ import classes from "../components/css/Contact.module.css";
 import Copy from "./Copy";
 import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../utils/constants";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
   const isSM = useMediaQuery(`(max-width: ${SM})`);
-  const form = useRef<HTMLFormElement | null>(null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const sendEmail = (e: any) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "service_elmydx7",
-          "template_1duzkpz", // Replace with your EmailJS template ID
-          form.current,
-          "9zQCwzKelfuK0I-28" // Replace with your EmailJS user ID
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            alert("Message sent successfully!");
-          },
-          (error) => {
-            console.log(error.text);
-            alert("Failed to send the message, please try again.");
-          }
-        );
-    }
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: "Supple Nam",
+      message: message,
+    };
+
+    emailjs
+      .send(
+        "service_un6ldad",
+        "template_1duzkpz",
+        templateParams,
+        "9zQCwzKelfuK0I-28"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Message sent successfully!");
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        (error) => {
+          console.log(error.text);
+          alert("Failed to send the message, please try again.");
+        }
+      );
   };
 
   return (
@@ -83,11 +94,13 @@ function Contact() {
         </Stack>
 
         <Stack justify="center" w={{ sm: "50%" }}>
-          <form ref={form} onSubmit={sendEmail}>
+          <form onSubmit={sendEmail}>
             <Group mb={10}>
               <TextInput
                 w="45%"
                 label="NAME"
+                value={name}
+                onChange={(e) => setName(e.currentTarget.value)}
                 placeholder="Enter your name"
                 variant="unstyled"
                 className={classes.contactFormField}
@@ -101,6 +114,8 @@ function Contact() {
               <TextInput
                 w="45%"
                 label="EMAIL"
+                value={email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
                 placeholder="Enter your email"
                 variant="unstyled"
                 classNames={{
@@ -114,6 +129,8 @@ function Contact() {
               w="93%"
               c="white"
               label="MESSAGE"
+              value={message}
+              onChange={(e) => setMessage(e.currentTarget.value)}
               placeholder="Hi there.."
               variant="unstyled"
               classNames={{
