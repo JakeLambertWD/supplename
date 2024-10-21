@@ -27,6 +27,7 @@ function page() {
   const [awards, setAwards] = useState<AwardPageProps[]>([]);
   const [bio, setBio] = useState("");
   const [pageInfo, setPageInfo] = useState<any>({});
+  const [buttonContent, setButtonContent] = useState("My CV");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -85,22 +86,21 @@ function page() {
               </Flex>
 
               <Button
-                mt="xl"
-                color="white"
-                size={isSM ? "sm" : "md"}
-                variant="outline"
-                w="fit-content"
-                mb={{ base: "xl", sm: "0" }}
-                onClick={() =>
+                color={theme.colors?.primary?.[1]}
+                mt="md"
+                size="sm"
+                w={100}
+                onClick={() => {
                   window.open(
                     "https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf"
-                  )
-                }
+                  );
+                  setButtonContent("👍");
+                }}
               >
-                My CV
+                {buttonContent}
               </Button>
 
-              <Stack w={isSM ? "40%" : "70%"} mt="xl">
+              <Stack w={isSM ? "40%" : "70%"} mt="sm">
                 {awards.map((award, index) => {
                   return (
                     <Group wrap="nowrap" gap={4}>
