@@ -11,7 +11,7 @@ import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
 
-function NavigationBar() {
+function NavigationBar({ open }: any) {
   const router = useRouter();
   const pathname = usePathname();
   const isSM = useMediaQuery(`(max-width: ${SM})`);
@@ -90,7 +90,7 @@ function NavigationBar() {
       <Flex gap="sm" display={{ base: "none", sm: "flex" }}>
         <Button
           ref={ref as any}
-          onClick={() => navigateToPage("/contact")}
+          onClick={open}
           variant="outline"
           color="white"
           size="md"
@@ -100,7 +100,7 @@ function NavigationBar() {
             transition: "outline-offset 200ms ease",
           }}
         >
-          Let's chat
+          Show Reel
         </Button>
       </Flex>
     </Flex>
