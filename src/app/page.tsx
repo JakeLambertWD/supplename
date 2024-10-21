@@ -23,9 +23,8 @@ export default function Home() {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar open={open} />
       <Carousel />
-      <LandingSection jobTitle={pageInfo.jobTitle} />
       <Contact />
       <SocialIcons />
       <FooterSocial />
