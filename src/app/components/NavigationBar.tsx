@@ -62,8 +62,6 @@ function NavigationBar() {
 
       <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
         {navigationLinks.map((link) => {
-          if (link.label === "Contact") return null;
-
           const isActive = pathname.includes(link.href);
 
           return (
