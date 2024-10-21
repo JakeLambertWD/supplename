@@ -70,13 +70,35 @@ function page() {
 
           <Grid.Col span={{ base: 12, sm: 3 }} order={{ base: 1, sm: 2 }}>
             <Stack align={"center"}>
-              <Image
-                src={pageInfo.bioImage}
-                width={isSM ? 160 : 220}
-                height={isSM ? 190 : 280}
-                quality={100}
-                alt="Image"
-              />
+              <Flex
+                w={{ base: 190, sm: 220 }}
+                h={{ base: 190, sm: 220 }}
+                pos="relative"
+              >
+                <Image
+                  src={pageInfo.bioImage}
+                  quality={100}
+                  objectFit="cover"
+                  layout="fill"
+                  alt="Image"
+                />
+              </Flex>
+
+              <Button
+                mt="xl"
+                color="white"
+                size={isSM ? "sm" : "md"}
+                variant="outline"
+                w="fit-content"
+                mb={{ base: "xl", sm: "0" }}
+                onClick={() =>
+                  window.open(
+                    "https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf"
+                  )
+                }
+              >
+                My CV
+              </Button>
 
               <Stack w={isSM ? "40%" : "70%"} mt="xl">
                 {awards.map((award, index) => {
@@ -100,22 +122,6 @@ function page() {
                   );
                 })}
               </Stack>
-
-              <Button
-                mt="xl"
-                color="white"
-                size={isSM ? "sm" : "md"}
-                variant="outline"
-                w="fit-content"
-                mb={{ base: "xl", sm: "0" }}
-                onClick={() =>
-                  window.open(
-                    "https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf"
-                  )
-                }
-              >
-                My CV
-              </Button>
             </Stack>
           </Grid.Col>
         </Grid>
