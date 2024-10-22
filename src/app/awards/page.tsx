@@ -1,6 +1,6 @@
 "use client";
 
-import { Space, Stack, Text } from "@mantine/core";
+import { Space, Stack } from "@mantine/core";
 import NavigationBar from "../components/NavigationBar";
 import { FooterSocial } from "../components/Footer";
 import { useGetAwards } from "../../../hooks/getAwards";
@@ -14,9 +14,6 @@ function page() {
       <NavigationBar />
       <Space h={100} />
 
-      <Text fz={50} c="white" ta="center" mb={50}>
-        Awards
-      </Text>
       <Stack gap={0}>
         {awards?.map((award, index) => {
           const isOdd = index % 2 === 0;

@@ -9,7 +9,6 @@ import WorksGenreNavigation from "./worksGenreNavigation";
 import { useGetGenres } from "../../../hooks/useGetGenres";
 import { useGetWorks } from "../../../hooks/useGetWorks";
 import { useEffect, useState } from "react";
-import { theme } from "../utils/theme";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
@@ -39,10 +38,6 @@ function Works() {
   return (
     <Container size={"100vw"} style={{ zIndex: 4 }}>
       <Stack c="white" align="center">
-        <Text fz={50} mb="lg">
-          Works
-        </Text>
-
         <WorksGenreNavigation isFixed={isFixed} />
 
         <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
