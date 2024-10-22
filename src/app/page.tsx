@@ -2,7 +2,6 @@
 
 import Carousel from "./components/Carousel";
 import { useEffect, useState } from "react";
-import LandingSection from "./components/LandingSection";
 import Contact from "./components/Contact";
 import SocialIcons from "./components/SocialIcons";
 import NavigationBar from "./components/NavigationBar";
