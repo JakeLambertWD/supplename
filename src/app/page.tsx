@@ -1,7 +1,7 @@
 "use client";
 
 import Carousel from "./components/Carousel";
-import Contact from "./components/Contact";
+import Contact from "./components/ContactPage/Contact";
 
 import SocialIcons from "./components/SocialIcons";
 import NavigationBar from "./components/NavigationBar";

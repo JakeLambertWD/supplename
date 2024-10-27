@@ -1,6 +1,6 @@
 "use client";
 
-import Contact from "../components/Contact";
+import Contact from "../components/ContactPage/Contact";
 import { FooterSocial } from "../components/Footer";
 import NavigationBar from "../components/NavigationBar";
 import SocialIcons from "../components/SocialIcons";
