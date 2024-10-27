@@ -95,7 +95,24 @@ function Work({ work }: ProjectProps) {
             }}
             style={{ border: "none", zIndex: 10, cursor: "pointer" }}
           >
-            {isVideoReady ? (
+            <div
+              style={{ position: "relative", width: "100%", height: "200px" }}
+            >
+              <motion.img
+                src={work.tileImage}
+                alt="Image"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "top",
+                  width: "100%",
+                  height: "100%",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  opacity: isVideoReady ? 0 : 1,
+                  transition: "opacity 0.5s ease-in-out",
+                }}
+              />
               <video
                 ref={videoRef}
                 autoPlay
@@ -104,34 +121,21 @@ function Work({ work }: ProjectProps) {
                 playsInline
                 preload="auto"
                 onLoadedMetadata={handleLoadedMetadata}
+                onCanPlayThrough={handleCanPlayThrough}
                 style={{
                   width: "100%",
-                  height: "200px",
+                  height: "100%",
                   objectFit: "cover",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  opacity: isVideoReady ? 1 : 0,
+                  transition: "opacity 0.5s ease-in-out",
                 }}
               >
                 <source src={work.videoURL} type="video/mp4" />
               </video>
-            ) : (
-              <motion.img
-                src={work.tileImage}
-                alt="Image"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "top",
-                  width: 350,
-                  height: 200,
-                }}
-              />
-            )}
-
-            {/* By preloading the video and ensuring it is ready to play before displaying it, you can prevent the black flash that occurs when the user hovers over the card.  */}
-            <video
-              style={{ display: "none" }}
-              onCanPlayThrough={handleCanPlayThrough}
-            >
-              <source src={work.videoURL} type="video/mp4" />
-            </video>
+            </div>
 
             <HoverCardContent
               client={work.client}
