@@ -1,7 +1,6 @@
 import { Burger, Flex, Menu, Text } from "@mantine/core";
 import { navigationLinks } from "../utils/constants";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "../components/css/Project.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import { theme } from "../utils/theme";
 

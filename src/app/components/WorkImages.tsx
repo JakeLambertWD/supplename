@@ -1,10 +1,8 @@
-import { Center, Group, Modal, Text } from "@mantine/core";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import { Group, Modal } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { WorkProps } from "../utils/typings";
 import classes from "./css/Project.module.css";
-import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
-import { useState } from "react";
-import { MD } from "../utils/constants";
+import { IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { Carousel } from "@mantine/carousel";
 
@@ -14,20 +12,6 @@ type WorkImagesProps = {
 
 function WorkImages({ work }: WorkImagesProps) {
   const [opened, { open, close }] = useDisclosure(false);
-  const [activeWorkImage, setActiveWorkImage] = useState(0);
-  const isMD = useMediaQuery(`(max-width: ${MD})`);
-
-  const nextImage = () => {
-    setActiveWorkImage(
-      (prevIndex) => (prevIndex + 1) % (work?.workImages?.length || 1)
-    );
-  };
-
-  const previousImage = () => {
-    setActiveWorkImage((prevIndex) =>
-      prevIndex === 0 ? (work?.workImages?.length || 1) - 1 : prevIndex - 1
-    );
-  };
 
   return (
     <Group mt={30} justify="center" pt={0}>
@@ -38,7 +22,6 @@ function WorkImages({ work }: WorkImagesProps) {
             src={image.asset.url}
             onClick={() => {
               open();
-              setActiveWorkImage(index);
             }}
             whileHover={{
               scale: 1.08,
