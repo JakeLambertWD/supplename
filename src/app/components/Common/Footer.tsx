@@ -5,7 +5,7 @@ import {
   IconBrandVimeo,
   IconBrandYoutube,
 } from "@tabler/icons-react";
-import { theme } from "../utils/theme";
+import { theme } from "../../utils/theme";
 
 export function FooterSocial() {
   return (

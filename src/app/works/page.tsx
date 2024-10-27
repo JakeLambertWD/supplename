@@ -1,8 +1,8 @@
 "use client";
 
 import Works from "../components/WorksPage/Works";
-import NavigationBar from "../components/NavigationBar";
-import { FooterSocial } from "../components/Footer";
+import NavigationBar from "../components/Common/NavigationBar";
+import { FooterSocial } from "../components/Common/Footer";
 import { Space } from "@mantine/core";
 
 function page() {

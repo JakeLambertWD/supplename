@@ -1,8 +1,8 @@
 "use client";
 
 import { Space, Stack } from "@mantine/core";
-import NavigationBar from "../components/NavigationBar";
-import { FooterSocial } from "../components/Footer";
+import NavigationBar from "../components/Common/NavigationBar";
+import { FooterSocial } from "../components/Common/Footer";
 import { useGetAwards } from "../../../hooks/getAwards";
 import Award from "../components/AwardsPage/Award";
 

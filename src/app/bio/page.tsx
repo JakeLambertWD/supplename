@@ -1,6 +1,6 @@
 "use client";
 
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../components/Common/NavigationBar";
 import {
   Button,
   Container,
@@ -12,7 +12,7 @@ import {
   Text,
 } from "@mantine/core";
 import Image from "next/image";
-import { FooterSocial } from "../components/Footer";
+import { FooterSocial } from "../components/Common/Footer";
 import { IconTrophy } from "@tabler/icons-react";
 import { theme } from "../utils/theme";
 import { useEffect, useState } from "react";

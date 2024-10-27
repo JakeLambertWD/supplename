@@ -1,8 +1,8 @@
 import { Burger, Flex, Menu, Text } from "@mantine/core";
-import { navigationLinks } from "../utils/constants";
+import { navigationLinks } from "../../utils/constants";
 import { useDisclosure } from "@mantine/hooks";
 import { useRouter, usePathname } from "next/navigation";
-import { theme } from "../utils/theme";
+import { theme } from "../../utils/theme";
 
 function Dropdown({
   hiddenFromSm,

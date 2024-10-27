@@ -1,17 +1,17 @@
 "use client";
 
 import { Button, Flex, Modal, NavLink } from "@mantine/core";
-import { navigationLinks, opts, SM } from "../utils/constants";
+import { navigationLinks, opts, SM } from "../../utils/constants";
 import Image from "next/image";
 import { useDisclosure, useHover, useMediaQuery } from "@mantine/hooks";
-import { theme } from "../utils/theme";
+import { theme } from "../../utils/theme";
 import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
 import classes from "./css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import { useVideoReady } from "../../../hooks/useVideoReady";
+import { useVideoReady } from "../../../../hooks/useVideoReady";
 
 function NavigationBar() {
   const router = useRouter();
