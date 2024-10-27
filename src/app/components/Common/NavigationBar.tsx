@@ -7,7 +7,7 @@ import { useDisclosure, useHover, useMediaQuery } from "@mantine/hooks";
 import { theme } from "../../utils/theme";
 import { useRouter, usePathname } from "next/navigation";
 import navLogo from "/public/supple-logo-home.png";
-import classes from "./css/NavigationBar.module.css";
+import classes from "../css/NavigationBar.module.css";
 import Dropdown from "./Dropdown";
 import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
@@ -57,8 +57,8 @@ function NavigationBar() {
         <Image
           onClick={() => navigateToPage("/")}
           src={navLogo}
-          width={isSM ? 150 : 220}
-          height={isSM ? 37 : 60}
+          width={isSM ? 150 : 210}
+          height={isSM ? 37 : 50}
           quality={100}
           alt="image"
           style={{ cursor: "pointer" }}

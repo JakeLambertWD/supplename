@@ -1,6 +1,6 @@
 "use client";
 
-import Carousel from "./components/Carousel";
+import Carousel from "./components/HomePage/Carousel";
 import Contact from "./components/ContactPage/Contact";
 
 import SocialIcons from "./components/Common/SocialIcons";
