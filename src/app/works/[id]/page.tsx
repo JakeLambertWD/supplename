@@ -21,13 +21,13 @@ import classes from "../../components/css/Project.module.css";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
 import { opts, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/NavigationBar";
-import VideoPlayer from "../../components/VideoPlayer";
+import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Footer";
-import WorksGenreNavigation from "../../components/worksGenreNavigation";
-import WorkImages from "@/app/components/WorkImages";
+import WorkImages from "@/app/components/WorkIdPage/WorkImages";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
 import { useGetAwards } from "../../../../hooks/getAwards";
+import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;

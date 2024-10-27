@@ -5,10 +5,10 @@ import Work from "./Work";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { useFilterWorksByGenre } from "../../../../hooks/useFilterWorksByGenre";
-import WorksGenreNavigation from "../worksGenreNavigation";
 import { useGetGenres } from "../../../../hooks/useGetGenres";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useEffect, useState } from "react";
+import WorksGenreNavigation from "../WorkIdPage/worksGenreNavigation";
 
 function Works() {
   const [activeGenreTab] = useRecoilState(activeGenreTabState);

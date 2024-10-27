@@ -1,7 +1,7 @@
 import { Group, Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { WorkProps } from "../utils/typings";
-import classes from "./css/Project.module.css";
+import { WorkProps } from "../../utils/typings";
+import classes from "../css/Project.module.css";
 import { IconX } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { Carousel } from "@mantine/carousel";
