@@ -9,11 +9,11 @@ import {
 } from "@mantine/core";
 import { theme } from "../../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
-import classes from "../components/css/Contact.module.css";
+import classes from "../css/Contact.module.css";
 import Copy from "../Copy";
 import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../../utils/constants";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
