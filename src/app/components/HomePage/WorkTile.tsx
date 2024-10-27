@@ -3,9 +3,9 @@ import { Card, Divider, Stack } from "@mantine/core";
 import Image from "next/image";
 import { useHover, useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
-import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
+import { useFormattedDescription } from "../../../../hooks/useFormattedDescription";
 import { useRouter } from "next/navigation";
-import { MD, SM } from "../utils/constants";
+import { MD, SM } from "../../utils/constants";
 
 type ProjectCardProps = {
   image: any;

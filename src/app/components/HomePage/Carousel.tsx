@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { Flex, Group, Overlay, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import LatestWork from "./LatestWork";
-import { getHomePage } from "../lib/sanity";
-import { HomePageWorkProps } from "../utils/typings";
+import { getHomePage } from "../../lib/sanity";
+import { HomePageWorkProps } from "../../utils/typings";
 import { useHover } from "@mantine/hooks";
+import { theme } from "../../utils/theme";
+import LatestWork from "./LatestWork";
 import CarouselVideoPlayer from "./CarouselVideoPlayer";
-import { theme } from "../utils/theme";
 
 function FullScreenCarousel() {
   const ref = useRef(null);

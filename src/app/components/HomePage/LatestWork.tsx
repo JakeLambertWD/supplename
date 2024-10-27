@@ -1,6 +1,6 @@
 import { Flex } from "@mantine/core";
+import { HomePageWorkProps } from "../../utils/typings";
 import WorkTile from "./WorkTile";
-import { HomePageWorkProps } from "../utils/typings";
 
 interface LatestWorkProps {
   active: number;
