@@ -1,13 +1,13 @@
 "use client";
 
-import { Container, SimpleGrid, Stack, Text } from "@mantine/core";
+import { Container, SimpleGrid, Stack } from "@mantine/core";
 import Work from "./Work";
 import { useRecoilState } from "recoil";
-import { activeGenreTabState } from "../../../atoms/atoms";
-import { useFilterWorksByGenre } from "../../../hooks/useFilterWorksByGenre";
-import WorksGenreNavigation from "./worksGenreNavigation";
-import { useGetGenres } from "../../../hooks/useGetGenres";
-import { useGetWorks } from "../../../hooks/useGetWorks";
+import { activeGenreTabState } from "../../../../atoms/atoms";
+import { useFilterWorksByGenre } from "../../../../hooks/useFilterWorksByGenre";
+import WorksGenreNavigation from "../worksGenreNavigation";
+import { useGetGenres } from "../../../../hooks/useGetGenres";
+import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useEffect, useState } from "react";
 
 function Works() {

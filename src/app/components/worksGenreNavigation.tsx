@@ -1,7 +1,7 @@
 import { Flex, Select, Text } from "@mantine/core";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../atoms/atoms";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { theme } from "../utils/theme";
 import { genresNavLinks } from "../utils/constants";

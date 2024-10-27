@@ -1,20 +1,17 @@
-import { Card, Flex, Group, HoverCard, Stack, Text } from "@mantine/core";
-import { motion } from "framer-motion";
-import {
-  IconBadge4k,
-  IconPlayerPlayFilled,
-  IconTrophy,
-} from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
-import { useFormattedDescription } from "../../../hooks/useFormattedDescription";
-import { theme } from "../utils/theme";
-import { WorkProps } from "../utils/typings";
-import { SM } from "../utils/constants";
+import { useRef, useState } from "react";
+
+import { Card, HoverCard } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { useEffect, useRef, useState } from "react";
-import { useGetAwards } from "../../../hooks/getAwards";
-import WorkCard from "./WorkCard";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+
 import HoverCardContent from "./HoverCardContent";
+import WorkCard from "./WorkCard";
+import { useGetAwards } from "../../../../hooks/getAwards";
+import { useFormattedDescription } from "../../../../hooks/useFormattedDescription";
+import { theme } from "../../utils/theme";
+import { WorkProps } from "../../utils/typings";
+import { SM } from "../../utils/constants";
 
 interface ProjectProps {
   work: WorkProps;

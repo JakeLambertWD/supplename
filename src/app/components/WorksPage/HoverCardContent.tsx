@@ -4,7 +4,7 @@ import {
   IconPlayerPlayFilled,
   IconTrophy,
 } from "@tabler/icons-react";
-import { theme } from "../utils/theme";
+import { theme } from "../../utils/theme";
 
 interface HoverCardContentProps {
   client: string;
