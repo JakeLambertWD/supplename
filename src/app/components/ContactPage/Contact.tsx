@@ -10,7 +10,7 @@ import {
 import { theme } from "../../utils/theme";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import classes from "../css/Contact.module.css";
-import Copy from "../Copy";
+import Copy from "./Copy";
 import { useMediaQuery } from "@mantine/hooks";
 import { SM } from "../../utils/constants";
 import { useState } from "react";
