@@ -7,7 +7,9 @@ import { theme } from "../../utils/theme";
 import { useFormattedDescription } from "../../../../hooks/useFormattedDescription";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useVideoPlayback } from "../../../../hooks/useVideoPlayback";
+import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 function Award({ award, isOdd }: any) {
   const router = useRouter();
@@ -17,40 +19,11 @@ function Award({ award, isOdd }: any) {
   const [activeGenreTab, setActiveGenreTab] =
     useRecoilState(activeGenreTabState);
 
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const { videoRef, isVideoReady, handleLoadedMetadata, handleCanPlayThrough } =
+    useVideoPlayback(award?.work?.videoURL, award?.work?.startTime);
 
-  useEffect(() => {
-    if (videoRef.current && award?.work?.videoURL) {
-      videoRef.current.currentTime = award.work.startTime; // Set the start time in seconds
-    }
-  }, [award]);
-
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-          } else {
-            setIsInView(false);
-          }
-        });
-      },
-      { threshold: 0.5 } // Adjust the threshold as needed
-    );
-
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        observer.unobserve(videoRef.current);
-      }
-    };
-  }, []);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useIntersectionObserver(containerRef);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -72,7 +45,19 @@ function Award({ award, isOdd }: any) {
       }}
     >
       <Grid.Col span={{ sm: 6 }} order={{ sm: isOdd ? 1 : 2 }}>
-        <Flex pos="relative" align="center" justify="center">
+        <Flex ref={containerRef} pos="relative" align="center" justify="center">
+          {!isVideoReady && (
+            <motion.img
+              src={award?.work?.tileImage}
+              alt="Placeholder"
+              style={{
+                width: "100%",
+                height: "500px",
+                objectFit: "cover",
+                zIndex: -1,
+              }}
+            />
+          )}
           <motion.video
             key={award?.work?.videoURL}
             ref={videoRef}
@@ -80,11 +65,14 @@ function Award({ award, isOdd }: any) {
             loop
             muted
             playsInline
+            onLoadedMetadata={handleLoadedMetadata}
+            onCanPlayThrough={handleCanPlayThrough}
             style={{
               width: "100%",
               height: "500px",
               objectFit: "cover",
-              zIndex: -1,
+              zIndex: isVideoReady ? -1 : -2,
+              display: isVideoReady ? "block" : "none",
             }}
           >
             <source src={award?.work?.videoURL} type="video/mp4" />
