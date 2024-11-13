@@ -10,7 +10,7 @@ export const client = createClient({
 
 export async function getHomePage() {
   const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { name, order, featuredWork->{ client, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, startTime } }'
+    '*[_type == "homePage"] | order(order asc) { order, featuredWork->{ client, description, "videoURL": video.asset->url, "tileImage": tileImage.asset->url, startTime } }'
   );
   return homePage;
 }

@@ -45,7 +45,7 @@ function FullScreenCarousel() {
     }, 7000);
 
     return () => clearInterval(interval);
-  }, [latestWorkCount, hovered]);
+  }, [latestWorkCount, active]);
 
   return (
     <>

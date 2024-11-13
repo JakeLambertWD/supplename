@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
   const { scrollYProgress } = useScroll({
@@ -10,16 +10,30 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const preloadRef = useRef<HTMLVideoElement>(null);
+  const [isNextVideoReady, setIsNextVideoReady] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current && featuredWork?.videoURL) {
-      videoRef.current.currentTime = featuredWork.startTime; // Set the start time in seconds
+    const video = videoRef.current;
+    if (video && featuredWork?.videoURL) {
+      video.currentTime = featuredWork.startTime || 0; // Set the start time in seconds
+      const handleTimeUpdate = () => {
+        if (video.currentTime >= (featuredWork.startTime || 0) + 15) {
+          video.pause(); // Pause the video after 15 seconds
+        }
+      };
+      video.addEventListener("timeupdate", handleTimeUpdate);
+      return () => {
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+      };
     }
   }, [featuredWork]);
 
   useEffect(() => {
     if (preloadRef.current && nextVideo) {
       preloadRef.current.load();
+      preloadRef.current.oncanplaythrough = () => {
+        setIsNextVideoReady(true);
+      };
     }
   }, [nextVideo]);
 
@@ -34,6 +48,9 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
           muted
           playsInline
           preload="auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           style={{
             position: "absolute",
             width: "100%",
@@ -41,8 +58,6 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
             objectFit: "cover",
             zIndex: -1,
             y: backgroundY,
-            opacity: nextVideo ? 0 : 1,
-            transition: "opacity 0.5s ease-in-out",
           }}
         >
           <source src={featuredWork?.videoURL} type="video/mp4" />
