@@ -1,7 +1,20 @@
-function VideoPlayer({ source }: { source: string }) {
+import { useImperativeHandle, useRef, forwardRef } from "react";
+
+const VideoPlayer = forwardRef(({ source }: { source: string }, ref) => {
+  // this ref is used to pause the video
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useImperativeHandle(ref, () => ({
+    pause() {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    },
+  }));
+
   return (
     <video
       key={source}
+      ref={videoRef}
       autoPlay
       loop
       playsInline
@@ -15,6 +28,6 @@ function VideoPlayer({ source }: { source: string }) {
       <source src={source} type="video/mp4" />
     </video>
   );
-}
+});
 
 export default VideoPlayer;

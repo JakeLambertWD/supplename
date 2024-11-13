@@ -28,6 +28,7 @@ import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
 import { useGetAwards } from "../../../../hooks/getAwards";
 import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
+import { useRef } from "react";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -97,9 +98,16 @@ function Work({ params }: { params: { id: string } }) {
     height: "100%",
   };
 
+  const videoPlayerRef = useRef(null);
+  const handlePauseVideo = () => {
+    if (videoPlayerRef.current) {
+      videoPlayerRef.current.pause();
+    }
+  };
+
   return (
     <>
-      <NavigationBar />
+      <NavigationBar handlePauseVideo={handlePauseVideo} />
       <Space h={100} />
 
       <WorksGenreNavigation />
@@ -153,7 +161,7 @@ function Work({ params }: { params: { id: string } }) {
         >
           {work?.videoURL ? (
             <>
-              <VideoPlayer source={work?.videoURL} />
+              <VideoPlayer ref={videoPlayerRef} source={work?.videoURL} />
 
               <Text fz="xl" pos="absolute" top={20} left={{ base: 20, sm: 50 }}>
                 {work?.description}

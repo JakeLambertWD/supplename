@@ -13,7 +13,11 @@ import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
 
-function NavigationBar() {
+type NavigationBarProps = {
+  handlePauseVideo?: () => void;
+};
+
+function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const isSM = useMediaQuery(`(max-width: ${SM})`);
@@ -96,7 +100,10 @@ function NavigationBar() {
         <Flex gap="sm" display={{ base: "none", sm: "flex" }}>
           <Button
             ref={ref as any}
-            onClick={open}
+            onClick={() => {
+              open();
+              handlePauseVideo?.();
+            }}
             variant="outline"
             color="white"
             size="md"
