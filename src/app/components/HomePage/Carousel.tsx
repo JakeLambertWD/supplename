@@ -24,9 +24,6 @@ function FullScreenCarousel() {
   const latestWorkCount = latestWork.length;
 
   useEffect(() => {
-    // If the user is hovering over the carousel, don't autoplay the videos
-    if (hovered) return;
-
     const fetchData = async () => {
       const latestWork = await getHomePage();
 

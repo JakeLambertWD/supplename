@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import WorksGenreNavigation from "../WorkIdPage/worksGenreNavigation";
 
 function Works() {
+  // give navbar a fixed position on scroll
+  const [isFixed, setIsFixed] = useState(false);
+
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
 
   const { genres } = useGetGenres();
@@ -18,8 +21,6 @@ function Works() {
 
   const worksByGenre = useFilterWorksByGenre(genres, works, activeGenreTab);
 
-  // give navbar a fixed position on scroll
-  const [isFixed, setIsFixed] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 120) {
