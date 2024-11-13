@@ -27,15 +27,10 @@ function FullScreenCarousel() {
     // If the user is hovering over the carousel, don't autoplay the videos
     if (hovered) return;
 
-    // Fetch the latest work from Sanity
     const fetchData = async () => {
-      // const latestWork = await getLatestWork();
       const latestWork = await getHomePage();
-      // latestWork has a property of order, which is a number that we can use to sort the projects
-      const sortLatestWorkByOrder = latestWork.sort(
-        (a: any, b: any) => a.order - b.order
-      );
-      setLatestWork(sortLatestWorkByOrder);
+
+      setLatestWork(latestWork);
     };
     fetchData();
 
@@ -67,14 +62,6 @@ function FullScreenCarousel() {
           ref={ref}
           nextVideo={nextVideo}
           featuredWork={featuredWork}
-        />
-
-        <Overlay
-          color={theme?.colors?.primary?.[7]}
-          backgroundOpacity={0.2}
-          pos="absolute"
-          h={"100vh"}
-          style={{ zIndex: 0 }}
         />
 
         <Stack
