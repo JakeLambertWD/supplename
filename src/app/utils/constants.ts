@@ -20,7 +20,7 @@ export const navigationLinks = [
 export const genresNavLinks = [
   { name: "Commercials" },
   { name: "Music Videos" },
-  { name: "Event Live" },
+  { name: "Live Events" },
   { name: "Directing" },
   { name: "TV" },
   { name: "Awards" },
