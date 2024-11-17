@@ -57,6 +57,7 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
             height: "100%",
             objectFit: "cover",
             zIndex: -1,
+            transition: "ease-in 0.5s",
             y: backgroundY,
           }}
         >
