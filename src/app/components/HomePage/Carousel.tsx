@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { getHomePage } from "../../lib/sanity";
 import { HomePageWorkProps } from "../../utils/typings";
 import { useHover } from "@mantine/hooks";
-import { theme } from "../../utils/theme";
 import LatestWork from "./LatestWork";
 import CarouselVideoPlayer from "./CarouselVideoPlayer";
 

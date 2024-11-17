@@ -8,9 +8,10 @@ import { Carousel } from "@mantine/carousel";
 
 type WorkImagesProps = {
   work?: WorkProps;
+  handlePauseVideo: () => void;
 };
 
-function WorkImages({ work }: WorkImagesProps) {
+function WorkImages({ work, handlePauseVideo }: WorkImagesProps) {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
@@ -21,6 +22,7 @@ function WorkImages({ work }: WorkImagesProps) {
             key={index}
             src={image.asset.url}
             onClick={() => {
+              handlePauseVideo();
               open();
             }}
             whileHover={{

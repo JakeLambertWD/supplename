@@ -265,7 +265,7 @@ function Work({ params }: { params: { id: string } }) {
         </Stack>
       </Flex>
 
-      <WorkImages work={work} />
+      <WorkImages work={work} handlePauseVideo={handlePauseVideo} />
 
       <FooterSocial />
     </>
