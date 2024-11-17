@@ -19,7 +19,7 @@ import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
-import { opts, SM } from "@/app/utils/constants";
+import { genresNavLinks, opts, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/Common/NavigationBar";
 import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Common/Footer";
@@ -40,6 +40,10 @@ function Work({ params }: { params: { id: string } }) {
   const { awards } = useGetAwards();
   const { works } = useGetWorks();
   const { work, isLoading } = useGetWorkByTitle(id);
+
+  const indexOfGenre = genresNavLinks.findIndex(
+    (genre) => genre.name === work?.projectGenre?.name
+  );
 
   // get active genre tab
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
@@ -98,7 +102,7 @@ function Work({ params }: { params: { id: string } }) {
     height: "100%",
   };
 
-  const videoPlayerRef = useRef(null);
+  const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
   const handlePauseVideo = () => {
     if (videoPlayerRef.current) {
       videoPlayerRef.current.pause();
@@ -110,7 +114,7 @@ function Work({ params }: { params: { id: string } }) {
       <NavigationBar handlePauseVideo={handlePauseVideo} />
       <Space h={100} />
 
-      <WorksGenreNavigation />
+      <WorksGenreNavigation indexOfGenre={indexOfGenre} />
 
       {/* navigation buttons */}
       <Flex

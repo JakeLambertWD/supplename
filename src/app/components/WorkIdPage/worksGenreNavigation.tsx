@@ -1,12 +1,20 @@
+"use client";
+
 import { Flex, Select, Text } from "@mantine/core";
 import { useRecoilState } from "recoil";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { theme } from "../../utils/theme";
 import { genresNavLinks } from "../../utils/constants";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 
-function WorksGenreNavigation({ isFixed }: { isFixed?: boolean }) {
+function WorksGenreNavigation({
+  isFixed,
+  indexOfGenre,
+}: {
+  isFixed?: boolean;
+  indexOfGenre?: number;
+}) {
   const router = useRouter();
 
   const genresArray = genresNavLinks.map((genre: any) => genre.name);
