@@ -32,18 +32,23 @@ function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
   // change navbar color on scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > (pathname === "/" ? 200 : 0)) {
+      if (pathname.startsWith("/works/")) {
+        setScrolled(true);
+      } else if (window.scrollY > (pathname === "/" ? 200 : 0)) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
 
+    // Call handleScroll on mount to set the initial state
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -55,7 +60,13 @@ function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
         align="center"
         px={{ base: "sm", md: 50 }}
         py="lg"
-        bg={scrolled ? theme?.colors?.primary?.[9] : "transparent"}
+        bg={
+          pathname.startsWith("/works/")
+            ? theme?.colors?.primary?.[9]
+            : scrolled
+              ? theme?.colors?.primary?.[9]
+              : "transparent"
+        }
         style={{ zIndex: 45 }}
       >
         <Image
