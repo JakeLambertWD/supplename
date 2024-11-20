@@ -10,7 +10,7 @@ export const client = createClient({
 
 export async function getHomePage() {
   const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { order, featuredWork->{ client, description, "videoURL": video.asset->url, "tileImage": tileImage.asset->url, startTime } }'
+    '*[_type == "homePage"] | order(order asc) { order, featuredWork->{ client, description,  "videoPreview": videoPreview.asset->url, "tileImage": tileImage.asset->url } }'
   );
   return homePage;
 }
@@ -58,13 +58,6 @@ export async function getGenres(): Promise<GenreProps[]> {
   });
 
   return genres;
-}
-
-export async function getLatestWork() {
-  const latestWork = await client.fetch(
-    '*[_type == "latestWork"] { client, title, youtubeID, "tileImage": tileImage.asset->url, "logo": logo.asset->url, "videoURL": video.asset->url }'
-  );
-  return latestWork;
 }
 
 export async function getPageInfo() {

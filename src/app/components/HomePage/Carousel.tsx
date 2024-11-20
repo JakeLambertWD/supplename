@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Flex, Group, Overlay, Stack } from "@mantine/core";
+import { Flex, Group, Stack } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { getHomePage } from "../../lib/sanity";
 import { HomePageWorkProps } from "../../utils/typings";
@@ -33,8 +33,8 @@ function FullScreenCarousel() {
     // Set an interval to autoplay the videos
     const interval = setInterval(() => {
       setNextVideo(
-        latestWork[(active + 1) % latestWorkCount]?.featuredWork?.videoURL ||
-          null
+        latestWork[(active + 1) % latestWorkCount]?.featuredWork
+          ?.videoPreview || null
       );
 
       setTimeout(() => {

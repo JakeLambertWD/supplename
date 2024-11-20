@@ -11,6 +11,7 @@ export interface WorkProps {
   projectGenre: GenreProps;
   tileImage: string;
   videoURL: string;
+  videoPreview: string;
   youtubeID: string;
   award: AwardProps[];
   team: TeamProps[];

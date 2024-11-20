@@ -35,9 +35,12 @@ export default defineType({
       },
     }),
     defineField({
-      name: "youtubeID",
-      title: "YouTube ID",
-      type: "string",
+      name: "videoPreview",
+      title: "Video Preview",
+      type: "file",
+      options: {
+        accept: "video/*",
+      },
     }),
     defineField({
       name: "tileImage",
@@ -86,6 +89,11 @@ export default defineType({
       title: "Start Time",
       type: "number",
       description: "Start time of the video in seconds",
+    }),
+    defineField({
+      name: "youtubeID",
+      title: "YouTube ID",
+      type: "string",
     }),
     defineField({
       name: "hide",

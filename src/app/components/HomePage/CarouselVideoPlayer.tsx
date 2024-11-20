@@ -13,22 +13,6 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
   const [isNextVideoReady, setIsNextVideoReady] = useState(false);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (video && featuredWork?.videoURL) {
-      video.currentTime = featuredWork.startTime || 0; // Set the start time in seconds
-      const handleTimeUpdate = () => {
-        if (video.currentTime >= (featuredWork.startTime || 0) + 15) {
-          video.pause(); // Pause the video after 15 seconds
-        }
-      };
-      video.addEventListener("timeupdate", handleTimeUpdate);
-      return () => {
-        video.removeEventListener("timeupdate", handleTimeUpdate);
-      };
-    }
-  }, [featuredWork]);
-
-  useEffect(() => {
     if (preloadRef.current && nextVideo) {
       preloadRef.current.load();
       preloadRef.current.oncanplaythrough = () => {
@@ -39,9 +23,9 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
 
   return (
     <>
-      {featuredWork?.videoURL && (
+      {featuredWork?.videoPreview && (
         <motion.video
-          key={featuredWork?.videoURL}
+          key={featuredWork?.videoPreview}
           ref={videoRef}
           autoPlay
           loop
@@ -61,7 +45,7 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
             y: backgroundY,
           }}
         >
-          <source src={featuredWork?.videoURL} type="video/mp4" />
+          <source src={featuredWork?.videoPreview} type="video/mp4" />
           Your browser does not support the video tag.
         </motion.video>
       )}
