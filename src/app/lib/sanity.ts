@@ -17,7 +17,7 @@ export async function getHomePage() {
 
 export async function getAwards() {
   const awards = await client.fetch(
-    '*[_type == "awardsPage"] | order(order asc) { name, year, order, work->{ client, startTime, description, overview, "videoURL": video.asset->url, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } } }'
+    '*[_type == "awardsPage"] | order(order asc) { name, order, work->{ client, description, "videoPreview": videoPreview.asset->url, "tileImage": tileImage.asset->url } }'
   );
   return awards;
 }

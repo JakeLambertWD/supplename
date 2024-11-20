@@ -19,8 +19,9 @@ function Award({ award, isOdd }: any) {
   const [activeGenreTab, setActiveGenreTab] =
     useRecoilState(activeGenreTabState);
 
-  const { videoRef, isVideoReady, handleLoadedMetadata, handleCanPlayThrough } =
-    useVideoPlayback(award?.work?.videoURL, award?.work?.startTime);
+  const { videoRef, isVideoReady, handleCanPlayThrough } = useVideoPlayback(
+    award?.work?.videoPreview
+  );
 
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useIntersectionObserver(containerRef);
@@ -59,13 +60,12 @@ function Award({ award, isOdd }: any) {
             />
           )}
           <motion.video
-            key={award?.work?.videoURL}
+            key={award?.work?.videoPreview}
             ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
-            onLoadedMetadata={handleLoadedMetadata}
             onCanPlayThrough={handleCanPlayThrough}
             style={{
               width: "100%",
@@ -75,7 +75,7 @@ function Award({ award, isOdd }: any) {
               display: isVideoReady ? "block" : "none",
             }}
           >
-            <source src={award?.work?.videoURL} type="video/mp4" />
+            <source src={award?.work?.videoPreview} type="video/mp4" />
             Your browser does not support the video tag.
           </motion.video>
 
