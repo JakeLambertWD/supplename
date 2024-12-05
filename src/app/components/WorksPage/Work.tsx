@@ -133,7 +133,7 @@ function Work({ work }: ProjectProps) {
                   transition: "opacity 0.5s ease-in-out",
                 }}
               >
-                <source src={work.videoURL} type="video/mp4" />
+                <source src={work.videoPreview} type="video/mp4" />
               </video>
             </div>
 
