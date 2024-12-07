@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { WorkProps } from "../src/app/utils/typings";
 import { getWorkByDescription } from "@/app/lib/sanity";
 
-export const useGetWorkByTitle = (id: string) => {
+export const useGetWorkByDescription = (id: string) => {
   const [work, setWork] = useState<WorkProps | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
 

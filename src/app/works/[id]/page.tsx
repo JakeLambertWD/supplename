@@ -25,7 +25,7 @@ import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Common/Footer";
 import WorkImages from "@/app/components/WorkIdPage/WorkImages";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
-import { useGetWorkByTitle } from "../../../../hooks/useGetWorkByTitle";
+import { useGetWorkByDescription } from "../../../../hooks/useGetWorkByDescription";
 import { useGetAwards } from "../../../../hooks/getAwards";
 import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
 import { useRef } from "react";
@@ -39,7 +39,7 @@ function Work({ params }: { params: { id: string } }) {
   const { onReady } = useVideoReady();
   const { awards } = useGetAwards();
   const { works } = useGetWorks();
-  const { work, isLoading } = useGetWorkByTitle(id);
+  const { work, isLoading } = useGetWorkByDescription(id);
 
   const indexOfGenre = genresNavLinks.findIndex(
     (genre) => genre.name === work?.projectGenre?.name
