@@ -31,12 +31,6 @@ function Work({ work }: ProjectProps) {
     setIsVideoReady(true);
   };
 
-  const handleLoadedMetadata = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = work?.startTime; // Set the start time in seconds
-    }
-  };
-
   // TODO: maybe create a hook
   // Find a matching award based on work description
   const matchingAward = awards.find(
@@ -121,7 +115,6 @@ function Work({ work }: ProjectProps) {
                 muted
                 playsInline
                 preload="auto"
-                onLoadedMetadata={handleLoadedMetadata}
                 onCanPlayThrough={handleCanPlayThrough}
                 style={{
                   width: "100%",
