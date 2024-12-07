@@ -1,30 +1,25 @@
-import { useMemo } from "react";
-import { GenreProps, WorkProps } from "../src/app/utils/typings";
-import { useGetAwards } from "./getAwards";
+import { useEffect, useMemo, useState } from "react";
+import { getWorksByGenre, getWorksWithAwards } from "@/app/lib/sanity";
 
-export const useFilterWorksByGenre = (
-  genres: GenreProps[],
-  works: WorkProps[],
-  activeGenreTab: number
-) => {
-  const { awards } = useGetAwards();
+export const useFilterWorksByGenre = (activeGenreName: string) => {
+  const [works, setWorks] = useState([]);
 
-  return useMemo(() => {
-    const activeGenre = genres[activeGenreTab];
+  useEffect(() => {
+    const fetchData = async () => {
+      let worksData = [];
+      if (activeGenreName === "Awards") {
+        const awardsData = await getWorksWithAwards();
+        worksData = awardsData.map((award: any) => award.work);
+      } else {
+        worksData = await getWorksByGenre(activeGenreName);
+      }
+      setWorks(worksData);
+    };
 
-    if (!activeGenre) return [];
+    fetchData();
+  }, [activeGenreName]);
 
-    // get all works that have won an award
-    if (activeGenre.name === "Awards") {
-      const awardWorks = awards
-        .map((award) =>
-          works.find((work) => work.description === award.work.description)
-        )
-        .filter((work) => work !== undefined);
+  const memoizedWorks = useMemo(() => works, [works]);
 
-      return awardWorks;
-    }
-
-    return works.filter((work) => work.projectGenre.name === activeGenre.name);
-  }, [genres, works, activeGenreTab]);
+  return memoizedWorks;
 };

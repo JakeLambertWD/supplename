@@ -17,7 +17,7 @@ export async function getHomePage() {
 
 export async function getAwards() {
   const awards = await client.fetch(
-    '*[_type == "awardsPage"] | order(order asc) { name, order, work->{ client, description, "videoPreview": videoPreview.asset->url, "tileImage": tileImage.asset->url } }'
+    '*[_type == "awardsPage"] | order(order asc) { name, order, work->{ client, description, "videoPreview": videoPreview.asset->url,  movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name }}}'
   );
   return awards;
 }
@@ -43,6 +43,21 @@ export async function getWorkByDescription(description: string) {
     { convertDescription }
   );
   return work;
+}
+
+export async function getWorksByGenre(genre: string) {
+  const works = await client.fetch(
+    `*[_type == "work" && lower(projectGenre->name) == lower($genre)] | order(coalesce(order, 999999999) desc) { _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    { genre }
+  );
+  return works;
+}
+
+export async function getWorksWithAwards() {
+  const works = await client.fetch(
+    `*[_type == "awardsPage"] | order(order asc) { work->{ _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }}`
+  );
+  return works;
 }
 
 export async function getGenres(): Promise<GenreProps[]> {

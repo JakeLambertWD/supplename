@@ -37,6 +37,7 @@ function Work({ work }: ProjectProps) {
     }
   };
 
+  // TODO: maybe create a hook
   // Find a matching award based on work description
   const matchingAward = awards.find(
     (award) => award.work.description === work.description

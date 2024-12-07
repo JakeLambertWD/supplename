@@ -6,20 +6,16 @@ import Work from "./Work";
 import { useRecoilState } from "recoil";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { useFilterWorksByGenre } from "../../../../hooks/useFilterWorksByGenre";
-import { useGetGenres } from "../../../../hooks/useGetGenres";
-import { useGetWorks } from "../../../../hooks/useGetWorks";
 import WorksGenreNavigation from "../WorkIdPage/worksGenreNavigation";
+import { genresNavLinks } from "@/app/utils/constants";
 
 function Works() {
   // give navbar a fixed position on scroll
   const [isFixed, setIsFixed] = useState(false);
-
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
+  const activeGenreName = genresNavLinks[activeGenreTab].name;
 
-  const { genres } = useGetGenres();
-  const { works } = useGetWorks();
-
-  const worksByGenre = useFilterWorksByGenre(genres, works, activeGenreTab);
+  const worksByGenre = useFilterWorksByGenre(activeGenreName);
 
   useEffect(() => {
     const handleScroll = () => {
