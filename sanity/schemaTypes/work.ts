@@ -85,12 +85,6 @@ export default defineType({
       of: [{ type: "workImage" }],
     }),
     defineField({
-      name: "startTime",
-      title: "Start Time",
-      type: "number",
-      description: "Start time of the video in seconds",
-    }),
-    defineField({
       name: "youtubeID",
       title: "YouTube ID",
       type: "string",
