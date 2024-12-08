@@ -10,7 +10,7 @@ export const client = createClient({
 
 export async function getHomePage() {
   const homePage = await client.fetch(
-    '*[_type == "homePage"] | order(order asc) { order, featuredWork->{ client, description,  "videoPreview": videoPreview.asset->url, "tileImage": tileImage.asset->url } }'
+    '*[_type == "homePage"] | order(order asc) { order, featuredWork->{ client, description,  "videoPreview": videoPreview.asset->url, "tileImage": tileImage.asset->url, brandColour } }'
   );
   return homePage;
 }
@@ -39,7 +39,7 @@ export async function getWorkByDescription(description: string) {
 
   const work = await client.fetch(
     `*[_type == "work" && hide != true && lower(description) == lower($convertDescription)] { _id, client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt },
-     team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+     team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name }, brandColour }`,
     { convertDescription }
   );
   return work;

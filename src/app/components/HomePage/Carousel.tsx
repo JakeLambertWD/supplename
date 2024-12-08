@@ -75,7 +75,9 @@ function FullScreenCarousel() {
                 fontSize: 35,
                 fontWeight: 600,
                 margin: 0,
-                color: "white",
+                color: featuredWork?.brandColour
+                  ? featuredWork?.brandColour
+                  : "white",
                 zIndex: 20,
               }}
             >

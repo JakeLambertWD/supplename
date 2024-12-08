@@ -186,7 +186,7 @@ function Work({ params }: { params: { id: string } }) {
         <Stack w={{ base: "100%", md: "30%" }}>
           <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
 
-          <Text fz="xl" ml="lg">
+          <Text fz="xl" ml="lg" c={work?.brandColour}>
             {work?.client}
           </Text>
 

@@ -27,6 +27,11 @@ export default defineType({
       rows: 10,
     }),
     defineField({
+      name: "brandColour",
+      title: "Brand Colour",
+      type: "string",
+    }),
+    defineField({
       name: "video",
       title: "Video",
       type: "file",

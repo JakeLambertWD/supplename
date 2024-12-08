@@ -17,6 +17,7 @@ export interface WorkProps {
   team: TeamProps[];
   movementGenres: MovementGenreProps[];
   workImages: WorkImageProps[];
+  brandColour: string;
 }
 export interface GenreProps {
   name: string;
