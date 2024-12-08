@@ -19,7 +19,7 @@ import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
-import { genresNavLinks, opts, SM } from "@/app/utils/constants";
+import { SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/Common/NavigationBar";
 import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Common/Footer";
@@ -29,21 +29,27 @@ import { useGetWorkByDescription } from "../../../../hooks/useGetWorkByDescripti
 import { useGetAwards } from "../../../../hooks/getAwards";
 import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
 import { useRef } from "react";
+import {
+  responsiveOpts,
+  splitOverviewIntoParagraphs,
+} from "@/app/components/WorkIdPage/utils";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
 
   const router = useRouter();
   const isSM = useMediaQuery(`(max-width: ${SM})`);
+  const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
+  const handlePauseVideo = () => {
+    if (videoPlayerRef.current) {
+      videoPlayerRef.current.pause();
+    }
+  };
 
   const { onReady } = useVideoReady();
   const { awards } = useGetAwards();
   const { works } = useGetWorks();
   const { work, isLoading } = useGetWorkByDescription(id);
-
-  const indexOfGenre = genresNavLinks.findIndex(
-    (genre) => genre.name === work?.projectGenre?.name
-  );
 
   // get active genre tab
   const [activeGenreTab] = useRecoilState(activeGenreTabState);
@@ -88,35 +94,14 @@ function Work({ params }: { params: { id: string } }) {
     }
   };
 
-  // split the overview into paragraphs
-  const paragraphs = work?.overview
-    ? work?.overview
-        .split("\n")
-        .filter((paragraph: string) => paragraph.trim() !== "")
-    : [];
-
-  // this ensure the YouTube video player is responsive
-  const responsiveOpts = {
-    ...opts,
-    width: "100%",
-    height: "100%",
-  };
-
-  const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
-  const handlePauseVideo = () => {
-    if (videoPlayerRef.current) {
-      videoPlayerRef.current.pause();
-    }
-  };
+  const paragraphs = splitOverviewIntoParagraphs(work?.overview);
 
   return (
     <>
       <NavigationBar handlePauseVideo={handlePauseVideo} />
       <Space h={100} />
+      <WorksGenreNavigation indexOfGenre={activeGenreTab} />
 
-      <WorksGenreNavigation indexOfGenre={indexOfGenre} />
-
-      {/* navigation buttons */}
       <Flex
         pos="relative"
         c="white"
