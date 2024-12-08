@@ -186,7 +186,11 @@ function Work({ params }: { params: { id: string } }) {
         <Stack w={{ base: "100%", md: "30%" }}>
           <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
 
-          <Text fz="xl" ml="lg" c={work?.brandColour}>
+          <Text
+            fz="xl"
+            ml="lg"
+            c={work?.brandColour ? work?.brandColour : "white"}
+          >
             {work?.client}
           </Text>
 
@@ -205,7 +209,7 @@ function Work({ params }: { params: { id: string } }) {
             </Group>
           )}
 
-          <Group fz="xs" ml="lg" visibleFrom="sm">
+          <Group fz="xs" ml="lg" mt="xs" visibleFrom="sm">
             {work?.movementGenres.map((genre: any, index: number) => {
               return (
                 <Badge
