@@ -22,11 +22,11 @@ function HoverCardContent({
   matchingAward,
 }: HoverCardContentProps) {
   return (
-    <Stack gap={0} px="lg">
+    <Stack gap={0} px="lg" pt="md">
       <Group justify="space-between">
         <Text c={theme?.colors?.primary?.[5]}>{client}</Text>
         <IconPlayerPlayFilled
-          size={25}
+          size={20}
           color={theme?.colors?.primary?.[5]}
           style={{ marginTop: 10 }}
         />
