@@ -155,29 +155,6 @@ function Work({ params }: { params: { id: string } }) {
               <Text fz="xl" pos="absolute" top={20} left={{ base: 20, sm: 50 }}>
                 {work?.description}
               </Text>
-
-              {work?.movementGenres && (
-                <Group
-                  fz="xs"
-                  pos="absolute"
-                  top={20}
-                  right={20}
-                  visibleFrom="sm"
-                >
-                  {work?.movementGenres.map((genre: any, index: number) => {
-                    return (
-                      <Badge
-                        key={index}
-                        color={theme?.colors?.primary?.[1]}
-                        tt="capitalize"
-                        size={isSM ? "sm" : "md"}
-                      >
-                        {genre.name}
-                      </Badge>
-                    );
-                  })}
-                </Group>
-              )}
             </>
           ) : (
             <div
@@ -227,6 +204,21 @@ function Work({ params }: { params: { id: string } }) {
               ))}
             </Group>
           )}
+
+          <Group fz="xs" ml="lg" visibleFrom="sm">
+            {work?.movementGenres.map((genre: any, index: number) => {
+              return (
+                <Badge
+                  key={index}
+                  color={theme?.colors?.primary?.[1]}
+                  tt="capitalize"
+                  size={isSM ? "sm" : "md"}
+                >
+                  {genre.name}
+                </Badge>
+              );
+            })}
+          </Group>
 
           <ScrollArea
             classNames={classes}
