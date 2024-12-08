@@ -38,7 +38,7 @@ export async function getWorkByDescription(description: string) {
     .join(" ");
 
   const work = await client.fetch(
-    `*[_type == "work" && lower(description) == lower($convertDescription)] { _id, client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt },
+    `*[_type == "work" && hide != true && lower(description) == lower($convertDescription)] { _id, client, description, overview, "videoURL": video.asset->url, workImages[] { asset->{ url }, alt },
      team[]->{ name, role }, movementGenres[]->{ name }, youtubeID, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
     { convertDescription }
   );
@@ -47,7 +47,7 @@ export async function getWorkByDescription(description: string) {
 
 export async function getWorksByGenre(genre: string) {
   const works = await client.fetch(
-    `*[_type == "work" && lower(projectGenre->name) == lower($genre)] | order(coalesce(order, 999999999) desc) { _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
+    `*[_type == "work" && hide != true && lower(projectGenre->name) == lower($genre)] | order(coalesce(order, 999999999) desc) { _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }`,
     { genre }
   );
   return works;
@@ -55,7 +55,7 @@ export async function getWorksByGenre(genre: string) {
 
 export async function getWorksWithAwards() {
   const works = await client.fetch(
-    `*[_type == "awardsPage"] | order(order asc) { work->{ _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }}`
+    `*[_type == "awardsPage" && hide != true] | order(order asc) { work->{ _id, client, description, "videoPreview": videoPreview.asset->url, movementGenres[]->{ name }, "tileImage": tileImage.asset->url, projectGenre->{ name } }}`
   );
   return works;
 }
