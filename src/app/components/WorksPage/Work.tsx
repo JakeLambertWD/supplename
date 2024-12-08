@@ -104,7 +104,6 @@ function Work({ work }: ProjectProps) {
                   position: "absolute",
                   top: 0,
                   left: 0,
-                  opacity: isVideoReady ? 0 : 1,
                   transition: "opacity 0.5s ease-in-out",
                 }}
               />
