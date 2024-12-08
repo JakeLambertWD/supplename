@@ -1,5 +1,9 @@
 export const navigationLinks = [
   {
+    href: "/",
+    label: "Home",
+  },
+  {
     href: "/works",
     label: "Works",
   },
