@@ -19,7 +19,7 @@ import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
 import { useVideoReady } from "../../../../hooks/useVideoReady";
-import { SM } from "@/app/utils/constants";
+import { genresNavLinks, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/Common/NavigationBar";
 import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Common/Footer";
@@ -28,7 +28,7 @@ import { useGetWorks } from "../../../../hooks/useGetWorks";
 import { useGetWorkByDescription } from "../../../../hooks/useGetWorkByDescription";
 import { useGetAwards } from "../../../../hooks/getAwards";
 import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   responsiveOpts,
   splitOverviewIntoParagraphs,
@@ -36,7 +36,6 @@ import {
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
-
   const router = useRouter();
   const isSM = useMediaQuery(`(max-width: ${SM})`);
   const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
@@ -45,20 +44,18 @@ function Work({ params }: { params: { id: string } }) {
       videoPlayerRef.current.pause();
     }
   };
-
   const { onReady } = useVideoReady();
   const { awards } = useGetAwards();
   const { works } = useGetWorks();
   const { work, isLoading } = useGetWorkByDescription(id);
 
-  // get active genre tab
-  const [activeGenreTab] = useRecoilState(activeGenreTabState);
-
-  const currentGenre = work?.projectGenre?.name;
-
   let worksByGenre = works.filter(
-    (item) => item.projectGenre?.name === currentGenre
+    (item) => item.projectGenre?.name === work?.projectGenre?.name
   );
+
+  // get active genre tab
+  const [activeGenreTab, setActiveGenreTab] =
+    useRecoilState(activeGenreTabState);
 
   // if the genre is awards, filter by award
   if (activeGenreTab === 5) {
@@ -68,6 +65,18 @@ function Work({ params }: { params: { id: string } }) {
       )
       .filter((work) => work !== undefined);
   }
+
+  useEffect(() => {
+    if (work && activeGenreTab !== 5) {
+      const currentGenre = work.projectGenre?.name;
+      const genreIndex = genresNavLinks.findIndex(
+        (genre) => genre.name === currentGenre
+      );
+      if (genreIndex !== -1) {
+        setActiveGenreTab(genreIndex);
+      }
+    }
+  }, [work]);
 
   // find the index of the current work within the worksByGenre array
   const currentWorkIndex = worksByGenre.findIndex(
@@ -100,7 +109,7 @@ function Work({ params }: { params: { id: string } }) {
     <>
       <NavigationBar handlePauseVideo={handlePauseVideo} />
       <Space h={100} />
-      <WorksGenreNavigation indexOfGenre={activeGenreTab} />
+      <WorksGenreNavigation />
 
       <Flex
         pos="relative"

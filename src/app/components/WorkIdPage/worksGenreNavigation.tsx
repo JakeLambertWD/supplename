@@ -8,13 +8,7 @@ import { theme } from "../../utils/theme";
 import { genresNavLinks } from "../../utils/constants";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 
-function WorksGenreNavigation({
-  isFixed,
-  indexOfGenre,
-}: {
-  isFixed?: boolean;
-  indexOfGenre?: number;
-}) {
+function WorksGenreNavigation({ isFixed }: { isFixed?: boolean }) {
   const router = useRouter();
 
   const genresArray = genresNavLinks.map((genre: any) => genre.name);
