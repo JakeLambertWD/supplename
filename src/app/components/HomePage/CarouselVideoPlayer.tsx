@@ -32,9 +32,6 @@ function CarouselVideoPlayer({ featuredWork, nextVideo, ref }: any) {
           muted
           playsInline
           preload="auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           style={{
             position: "absolute",
             width: "100%",
