@@ -55,14 +55,14 @@ function page() {
             <Stack c="white" px={{ base: 5, sm: 30, lg: 60 }}>
               <Text
                 tt="uppercase"
-                fz={30}
+                fz={25}
                 mb="md"
                 c={theme.colors?.primary?.[1]}
               >
                 supple nam
               </Text>
-              <Text pl="sm">Director . Choreography . Editor</Text>
-              <Text pl="sm" fz="sm" mb="xl" style={{ textAlign: "justify" }}>
+              <Text>Director . Choreography . Editor</Text>
+              <Text fz="sm" mb="xl" style={{ textAlign: "justify" }}>
                 {/* @ts-ignore */}
                 <PortableText value={bio} />
               </Text>

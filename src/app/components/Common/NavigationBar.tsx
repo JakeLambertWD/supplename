@@ -81,7 +81,7 @@ function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
 
         <Dropdown hiddenFromSm />
 
-        <Flex fz="xl" gap="lg" mr="70px" visibleFrom="sm">
+        <Flex fz="xl" gap="md" mr="70px" visibleFrom="sm">
           {navigationLinks.map((link) => {
             const isActive =
               pathname === link.href ||
