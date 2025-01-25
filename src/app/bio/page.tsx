@@ -55,7 +55,7 @@ function page() {
             <Stack c="white" px={{ base: 5, sm: 30, lg: 60 }}>
               <Text
                 tt="uppercase"
-                fz={25}
+                fz={15}
                 mb="md"
                 c={theme.colors?.primary?.[1]}
               >
