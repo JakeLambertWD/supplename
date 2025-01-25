@@ -57,6 +57,7 @@ function page() {
                 tt="uppercase"
                 fz={15}
                 mb="md"
+                mt={{base: 0, sm: "lg"}}
                 c={theme.colors?.primary?.[1]}
               >
                 supple nam
