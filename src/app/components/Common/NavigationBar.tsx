@@ -64,14 +64,14 @@ function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
           pathname.startsWith("/works/")
             ? theme?.colors?.primary?.[9]
             : scrolled
-              ? theme?.colors?.primary?.[9]
-              : "transparent"
+            ? theme?.colors?.primary?.[9]
+            : "transparent"
         }
         style={{ zIndex: 45 }}
       >
         <Image
           onClick={() => navigateToPage("/")}
-          src={navLogo}
+          src="/images/supple-logo-home.png"
           width={isSM ? 150 : 210}
           height={isSM ? 37 : 50}
           quality={100}
