@@ -10,7 +10,6 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
-import YouTube from "react-youtube";
 import { useRouter } from "next/navigation";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useRecoilState } from "recoil";
@@ -18,21 +17,17 @@ import { useMediaQuery } from "@mantine/hooks";
 import { activeGenreTabState } from "../../../../atoms/atoms";
 import { theme } from "../../utils/theme";
 import classes from "../../components/css/Project.module.css";
-import { useVideoReady } from "../../../../hooks/useVideoReady";
 import { genresNavLinks, SM } from "@/app/utils/constants";
 import NavigationBar from "../../components/Common/NavigationBar";
 import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
 import { FooterSocial } from "../../components/Common/Footer";
 import WorkImages from "@/app/components/WorkIdPage/WorkImages";
 import { useGetWorks } from "../../../../hooks/useGetWorks";
-import { useGetWorkByDescription } from "../../../../hooks/useGetWorkByDescription";
 import { useGetAwards } from "../../../../hooks/getAwards";
 import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
 import { useEffect, useRef } from "react";
-import {
-  responsiveOpts,
-  splitOverviewIntoParagraphs,
-} from "@/app/components/WorkIdPage/utils";
+import { splitOverviewIntoParagraphs } from "@/app/components/WorkIdPage/utils";
+import { projects } from "@/app/dataSets/dataSets";
 
 function Work({ params }: { params: { id: string } }) {
   const id = params.id;
@@ -44,10 +39,17 @@ function Work({ params }: { params: { id: string } }) {
       videoPlayerRef.current.pause();
     }
   };
-  const { onReady } = useVideoReady();
   const { awards } = useGetAwards();
   const { works } = useGetWorks();
-  const { work, isLoading } = useGetWorkByDescription(id);
+  const convertDescription = id
+    .replace(/-/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+  const work = projects.find(
+    (item) =>
+      item.description.trim().toLowerCase() === convertDescription.toLowerCase()
+  );
 
   let worksByGenre = works.filter(
     (item) => item.projectGenre?.name === work?.projectGenre?.name
@@ -88,7 +90,7 @@ function Work({ params }: { params: { id: string } }) {
     if (worksByGenre.length > 0) {
       const nextIndex = (currentWorkIndex + 1) % worksByGenre.length;
       const nextWork = worksByGenre[nextIndex];
-      router.push(`/works/${nextWork.description.replace(/\s+/g, "-")}`);
+      router.push(`/works/${nextWork.description.trim().replace(/\s+/g, "-")}`);
     } else {
     }
   };
@@ -99,7 +101,7 @@ function Work({ params }: { params: { id: string } }) {
       const prevIndex =
         (currentWorkIndex - 1 + worksByGenre.length) % worksByGenre.length;
       const prevWork = worksByGenre[prevIndex];
-      router.push(`/works/${prevWork.description.replace(/\s+/g, "-")}`);
+      router.push(`/works/${prevWork.description.trim().replace(/\s+/g, "-")}`);
     }
   };
 
@@ -157,7 +159,7 @@ function Work({ params }: { params: { id: string } }) {
             borderColor: theme?.colors?.primary?.[1],
           }}
         >
-          {work?.videoURL ? (
+          {work?.videoURL && (
             <>
               <VideoPlayer ref={videoPlayerRef} source={work?.videoURL} />
 
@@ -165,29 +167,6 @@ function Work({ params }: { params: { id: string } }) {
                 {work?.description}
               </Text>
             </>
-          ) : (
-            <div
-              style={{
-                position: "relative",
-                paddingBottom: "56.25%", // 16:9 aspect ratio
-                height: 0,
-                overflow: "hidden",
-                width: "100%",
-              }}
-            >
-              <YouTube
-                videoId={work?.youtubeID}
-                opts={responsiveOpts}
-                onReady={onReady}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </div>
           )}
         </Flex>
 
@@ -195,11 +174,7 @@ function Work({ params }: { params: { id: string } }) {
         <Stack w={{ base: "100%", md: "30%" }}>
           <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
 
-          <Text
-            fz="xl"
-            ml="lg"
-            c={work?.brandColour ? work?.brandColour : "white"}
-          >
+          <Text fz="xl" ml="lg" c={"white"}>
             {work?.client}
           </Text>
 

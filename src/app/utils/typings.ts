@@ -12,12 +12,9 @@ export interface WorkProps {
   tileImage: string;
   videoURL: string;
   videoPreview: string;
-  youtubeID: string;
-  award: AwardProps[];
   team: TeamProps[];
   movementGenres: MovementGenreProps[];
-  workImages: WorkImageProps[];
-  brandColour: string;
+  workImages: string[];
 }
 export interface GenreProps {
   name: string;

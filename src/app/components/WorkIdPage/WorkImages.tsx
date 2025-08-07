@@ -20,7 +20,7 @@ function WorkImages({ work, handlePauseVideo }: WorkImagesProps) {
         <>
           <motion.img
             key={index}
-            src={image.asset.url}
+            src={image}
             onClick={() => {
               handlePauseVideo();
               open();
@@ -49,12 +49,7 @@ function WorkImages({ work, handlePauseVideo }: WorkImagesProps) {
               {work.workImages.map((image: any, index: number) => {
                 return (
                   <Carousel.Slide>
-                    <img
-                      key={index}
-                      src={image.asset.url}
-                      width="73%"
-                      alt={image.alt}
-                    />
+                    <img key={index} src={image} width="73%" alt={image.alt} />
                   </Carousel.Slide>
                 );
               })}
