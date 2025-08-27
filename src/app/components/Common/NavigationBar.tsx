@@ -77,6 +77,7 @@ function NavigationBar({ handlePauseVideo }: NavigationBarProps) {
 
 				<Flex fz='xl' gap='md' mr='70px' visibleFrom='sm'>
 					{navigationLinks.map(link => {
+						if (link.label === 'Showreel') return null;
 						const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
 						return (
 							<NavLink
