@@ -1,240 +1,191 @@
-"use client";
+'use client';
 
-import {
-  Badge,
-  Divider,
-  Flex,
-  Group,
-  ScrollArea,
-  Space,
-  Stack,
-  Text,
-} from "@mantine/core";
-import { useRouter } from "next/navigation";
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
-import { useRecoilState } from "recoil";
-import { useMediaQuery } from "@mantine/hooks";
-import { activeGenreTabState } from "../../../../atoms/atoms";
-import { theme } from "../../utils/theme";
-import classes from "../../components/css/Project.module.css";
-import { genresNavLinks, SM } from "@/app/utils/constants";
-import NavigationBar from "../../components/Common/NavigationBar";
-import VideoPlayer from "../../components/WorkIdPage/VideoPlayer";
-import { FooterSocial } from "../../components/Common/Footer";
-import WorkImages from "@/app/components/WorkIdPage/WorkImages";
-import { useGetWorks } from "../../../../hooks/useGetWorks";
-import { useGetAwards } from "../../../../hooks/getAwards";
-import WorksGenreNavigation from "@/app/components/WorkIdPage/worksGenreNavigation";
-import { useEffect, useRef } from "react";
-import { splitOverviewIntoParagraphs } from "@/app/components/WorkIdPage/utils";
-import { projects } from "@/app/dataSets/dataSets";
+import { Badge, Divider, Flex, Group, ScrollArea, Space, Stack, Text } from '@mantine/core';
+import { useRouter } from 'next/navigation';
+import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
+import { useRecoilState } from 'recoil';
+import { useMediaQuery } from '@mantine/hooks';
+import { activeGenreTabState } from '../../../../atoms/atoms';
+import { theme } from '../../utils/theme';
+import classes from '../../components/css/Project.module.css';
+import { genresNavLinks, SM } from '@/app/utils/constants';
+import NavigationBar from '../../components/Common/NavigationBar';
+import VideoPlayer from '../../components/WorkIdPage/VideoPlayer';
+import { FooterSocial } from '../../components/Common/Footer';
+import WorkImages from '@/app/components/WorkIdPage/WorkImages';
+import { useGetWorks } from '../../../../hooks/useGetWorks';
+import { useGetAwards } from '../../../../hooks/getAwards';
+import WorksGenreNavigation from '@/app/components/WorkIdPage/worksGenreNavigation';
+import { useEffect, useRef } from 'react';
+import { splitOverviewIntoParagraphs } from '@/app/components/WorkIdPage/utils';
+import { projects } from '@/app/dataSets/dataSets';
 
 function Work({ params }: { params: { id: string } }) {
-  const id = params.id;
-  const router = useRouter();
-  const isSM = useMediaQuery(`(max-width: ${SM})`);
-  const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
-  const handlePauseVideo = () => {
-    if (videoPlayerRef.current) {
-      videoPlayerRef.current.pause();
-    }
-  };
-  const { awards } = useGetAwards();
-  const { works } = useGetWorks();
-  const convertDescription = id
-    .replace(/-/g, " ")
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-  const work = projects.find(
-    (item) =>
-      item.description.trim().toLowerCase() === convertDescription.toLowerCase()
-  );
+	const id = params.id;
+	const router = useRouter();
+	const isSM = useMediaQuery(`(max-width: ${SM})`);
+	const videoPlayerRef = useRef<{ pause: () => void } | null>(null);
+	const handlePauseVideo = () => {
+		if (videoPlayerRef.current) {
+			videoPlayerRef.current.pause();
+		}
+	};
+	// const { awards } = useGetAwards();
+	const convertDescription = id
+		.replace(/-/g, ' ')
+		.split(' ')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(' ');
+	const work = projects.find(item => item.description.trim().toLowerCase() === convertDescription.toLowerCase());
 
-  let worksByGenre = works.filter(
-    (item) => item.projectGenre?.name === work?.projectGenre?.name
-  );
+	let worksByGenre = projects.filter(item => item.projectGenre?.name === work?.projectGenre?.name);
 
-  // get active genre tab
-  const [activeGenreTab, setActiveGenreTab] =
-    useRecoilState(activeGenreTabState);
+	// get active genre tab
+	const [activeGenreTab, setActiveGenreTab] = useRecoilState(activeGenreTabState);
 
-  // if the genre is awards, filter by award
-  if (activeGenreTab === 5) {
-    worksByGenre = awards
-      .map((award) =>
-        works.find((work) => work.description === award.work.description)
-      )
-      .filter((work) => work !== undefined);
-  }
+	// if the genre is awards, filter by award
+	// if (activeGenreTab === 5) {
+	// 	worksByGenre = awards.map(award => works.find(work => work.description === award.work.description)).filter(work => work !== undefined);
+	// }
 
-  useEffect(() => {
-    if (work && activeGenreTab !== 5) {
-      const currentGenre = work.projectGenre?.name;
-      const genreIndex = genresNavLinks.findIndex(
-        (genre) => genre.name === currentGenre
-      );
-      if (genreIndex !== -1) {
-        setActiveGenreTab(genreIndex);
-      }
-    }
-  }, [work]);
+	useEffect(() => {
+		if (work && activeGenreTab !== 5) {
+			const currentGenre = work.projectGenre?.name;
+			const genreIndex = genresNavLinks.findIndex(genre => genre.name === currentGenre);
+			if (genreIndex !== -1) {
+				setActiveGenreTab(genreIndex);
+			}
+		}
+	}, [work]);
 
-  // find the index of the current work within the worksByGenre array
-  const currentWorkIndex = worksByGenre.findIndex(
-    (item) => item.description === work?.description
-  );
+	// find the index of the current work within the worksByGenre array
+	const currentWorkIndex = worksByGenre.findIndex(item => item.description === work?.description);
 
-  // next
-  const nextWork = () => {
-    if (worksByGenre.length > 0) {
-      const nextIndex = (currentWorkIndex + 1) % worksByGenre.length;
-      const nextWork = worksByGenre[nextIndex];
-      router.push(`/works/${nextWork.description.trim().replace(/\s+/g, "-")}`);
-    } else {
-    }
-  };
+	// next
+	const nextWork = () => {
+		if (worksByGenre.length > 0) {
+			const nextIndex = (currentWorkIndex + 1) % worksByGenre.length;
+			const nextWork = worksByGenre[nextIndex];
+			router.push(`/works/${nextWork.description.trim().replace(/\s+/g, '-')}`);
+		} else {
+		}
+	};
 
-  // previous
-  const prevWork = () => {
-    if (worksByGenre.length > 0) {
-      const prevIndex =
-        (currentWorkIndex - 1 + worksByGenre.length) % worksByGenre.length;
-      const prevWork = worksByGenre[prevIndex];
-      router.push(`/works/${prevWork.description.trim().replace(/\s+/g, "-")}`);
-    }
-  };
+	// previous
+	const prevWork = () => {
+		if (worksByGenre.length > 0) {
+			const prevIndex = (currentWorkIndex - 1 + worksByGenre.length) % worksByGenre.length;
+			const prevWork = worksByGenre[prevIndex];
+			router.push(`/works/${prevWork.description.trim().replace(/\s+/g, '-')}`);
+		}
+	};
 
-  const paragraphs = splitOverviewIntoParagraphs(work?.overview);
+	const paragraphs = splitOverviewIntoParagraphs(work?.overview);
 
-  return (
-    <>
-      <NavigationBar handlePauseVideo={handlePauseVideo} />
-      <Space h={100} />
-      <WorksGenreNavigation />
+	return (
+		<>
+			<NavigationBar handlePauseVideo={handlePauseVideo} />
+			<Space h={100} />
+			<WorksGenreNavigation />
 
-      <Flex
-        pos="relative"
-        c="white"
-        h={{ md: "60vh" }}
-        mt={45}
-        py={0}
-        px={{ base: 6, md: 50 }}
-        direction={{ base: "column", md: "row" }}
-      >
-        <Flex
-          pos="absolute"
-          right={{ base: 19, sm: 45 }}
-          top={isSM ? -52 : -40}
-          gap={isSM ? 5 : 0}
-          style={{ zIndex: 10 }}
-        >
-          <IconChevronLeft
-            size={30}
-            color={"white"}
-            onClick={() => prevWork()}
-            strokeWidth={1.5}
-            style={{
-              cursor: "pointer",
-            }}
-          />
-          <IconChevronRight
-            size={30}
-            color={"white"}
-            onClick={() => nextWork()}
-            strokeWidth={1.5}
-            style={{
-              cursor: "pointer",
-            }}
-          />
-        </Flex>
+			<Flex pos='relative' c='white' h={{ md: '60vh' }} mt={45} py={0} px={{ base: 6, md: 50 }} direction={{ base: 'column', md: 'row' }}>
+				<Flex pos='absolute' right={{ base: 19, sm: 45 }} top={isSM ? -52 : -40} gap={isSM ? 5 : 0} style={{ zIndex: 10 }}>
+					<IconChevronLeft
+						size={30}
+						color={'white'}
+						onClick={() => prevWork()}
+						strokeWidth={1.5}
+						style={{
+							cursor: 'pointer'
+						}}
+					/>
+					<IconChevronRight
+						size={30}
+						color={'white'}
+						onClick={() => nextWork()}
+						strokeWidth={1.5}
+						style={{
+							cursor: 'pointer'
+						}}
+					/>
+				</Flex>
 
-        {/* Video Player */}
-        <Flex
-          w={{ base: "100%", md: "70%" }}
-          mr="xl"
-          pos="relative"
-          style={{
-            borderLeft: "2px solid black",
-            borderColor: theme?.colors?.primary?.[1],
-          }}
-        >
-          {work?.videoURL && (
-            <>
-              <VideoPlayer ref={videoPlayerRef} source={work?.videoURL} />
+				{/* Video Player */}
+				<Flex
+					w={{ base: '100%', md: '70%' }}
+					mr='xl'
+					pos='relative'
+					style={{
+						borderLeft: '2px solid black',
+						borderColor: theme?.colors?.primary?.[1]
+					}}
+				>
+					{work?.videoURL && (
+						<>
+							<VideoPlayer ref={videoPlayerRef} source={work?.videoURL} />
 
-              <Text fz="xl" pos="absolute" top={20} left={{ base: 20, sm: 50 }}>
-                {work?.description}
-              </Text>
-            </>
-          )}
-        </Flex>
+							<Text fz='xl' pos='absolute' top={20} left={{ base: 20, sm: 50 }}>
+								{work?.description}
+							</Text>
+						</>
+					)}
+				</Flex>
 
-        {/* text content */}
-        <Stack w={{ base: "100%", md: "30%" }}>
-          <Divider size="sm" mb={0} color={theme?.colors?.primary?.[1]} />
+				{/* text content */}
+				<Stack w={{ base: '100%', md: '30%' }}>
+					<Divider size='sm' mb={0} color={theme?.colors?.primary?.[1]} />
 
-          <Text fz="xl" ml="lg" c={"white"}>
-            {work?.client}
-          </Text>
+					<Text fz='xl' ml='lg' c={'white'}>
+						{work?.client}
+					</Text>
 
-          {work?.team && (
-            <Group gap={10} ml="lg">
-              {work.team.map((member: any, index: number) => (
-                <Group key={index}>
-                  <Text fz="11px" fw={600}>
-                    <span style={{ opacity: 0.5, fontStyle: "italic" }}>
-                      {member?.role}: &nbsp;
-                    </span>
-                    {member?.name}
-                  </Text>
-                </Group>
-              ))}
-            </Group>
-          )}
+					{work?.team && (
+						<Group gap={10} ml='lg'>
+							{work.team.map((member: any, index: number) => (
+								<Group key={index}>
+									<Text fz='11px' fw={600}>
+										<span style={{ opacity: 0.5, fontStyle: 'italic' }}>{member?.role}: &nbsp;</span>
+										{member?.name}
+									</Text>
+								</Group>
+							))}
+						</Group>
+					)}
 
-          <Group fz="xs" ml="lg" mt="xs" visibleFrom="sm">
-            {work?.movementGenres.map((genre: any, index: number) => {
-              return (
-                <Badge
-                  key={index}
-                  color={theme?.colors?.primary?.[1]}
-                  tt="capitalize"
-                  size={isSM ? "sm" : "md"}
-                >
-                  {genre.name}
-                </Badge>
-              );
-            })}
-          </Group>
+					<Group fz='xs' ml='lg' mt='xs' visibleFrom='sm'>
+						{work?.movementGenres.map((genre: any, index: number) => {
+							return (
+								<Badge key={index} color={theme?.colors?.primary?.[1]} tt='capitalize' size={isSM ? 'sm' : 'md'}>
+									{genre.name}
+								</Badge>
+							);
+						})}
+					</Group>
 
-          <ScrollArea
-            classNames={classes}
-            h={{ base: "50%", sm: "100%" }}
-            ml="lg"
-            offsetScrollbars
-            scrollbarSize={1}
-            scrollHideDelay={0}
-            fz="sm"
-            pr="sm"
-          >
-            {paragraphs?.map((paragraph: string, index: number) => (
-              <p
-                key={index}
-                style={{ marginBottom: "1em", textAlign: "justify" }}
-              >
-                {paragraph}
-              </p>
-            ))}
-          </ScrollArea>
-        </Stack>
-      </Flex>
+					<ScrollArea
+						classNames={classes}
+						h={{ base: '50%', sm: '100%' }}
+						ml='lg'
+						offsetScrollbars
+						scrollbarSize={1}
+						scrollHideDelay={0}
+						fz='sm'
+						pr='sm'
+					>
+						{paragraphs?.map((paragraph: string, index: number) => (
+							<p key={index} style={{ marginBottom: '1em', textAlign: 'justify' }}>
+								{paragraph}
+							</p>
+						))}
+					</ScrollArea>
+				</Stack>
+			</Flex>
 
-      <WorkImages work={work} handlePauseVideo={handlePauseVideo} />
+			<WorkImages work={work} handlePauseVideo={handlePauseVideo} />
 
-      <FooterSocial />
-    </>
-  );
+			<FooterSocial />
+		</>
+	);
 }
 
 export default Work;
