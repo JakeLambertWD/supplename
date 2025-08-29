@@ -33,6 +33,142 @@ export const awards = [
 	}
 ];
 
+export const latestWork = [
+	{
+		client: 'McDonalds',
+		description: 'McNugget Buddy Handshake',
+		overview:
+			"Award-Winning Choreographer Supple Nam Brings a Fresh Twist to McDonald's McNuggets Handshake Ad.\nWhen multi-award-winning director Sam Brown was tasked with creating the iconic McDonald’s McNuggets Handshake commercial, he called on the expertise of renowned choreographer Supple Nam. Known for his innovative approach, Supple’s role was to bring a unique perspective to the ad’s central concept: the handshake.\nWorking alongside casting director Thom Hammond, Supple immediately got to work helping actors craft their self-tape submissions. His direction was simple but brilliant—he wanted the handshakes to capture moments of authentic connection. Applicants were asked to emulate the types of handshakes shared between close friends—those exchanged after secrets are shared, promises are made, or selfies are taken. It was all about showcasing a natural, joyful intimacy through simple yet skillful gestures.\nThe self-tapes quickly set the tone for the project, capturing Supple’s vision and impressing both Sam Brown and the McDonald’s team. After reviewing the callbacks, the final selections were made, with Supple guiding the chosen actors through a short handshake routine. The goal was for each performer to tell a story with their handshake—expressing emotion, connection, and trust, all through hand movements.\nSharon and Reah were the standout performers, effortlessly embodying the essence of the ad. It was clear to Sam that they were the perfect match for the roles—and, coincidentally, they had both been paired together at the callbacks.\nBefore shooting, Supple and his assistant, Will Baki, spent another day perfecting the handshake routine. They adjusted it to fit the tight time constraints and ensured it was perfectly aligned with the ad's narrative. Minor tweaks were made for camera angles and storytelling flow, but the core of the handshake remained unchanged.\nOn set, Supple’s training really came into play. He worked with the actors to master not only the choreography but also the precision required for camera angles. To help them perform under pressure, Supple set up various scenarios—challenging them to execute the handshake with their eyes closed, with distractions, and under time pressure.\nOn shoot day, everything fell into place. Thanks to Supple’s meticulous preparation, Sam and the team were able to capture a flawless performance, bringing the McNuggets Handshake ad to life in a way that felt fresh, relatable, and full of joy.",
+		projectGenre: { name: GENRES.commercials },
+		movementGenres: [{ name: 'Handshake' }, { name: 'Movement Direction' }, { name: 'Theatrical' }],
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{
+				role: 'Director',
+				name: 'Sam Brown'
+			},
+			{ role: 'Production', name: 'Rogue Films' }
+		],
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/McDonalds.mov',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/MCNugget%20-%20Bestie%20-%20Website.mp4',
+		tileImage: '/images/McNugget.jpg',
+		workImages: ['/images/mcds-1.jpg', '/images/mcds-2.jpg', '/images/mcds-3.jpg', '/images/mcds-4.jpg', '/images/mcds-5.jpg', '/images/mcds-6.jpg']
+	},
+	{
+		client: 'Honda HR-V',
+		description: 'Perfect Precision',
+		overview:
+			"This Honda HR-V commercial, conceived by multi-award-winning choreographer Supple Nam, and multi award winning director Kim Gehrig, is a brilliant fusion of precision walking, cutting-edge choreography, and bold storytelling. The ad showcases an innovative approach that pushes the boundaries of what a car commercial can be. \nConcept and Creative Process: \nThe concept of the ad revolves around the precision walking technique known as Shuudan Koudou (a form of Japanese precision walking), which Supple Nam is particularly passionate about. Along with Kim Gehrig’s creative direction, they crafted a visually striking narrative that combined abstract imagery, the symbolism of numbers, and, of course, the new Honda HR-V. Their goal was to create something unexpected, daring, and precise—both visually and in terms of movement.\nCasting and Audition Process:\nThe casting process was rigorous, as the commercial demanded performers who could match both the technical skill and aesthetic vision of the project. After sorting through hundreds of applicants from across the UK and Europe, the team narrowed it down to 10 core precision walkers to sketch Supple's ideas and present them to Kim, the creative agency and client for approval. These performers would undergo intense mental and physical training under Supple's guidance to ensure their movements were both perfectly synchronized and visually compelling for the camera.\nChoreography and Rehearsals:\nWith the selected 60+ cast, Supple Nam and his team worked tirelessly to develop a choreography that felt simple yet powerful, ensuring the movements of the walkers were as impactful as the car itself. The choreography needed to seamlessly integrate with the imagery and narrative crafted by Kim Gehrig, creating an immersive experience for the viewer. Rehearsals were intense, but the team, led by Supple’s positive attitude, powered through the challenges, refining the movements to perfection.\nFilming at Wembley Arena:\nAfter 5-6 weeks of rehearsal, the team was ready for the big shoot. Filming took place at Wembley Arena over the course of one week, under high pressure and tight deadlines. Despite the challenges, including technical issues and creative doubts, Supple remained an uplifting force for his team, ensuring morale stayed high and that the concept was executed with precision.\nReception and Recognition:\nThe commercial’s premiere in cinemas quickly caught attention for its bold, innovative approach to car advertising. The unique style and precision of the choreography made it stand out, and the commercial earned the title of Commercial of the Week from AM Magazine. Within its first week of TV release, it also entered the UK’s Top Shazamed Ads, a testament to its popularity and impact.\nAwards and Further Success:\nIn recognition of the commercial’s groundbreaking work, Supple Nam won Best Live Action SFX at the 2015 British Arrow Crafts Awards. The commercial also proved successful internationally, as Honda decided to extend its reach, sharing the ad across global markets.\nThe success of the Honda Stepping commercial demonstrates the power of collaboration, innovation, and the ability to blend movement, imagery, and storytelling in new and daring ways. It's a perfect example of how choreographed motion can elevate a brand and make a lasting impression.",
+		projectGenre: { name: GENRES.commercials },
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{ role: 'Director', name: 'Kim Gehrig' },
+			{ role: 'Production', name: 'Somesuch' }
+		],
+		movementGenres: [{ name: 'Precision Walking' }, { name: 'Stunt' }],
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda-%20Previews.mov',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda%20HRV%20-%20Beautiful%20Precision%20-%20Website%20-%205000kbps.mov',
+		tileImage: '/images/honda.jpg',
+		workImages: [
+			'/images/honda-1.jpg',
+			'/images/honda-2.jpg',
+			'/images/honda-3.jpg',
+			'/images/honda-4.jpg',
+			'/images/honda-5.jpg',
+			'/images/honda-6.jpg',
+			'/images/honda-8.jpg'
+		]
+	},
+	{
+		client: 'Volkswagen GTI',
+		description: 'Singing in the Rain',
+		overview:
+			"After securing the bid for this project, the directing team NE-O from Stink Productions approached Supple Nam to choreograph Volkswagen’s GTI commercial. Approached with the daring concept: 'remix a classic', Supple boldly took the challenge, choosing the legendary dance icon Gene Kelly, to make the statement. This was a risk that paid off. Super imposing Gene Kelly’s face on the dancers, the technique was the first of its kind. A challenge of choreography was to stretch the boundaries towards the re-creation of Gene Kelly, the ultimate dancer. Neo and Supple scouted and cast dancers internationally./nSupple Nam worked with dancers David Elsewhere, Donnie Count AKA legend B-boy 'Crumbs' and J-Walker. Supple’s aim was to make the dance organic, fresh and create an exciting twist on a classic by doing something dynamic and previously unseen./nThe commercial for Volkswagen Golf GTI “Singing in The Rain” went on to win multiple international awards including the Bronze Lion at the Cannes Film Festival and an individual award for Supple Nam - Most Innovative Choreography in TV/Adverts.",
+		projectGenre: { name: GENRES.commercials },
+		movementGenres: [{ name: 'Hip Hop' }, { name: 'Contemporary' }, { name: 'Musical Theatre' }],
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{
+				role: 'Director',
+				name: 'NE-O'
+			},
+			{ role: 'Production', name: 'Stink Films' }
+		],
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/singingIntherain.mov',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/VW%20-%20Singing%20In%20The%20Rain%20-%20Website%20-%205000kbps.mov',
+		tileImage: '/images/volkswagen.jpg',
+		workImages: ['/images/vw-1.jpg', '/images/vw-2.jpg', '/images/vw-3.jpg', '/images/vw-4.jpg']
+	},
+	{
+		client: 'Lucozade',
+		description: 'Basketball Vs Northern Soul',
+		overview:
+			"Award winning Choreographer Supple Nam reunited with award winning director Sam Brown to work on an exciting campaign for Lucozade, a double bill advert Bring the Energy. Football vs actors playing renovators and Basketball vs Northern Soul Dance.\nThe first of the two adverts was Basketball vs Northern Soul dance. Supple and casting director Thom Hammond cast the Northern soul dancers and basketball players from the UK while casting was also done in Spain through the service company 24/7.\nIn the London leg, Supple used the recall to display the concept with the Northern soul dancers, basketball players and basketball freestylers, showcase their skill with conceptual exercises to let the talent understand the concept and demonstrate it to Sam and the production team. This gave Sam and the team full confidence.\nWith the full cast in Spain, Supple implemented and developed his ideas with more exercises and choreography. Working out how to best showcase the talent's skill and keep it in the story.  He layered the choreography to then work on sections to speed the ball skills and passing of the ball with the dancing. Finally creating a complex fasting moving choreography of basketball players, dancers and multiple basketballs -  passing, shooting and dribbling. Supple main focus as well as it being interesting and vibrant for the eye, was to keep each genre authentic in the performance.\nWith great preparation the 2 day shoot went smoothly and the outcome was a success.",
+		projectGenre: { name: GENRES.commercials },
+		movementGenres: [{ name: 'Basketball Freestyle' }, { name: 'Northern Soul' }],
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{
+				role: 'Director',
+				name: 'Sam Brown'
+			},
+			{ role: 'Production', name: 'Rogue Films' }
+		],
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/LucozadeBasketball.mp4',
+		videoURL:
+			'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Lucozade%20-%20Bring%20The%20Energy%20Basketball%20X%20Northern%20Soul%20Dancing%20-%20Website.mp4',
+		tileImage: '/images/work_thumb-Lucozade-Basketball.jpg',
+		workImages: ['']
+	},
+	{
+		client: 'Guinness',
+		description: 'Pour Surge and Settle',
+		overview:
+			"Heavy weight creative team at AMV BBDO, Nichollas Hulley and Nadja Lossgott, wrote the script to “evoke that detail and power within the pint.” to create a new and unique Guinness advert. \n Nadja and Nicholas felt that, “It was important that overall we were creating a modern visual spectacle that could rival the epic, iconic nature of the [Guinness] pint. \n The two creatives worked alongside director duo in/out, Thom Humphreys and Jean-Philippe Blunt who said, “We wanted an intense and visceral choreography; competitive and punchy, not just beautiful elegance. And the first person who came to mind was Supple. \n The premise of the advert became to create the unmistakable image of Guinness being poured using 40 wire-work artists. Being a creative choreographer that likes to do things differently the idea of pouring a pint of dancers really spoke to Supple. Excited with the challenge he was particularly looking forward to collaborating with in/out and talented stylist Grace Snell. \n After overseeing the castings in both London and Kiev (where the advert would be shot) Supple felt he had the right team of performers. This would be key to creating the specific type of movement he wanted. Supple's approach was to make something chaotic, dangerous and almost violent into something elegant and beautiful. To do this the dancers were instructed to be present and brave in their choices when performing the choreography to give a sense of excitement and danger. Supple needed them to break away from just being accurate with each step and instead take risks so that each movement was a surprise through its execution. \n My method was to always have the dancers use their intuition, once they all got my vision the rest was down to practice, practice and more practice” explains Supple. \n Supple had under a week to train and choreograph the 40 dancers and gymnasts. Just enough time to turn them from human to, in the words of Nadja and Nichollas, An incredible liquid. \n The resulting advert has had numerous critics raving about it. \n Supple Nams choreography is at its meticulously designed best, as dancers twirl and swirl their way to being poured as the perfect pint.\n – David review “Stunningly choreographed ad for the Asian market” \n– Creativityon-line.com \n “A joyous celebration of the product. Bravo!”\n – Alex Brownsell. Campaign live – Pick of the Week \n “The hallmark pour, surge and settle of the black stuff brought to life through dance, in this beautifully choreographed spot for Guinness”\n– Shots.net – Hot Shot\n“Guinness spot which immortalises the hallowed process of pulling the perfect pint – the so-called ‘pour, surge and settle’ to life through gravity-defying dance”\n– Shots.net – Hot Shot \n“40 dancers, high wires and jaw-dropping choreography courtesy of the brilliantly-named Supple Nam”",
+		projectGenre: { name: GENRES.commercials },
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{
+				role: 'Director',
+				name: 'Thom Humphreys and Jean-Philippe Blunt (in/out)'
+			},
+			{ role: 'Production', name: 'Riff Raff' }
+		],
+		movementGenres: [{ name: 'Contemporary' }, { name: 'Wire/Aerial/Circus' }, { name: 'Stunt' }, { name: 'Movement Direction' }],
+		tileImage: '/images/guinness.jpg',
+		workImages: [
+			'/images/guiness-1-5.jpg',
+			'/images/guiness-1.jpg',
+			'/images/guiness-2.jpg',
+			'/images/guiness-3.jpg',
+			'/images/guiness-4.jpg',
+			'/images/guiness-6.jpg',
+			'/images/guiness-7.jpg',
+			'/images/guiness-8.jpg',
+			'/images/guiness-9.jpg'
+		],
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov',
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov'
+	},
+	{
+		client: 'The Hives',
+		description: 'Rigor Mortis Radio',
+		overview:
+			"Swedish director Filip Nilsson, in partnership with production company Object & Animal, was selected to direct the music video for The Hives' highly anticipated return on their comeback single, Rigor Mortis Radio, after a 10-year hiatus. The excitement surrounding the band’s return was palpable, sparking huge anticipation from both the group and their dedicated fanbase.\nTo bring this vision to life, Nilsson incorporated an innovative deepfake VFX (AI face swap) concept, setting the stage for a bold, fresh approach. Internationally renowned choreographer Supple Nam was brought on board to create a dynamic and unexpected dance routine for the band, with West Side Story serving as his creative inspiration.\nAs the production team cast dancers, Supple dove into choreographing the routine. He and Nilsson exchanged ideas, ultimately landing on a routine that both loved.\nThe band’s enthusiasm was contagious, and their readiness to embrace the dance elements infused the video with an unexpected energy. Their full-on involvement not only surprised fans but also set a new creative standard in the industry, inspiring others to push boundaries with their own projects.",
+		projectGenre: { name: GENRES.musicVideos },
+		movementGenres: [{ name: 'Jazz' }, { name: 'Music Theatre' }],
+		team: [
+			{ role: 'Choreographer', name: 'Supple Nam' },
+			{ role: 'Director', name: 'Filip Nilsson' },
+			{ role: 'Production', name: 'Object & Animal' }
+		],
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Previews-The_Hives__rigor_mortis_radio.mov',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/The_Hives__rigor_mortis_radio.mov',
+		tileImage: '/images/work_thumb-The HIVE.jpg',
+		workImages: ['']
+	}
+];
+
 export const projects = [
 	{
 		client: 'BBC1 Christmas advert',
