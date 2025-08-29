@@ -1,50 +1,51 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Container, SimpleGrid, Stack } from "@mantine/core";
-import Work from "./Work";
-import { useRecoilState } from "recoil";
-import { activeGenreTabState } from "../../../../atoms/atoms";
-import { useFilterWorksByGenre } from "../../../../hooks/useFilterWorksByGenre";
-import WorksGenreNavigation from "../WorkIdPage/worksGenreNavigation";
-import { genresNavLinks } from "@/app/utils/constants";
+import { useEffect, useState } from 'react';
+import { Container, SimpleGrid, Stack } from '@mantine/core';
+import Work from './Work';
+import { useRecoilState } from 'recoil';
+import { activeGenreTabState } from '../../../../atoms/atoms';
+import { useFilterWorksByGenre } from '../../../../hooks/useFilterWorksByGenre';
+import WorksGenreNavigation from '../WorkIdPage/worksGenreNavigation';
+import { genresNavLinks } from '@/app/utils/constants';
+import { projects } from '@/app/dataSets/dataSets';
 
 function Works() {
-  // give navbar a fixed position on scroll
-  const [isFixed, setIsFixed] = useState(false);
-  const [activeGenreTab] = useRecoilState(activeGenreTabState);
-  const activeGenreName = genresNavLinks[activeGenreTab].name;
+	// give navbar a fixed position on scroll
+	const [isFixed, setIsFixed] = useState(false);
+	const [activeGenreTab] = useRecoilState(activeGenreTabState);
+	const activeGenreName = genresNavLinks[activeGenreTab].name;
 
-  const worksByGenre = useFilterWorksByGenre(activeGenreName);
+	const worksByGenre = useFilterWorksByGenre(activeGenreName);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 120) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 120) {
+				setIsFixed(true);
+			} else {
+				setIsFixed(false);
+			}
+		};
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 
-  return (
-    <Container size={"100vw"} style={{ zIndex: 4 }}>
-      <Stack c="white" align="center">
-        <WorksGenreNavigation isFixed={isFixed} />
+	return (
+		<Container size={'100vw'} style={{ zIndex: 4 }}>
+			<Stack c='white' align='center'>
+				<WorksGenreNavigation isFixed={isFixed} />
 
-        <SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
-          {worksByGenre.map((work, index) => (
-            <Work key={index} work={work} />
-          ))}
-        </SimpleGrid>
-      </Stack>
-    </Container>
-  );
+				<SimpleGrid cols={{ base: 1, xs: 2, md: 3, xl: 4 }} mb={100}>
+					{worksByGenre.map((work, index) => (
+						<Work key={index} work={work} />
+					))}
+				</SimpleGrid>
+			</Stack>
+		</Container>
+	);
 }
 
 export default Works;

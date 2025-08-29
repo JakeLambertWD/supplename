@@ -179,7 +179,6 @@ export const projects = [
 		tileImage: '/images/BBC-XMAS17.jpg',
 		videoURL: '/videos/BBC XMAS ANIMATION AA0025267 VA01_YouTube HD 1920x1080 MP4.mp4',
 		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/BBC%20XMAS%20Preview.mp4',
-		award: [],
 		team: [
 			{ role: 'Choreographer', name: 'Supple Nam' },
 			{ role: 'Director', name: 'Elliot Dear' },
@@ -294,7 +293,8 @@ export const projects = [
 			'/images/honda-5.jpg',
 			'/images/honda-6.jpg',
 			'/images/honda-8.jpg'
-		]
+		],
+		award: 'British Arrow Awards "Best Live action SFX" Silver'
 	},
 	{
 		client: 'Lucozade',
@@ -357,7 +357,8 @@ export const projects = [
 			'/images/trigger-5.jpg',
 			'/images/trigger-6.jpg',
 			'/images/trigger-7.jpg'
-		]
+		],
+		award: 'D&AD (Design and Art Direction) Awards Best Choreography'
 	},
 	{
 		client: 'Joy Crookes',
@@ -583,7 +584,8 @@ export const projects = [
 		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/singingIntherain.mov',
 		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/VW%20-%20Singing%20In%20The%20Rain%20-%20Website%20-%205000kbps.mov',
 		tileImage: '/images/volkswagen.jpg',
-		workImages: ['/images/vw-1.jpg', '/images/vw-2.jpg', '/images/vw-3.jpg', '/images/vw-4.jpg']
+		workImages: ['/images/vw-1.jpg', '/images/vw-2.jpg', '/images/vw-3.jpg', '/images/vw-4.jpg'],
+		award: 'Carnival Most Innovative Choreography in TV/Adverts'
 	},
 	{
 		client: 'AKBANK',
@@ -735,7 +737,8 @@ export const projects = [
 			'/images/ferrari-5.jpg',
 			'/images/ferrari-6.jpg',
 			'/images/ferrari-7.jpg'
-		]
+		],
+		award: 'Brass Spring Award Best Sports Show Performance Act'
 	},
 	{
 		client: 'Chemical Brothers',
@@ -764,7 +767,8 @@ export const projects = [
 			'/images/live-again-6.jpg',
 			'/images/live-again-7.jpg',
 			'/images/live-again-8.jpg'
-		]
+		],
+		award: 'British Arrow Awards "Innovative use of reality 3D" Gold'
 	},
 	{
 		client: 'Ikea',
@@ -932,7 +936,8 @@ export const projects = [
 			'/images/peace-4.jpg',
 			'/images/peace-5.jpg',
 			'/images/peace-6.jpg'
-		]
+		],
+		award: 'UKMVA Best Choreography'
 	},
 	{
 		client: 'Chemical Brothers',
