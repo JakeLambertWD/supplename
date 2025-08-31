@@ -2,7 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { projects } from '@/app/dataSets/dataSets';
 
 export const useFilterWorksByGenre = (activeGenreName: string) => {
-	const [works, setWorks] = useState([]);
+	// Define the type for a project (you may want to move this to a types file)
+	type Project = (typeof projects)[number];
+
+	const [works, setWorks] = useState<Project[]>([]);
 
 	useEffect(() => {
 		const fetchData = async () => {

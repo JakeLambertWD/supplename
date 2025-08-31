@@ -177,7 +177,7 @@ export const projects = [
 			'Blinkink with BBC One came up with a great script to bring up the spirit of Christmas for 2017 The Support Act, a heart felt script about an emotional connection a girl and her dad. Using dance as the language for this film and a mixture of stop motion and CGI animation, with the figures created in a traditional stop-motion models, but the facial expressions were computer generated. \n Director Elliot Dear had wanted to make this whole stop motion CGI film as real as possible with movement references of the actors dancing. Blinkink then approached Supple Nam to come as the choreographer, but once reading the treatment and hearing Elliot on the phone, Supple enthusiastically encouraged to help support the entire movement reference as well as the dance to give it the real life quality Elliot wanted. \nAgreeing to take on the job, elliot and production company Blinkink put all the trust into Supple to cast the actors/dancers for the BBC One  christmas film “The Support Act”. Supple approached the actor Dancers directly, instead of doing a casting and booked them in for the dates. Blinkink, Elliot and the BBC where impressed in the resemblance of the actors to the models.\n Choreographer Supple Nam collaborated with director Elliot in the design of the movement for the stop motion CGI film. Encouraging Elliot to give his feed back to his choreography. The project took 4 stagnated rehearsal sessions and one shoot day for the animators to study and apply the movements and dance to the models. ',
 		projectGenre: { name: GENRES.commercials },
 		tileImage: '/images/BBC-XMAS17.jpg',
-		videoURL: '/videos/BBC XMAS ANIMATION AA0025267 VA01_YouTube HD 1920x1080 MP4.mp4',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/BBC1_XMAS-2017%20-%203000kbps.mov',
 		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/BBC%20XMAS%20Preview.mp4',
 		team: [
 			{ role: 'Choreographer', name: 'Supple Nam' },
@@ -200,7 +200,7 @@ export const projects = [
 		overview: `Blinkink Studio Brings BritBox to Life with Ambitious One-Shot Ad \n LONDON, UK — Acclaimed for its innovative animation and bold visual storytelling, Blinkink Studio has brought its latest creative vision to life in a new campaign for BritBox. Tasked with creating an engaging and immersive advert, the studio delivered a stunning one-shot time-lapse sequence capturing four iconic BritBox shows—seamlessly blending narrative, craft, and technical precision. \n Director Nicos Livesey, known for pushing creative boundaries, won the pitch with a concept that demanded a meticulous and collaborative approach. With producer Sebastian Jowers at his side, Nicos assembled a top-tier team of Heads of Department (HODs) to bring the vision to life. Recognizing the complexity of the execution, he brought on movement director Supple Nam to enhance the authenticity and finesse of the piece. Supple's deep understanding of physical storytelling and timing quickly proved invaluable, becoming key to maintaining both the realism and flow of the continuous shot. \n After aligning creatively over a call, Supple flew to Bulgaria, where the shoot was set. There, alongside the HODs and 1st AD Robert Blishen, he helped craft a detailed schedule—tracking each department's build and breakdown time while identifying artistic opportunities within the technical constraints. <br /> Tests were conducted to calibrate frame rates and establish a visual language that felt natural, rich, and cinematic without becoming exaggerated. Supple worked closely with lead actor Kristina Veroslavova, preparing her for the physical and mental demands of the shoot—including holding meditative poses for hours at a time. Their silent communication on set proved essential for maintaining the take’s fluidity without compromising comfort or continuity. <br /> Without the luxury of full rehearsals, preparation became critical. Supple ensured every department was ready to act on cue, fully aligned with the timing and energy of the single take—which became the backbone of the project’s success. <br /> The result is a bold, inventive advert that not only showcases BritBox’s diverse offerings but also stands as a testament to creative ambition, collaboration, and execution at the highest level. \n For BTS : https://www.youtube.com/watch?v=5T7tcztfYi4`,
 		projectGenre: { name: GENRES.commercials },
 		tileImage: '/images/work_thumb_Britbox.jpg',
-		videoURL: '/videos/Nicos Livesey - Britbox - See it Differently - 90sec.mp4',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Britbox%20-%20See%20it%20Differently%20-%2090sec%20-%203000kbps.mov',
 		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Britbox%20-%20Preview.mp4',
 		team: [
 			{ role: 'Choreographer', name: 'Supple Nam' },
@@ -962,7 +962,7 @@ export const projects = [
 			{ role: 'Production', name: 'Outsider' }
 		],
 		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/freeYourself.mov',
-		videoURL: '/videos/Chemical Brothers - Free Yourself - Website.mov',
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Chemical%20Brothers%20-%20Free%20Yourself%20-%202000kbps.mov',
 		tileImage: '/images/work_thumb_FreeYourself.jpg',
 		workImages: [
 			'/images/freeyourself-1.jpg',
