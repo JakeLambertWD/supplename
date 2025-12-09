@@ -75,12 +75,14 @@ function page() {
 							</Flex>
 
 							<Button
+								component='a'
+								href='/supple-cv.pdf'
+								download='supple-cv.pdf'
 								color={theme.colors?.primary?.[1]}
 								mt='md'
 								size='sm'
 								w={100}
 								onClick={() => {
-									window.open('https://supplenam.com/contenido/uploads/2018/08/Supple-Nam-CV-Web-2018-1.pdf');
 									setButtonContent('👍');
 								}}
 							>
