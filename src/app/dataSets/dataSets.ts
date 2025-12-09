@@ -147,8 +147,8 @@ export const latestWork = [
 			'/images/guiness-8.jpg',
 			'/images/guiness-9.jpg'
 		],
-		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov',
-		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov'
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov',
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov'
 	},
 	{
 		client: 'The Hives',
@@ -267,8 +267,8 @@ export const projects = [
 			'/images/guiness-8.jpg',
 			'/images/guiness-9.jpg'
 		],
-		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov',
-		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov'
+		videoURL: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov',
+		videoPreview: 'https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov'
 	},
 	{
 		client: 'Honda HR-V',
