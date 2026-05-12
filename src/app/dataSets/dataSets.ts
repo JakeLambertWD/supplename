@@ -219,7 +219,7 @@ export const projects = [
     videoURL:
       "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Tombola%20MP4.mp4",
     videoPreview:
-      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Tombola%20MP4.mp4",
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Preview.mov.mp4",
     team: [
       { role: "Choreographer", name: "Supple Nam" },
       { role: "Director", name: "Big Red Button" },
