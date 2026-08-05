@@ -244,6 +244,34 @@ export const projects = [
       "/images/9-flexslider_Tombola-Supple&Directos-BigRedButton.jpeg",
     ],
   },
+ {
+    client: "Honda HR-V",
+    description: "Perfect Precision",
+    overview:
+      "This Honda HR-V commercial, conceived by multi-award-winning choreographer Supple Nam, and multi award winning director Kim Gehrig, is a brilliant fusion of precision walking, cutting-edge choreography, and bold storytelling. The ad showcases an innovative approach that pushes the boundaries of what a car commercial can be. \nConcept and Creative Process: \nThe concept of the ad revolves around the precision walking technique known as Shuudan Koudou (a form of Japanese precision walking), which Supple Nam is particularly passionate about. Along with Kim Gehrig’s creative direction, they crafted a visually striking narrative that combined abstract imagery, the symbolism of numbers, and, of course, the new Honda HR-V. Their goal was to create something unexpected, daring, and precise—both visually and in terms of movement.\nCasting and Audition Process:\nThe casting process was rigorous, as the commercial demanded performers who could match both the technical skill and aesthetic vision of the project. After sorting through hundreds of applicants from across the UK and Europe, the team narrowed it down to 10 core precision walkers to sketch Supple's ideas and present them to Kim, the creative agency and client for approval. These performers would undergo intense mental and physical training under Supple's guidance to ensure their movements were both perfectly synchronized and visually compelling for the camera.\nChoreography and Rehearsals:\nWith the selected 60+ cast, Supple Nam and his team worked tirelessly to develop a choreography that felt simple yet powerful, ensuring the movements of the walkers were as impactful as the car itself. The choreography needed to seamlessly integrate with the imagery and narrative crafted by Kim Gehrig, creating an immersive experience for the viewer. Rehearsals were intense, but the team, led by Supple’s positive attitude, powered through the challenges, refining the movements to perfection.\nFilming at Wembley Arena:\nAfter 5-6 weeks of rehearsal, the team was ready for the big shoot. Filming took place at Wembley Arena over the course of one week, under high pressure and tight deadlines. Despite the challenges, including technical issues and creative doubts, Supple remained an uplifting force for his team, ensuring morale stayed high and that the concept was executed with precision.\nReception and Recognition:\nThe commercial’s premiere in cinemas quickly caught attention for its bold, innovative approach to car advertising. The unique style and precision of the choreography made it stand out, and the commercial earned the title of Commercial of the Week from AM Magazine. Within its first week of TV release, it also entered the UK’s Top Shazamed Ads, a testament to its popularity and impact.\nAwards and Further Success:\nIn recognition of the commercial’s groundbreaking work, Supple Nam won Best Live Action SFX at the 2015 British Arrow Crafts Awards. The commercial also proved successful internationally, as Honda decided to extend its reach, sharing the ad across global markets.\nThe success of the Honda Stepping commercial demonstrates the power of collaboration, innovation, and the ability to blend movement, imagery, and storytelling in new and daring ways. It's a perfect example of how choreographed motion can elevate a brand and make a lasting impression.",
+    projectGenre: { name: GENRES.commercials },
+    team: [
+      { role: "Choreographer", name: "Supple Nam" },
+      { role: "Director", name: "Kim Gehrig" },
+      { role: "Production", name: "Somesuch" },
+    ],
+    movementGenres: [{ name: "Precision Walking" }, { name: "Stunt" }],
+    videoPreview:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda-%20Previews.mov",
+    videoURL:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda%20HRV%20-%20Beautiful%20Precision%20-%20Website%20-%205000kbps.mov",
+    tileImage: "/images/honda.jpg",
+    workImages: [
+      "/images/honda-1.jpg",
+      "/images/honda-2.jpg",
+      "/images/honda-3.jpg",
+      "/images/honda-4.jpg",
+      "/images/honda-5.jpg",
+      "/images/honda-6.jpg",
+      "/images/honda-8.jpg",
+    ],
+    award: 'British Arrow Awards "Best Live action SFX" Silver',
+  },
   {
     client: "BBC1 Christmas advert",
     description: "The Support Act",
@@ -360,34 +388,6 @@ export const projects = [
       "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Guinness%20-%20Pour%2CSurge%26Settle%20-%20Website%20-%205000kbps.mov",
     videoPreview:
       "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/guinness.mov",
-  },
-  {
-    client: "Honda HR-V",
-    description: "Perfect Precision",
-    overview:
-      "This Honda HR-V commercial, conceived by multi-award-winning choreographer Supple Nam, and multi award winning director Kim Gehrig, is a brilliant fusion of precision walking, cutting-edge choreography, and bold storytelling. The ad showcases an innovative approach that pushes the boundaries of what a car commercial can be. \nConcept and Creative Process: \nThe concept of the ad revolves around the precision walking technique known as Shuudan Koudou (a form of Japanese precision walking), which Supple Nam is particularly passionate about. Along with Kim Gehrig’s creative direction, they crafted a visually striking narrative that combined abstract imagery, the symbolism of numbers, and, of course, the new Honda HR-V. Their goal was to create something unexpected, daring, and precise—both visually and in terms of movement.\nCasting and Audition Process:\nThe casting process was rigorous, as the commercial demanded performers who could match both the technical skill and aesthetic vision of the project. After sorting through hundreds of applicants from across the UK and Europe, the team narrowed it down to 10 core precision walkers to sketch Supple's ideas and present them to Kim, the creative agency and client for approval. These performers would undergo intense mental and physical training under Supple's guidance to ensure their movements were both perfectly synchronized and visually compelling for the camera.\nChoreography and Rehearsals:\nWith the selected 60+ cast, Supple Nam and his team worked tirelessly to develop a choreography that felt simple yet powerful, ensuring the movements of the walkers were as impactful as the car itself. The choreography needed to seamlessly integrate with the imagery and narrative crafted by Kim Gehrig, creating an immersive experience for the viewer. Rehearsals were intense, but the team, led by Supple’s positive attitude, powered through the challenges, refining the movements to perfection.\nFilming at Wembley Arena:\nAfter 5-6 weeks of rehearsal, the team was ready for the big shoot. Filming took place at Wembley Arena over the course of one week, under high pressure and tight deadlines. Despite the challenges, including technical issues and creative doubts, Supple remained an uplifting force for his team, ensuring morale stayed high and that the concept was executed with precision.\nReception and Recognition:\nThe commercial’s premiere in cinemas quickly caught attention for its bold, innovative approach to car advertising. The unique style and precision of the choreography made it stand out, and the commercial earned the title of Commercial of the Week from AM Magazine. Within its first week of TV release, it also entered the UK’s Top Shazamed Ads, a testament to its popularity and impact.\nAwards and Further Success:\nIn recognition of the commercial’s groundbreaking work, Supple Nam won Best Live Action SFX at the 2015 British Arrow Crafts Awards. The commercial also proved successful internationally, as Honda decided to extend its reach, sharing the ad across global markets.\nThe success of the Honda Stepping commercial demonstrates the power of collaboration, innovation, and the ability to blend movement, imagery, and storytelling in new and daring ways. It's a perfect example of how choreographed motion can elevate a brand and make a lasting impression.",
-    projectGenre: { name: GENRES.commercials },
-    team: [
-      { role: "Choreographer", name: "Supple Nam" },
-      { role: "Director", name: "Kim Gehrig" },
-      { role: "Production", name: "Somesuch" },
-    ],
-    movementGenres: [{ name: "Precision Walking" }, { name: "Stunt" }],
-    videoPreview:
-      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda-%20Previews.mov",
-    videoURL:
-      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Honda%20HRV%20-%20Beautiful%20Precision%20-%20Website%20-%205000kbps.mov",
-    tileImage: "/images/honda.jpg",
-    workImages: [
-      "/images/honda-1.jpg",
-      "/images/honda-2.jpg",
-      "/images/honda-3.jpg",
-      "/images/honda-4.jpg",
-      "/images/honda-5.jpg",
-      "/images/honda-6.jpg",
-      "/images/honda-8.jpg",
-    ],
-    award: 'British Arrow Awards "Best Live action SFX" Silver',
   },
   {
     client: "Lucozade",
