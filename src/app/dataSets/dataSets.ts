@@ -183,7 +183,7 @@ export const latestWork = [
 
 export const projects = [
    {
-    client: "Ted Lasso - SS4,Eps 6",
+    client: "Ted Lasso - SS4, Eps 6",
     description: "Jamie Tartt Returns Jump Around and Vodka Scene",
     overview:
       "Executive Producer/Direcotr of Ted Lasso Declan Lowney asked Supple Nam to choreograph Ted Lasso Season 4 Episode 6 scene of Jamie Tartt's iconic return in the season. \n Declan trusted Supple with his skills to present something exciting to support the script. ",
