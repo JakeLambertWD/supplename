@@ -188,7 +188,7 @@ export const projects = [
     overview:
       "Executive Producer/Direcotr of Ted Lasso Declan Lowney asked Supple Nam to choreograph Ted Lasso Season 4 Episode 6 scene of Jamie Tartt's iconic return in the season. \n Declan trusted Supple with his skills to present something exciting to support the script. ",
     projectGenre: { name: GENRES.commercials },
-    tileImage: "public/images/Ted Lasso - Cast.png",
+    tileImage: "public/images/Ted Lasso - Title.jpeg",
     videoURL:
       "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return.mp4",
     videoPreview:
@@ -206,8 +206,8 @@ export const projects = [
       { name: "Character Development" },
     ],
     workImages: [
-      "public/images/Ted Lasso - Cast.png",
-      "public/images/Ted Lasso - Jamie Tartt.png",
+      "public/images/Ted Lasso - Cast.jpeg",
+      "public/images/Ted Lasso - Jamie Tartt.jpeg",
     ],
   },
   {
