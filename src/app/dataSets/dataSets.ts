@@ -275,7 +275,7 @@ export const projects = [
   },
   {
     client: "BBC1 Christmas advert",
-    description: "Support Act",
+    description: "The Support Act",
     overview:
       "Blinkink with BBC One came up with a great script to bring up the spirit of Christmas for 2017 The Support Act, a heart felt script about an emotional connection a girl and her dad. Using dance as the language for this film and a mixture of stop motion and CGI animation, with the figures created in a traditional stop-motion models, but the facial expressions were computer generated. \n Director Elliot Dear had wanted to make this whole stop motion CGI film as real as possible with movement references of the actors dancing. Blinkink then approached Supple Nam to come as the choreographer, but once reading the treatment and hearing Elliot on the phone, Supple enthusiastically encouraged to help support the entire movement reference as well as the dance to give it the real life quality Elliot wanted. \nAgreeing to take on the job, elliot and production company Blinkink put all the trust into Supple to cast the actors/dancers for the BBC One  christmas film “The Support Act”. Supple approached the actor Dancers directly, instead of doing a casting and booked them in for the dates. Blinkink, Elliot and the BBC where impressed in the resemblance of the actors to the models.\n Choreographer Supple Nam collaborated with director Elliot in the design of the movement for the stop motion CGI film. Encouraging Elliot to give his feed back to his choreography. The project took 4 stagnated rehearsal sessions and one shoot day for the animators to study and apply the movements and dance to the models. ",
     projectGenre: { name: GENRES.commercials },
