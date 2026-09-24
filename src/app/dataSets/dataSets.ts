@@ -182,34 +182,34 @@ export const latestWork = [
 ];
 
 export const projects = [
-   {
-    client: "Ted Lasso - SS4, Eps 6",
-    description: "Jamie Tartt Returns Jump Around and Vodka Scene",
-    overview:
-      "Executive Producer/Direcotr of Ted Lasso Declan Lowney asked Supple Nam to choreograph Ted Lasso Season 4 Episode 6 scene of Jamie Tartt's iconic return in the season. \n Declan trusted Supple with his skills to present something exciting to support the script. ",
-    projectGenre: { name: GENRES.commercials },
-    tileImage: "/images/Ted Lasso - Title.jpeg",
-    videoURL:
-      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return.mp4",
-    videoPreview:
-      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return%20-%20Preview.mp4https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Preview.mov.mp4",
-    team: [
-      { role: "Choreographer", name: "Supple Nam" },
-      { role: "Director", name: "Declan Lowney" },
-      { role: "Production", name: "Warner Bros" },
-    ],
-    movementGenres: [
-      { name: "Movement Direction" },
-      { name: "Theatre" },
-      { name: "Afro Jazz" },
-      { name: "Hip hop" },
-      { name: "Character Development" },
-    ],
-    workImages: [
-      "/images/Ted Lasso - Cast.jpeg",
-      "/images/Ted Lasso - Jamie Tartt.jpeg",
-    ],
-  },
+  //  {
+  //   client: "Ted Lasso - SS4, Eps 6",
+  //   description: "Jamie Tartt Returns Jump Around and Vodka Scene",
+  //   overview:
+  //     "Executive Producer/Direcotr of Ted Lasso Declan Lowney asked Supple Nam to choreograph Ted Lasso Season 4 Episode 6 scene of Jamie Tartt's iconic return in the season. \n Declan trusted Supple with his skills to present something exciting to support the script. ",
+  //   projectGenre: { name: GENRES.commercials },
+  //   tileImage: "/images/Ted Lasso - Title.jpeg",
+  //   videoURL:
+  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return.mp4",
+  //   videoPreview:
+  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return%20-%20Preview.mp4https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Preview.mov.mp4",
+  //   team: [
+  //     { role: "Choreographer", name: "Supple Nam" },
+  //     { role: "Director", name: "Declan Lowney" },
+  //     { role: "Production", name: "Warner Bros" },
+  //   ],
+  //   movementGenres: [
+  //     { name: "Movement Direction" },
+  //     { name: "Theatre" },
+  //     { name: "Afro Jazz" },
+  //     { name: "Hip hop" },
+  //     { name: "Character Development" },
+  //   ],
+  //   workImages: [
+  //     "/images/Ted Lasso - Cast.jpeg",
+  //     "/images/Ted Lasso - Jamie Tartt.jpeg",
+  //   ],
+  // },
   {
     client: "Tombola UK",
     description: "Bus Stop Bodypop Proper",
