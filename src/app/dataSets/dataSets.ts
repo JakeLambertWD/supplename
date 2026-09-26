@@ -182,35 +182,74 @@ export const latestWork = [
 ];
 
 export const projects = [
-  //  {
-  //   client: "Ted Lasso - SS4, Eps 6",
-  //   description: "Jamie Tartt Returns Jump Around and Vodka Scene",
-  //   overview:
-  //     "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
-  //   projectGenre: { name: GENRES.commercials },
-  //   tileImage: "/images/Ted Lasso - Title.jpeg",
-  //   videoURL:
-  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
-  //   videoPreview:
-  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
-  //   team: [
-  //     { role: "Choreographer", name: "Supple Nam" },
-  //     { role: "Director", name: "Declan Lowney" },
-  //     { role: "Production", name: "Warner Bros" },
-  //     { role: "TV program", name: "Ted Lasso" },
-  //   ],
-  //   movementGenres: [
-  //     { name: "Movement Direction" },
-  //     { name: "Theatre" },
-  //     { name: "Afro Jazz" },
-  //     { name: "Hip hop" },
-  //     { name: "Character Development" },
-  //   ],
-  //   workImages: [
-  //     "/images/Ted Lasso - Cast.jpeg",
-  //     "/images/Ted Lasso - Jamie Tartt.jpeg",
-  //   ],
-  // },
+   {
+    client: "Ted Lasso - SS4, Eps 6",
+    description: "Jamie Tartt Returns Jump Around and Vodka Scene",
+    overview:
+      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
+    projectGenre: { name: GENRES.commercials },
+    tileImage: "/public/images/Ted Lasso - Work.png",
+    videoURL:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
+    videoPreview:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
+    team: [
+      { role: "Choreographer", name: "Supple Nam" },
+   {
+    client: "Ted Lasso - SS4, Eps 6",
+    description: "Jamie Tartt Returns Jump Around and Vodka Scene",
+    overview:
+      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
+    projectGenre: { name: GENRES.commercials },
+    tileImage: "/public/images/Ted Lasso - Work.png",
+    videoURL:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
+    videoPreview:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
+    team: [
+      { role: "Choreographer", name: "Supple Nam" },
+   {
+    client: "Ted Lasso - SS4, Eps 6",
+    description: "Jamie Tartt Returns Jump Around and Vodka Scene",
+    overview:
+      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
+    projectGenre: { name: GENRES.commercials },
+    tileImage: "/public/images/Ted Lasso - Work.png",
+    videoURL:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
+    videoPreview:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
+    team: [
+      { role: "Choreographer", name: "Supple Nam" },
+   {
+    client: "Ted Lasso - SS4, Eps 6",
+    description: "Jamie Tartt Returns Jump Around and Vodka Scene",
+    overview:
+      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
+    projectGenre: { name: GENRES.commercials },
+    tileImage: "/public/images/Ted Lasso - Work.png",
+    videoURL:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
+    videoPreview:
+      "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
+    team: [
+      { role: "Choreographer", name: "Supple Nam" },
+      { role: "Director", name: "Declan Lowney" },
+      { role: "Production", name: "Warner Bros" },
+      { role: "TV program", name: "Ted Lasso" },
+    ],
+    movementGenres: [
+      { name: "Movement Direction" },
+      { name: "Theatre" },
+      { name: "Afro Jazz" },
+      { name: "Hip hop" },
+      { name: "Character Development" },
+    ],
+    workImages: [
+      "/images/Ted Lasso - Cast.jpeg",
+      "/images/Ted Lasso - Jamie Tartt.jpeg",
+    ],
+  },
   {
     client: "Tombola UK",
     description: "Bus Stop Bodypop Proper",
