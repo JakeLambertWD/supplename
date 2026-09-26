@@ -190,9 +190,9 @@ export const projects = [
   //   projectGenre: { name: GENRES.commercials },
   //   tileImage: "/images/Ted Lasso - Title.jpeg",
   //   videoURL:
-  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return.mp4",
+  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20SS4-Epsd6.mov",
   //   videoPreview:
-  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted-Lasso-Jamie-Tartt-Return%20-%20Preview.mp4https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Preview.mov.mp4",
+  //     "https://pub-63d7a5b2ac1948e3888055d07465bf28.r2.dev/Ted%20Lasso%20Preview%20SS4-Epsd6.mov",
   //   team: [
   //     { role: "Choreographer", name: "Supple Nam" },
   //     { role: "Director", name: "Declan Lowney" },
