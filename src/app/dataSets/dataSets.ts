@@ -207,8 +207,13 @@ export const projects = [
       { name: "Character Development" },
     ],
     workImages: [
-      "/images/Ted Lasso - Cast.jpeg",
-      "/images/Ted Lasso - Jamie Tartt.jpeg",
+      "/public/images/Ted Lasso - Jump Around Roy & Jamie - Flexslider.jpg",
+      "/public/images/Ted Lasso -Dance - Scream-Flexslider.jpg",
+      "/public/images/Ted Lasso article-Flexslider.jpg"
+      "/public/images/Ted Lasso Cast reaction-Flexslider.jpg"
+      "/public/images/Ted Lasso Dancer Supple Andrew backstage-Flexslider.jpg"
+      "/public/images/Ted Lasso - Vodka Dance & reaction - Flexslider.jpg"
+      "/public/images/Ted Lasso rehearsal on set 1-Flexslider.jpg"
     ],
   },
   {
