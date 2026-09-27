@@ -186,7 +186,7 @@ export const projects = [
     client: "Ted Lasso - SS4, Eps 6",
     description: "Jamie Tartt Returns Jump Around and Vodka Scene",
     overview:
-      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n ",
+      "When Emmy Award-winning director and Ted Lasso Co-Executive Producer Declan Lowney called Supple Nam, the brief was simple: create choreography themed Garden of Eden that felt big, character-driven and completely at home in the world of Ted Lasso. \n For Season 4, Episode 6, Supple was brought in to choreograph Jamie Tartt’s much-anticipated return, including the spectacular Beyoncé-esque “Vodka” number, as well as the unforgettable Jamie and Roy “Jump Around” dance. \n Working closely with Declan, Supple developed the choreography around the episode’s story, characters, set and costumes. Alongside assistant Andrew Lyle-Pinnock, he cast and rehearsed six dancers, with just four hours to get the routine camera-ready. \n Then came Brett Goldstein and Phil Dunster. \n The challenge was to make the “Jump Around” choreography feel spontaneous — as though Roy and Jamie had been dancing together for years. Supple worked directly with both actors on set, adapting the movement to their characters, the camera and Declan’s vision. \n As Declan told Gold Derby, the choreography helped create the feeling that the two had “done this together before in a club.” \n That was the goal: not just choreography, but character through movement. \n The result? A moment that quickly became a fan favourite and another collaboration between Supple and Declan, following their work together on high-profile campaigns including Warburtons. \n",
     projectGenre: { name: GENRES.tv },
     tileImage: "/images/Ted Lasso - Work.png",
     videoURL:
@@ -207,13 +207,13 @@ export const projects = [
       { name: "Character Development" },
     ],
     workImages: [
-      "/public/images/Ted Lasso - Jump Around Roy & Jamie - Flexslider.jpg",
-      "/public/images/Ted Lasso -Dance - Scream-Flexslider.jpg",
-      "/public/images/Ted Lasso article-Flexslider.jpg"
-      "/public/images/Ted Lasso Cast reaction-Flexslider.jpg"
-      "/public/images/Ted Lasso Dancer Supple Andrew backstage-Flexslider.jpg"
-      "/public/images/Ted Lasso - Vodka Dance & reaction - Flexslider.jpg"
-      "/public/images/Ted Lasso rehearsal on set 1-Flexslider.jpg"
+      "/images/Ted Lasso - Jump Around Roy & Jamie - Flexslider.jpg",
+      "/images/Ted Lasso -Dance - Scream-Flexslider.jpg",
+      "/images/Ted Lasso article-Flexslider.jpg"
+      "/images/Ted Lasso Cast reaction-Flexslider.jpg"
+      "/images/Ted Lasso Dancer Supple Andrew backstage-Flexslider.jpg"
+      "/images/Ted Lasso - Vodka Dance & reaction - Flexslider.jpg"
+      "/images/Ted Lasso rehearsal on set 1-Flexslider.jpg"
     ],
   },
   {
