@@ -209,10 +209,10 @@ export const projects = [
     workImages: [
       "/images/Ted Lasso - Jump Around Roy & Jamie - Flexslider.jpg",
       "/images/Ted Lasso -Dance - Scream-Flexslider.jpg",
-      "/images/Ted Lasso article-Flexslider.jpg"
-      "/images/Ted Lasso Cast reaction-Flexslider.jpg"
-      "/images/Ted Lasso Dancer Supple Andrew backstage-Flexslider.jpg"
-      "/images/Ted Lasso - Vodka Dance & reaction - Flexslider.jpg"
+      "/images/Ted Lasso article-Flexslider.jpg",
+      "/images/Ted Lasso Cast reaction-Flexslider.jpg",
+      "/images/Ted Lasso Dancer Supple Andrew backstage-Flexslider.jpg",
+      "/images/Ted Lasso - Vodka Dance & reaction - Flexslider.jpg",
       "/images/Ted Lasso rehearsal on set 1-Flexslider.jpg"
     ],
   },
